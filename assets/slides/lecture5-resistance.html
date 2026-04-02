@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Lecture 5: Antibiotic Resistance and the Drug Design Cycle</title>
+    <!-- Reveal.js CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reset.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/simple.min.css" id="theme">
+    <style>
+        .reveal h1, .reveal h2, .reveal h3 {
+            color: #2c3e50;
+            text-transform: none;
+        }
+        .reveal h1 { font-size: 2.2em; font-weight: bold; }
+        .reveal h2 { font-size: 1.6em; }
+        .reveal p, .reveal li { font-size: 0.85em; line-height: 1.4; color: #34495e; text-align: left; }
+        .reveal .hook-quote {
+            font-style: italic;
+            color: #e74c3c;
+            border-left: 5px solid #e74c3c;
+            padding: 20px;
+            margin-top: 30px;
+            font-size: 0.85em;
+            background: #fdf2f1;
+            border-radius: 5px;
+        }
+        .reveal table {
+            font-size: 0.65em;
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .reveal table th {
+            background-color: #34495e;
+            color: white;
+            text-align: center;
+        }
+        .reveal table td, .reveal table th {
+            border: 1px solid #bdc3c7;
+            padding: 10px;
+        }
+        .reveal .highlight-box {
+            background-color: #ecf0f1;
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin: 14px 0;
+            border-left: 5px solid #3498db;
+        }
+        .two-col {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .col { flex: 1; }
+        .step-card {
+            border-radius: 8px;
+            padding: 12px 16px;
+            margin-bottom: 10px;
+            border-left: 5px solid #3498db;
+            background: #f8f9fa;
+            text-align: left;
+        }
+        .step-card h4 {
+            margin: 0 0 4px 0;
+            font-size: 0.85em;
+            color: #2c3e50;
+        }
+        .step-card p {
+            margin: 0;
+            font-size: 0.65em;
+            color: #34495e;
+            line-height: 1.5;
+        }
+        .step-card.red    { border-left-color: #e74c3c; }
+        .step-card.orange { border-left-color: #e67e22; }
+        .step-card.green  { border-left-color: #27ae60; }
+        .step-card.blue   { border-left-color: #3498db; }
+        .step-card.purple { border-left-color: #9b59b6; }
+        .flow-box {
+            background: #ecf0f1;
+            border-radius: 6px;
+            padding: 7px 14px;
+            font-size: 0.62em;
+            font-weight: bold;
+            color: #2c3e50;
+            text-align: center;
+        }
+        .flow-box.highlight { background: #3498db; color: white; }
+        .flow-arrow {
+            font-size: 1.1em;
+            color: #3498db;
+            text-align: center;
+            margin: 2px 0;
+        }
+        .stat-box {
+            background: #2c3e50;
+            color: white;
+            border-radius: 8px;
+            padding: 16px 24px;
+            text-align: center;
+            font-size: 0.85em;
+            margin: 16px 0;
+        }
+        .stat-box strong {
+            display: block;
+            font-size: 1.6em;
+            color: #e74c3c;
+            margin-bottom: 6px;
+        }
+        .strategy-card {
+            border-radius: 8px;
+            padding: 12px 16px;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+        .strategy-card h4 {
+            margin: 0 0 4px 0;
+            font-size: 0.85em;
+        }
+        .strategy-card p {
+            margin: 0;
+            font-size: 0.65em;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- Slide 1 -->
+            <section>
+                <h1>Antibiotic Resistance and the Drug Design Cycle</h1>
+                <h3>When bacteria fight back</h3>
+                <p><strong>Lecture 5 — From Resistance to Next-Generation Design</strong></p>
+
+                <div class="stat-box">
+                    <strong>1.27 million</strong>
+                    deaths directly caused by antimicrobial resistance in 2019 — more than HIV/AIDS or malaria that year.
+                    Projected: <strong style="color: #f39c12;">10 million per year by 2050</strong> if left unchecked.
+                </div>
+
+                <div class="highlight-box" style="font-size: 0.75em;">
+                    You now have the tools to understand exactly how this happens at the atomic level — and how computational drug design is part of the response.
+                </div>
+                <aside class="notes">
+                    Tone shift here — this is where the science becomes urgent. Students have built all the tools across Lectures 1-4. Now they see why those tools matter in the real world.
+                </aside>
+            </section>
+
+            <!-- Slide 2 -->
+            <section>
+                <h2>Resistance is evolution in real time</h2>
+
+                <div class="step-card blue" style="font-size: 0.95em;">
+                    <h4>Step 1 — Random mutation</h4>
+                    <p>In millions of bacteria, random mutations occur constantly during DNA replication. Occasionally, one mutation changes an amino acid in a way that reduces drug binding.</p>
+                </div>
+                <div class="step-card orange" style="font-size: 0.95em;">
+                    <h4>Step 2 — Selection</h4>
+                    <p>When antibiotics are present, bacteria without the resistance mutation die. The one resistant bacterium survives, replicates, and within hours, millions of resistant bacteria exist.</p>
+                </div>
+                <div class="step-card red" style="font-size: 0.95em;">
+                    <h4>Step 3 — Spread</h4>
+                    <p>Resistant bacteria spread between patients, hospitals, and countries. Some bacteria can pass resistance genes directly to others via horizontal gene transfer — without needing to reproduce.</p>
+                </div>
+
+                <div class="highlight-box" style="font-size: 0.5em; margin-top: 10px;">
+                    <strong>Analogy:</strong> A stadium of bacteria. Spray an antibiotic. 999,999 die. One, by pure chance, had a protective mutation. That one survivor is now the ancestor of the entire population.
+                </div>
+                <aside class="notes">
+                    Key clarification: "Bacteria do not become resistant because they are trying to survive. They do not learn or adapt intentionally. Resistance arises through natural selection — a random mutation happens to give one bacterium an advantage."
+                </aside>
+            </section>
+
+            <!-- Slide 3 -->
+            <section>
+                <h2>One amino acid change is enough</h2>
+
+                <div class="highlight-box" style="font-size: 0.78em; margin-bottom: 14px;">
+                    A drug works by binding tightly to a protein. Resistance often means the protein has changed — just enough to weaken drug binding, while still being able to do its original job.
+                </div>
+
+                <div class="step-card red" style="font-size: 0.85em;">
+                    <h4>The key tension in drug design</h4>
+                    <p>You want your drug to bind tightly to specific residues (high binding energy). But the more your drug depends on a small number of residues, the more vulnerable it is to a single mutation at one of those residues. This is the fundamental trade-off of targeted drug design.</p>
+                </div>
+
+                <div class="step-card orange" style="font-size: 0.85em;">
+                    <h4>Why this is hard to prevent</h4>
+                    <p>A drug target protein has hundreds of residues. Only a handful are hot spots for drug binding. But those same hot spots are often the positions where a single mutation can confer resistance — the drug relies on them, and so does the bacterium's escape strategy.</p>
+                </div>
+
+                <p style="font-size: 0.55em; color: #7f8c8d; margin-top: 8px; text-align: left;">
+                    <strong>Connect to Project 6:</strong> You will take five clinically documented resistance mutations in TEM-1 β-Lactamase and calculate exactly how much each one weakens inhibitor binding.
+                </p>
+                <aside class="notes">
+                    "The bacteria have found an amino acid change that preserves enzyme function but disrupts drug binding. It is a remarkably precise evolutionary solution."
+                </aside>
+            </section>
+
+            <!-- Slide 4 -->
+            <section>
+                <h2>β-Lactamase — antibiotic destroyer</h2>
+
+                <div class="two-col" style="margin-top: 14px;">
+                    <div class="col step-card blue">
+                        <h4>β-Lactam antibiotics</h4>
+                        <p>The most widely prescribed class in the world — penicillins, cephalosporins, carbapenems. They block a bacterial enzyme needed to build the cell wall. Without a cell wall, bacteria cannot survive.</p>
+                    </div>
+                    <div class="col step-card red">
+                        <h4>β-Lactamase (the resistance enzyme)</h4>
+                        <p>Bacteria produce β-Lactamase, which destroys β-Lactam antibiotics by breaking the β-Lactam ring. Once broken, the antibiotic is inactive.</p>
+                    </div>
+                </div>
+
+                <div class="highlight-box" style="font-size: 0.72em; margin-top: 12px; border-left-color: #27ae60;">
+                    <strong>The clinical response — inhibitor combinations:</strong><br>
+                    Augmentin = Amoxicillin (antibiotic) + Clavulanic acid (β-Lactamase inhibitor). Bacteria have now evolved mutations in β-Lactamase that also weaken the binding of clavulanic acid.
+                </div>
+
+                <p style="font-size: 0.65em; color: #7f8c8d; margin-top: 8px; text-align: left;">
+                    <strong>Project 6 protein:</strong> TEM-1 β-Lactamase (PDB: 1ZG4) — the most clinically prevalent β-Lactamase.
+                </p>
+                <aside class="notes">
+                    "TEM-1 is found in hospital-acquired infections worldwide. The five mutations in Project 6 have been isolated from real patients — these are not hypothetical scenarios."
+                </aside>
+            </section>
+
+            <!-- Slide 5 -->
+            <section>
+                <h2>Five mutations found in real patients</h2>
+
+                <table style="margin-top: 15px;">
+                    <thead>
+                        <tr>
+                            <th>Mutation</th>
+                            <th>Change</th>
+                            <th>Mechanism of resistance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>M69L</strong></td><td>Met → Leu at 69</td><td>Alters local pocket geometry near the binding site</td></tr>
+                        <tr><td><strong>K73R</strong></td><td>Lys → Arg at 73</td><td>Disrupts the active site catalytic mechanism</td></tr>
+                        <tr><td><strong>S130G</strong></td><td>Ser → Gly at 130</td><td>Destroys a key H-bond between Ser -OH and inhibitor carbonyl</td></tr>
+                        <tr><td><strong>R244S</strong></td><td>Arg → Ser at 244</td><td>Removes electrostatic interaction with inhibitor carboxylate</td></tr>
+                        <tr><td><strong>N276D</strong></td><td>Asn → Asp at 276</td><td>Introduces a negative charge near the binding site</td></tr>
+                    </tbody>
+                </table>
+
+                <div class="highlight-box" style="font-size: 0.6em; margin-top: 12px;">
+                    <strong>Apply Lecture 4 knowledge to S130G:</strong> Serine has an -OH group that forms hydrogen bonds. Glycine has no side chain at all. That hydrogen bond to the inhibitor is gone. This is exactly the kind of change you would predict to weaken binding in an alanine scan.
+                </div>
+                <aside class="notes">
+                    Walk through R244S using mutation notation: Arginine at 244 → Serine. Arginine is positively charged. Serine is polar but uncharged. The electrostatic interaction with the inhibitor's carboxylate group is eliminated. Project 6 will quantify how much binding energy that costs.
+                </aside>
+            </section>
+
+            <!-- Slide 6 -->
+            <section>
+                <h2 style="font-size: 1.4em;">A good resistance mutation must</h2>
+
+                <div class="step-card red" style="margin-top: 14px; font-size: 0.95em;">
+                    <h4>1. It must weaken drug binding</h4>
+                    <p>The mutation must reduce inhibitor binding energy enough that the drug can no longer block the enzyme at clinically achievable concentrations. A mutation that only weakens binding by 1 REU may not be enough to cause clinical resistance.</p>
+                </div>
+
+                <div class="step-card green" style="margin-top: 14px; font-size: 0.95em;">
+                    <h4>2. It must preserve enzyme function</h4>
+                    <p>The enzyme must still be able to destroy β-Lactam antibiotics. A mutation that eliminates drug binding but also breaks the enzyme is worthless to the bacterium. The most successful resistance mutations selectively disrupt drug binding while leaving enzyme activity intact.</p>
+                </div>
+
+                <div class="highlight-box" style="font-size: 0.6em; margin-top: 12px;">
+                    <strong>Why resistance is constrained:</strong> The binding site for the inhibitor overlaps with the active site. Mutations that affect one tend to affect the other. But evolution is patient — over millions of generations, bacteria find the rare mutations that thread this needle.
+                </div>
+                <aside class="notes">
+                    "This is actually good news for drug designers — it means resistance is not unlimited. The bacterium cannot easily mutate its way out without also impairing its own enzyme. But the rare mutations that manage both are the ones that spread."
+                </aside>
+            </section>
+
+            <!-- Slide 7 -->
+            <section>
+                <h2>Strategies to overcome resistance</h2>
+
+                <div class="strategy-card" style="background: #d5f5e3; border-left: 5px solid #27ae60;font-size: 0.95em;">
+                    <h4 style="color: #1e8449;">Strategy A — Recover the lost binding energy</h4>
+                    <p style="color: #1e8449;">Design a new drug that compensates for the lost interaction by forming stronger interactions elsewhere — using hot spots NOT affected by the resistance mutation.</p>
+                </div>
+
+                <div class="strategy-card" style="background: #fdebd0; border-left: 5px solid #e67e22;font-size: 0.95em;">
+                    <h4 style="color: #a04000;">Strategy B — Design around the mutation</h4>
+                    <p style="color: #a04000;">Identify which hot spots are mutation-prone and which are stable. Design a new drug that does not rely on vulnerable positions. Use alanine scan data (Project 5) to find alternative hot spots to exploit.</p>
+                </div>
+
+                <div class="strategy-card" style="background: #d6eaf8; border-left: 5px solid #3498db;font-size: 0.95em;">
+                    <h4 style="color: #1a5276;">Strategy C — Combination therapy</h4>
+                    <p style="color: #1a5276;">Use two drugs targeting different binding sites simultaneously. Resistance to both requires two independent mutations at once — probability ≈ (10⁻⁷)² = 10⁻¹⁴. In 10¹⁰ bacteria, one mutation is inevitable; two simultaneous mutations are essentially impossible.</p>
+                </div>
+                <aside class="notes">
+                    "This is why HIV, tuberculosis, and many cancers are treated with drug cocktails rather than single agents — combination therapy makes resistance mathematically improbable."
+                </aside>
+            </section>
+
+            <!-- Slide 8 -->
+            <section>
+                <h2>Six projects tell one connected story</h2>
+
+                <table style="margin-top: 15px; font-size: 0.58em;">
+                    <thead>
+                        <tr><th>Project</th><th>What you did</th><th>Scientific question</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>1</strong></td><td>Scored and mutated Lysozyme</td><td>Is this protein stable? Which residues matter?</td></tr>
+                        <tr><td><strong>2</strong></td><td>Ranked five crystal structures</td><td>Which structure is high enough quality to use?</td></tr>
+                        <tr><td><strong>3</strong></td><td>Docked three drugs into COX-2</td><td>Which drug candidate binds most tightly?</td></tr>
+                        <tr><td><strong>4</strong></td><td>Mapped the COX-2 binding site</td><td>Which residues line the pocket and what chemistry?</td></tr>
+                        <tr><td><strong>5</strong></td><td>Alanine-scanned the binding site</td><td>Which residues are hot spots for drug binding?</td></tr>
+                        <tr><td><strong>6</strong></td><td>Modelled resistance mutations</td><td>How do clinical mutations weaken inhibitor binding?</td></tr>
+                    </tbody>
+                </table>
+
+                <div class="highlight-box" style="font-size: 0.55em; margin-top: 12px;">
+                    You started by learning to measure protein stability. You applied that to drug binding. You mapped where the drug sits. You found which residues it depends on. Now you will see what happens when bacteria evolve to disrupt exactly those residues.
+                </div>
+                <aside class="notes">
+                    "This is the full drug discovery cycle — compressed into six projects. The tools you have used are the same ones used in real pharmaceutical research."
+                </aside>
+            </section>
+
+            <!-- Slide 9 -->
+            <section>
+                <h2 style="font-size: 1.4em;">Computation vs experiment</h2>
+
+                <table style="margin-top: 15px;">
+                    <thead>
+                        <tr><th>Question</th><th>What computation tells you</th><th>What it cannot tell you</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Does the drug bind?</td><td>Predicted binding strength in a static structure</td><td>Actual binding in a living cell</td></tr>
+                        <tr><td>Which residues matter?</td><td>Predicted energetic contribution (ΔΔG)</td><td>Whether the mutant folds correctly in vivo</td></tr>
+                        <tr><td>Will resistance emerge?</td><td>Predicted weakening of binding</td><td>Which mutations bacteria will actually evolve</td></tr>
+                        <tr><td>Is the drug safe?</td><td>Nothing</td><td>Side effects, toxicity, metabolism</td></tr>
+                    </tbody>
+                </table>
+
+                <div class="highlight-box" style="font-size: 0.72em; margin-top: 12px;">
+                    <strong>The key message:</strong> Computation is fast, cheap, and screens thousands of possibilities. Experiment is slow, expensive, and measures reality. The power comes from combining them — using computation to decide which experiments are worth running.
+                </div>
+                <aside class="notes">
+                    "Computational methods do not replace experiments — they focus them. This is the honest answer to anyone who asks whether AI and computation will replace biologists and chemists."
+                </aside>
+            </section>
+
+            <!-- Slide 10 -->
+            <section>
+                <h2>The drug design cycle never ends</h2>
+
+                <div style="margin-top: 5px;">
+                    <div class="flow-box">Identify target protein</div>
+                    <div class="flow-arrow" style="margin: 0; line-height: 1;">↓</div>
+                    <div class="flow-box">Choose highest-quality structure (Project 2)</div>
+                    <div class="flow-arrow" style="margin: 0; line-height: 1;">↓</div>
+                    <div class="flow-box">Dock candidates → rank by binding energy (Project 3)</div>
+                    <div class="flow-arrow" style="margin: 0; line-height: 1;">↓</div>
+                    <div class="flow-box">Map binding site chemistry (Project 4)</div>
+                    <div class="flow-arrow" style="margin: 0; line-height: 1;">↓</div>
+                    <div class="flow-box">Identify hot spots via alanine scanning (Project 5)</div>
+                    <div class="flow-arrow" style="margin: 0; line-height: 1;">↓</div>
+                    <div class="flow-box highlight">Model resistance mutations (Project 6)</div>
+                    <div class="flow-arrow" style="margin: 0; line-height: 1;">↓</div>
+                    <div class="flow-box">Redesign drug → loop back to docking ↑</div>
+                </div>
+                <aside class="notes">
+                    "Every time a new drug is deployed, natural selection begins working on resistance. Drug designers work proactively — using structural data and computational tools to anticipate which mutations are coming and design drugs that stay effective even after those mutations arise."
+                </aside>
+            </section>
+
+            <!-- Slide 11 -->
+            <section>
+                <h2>Summary — five lectures in five sentences</h2>
+                <ul style="font-size: 0.72em; margin-bottom: 20px;">
+                    <li><strong>Lecture 1:</strong> A drug works by binding to a specific protein — choosing the right target and the right crystal structure is the foundation of everything.</li>
+                    <li><strong>Lecture 2:</strong> Rosetta measures protein stability as a sum of non-covalent forces — lower REU always means more stable.</li>
+                    <li><strong>Lecture 3:</strong> Drug binding depends on shape and chemical complementarity — binding energy is the complex score minus the sum of its parts.</li>
+                    <li><strong>Lecture 4:</strong> Alanine scanning identifies hot spot residues by measuring ΔΔG — the energetic cost of erasing each side chain's contribution.</li>
+                    <li><strong>Lecture 5:</strong> Resistance arises when bacteria evolve mutations at hot spots — overcoming it requires designing drugs that engage stable, mutation-resistant positions.</li>
+                </ul>
+
+                <div class="highlight-box" style="border-left-color: #e74c3c; font-size: 0.55em;">
+                    <strong>Closing thought:</strong><br>
+                    The proteins, mutations, and drugs in this module are all real. The structures come from real crystallography. The resistance mutations come from real patients. The computational methods are used in real pharmaceutical research. You have not been doing exercises — you have been doing science.
+                </div>
+
+                <aside class="notes">
+                    Exit ticket: "Name one strategy for overcoming antibiotic resistance and explain why it works at the molecular level." Have students write one sentence before leaving.
+                </aside>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- Reveal.js JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/notes/notes.min.js"></script>
+    <script>
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            center: true,
+            hash: false,
+            history: false,
+            transition: 'slide',
+            plugins: [ RevealNotes ]
+        });
+    </script>
+</body>
+</html>

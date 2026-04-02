@@ -29,6 +29,19 @@ pagination:
   </div>
   {% endif %}
 
+<div class="intro-block" style="margin: 2rem 0 2.5rem; padding: 1.75rem 2rem; background: #fdf0fd; border-left: 4px solid #cc00cc; border-radius: 0 12px 12px 0;">
+  <h2 style="font-size: 1.25rem; font-weight: 700; color: #1a1a1a; margin-bottom: 0.75rem;">About the NSAA / ESAT</h2>
+  <p style="color: #374151; line-height: 1.75; margin-bottom: 0.75rem;">
+    The <strong>Natural Sciences Admissions Assessment (NSAA)</strong> was a pre-interview admissions test used by the University of Cambridge for Natural Sciences applicants. It has since been succeeded by the <strong>Engineering and Science Admissions Test (ESAT)</strong>, which is now used by Cambridge, Imperial College London, and UCL for engineering, physics, natural sciences, and related courses.
+  </p>
+  <p style="color: #374151; line-height: 1.75; margin-bottom: 0.75rem;">
+    The ESAT consists of multiple modules — <strong>Mathematics 1</strong> (compulsory for all) plus two further modules chosen from Biology, Chemistry, Physics, or Mathematics 2. Each module is <strong>40 minutes</strong> long and contains <strong>27 multiple-choice questions</strong>. There is no negative marking, so it is worth attempting every question.
+  </p>
+  <p style="color: #374151; line-height: 1.75; margin: 0;">
+    The posts on this page contain <strong>interactive practice questions</strong> drawn from past NSAA papers — click any answer to get instant feedback and a worked explanation. Use the subject and section tags below to navigate to the topics you want to practise.
+  </p>
+</div>
+
 {% if site.display_tags and site.display_tags.size > 0 or site.display_categories and site.display_categories.size > 0 %}
 
   <div class="tag-category-list">

@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Lecture 4: Mutations, Hot Spots and Alanine Scanning</title>
+    <!-- Reveal.js CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reset.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/simple.min.css" id="theme">
+    <style>
+        .reveal h1, .reveal h2, .reveal h3 {
+            color: #2c3e50;
+            text-transform: none;
+        }
+        .reveal h1 { font-size: 2.2em; font-weight: bold; }
+        .reveal h2 { font-size: 1.6em; }
+        .reveal p, .reveal li { font-size: 0.85em; line-height: 1.4; color: #34495e; text-align: left; }
+        .reveal .hook-quote {
+            font-style: italic;
+            color: #e74c3c;
+            border-left: 5px solid #e74c3c;
+            padding: 20px;
+            margin-top: 40px;
+            font-size: 0.9em;
+            background: #fdf2f1;
+            border-radius: 5px;
+        }
+        .reveal table {
+            font-size: 0.65em;
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .reveal table th {
+            background-color: #34495e;
+            color: white;
+            text-align: center;
+        }
+        .reveal table td, .reveal table th {
+            border: 1px solid #bdc3c7;
+            padding: 12px;
+        }
+        .reveal .highlight-box {
+            background-color: #ecf0f1;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 5px solid #3498db;
+        }
+        .two-col {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .col { flex: 1; }
+        .mutation-card {
+            border-radius: 8px;
+            padding: 12px 16px;
+            margin-bottom: 10px;
+            border-left: 5px solid #3498db;
+            background: #f8f9fa;
+            text-align: left;
+        }
+        .mutation-card h4 {
+            margin: 0 0 4px 0;
+            font-size: 0.85em;
+            color: #2c3e50;
+        }
+        .mutation-card p {
+            margin: 0;
+            font-size: 0.65em;
+            color: #34495e;
+            line-height: 1.5;
+        }
+        .mutation-card.green  { border-left-color: #27ae60; }
+        .mutation-card.orange { border-left-color: #e67e22; }
+        .mutation-card.red    { border-left-color: #e74c3c; }
+        .mutation-card.blue   { border-left-color: #3498db; }
+        .mutation-card.purple { border-left-color: #9b59b6; }
+        .ddg-row {
+            display: flex;
+            align-items: stretch;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+        .ddg-label {
+            background: #34495e;
+            color: white;
+            border-radius: 6px;
+            padding: 8px 12px;
+            font-size: 0.62em;
+            font-weight: bold;
+            min-width: 160px;
+            display: flex;
+            align-items: center;
+        }
+        .ddg-bar-wrap {
+            flex: 1;
+            background: #ecf0f1;
+            border-radius: 6px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+        .ddg-bar {
+            height: 100%;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            padding: 8px 10px;
+            font-size: 0.6em;
+            font-weight: bold;
+            color: white;
+        }
+        .flow-box {
+            background: #ecf0f1;
+            border-radius: 6px;
+            padding: 8px 14px;
+            font-size: 0.65em;
+            font-weight: bold;
+            color: #2c3e50;
+            text-align: center;
+        }
+        .flow-arrow {
+            font-size: 1.2em;
+            color: #3498db;
+            text-align: center;
+            margin: 2px 0;
+        }
+        .badge {
+            border-radius: 4px;
+            padding: 2px 8px;
+            font-weight: bold;
+            font-size: 0.85em;
+        }
+        .badge-red    { background: #fadbd8; color: #a93226; }
+        .badge-orange { background: #fdebd0; color: #a04000; }
+        .badge-green  { background: #d5f5e3; color: #1e8449; }
+        .badge-grey   { background: #eaecee; color: #566573; }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- Slide 1 -->
+            <section>
+                <h1>Mutations, Hot Spots and Alanine Scanning</h1>
+                <h3>Residues are essential for drug binding</h3>
+                <p><strong>Lecture 4 — From Binding Site to Design Target</strong></p>
+                <div class="hook-quote">
+                    "If you removed the side chain of a hydrophobic residue lining the binding site, what happens to the binding energy?"
+                </div>
+                <aside class="notes">
+                    Take answers first. Correct intuition: removing a hydrophobic contact reduces van der Waals interactions — binding energy becomes less negative, meaning weaker binding. This is exactly what alanine scanning measures.
+                </aside>
+            </section>
+
+            <!-- Slide 2 -->
+            <section>
+                <h2>Mutation Types</h2>
+                <table style="margin-top: 15px;">
+                    <thead>
+                        <tr>
+                            <th>Level</th>
+                            <th>What changes</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>DNA level</td><td>One nucleotide base is substituted</td><td>C → T in codon</td></tr>
+                        <tr><td>Protein level</td><td>One amino acid is replaced by another</td><td>Serine → Glycine at position 130</td></tr>
+                    </tbody>
+                </table>
+
+                <div class="mutation-card blue" style="margin-top: 10px; font-size: 0.8em">
+                    <h4>Synonymous (silent)</h4>
+                    <p>DNA changes but the amino acid stays the same — due to codon redundancy. No effect on the protein. Invisible to Rosetta.</p>
+                </div>
+                <div class="mutation-card green" style="margin-top: 10px; font-size: 0.8em">
+                    <h4> Non-synonymous (missense) ← what we study</h4>
+                    <p>DNA change results in a different amino acid. May or may not affect function depending on where the change is and what the new amino acid is.</p>
+                </div>
+                <div class="mutation-card red" style="margin-top: 10px; font-size: 0.8em">
+                    <h4>Nonsense</h4>
+                    <p>DNA change creates a stop codon — the protein is truncated. Usually catastrophic for function.</p>
+                </div>
+                <aside class="notes">
+                    "In Projects 1, 5, and 6 we work exclusively with non-synonymous point mutations — single amino acid changes. These are the most common type seen in drug resistance and protein engineering."
+                </aside>
+            </section>
+
+            <!-- Slide 3 -->
+            <section>
+                <h2>Wild type vs mutant</h2>
+                <div class="two-col" style="margin-top: 15px;">
+                    <div class="col highlight-box" style="border-left-color: #27ae60;">
+                        <h4 style="font-size: 0.6em; margin: 0 0 4px 0; color: #1e8449;">Wild type</h4>
+                        <p style="font-size: 0.5em;">The original, naturally occurring protein sequence — the version found in nature before any change. In our simulations, wild type = the protein as it appears in the PDB structure.</p>
+                    </div>
+                    <div class="col highlight-box" style="border-left-color: #e74c3c;">
+                        <h4 style="font-size: 0.6em; margin: 0 0 4px 0; color: #a93226;">Mutant</h4>
+                        <p style="font-size: 0.5em;">Any version where one or more amino acids have been changed. In drug resistance, the mutant is what the bacterium evolves. In protein engineering, it is what the scientist designs.</p>
+                    </div>
+                </div>
+
+                <div class="highlight-box" style="font-size: 0.60em; margin-top: 8px;">
+                    <strong>Mutation naming convention:</strong> &nbsp;<code>V102A</code> means Valine (V) at position 102 → Alanine (A).<br>
+                    Format: &nbsp;<strong>[original AA][position][new AA]</strong>
+                </div>
+
+                <table style="margin-top: 12px;font-size: 0.50em;">
+                    <thead><tr><th>Notation</th><th>Meaning</th><th>Context</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>S130G</strong></td><td>Serine at 130 → Glycine</td><td>Resistance mutation in β-Lactamase (Project 6)</td></tr>
+                        <tr><td><strong>V102A</strong></td><td>Valine at 102 → Alanine</td><td>Alanine scan probe (Project 5)</td></tr>
+                        <tr><td><strong>K73R</strong></td><td>Lysine at 73 → Arginine</td><td>Resistance mutation in β-Lactamase (Project 6)</td></tr>
+                    </tbody>
+                </table>
+                <aside class="notes">
+                    "When you see S130G in a patient's bacterial isolate, you now know exactly what that means — a serine side chain with its -OH hydrogen bond donor has been replaced by glycine which has no side chain at all. That one change is enough to make clavulanic acid stop working."
+                </aside>
+            </section>
+
+            <!-- Slide 4 -->
+            <section>
+                <h2 style="font-size: 1.4em;">One amino acid change can make a drug fail</h2>
+
+                <div class="mutation-card blue" style="font-size: 0.9em;">
+                    <h4>1. Removes a key contact</h4>
+                    <p>If the mutated residue was forming a hydrogen bond or van der Waals contact with the drug, removing it weakens binding directly. The drug still enters the pocket but holds on less tightly.</p>
+                </div>
+                <div class="mutation-card orange" style="font-size: 0.9em;">
+                    <h4>2. Changes the pocket shape</h4>
+                    <p>Some substitutions alter the binding site geometry — making it slightly larger, smaller, or differently shaped. The drug may no longer fit as well even if it still enters.</p>
+                </div>
+                <div class="mutation-card red" style="font-size: 0.9em;">
+                    <h4>3. Changes the pocket chemistry</h4>
+                    <p>Replacing a charged residue (Arginine) with a neutral one (Serine) removes an electrostatic interaction. A drug designed to interact with that charge loses a significant portion of its binding energy.</p>
+                </div>
+
+                <p style="font-size: 0.55em; color: #7f8c8d; margin-top: 8px; text-align: left;">
+                    <strong>Real example (Project 6):</strong> β-Lactamase S130G — Serine 130 normally forms a hydrogen bond with clavulanic acid. Mutating to Glycine removes that bond. The inhibitor fails. One letter change in a 263-residue protein renders a drug clinically ineffective.
+                </p>
+                <aside class="notes">
+                    Key question this raises: "If we could predict which residues are most critical for drug binding, we could design drugs that avoid relying on positions prone to resistance mutations. This is exactly what alanine scanning tells us."
+                </aside>
+            </section>
+
+            <!-- Slide 5 -->
+            <section>
+                <h2>Why Alanine? The logic of the probe</h2>
+
+                <table style="margin-top: 15px;">
+                    <thead>
+                        <tr><th>Property of Alanine</th><th>Why it matters</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Smallest side chain with a carbon (-CH₃)</td><td>Removes original chemistry without removing the backbone</td></tr>
+                        <tr><td>Non-polar and chemically inert</td><td>Does not introduce new interactions — truly erases the original contribution</td></tr>
+                        <tr><td>Does not disrupt the backbone</td><td>Unlike Glycine, maintains correct backbone geometry</td></tr>
+                        <tr><td>Naturally present in all proteins</td><td>The protein already knows how to fold with Alanine — minimally disruptive</td></tr>
+                    </tbody>
+                </table>
+
+                <div class="highlight-box" style="font-size: 0.5em; margin-top: 8px; text-align: left;">
+                    <strong>Why not Glycine?</strong> Glycine has no side chain at all, but its unusual backbone flexibility can distort local structure — making it hard to tell whether any binding change is due to losing the side chain or due to backbone distortion. Alanine avoids this problem entirely.
+                </div>
+
+                <p style="font-size: 0.4em; color: #7f8c8d; margin-top: 8px; text-align: left;">
+                    Mutating Valine → Alanine trims a four-carbon branching arm down to a single methyl group. The backbone is untouched. But all van der Waals contacts that Valine was making with the drug — gone.
+                </p>
+                <aside class="notes">
+                    "We use Alanine because it is the minimal perturbation — it removes the side chain contribution while changing as little else as possible. It is the closest thing to a controlled experiment that protein chemistry allows."
+                </aside>
+            </section>
+
+            <!-- Slide 6 -->
+            <section>
+                <h2>ΔΔG measures the energetic cost of each mutation</h2>
+
+                <div class="highlight-box" style="font-size: 0.65em; margin-bottom: 14px; text-align: left;">
+                    <strong>Step 1:</strong> ΔG_wt = binding energy of wild-type protein + drug<br>
+                    <strong>Step 2:</strong> ΔG_mut = binding energy of mutant protein + drug<br>
+                    <strong>Step 3:</strong> <strong>ΔΔG = ΔG_mut − ΔG_wt</strong>
+                </div>
+
+                <table>
+                    <thead>
+                        <tr><th>ΔΔG value</th><th>Meaning</th><th>Classification</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><span class="badge badge-red">> +2.0 REU</span></td><td>Mutation greatly weakens binding</td><td><strong>Hot spot</strong> — critical residue</td></tr>
+                        <tr><td><span class="badge badge-orange">+1.0 to +2.0 REU</span></td><td>Mutation moderately weakens binding</td><td>Moderate contributor</td></tr>
+                        <tr><td><span class="badge badge-grey">−0.5 to +1.0 REU</span></td><td>Mutation has little effect</td><td>Dispensable residue</td></tr>
+                        <tr><td><span class="badge badge-green">< −0.5 REU</span></td><td>Mutation strengthens binding</td><td>Rare (removing side chain helps)</td></tr>
+                    </tbody>
+                </table>
+
+                <div class="highlight-box" style="border-left-color: #f39c12; font-size: 0.6em; margin-top: 12px;">
+                    <strong>Example:</strong> Wild-type binding = −27 REU. After mutating Phe381 → Ala, binding = −19 REU.<br>
+                    ΔΔG = −19 − (−27) = <strong>+8 REU</strong> → Phe381 is a hot spot. The drug was heavily relying on that phenylalanine ring.
+                </div>
+                <aside class="notes">
+                    Build this step by step — recall ΔG from Lecture 2, then introduce the double delta. Positive ΔΔG means the mutation made binding worse — the residue was contributing something that is now gone.
+                </aside>
+            </section>
+
+            <!-- Slide 7 -->
+            <section>
+                <h2>Hot spots and dispensable residues</h2>
+
+                <div class="mutation-card red" style="margin-top: 10px; font-size: 0.9em;">
+                    <h4>Hot spot — ΔΔG ≥ +2.0 REU</h4>
+                    <p>The drug depends on this residue heavily. Mutating it away causes a large loss in binding affinity. These are your primary design targets.</p>
+                </div>
+                <div class="mutation-card orange" style="margin-top: 10px; font-size: 0.9em;">
+                    <h4>Moderate contributor — ΔΔG +1.0 to +2.0 REU</h4>
+                    <p>The residue contributes meaningfully but is not essential. Worth engaging but not as critical as hot spots.</p>
+                </div>
+                <div class="mutation-card blue" style="margin-top: 10px; font-size: 0.9em;">
+                    <h4>Dispensable — ΔΔG &lt; +1.0 REU</h4>
+                    <p>Present in the binding site but contributes little to binding. The drug barely notices if it is mutated away.</p>
+                </div>
+
+                <div class="highlight-box" style="font-size: 0.65em; margin-top: 12px;">
+                    <strong>The 80/20 rule of binding:</strong> In a typical binding site of 12–15 residues, only 2–4 are true hot spots. Roughly 80% of the binding energy comes from 20% of the contact residues. Identifying that 20% is the whole point of alanine scanning.
+                </div>
+                <aside class="notes">
+                    "Hot spots are your design targets. If you want to make a better drug, design it to make stronger interactions with the hot spots. If you want to understand resistance, ask: which of my hot spots is the bacterium most likely to mutate?"
+                </aside>
+            </section>
+
+            <!-- Slide 8 -->
+            <section>
+                <h2>SAR connects structure to activity</h2>
+
+                <p style="font-size: 0.7em; margin-bottom: 5px;"><strong>Structure-Activity Relationship (SAR)</strong> is the systematic study of how changes in a drug's molecular structure affect its biological activity. It is the central framework of medicinal chemistry.</p>
+
+                <div style="text-align: center; margin: 10px 0;">
+                    <div class="flow-box">Alanine scan identifies hot spot residues</div>
+                    <div class="flow-arrow" style="margin: 5px 0; line-height: 0.7;">↓</div>
+                    <div class="flow-box">Hot spot chemical class tells you what interaction to target</div>
+                    <div class="flow-arrow" style="margin: 5px 0; line-height: 0.7;">↓</div>
+                    <div class="flow-box">Drug is modified to maximise that interaction</div>
+                </div>
+
+                <table style="margin-top: 5px; font-size: 0.5em">
+                    <thead>
+                        <tr><th>Hot spot residue</th><th>Chemical class</th><th>SAR implication</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Phenylalanine (Phe)</td><td>Hydrophobic aromatic</td><td>Add aromatic ring to drug for π-π stacking</td></tr>
+                        <tr><td>Arginine (Arg)</td><td>Positively charged</td><td>Add negatively charged group to drug</td></tr>
+                        <tr><td>Serine (Ser)</td><td>Polar, H-bond donor</td><td>Add H-bond acceptor to drug (carbonyl, ether)</td></tr>
+                    </tbody>
+                </table>
+                <aside class="notes">
+                    "Real drug design is iterative: scan → identify hot spots → modify drug → test → scan again. Each cycle produces a better understanding of what the binding site wants and a drug that delivers more of it."
+                </aside>
+            </section>
+
+            <!-- Slide 9 -->
+            <section>
+                <h2 style="font-size: 1.4em;">Alanine scanning in the real world</h2>
+
+                <div class="two-col" style="margin-top: 8px;">
+                    <div class="col highlight-box" style="border-left-color: #e74c3c;">
+                        <h4 style="font-size: 0.6em; margin: 0 0 8px 0;">Experimental scanning</h4>
+                        <p style="font-size: 0.55em;">Physically synthesise each mutant protein, purify it, and measure binding affinity using SPR or ITC. Each mutant takes days to weeks and costs £5,000–£20,000.</p>
+                    </div>
+                    <div class="col highlight-box" style="border-left-color: #27ae60;">
+                        <h4 style="font-size: 0.6em; margin: 0 0 8px 0;">Computational scanning</h4>
+                        <p style="font-size: 0.55em;">Each mutation takes seconds. An entire binding site of 15 residues scanned in minutes. An approximation — but accurate enough to prioritise which mutants to test in the lab.</p>
+                    </div>
+                </div>
+
+                <div style="margin-top: 8px;">
+                    <div class="flow-box">Computational scan — all 15 residues (hours)</div>
+                    <div class="flow-arrow" style="margin: 1px 0; line-height: 0.8;">↓</div>
+                    <div class="flow-box">Identify top 3–4 predicted hot spots</div>
+                    <div class="flow-arrow" style="margin: 1px 0; line-height: 0.8;">↓</div>
+                    <div class="flow-box">Synthesise and test only those mutants in the lab</div>
+                    <div class="flow-arrow" style="margin: 1px 0; line-height: 0.8;">↓</div>
+                    <div class="flow-box">Confirm or refine → use hot spots to guide drug optimisation</div>
+                </div>
+                <aside class="notes">
+                    "Computational scanning acts as a filter — reducing 15 potential experiments to 3 or 4 without losing the key information. It is not a replacement for experiment; it is a guide that makes experiments much more efficient."
+                </aside>
+            </section>
+
+            <!-- Slide 10 -->
+            <section>
+                <h2 style="font-size: 1.4em;">Alanine scanning appears three times in your pipeline</h2>
+
+                <table style="margin-top: 15px;">
+                    <thead>
+                        <tr><th>Project</th><th>What is scanned</th><th>What is measured</th><th>Question answered</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Project 1</strong></td><td>Any residue in Lysozyme</td><td>Change in protein stability</td><td>Which residues keep the protein folded?</td></tr>
+                        <tr><td><strong>Project 5</strong></td><td>Binding site residues in COX-2</td><td>Change in drug binding (ΔΔG)</td><td>Which residues are hot spots for Ibuprofen?</td></tr>
+                        <tr><td><strong>Project 6</strong></td><td>Known resistance positions in β-Lactamase</td><td>Change in inhibitor binding (ΔΔG)</td><td>How much does each clinical mutation weaken the drug?</td></tr>
+                    </tbody>
+                </table>
+
+                <div class="highlight-box" style="font-size: 0.7em; margin-top: 14px;">
+                    <strong>Project 5 vs Project 6:</strong> In Project 5 we always mutate to Alanine — a neutral probe asking "what could hurt?" In Project 6 we mutate to the actual amino acid bacteria have evolved — asking "what has actually hurt in patients?"
+                </div>
+                <aside class="notes">
+                    "Same technique, three different questions — this is a good example of how one computational tool can be repurposed across different biological problems by changing what you measure and what mutations you introduce."
+                </aside>
+            </section>
+
+            <!-- Slide 11 -->
+            <section>
+                <h2>Summary &amp; Preparation</h2>
+                <ul style="font-size: 0.75em; margin-bottom: 25px;">
+                    <li>A <strong>point mutation</strong> changes one amino acid — it can strengthen, weaken, or have no effect on drug binding depending on which residue is affected.</li>
+                    <li><strong>Wild type</strong> is the natural protein sequence; <strong>mutant</strong> is any version with at least one amino acid change.</li>
+                    <li><strong>Alanine</strong> is used as the probe because it removes the side chain without disrupting the backbone — it truly erases one residue's contribution.</li>
+                    <li><strong>ΔΔG = ΔG_mut − ΔG_wt</strong> — positive ΔΔG means the mutation weakened binding; that residue was contributing.</li>
+                    <li><strong>Hot spots</strong> are residues with ΔΔG ≥ +2.0 REU — the drug depends on these most heavily.</li>
+                    <li><strong>SAR</strong> connects hot spot identity to drug modification decisions — hot spots tell you where to improve the drug.</li>
+                </ul>
+
+                <div class="highlight-box" style="border-left-color: #f39c12; font-size: 0.65em;">
+                    <strong>Preparation for Lecture 5:</strong><br>
+                    "If a bacterium mutates one of the hot spot residues your drug relies on heavily, what happens to the drug's effectiveness? And what would you do?"
+                </div>
+
+                <aside class="notes">
+                    Exit ticket: "What is ΔΔG, and what does a large positive value tell you about a binding site residue?" Have students write one sentence before leaving.
+                </aside>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- Reveal.js JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/notes/notes.min.js"></script>
+    <script>
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            center: true,
+            hash: false,
+            history: false,
+            transition: 'slide',
+            plugins: [ RevealNotes ]
+        });
+    </script>
+</body>
+</html>

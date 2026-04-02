@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Lecture 3: The Binding Site and Protein-Ligand Docking</title>
+    <!-- Reveal.js CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reset.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/simple.min.css" id="theme">
+    <style>
+        .reveal h1, .reveal h2, .reveal h3 {
+            color: #2c3e50;
+            text-transform: none;
+        }
+        .reveal h1 { font-size: 2.2em; font-weight: bold; }
+        .reveal h2 { font-size: 1.6em; }
+        .reveal p, .reveal li { font-size: 0.85em; line-height: 1.4; color: #34495e; }
+        .reveal .hook-quote {
+            font-style: italic;
+            color: #e74c3c;
+            border-left: 5px solid #e74c3c;
+            padding: 20px;
+            margin-top: 40px;
+            font-size: 0.9em;
+            background: #fdf2f1;
+            border-radius: 5px;
+        }
+        .reveal table {
+            font-size: 0.65em;
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .reveal table th {
+            background-color: #34495e;
+            color: white;
+            text-align: center;
+        }
+        .reveal table td, .reveal table th {
+            border: 1px solid #bdc3c7;
+            padding: 12px;
+        }
+        .reveal .highlight-box {
+            background-color: #ecf0f1;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 5px solid #3498db;
+        }
+        .two-col {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .col { flex: 1; }
+        .image-placeholder {
+            background: #ecf0f1;
+            border: 2px dashed #bdc3c7;
+            border-radius: 8px;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #7f8c8d;
+            font-weight: bold;
+        }
+        .rule-card {
+            border-radius: 8px;
+            padding: 14px 18px;
+            margin-bottom: 12px;
+            text-align: left;
+        }
+        .rule-card h4 {
+            margin: 0 0 6px 0;
+            font-size: 0.9em;
+            color: #2c3e50;
+        }
+        .rule-card p {
+            margin: 0;
+            font-size: 0.68em;
+            color: #34495e;
+            line-height: 1.5;
+        }
+        .scenario-box {
+            border-radius: 8px;
+            padding: 12px 16px;
+            margin-bottom: 10px;
+            font-size: 0.7em;
+        }
+        .scenario-box strong {
+            display: block;
+            margin-bottom: 4px;
+            font-size: 1.05em;
+        }
+        .badge-green {
+            background: #d5f5e3;
+            color: #1e8449;
+            border-radius: 4px;
+            padding: 2px 8px;
+            font-weight: bold;
+        }
+        .badge-red {
+            background: #fadbd8;
+            color: #a93226;
+            border-radius: 4px;
+            padding: 2px 8px;
+            font-weight: bold;
+        }
+        .badge-orange {
+            background: #fdebd0;
+            color: #a04000;
+            border-radius: 4px;
+            padding: 2px 8px;
+            font-weight: bold;
+        }
+        .formula-box {
+            background: #2c3e50;
+            color: #ecf0f1;
+            border-radius: 8px;
+            padding: 16px 24px;
+            font-family: monospace;
+            font-size: 0.85em;
+            text-align: center;
+            margin: 16px 0;
+            letter-spacing: 0.03em;
+        }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- Slide 1 -->
+            <section>
+                <h1>The Binding Site and Protein-Ligand Docking</h1>
+                <h3>How does a drug find its target?</h3>
+                <p><strong>Lecture 3 — Shape, Chemistry and Binding Energy</strong></p>
+                <div class="hook-quote" style="text-align: left;">
+                    "Ibuprofen is non-polar and hydrophobic. The COX-2 binding site is also largely hydrophobic. Why does this chemical match matter? What would happen if you put a highly charged, polar drug into a hydrophobic pocket?"
+                </div>
+                <aside class="notes">
+                    Take answers before moving on. Correct idea: a polar drug in a hydrophobic pocket would be energetically unfavourable — like trying to dissolve oil in water. Students who thought about this will have intuitions worth drawing out.
+                </aside>
+            </section>
+
+            <!-- Slide 2 -->
+            <section>
+                <h2>The binding site is where the drug physically docks</h2>
+                <div class="two-col" style="margin-top: 10px;">
+                    <div class="col">
+                        <div class="image-placeholder" style="height: 450px">
+                            <img src="/assets/img/lec3-1.jpg" style="width: 100%; height: 100%; border-radius: 8px; object-fit: cover">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="highlight-box" style="margin: 0;padding: 8px;text-align: left;">
+                            <p style="font-size: 0.55em;">A <strong>binding site</strong> is a cavity or groove on the protein surface where a small molecule settles and interacts with surrounding amino acids.</p>
+                            <p style="font-size: 0.55em; margin-top: 5px;">The drug does not interact with the whole protein — only with the <strong>10–20 amino acids</strong> that line this pocket.</p>
+                        </div>
+                        <div class="highlight-box" style="border-left-color: #f39c12; margin-top: 8px; padding: 12px; text-align: left;">
+                            <p style="font-size: 0.55em;"><strong>Three things must match:</strong><br>
+                            1. Shape — the drug must fit<br>
+                            2. Size — not too large, not too small<br>
+                            3. Chemistry — matching polarity and charge</p>
+                        </div>
+                    </div>
+                </div>
+                <p style="font-size: 0.6em; color: #7f8c8d; margin-top: 3px; text-align: left;">
+                    <strong>Connect to Project 4:</strong> You will identify every amino acid within 5 Å of Ibuprofen inside COX-2 — these residues form the binding site.
+                </p>
+                <aside class="notes">
+                    "The binding site is not just a hole — it has a specific shape, a specific size, and a specific chemical character. All three must match the drug for binding to occur."
+                </aside>
+            </section>
+
+            <!-- Slide 3 -->
+            <section>
+                <h2 style="font-size: 1.2em;">Rule 1 — The drug must fit the shape of the pocket</h2>
+
+                <table style="margin-top: 15px;">
+                    <thead>
+                        <tr>
+                            <th>Situation</th>
+                            <th>Result</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Drug too large</td><td>Cannot enter the pocket — steric clash</td></tr>
+                        <tr><td>Drug too small</td><td>Fits but makes few contacts — weak binding</td></tr>
+                        <tr><td>Wrong shape, right size</td><td>Some contacts made but poor fit — moderate binding</td></tr>
+                        <tr><td>Matches pocket shape precisely</td><td>Maximum contacts — strong binding ✓</td></tr>
+                    </tbody>
+                </table>
+
+                <div class="highlight-box" style="font-size: 0.7em; margin-top: 15px; text-align: left;">
+                    <strong>Induced fit:</strong> A real binding site is not a rigid lock — the protein can flex slightly to accommodate a drug that is close to the right shape.
+                </div>
+
+                <p style="font-size: 0.68em; color: #7f8c8d; margin-top: 8px; text-align: left;">
+                    <strong>Concrete numbers:</strong> The COX-2 binding channel is 6–8 Å wide. Ibuprofen is ~8 Å across its longest axis — a near-perfect fit. This geometric match is part of why it binds strongly.
+                </p>
+                <aside class="notes">
+                    "In Project 3 you will score three real drugs docked into COX-2 — Ibuprofen, Celecoxib, and Meloxicam. Their different binding energies reflect partly how well their shapes match the pocket."
+                </aside>
+            </section>
+
+            <!-- Slide 4 -->
+            <section>
+                <h2 style="font-size: 1.3em;">Rule 2 — Drug VS Pocket matched chemistry</h2>
+
+                <table style="margin-top: 15px;">
+                    <thead>
+                        <tr>
+                            <th>Binding site character</th>
+                            <th>Key residues</th>
+                            <th>Drug should have</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Hydrophobic pocket</td><td>Phe, Val, Ile, Leu, Met</td><td>Non-polar groups, aromatic rings</td></tr>
+                        <tr><td>Polar region</td><td>Ser, Thr, Asn, Gln</td><td>H-bond donors or acceptors </br> (-OH, -NH₂)</td></tr>
+                        <tr><td>Positively charged region</td><td>Arg, Lys, His</td><td>Negatively charged group on drug</td></tr>
+                        <tr><td>Negatively charged region</td><td>Asp, Glu</td><td>Positively charged group on drug</td></tr>
+                    </tbody>
+                </table>
+
+                <div class="highlight-box" style="font-size: 0.55em; margin-top: 12px;text-align: left;">
+                    <strong>Analogy:</strong> </br> Shape complementarity = finding a key that fits the lock. <br>Chemical complementarity = making sure the key is made of the right material.<br> A key made of butter might fit the lock perfectly in shape — but it will fail to turn it.
+                </div>
+                <aside class="notes">
+                    "In Project 4 you will classify every binding site residue as hydrophobic, polar, positively or negatively charged. The profile you produce tells you exactly what kind of drug fits best."<br>
+                    Hydrophobic effect revisited: a hydrophobic drug in a hydrophobic pocket removes non-polar surfaces from water — energetically very favourable.<br>
+                    Major driving force behind ibuprofen binding.
+                </aside>
+            </section>
+
+            <!-- Slide 5 -->
+            <section>
+                <h2>COX-2 — a real binding site example</h2>
+                <p style="font-size: 0.75em; margin-bottom: 12px;">COX-2 converts arachidonic acid into prostaglandins (pain and inflammation). Blocking its active site prevents this.</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Drug</th>
+                            <th>Brand name</th>
+                            <th>Character</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Ibuprofen</strong></td><td>Advil</td><td>Small, non-polar, flexible</td></tr>
+                        <tr><td><strong>Celecoxib</strong></td><td>Celebrex</td><td>Larger, selective COX-2 inhibitor, sulfonamide group</td></tr>
+                        <tr><td><strong>Meloxicam</strong></td><td>Mobic</td><td>Intermediate size, thiazine ring system</td></tr>
+                    </tbody>
+                </table>
+
+                <div class="highlight-box" style="font-size: 0.7em; margin-top: 12px;">
+                    All three are approved COX-2 inhibitors — they all bind and they all work. But they bind with different strengths, at different positions in the channel, making different contacts. <strong>Project 3 will quantify those differences.</strong>
+                </div>
+                <aside class="notes">
+                    Key detail: Serine 530 is the site where Aspirin covalently bonds — a different mechanism from non-covalent NSAIDs. If students ask about aspirin, this is the answer.
+                    COX-2 active site is a long, narrow hydrophobic channel lined predominantly with non-polar residues.
+                </aside>
+            </section>
+
+            <!-- Slide 6 -->
+            <section>
+                <h2>Protein-ligand docking: </br> predicting how a drug fits</h2>
+
+                <div class="highlight-box" style="font-size: 0.8em; text-align: center; margin-bottom: 15px;">
+                    Docking predicts <strong>where</strong> a drug sits in the binding site (pose) and <strong>how tightly</strong> it binds (binding energy).
+                </div>
+
+                <div class="two-col">
+                    <div class="col highlight-box" style="border-left-color: #27ae60;">
+                        <h4 style="font-size: 0.85em; margin: 0 0 8px 0;">What we do in Projects 3 & 4</h4>
+                        <p style="font-size: 0.68em;">The drug is already inside the protein — co-crystallised in the PDB structure. We are <strong>scoring a known, experimentally confirmed pose</strong>, not predicting a new one. Simpler and more reliable.</p>
+                    </div>
+                    <div class="col highlight-box" style="border-left-color: #9b59b6;">
+                        <h4 style="font-size: 0.85em; margin: 0 0 8px 0;">Real-world power</h4>
+                        <p style="font-size: 0.68em;">Screen thousands of candidates digitally in hours. Only synthesise and test the top scorers in the lab. Reduces the >90% failure rate of untargeted drug development.</p>
+                    </div>
+                </div>
+
+                <aside class="notes">
+                    Full de novo docking (predicting where an unknown drug would bind) is more complex and less reliable — we are doing the easier, more accurate version: scoring a pose already determined by X-ray crystallography.
+                </aside>
+            </section>
+
+            <!-- Slide 7 -->
+            <section>
+                <h2>Binding energy — </br> the number that ranks drugs</h2>
+
+                <div class="formula-box" style="font-size: 0.7em;">
+                    Binding Energy =  </br> Complex Score &minus; (Protein Score + Ligand Score)
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Component</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Complex (COX-2 + Ibuprofen)</td><td>−1,820 REU</td></tr>
+                        <tr><td>Protein alone (COX-2)</td><td>−1,768 REU</td></tr>
+                        <tr><td>Ibuprofen alone</td><td>−25 REU</td></tr>
+                        <tr><td><strong>Binding energy</strong></td><td><strong>−1,820 − (−1,768 + −25) = −27 REU</strong></td></tr>
+                    </tbody>
+                </table>
+
+                <div class="highlight-box" style="font-size: 0.5em; margin-top: 12px; text-align: left;">
+                    That −27 REU is the energy gained by bringing drug and protein together — all the van der Waals contacts, hydrogen bonds, and hydrophobic interactions that form when Ibuprofen settles into the COX-2 pocket.
+                </div>
+                <aside class="notes">
+                    Walk through each term: complex = protein + drug together; then drug removed; then protein removed. If drug wants to be bound, complex is lower energy than the parts — giving a negative binding energy.
+                    "More negative binding energy = tighter binding = better drug candidate."
+                </aside>
+            </section>
+
+            <!-- Slide 8 -->
+            <section>
+                <h2>Interpreting binding energy values</h2>
+
+                <div class="scenario-box" style="background: #d5f5e3; border-left: 5px solid #27ae60;">
+                    <strong><span class="badge-green">Negative (e.g. −27 REU)</span> — Drug genuinely binds</strong>
+                    Energy is released when the complex forms. The more negative, the tighter the binding. This is what you want for a drug candidate.
+                </div>
+
+                <div class="scenario-box" style="background: #fef9e7; border-left: 5px solid #f39c12;">
+                    <strong><span class="badge-orange">Near zero (e.g. −2 REU)</span> — Drug barely binds</strong>
+                    Almost no energy is gained from the interaction. Unlikely to be therapeutically useful at normal doses.
+                </div>
+
+                <div class="scenario-box" style="background: #fadbd8; border-left: 5px solid #e74c3c;">
+                    <strong><span class="badge-red">Positive (e.g. +8 REU)</span> — Drug does not bind</strong>
+                    Binding is energetically unfavourable — the complex is less stable than the separated components.
+                </div>
+
+                <p style="font-size: 0.67em; color: #7f8c8d; margin-top: 8px; text-align: left;">
+                    <strong>Important:</strong> Binding energy is one factor — not the only factor. Bioavailability, selectivity, and chemical stability also matter. Docking tells you about binding; the rest requires lab and clinical testing.
+                </p>
+                <aside class="notes">
+                    "In Project 3 your results will show all three drugs with negative binding energies — because all three are real, approved drugs that genuinely bind COX-2. The differences between scores reflect differences in binding tightness."
+                </aside>
+            </section>
+
+            <!-- Slide 9 -->
+            <section>
+                <h2 style="font-size: 1.4em;">Structure quality affects every docking result</h2>
+
+                <p style="font-size: 0.75em; margin-bottom: 12px;">If the binding site geometry in your crystal structure is wrong by even 0.3 Å, your calculated binding energy will be wrong too.</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Source of error</th>
+                            <th>Effect on docking</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Low resolution </br>(&gt; 2.5 Å)</td><td>Side chain positions uncertain — binding site shape approximate</td></tr>
+                        <tr><td>Missing residues</td><td>Parts of the binding site absent — contacts not calculated</td></tr>
+                        <tr><td>Crystal contacts</td><td>Packing forces in the crystal may distort the binding site slightly</td></tr>
+                    </tbody>
+                </table>
+
+                <div class="highlight-box" style="font-size: 0.7em; margin-top: 12px;">
+                    <strong>Why Project 2 comes before Project 3:</strong> In Project 2 you rank five Lysozyme structures by quality. In real drug discovery, choosing the highest-quality starting structure always happens before any docking. <em></br>Garbage in, garbage out.</em>
+                </div>
+                <aside class="notes">
+                    "The best scoring function in the world cannot compensate for a poor starting structure."
+                </aside>
+            </section>
+
+            <!-- Slide 10 -->
+            <section>
+                <h2>The contact shell: which residues touch the drug?</h2>
+
+                <div class="highlight-box" style="font-size: 0.8em; text-align: center; margin-bottom: 15px;">
+                    A <strong>contact residue</strong> = any amino acid with at least one atom within <strong>5.0 Å</strong> of any atom of the drug.
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Distance</th>
+                            <th>Interaction type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>&lt; 2.0 Å</td><td>Clash — atoms overlapping (problem)</td></tr>
+                        <tr><td>2.0–3.5 Å</td><td>Covalent bond or strong hydrogen bond</td></tr>
+                        <tr><td>3.5–5.0 Å</td><td>Van der Waals contact — atoms touching ✓</td></tr>
+                        <tr><td>5.0–8.0 Å</td><td>Close neighbourhood — weak or indirect</td></tr>
+                        <tr><td>&gt; 8.0 Å</td><td>Too far to interact meaningfully</td></tr>
+                    </tbody>
+                </table>
+
+                <p style="font-size: 0.68em; color: #7f8c8d; margin-top: 10px; text-align: left;">
+                    A binding site may have 200 residues nearby, but only <strong>12–15 are actually touching the drug</strong>. Those are the ones that matter for binding energy, drug design, and resistance mutations — and the target of Project 4.
+                </p>
+                <aside class="notes">
+                    Preview Project 5: "Once you know which residues touch the drug, the natural next question is: which of those residues are most important? That is exactly what Project 5 — alanine scanning — will answer."
+                </aside>
+            </section>
+
+            <!-- Slide 11 -->
+            <section>
+                <h2>Summary &amp; Preparation</h2>
+                <ul style="font-size: 0.75em; margin-bottom: 25px;">
+                    <li>A <strong>binding site</strong> is a cavity on the protein surface — shape and chemistry both determine whether binding occurs.</li>
+                    <li><strong>Shape complementarity</strong> — the drug must physically fit the pocket geometry.</li>
+                    <li><strong>Chemical complementarity</strong> — hydrophobic drug regions face hydrophobic residues; polar faces polar; charged faces oppositely charged.</li>
+                    <li><strong>Binding energy</strong> = Complex score − (Protein score + Ligand score). More negative = tighter binding.</li>
+                    <li>Structure quality matters — a poor crystal structure gives unreliable docking results.</li>
+                    <li><strong>Contact residues</strong> are within 5.0 Å of the drug — typically 12–15 residues form the functional binding site.</li>
+                </ul>
+
+                <div class="highlight-box" style="border-left-color: #f39c12; font-size: 0.55em;">
+                    <strong>Preparation for Lecture 4:</strong><br>
+                    "In Project 5 we will mutate every binding site residue to Alanine and measure how much each mutation weakens drug binding. Think about this: if you removed the side chain of a hydrophobic residue lining the binding site, what would happen to the drug's binding energy? Why?"
+                </div>
+
+                <aside class="notes">
+                    Exit ticket: "What is binding energy, and what does a negative value tell you about a drug candidate?" Have students write one sentence before leaving.
+                </aside>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- Reveal.js JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/notes/notes.min.js"></script>
+    <script>
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            center: true,
+            hash: false,
+            history: false,
+            transition: 'slide',
+            plugins: [ RevealNotes ]
+        });
+    </script>
+</body>
+</html>
