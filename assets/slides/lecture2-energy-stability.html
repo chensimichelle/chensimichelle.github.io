@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Lecture 2: Energy, Stability and the Rosetta Score</title>
+    <!-- Reveal.js CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reset.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/simple.min.css" id="theme">
+    <style>
+        /* Custom Styles for Academic Presentation */
+        .reveal h1, .reveal h2, .reveal h3 {
+            color: #2c3e50;
+            text-transform: none;
+        }
+        .reveal h1 { font-size: 2.2em; font-weight: bold; }
+        .reveal h2 { font-size: 1.6em; }
+        .reveal p, .reveal li { font-size: 0.85em; line-height: 1.4; color: #34495e; }
+        .reveal .hook-quote {
+            font-style: italic;
+            color: #e74c3c;
+            border-left: 5px solid #e74c3c;
+            padding-left: 20px;
+            margin-top: 40px;
+            font-size: 0.9em;
+            background: #fdf2f1;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .reveal table {
+            font-size: 0.65em;
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .reveal table th {
+            background-color: #34495e;
+            color: white;
+            text-align: center;
+        }
+        .reveal table td, .reveal table th {
+            border: 1px solid #bdc3c7;
+            padding: 12px;
+        }
+        .reveal .highlight-box {
+            background-color: #ecf0f1;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 5px solid #3498db;
+        }
+        .two-col {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .col { flex: 1; }
+        .image-placeholder {
+            background: #ecf0f1;
+            border: 2px dashed #bdc3c7;
+            border-radius: 8px;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #7f8c8d;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .force-card {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            border-left: 5px solid #3498db;
+            text-align: left;
+        }
+        .force-card.green  { border-left-color: #27ae60; }
+        .force-card.orange { border-left-color: #e67e22; }
+        .force-card.red    { border-left-color: #e74c3c; }
+        .force-card.blue   { border-left-color: #3498db; }
+        .force-card h4 {
+            margin: 0 0 4px 0;
+            font-size: 0.85em;
+            color: #2c3e50;
+        }
+        .force-card p {
+            margin: 0;
+            font-size: 0.65em;
+            color: #7f8c8d;
+        }
+        .energy-diagram {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            font-size: 0.7em;
+            font-family: monospace;
+            color: #2c3e50;
+            line-height: 1.8;
+            margin: 20px 0;
+        }
+        .flow-step {
+            background: #ecf0f1;
+            border-radius: 6px;
+            padding: 8px 14px;
+            font-size: 0.65em;
+            font-weight: bold;
+            color: #2c3e50;
+            text-align: center;
+            flex: 1;
+        }
+        .flow-arrow {
+            font-size: 1.2em;
+            color: #3498db;
+            padding: 0 4px;
+            align-self: center;
+        }
+        .flow-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            margin: 6px 0;
+        }
+        .badge-green {
+            background: #d5f5e3;
+            color: #1e8449;
+            border-radius: 4px;
+            padding: 2px 8px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+        .badge-red {
+            background: #fadbd8;
+            color: #a93226;
+            border-radius: 4px;
+            padding: 2px 8px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- Slide 1 -->
+            <section>
+                <h1>Energy, Stability and the Rosetta Score</h1>
+                <h3>How does a computer measure a protein's stability?</h3>
+                <p><strong>Lecture 2 — From Physical Forces to a Single Number</strong></p>
+
+                <div class="hook-quote">
+                    "If you unfold a protein — stretch it out into a straight line — does that require energy, or does energy get released? Why?"
+                </div>
+
+                <aside class="notes">
+                    Open with a show of hands on the hook question from Lecture 1. Most students will guess wrong direction. 
+                    Correct answer: unfolding requires energy input — meaning the folded state is lower energy and more stable.
+                    This is the conceptual foundation for everything in this lecture.
+                </aside>
+            </section>
+
+            <!-- Slide 2 -->
+            <section>
+                <h2 style="font-size: 1.4em;">Why does stability matter for drug design?</h2>
+                <div class="two-col" style="margin-top: 20px;">
+                    <div class="col highlight-box" style="border-left-color: #27ae60;">
+                        <h4 style="margin: 0 0 10px 0; font-size: 1em; color: #1e8449;">Stable protein ✓</h4>
+                        <ul style="font-size: 0.75em; margin: 0; padding-left: 18px;">
+                            <li>Maintains its 3D shape under physiological conditions</li>
+                            <li>Binding site geometry is consistent and predictable</li>
+                            <li>Drug binds reliably every time</li>
+                            <li style="font-weight: bold;">Good drug target</li>
+                        </ul>
+                    </div>
+                    <div class="col highlight-box" style="border-left-color: #e74c3c;">
+                        <h4 style="margin: 0 0 10px 0; font-size: 1em; color: #a93226;">Unstable protein ✗</h4>
+                        <ul style="font-size: 0.75em; margin: 0; padding-left: 18px;">
+                            <li>Fluctuates between multiple shapes</li>
+                            <li>Binding site geometry changes unpredictably</li>
+                            <li>Drug may bind sometimes but not others</li>
+                            <li style="font-weight: bold;">Unreliable drug target</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="highlight-box" style="font-size: 0.7em; margin-top: 10px;">
+                    <strong>Connect to Project 1:</strong> Before designing a drug to fit a binding site, we need to know that binding site holds its shape. Measuring stability is step zero of drug design.
+                </div>
+                <aside class="notes">
+                    "In Project 1 you will measure the stability of Lysozyme and test how single amino acid changes affect it. This slide explains why that measurement is meaningful."
+                </aside>
+            </section>
+
+            <!-- Slide 3 -->
+            <section>
+                <h2>Four forces hold every protein together</h2>
+                <div class="force-card blue">
+                    <h4>1. Van der Waals interactions</h4>
+                    <p>Weak attractive forces between any two atoms 3.5–5.0 Å apart. Like cling film — individually almost nothing, but thousands add up to something substantial.</p>
+                </div>
+                <div class="force-card green">
+                    <h4>2. Hydrogen bonds</h4>
+                    <p>Attraction between a hydrogen on N or O, and another N or O nearby (1.8–3.5 Å). Like a firm handshake — directional, specific, and relatively strong.</p>
+                </div>
+                <div class="force-card orange">
+                    <h4>3. Electrostatic interactions</h4>
+                    <p>Attraction between oppositely charged amino acids (e.g. Arginine + and Aspartate −). Like opposite poles of a magnet — act over a longer range.</p>
+                </div>
+                <div class="force-card red">
+                    <h4>4. The hydrophobic effect</h4>
+                    <p>Non-polar amino acids cluster together to avoid water. Like oil in water — they group together not because they attract each other, but because water prefers to exclude them.</p>
+                </div>
+                <aside class="notes">
+                    "Rosetta's scoring function calculates all four of these forces simultaneously, for every pair of atoms in the protein. The total is the Rosetta score."
+                    Students will have seen H-bonds at A-level — build on that, the other three forces will be new.
+                </aside>
+            </section>
+
+            <!-- Slide 4 -->
+            <section>
+                <h2>Proteins fold because the folded shape is more stable</h2>
+
+                <div style="display: flex; align-items: center; gap: 20px; margin-top: 15px;">
+                    <div style="flex: 1; text-align: center;">
+                        <img src="/assets/img/lec2-1.svg" style="width: 100%; border-radius: 8px; object-fit: contain;">
+                    </div>
+                    <ul style="flex: 1; font-size: 0.72em;">
+                        <li><strong>Lower energy = more stable.</strong> The folded protein sits in an energy valley — it needs energy input to unfold.</li>
+                        <li><strong>The depth of the valley = stability.</strong> A very stable protein has a deep valley. A marginally stable one has a shallow valley and unfolds more easily.</li>
+                        <li><strong>Mutations can change the valley depth.</strong> In Project 1 we ask: does this mutation make the valley deeper or shallower?</li>
+                    </ul>
+                </div>
+
+            <aside class="notes">
+                Concrete example: "Lysozyme is found in egg whites and human tears — it can withstand 75°C before unfolding. In Project 1 you will see exactly which amino acids are contributing most to that stability."
+            </aside>
+            </section>
+
+            <!-- Slide 5 -->
+            <section>
+                <h2 style="font-size: 1.2em;">Scientists measure stability by free energy ΔG</h2>
+                <p style="font-size: 0.8em; margin-bottom: 15px;">ΔG (delta G) tells you whether a process is favourable or not.</p>
+                <div style="text-align: center; font-size: 1.1em; margin-bottom: 15px; font-style: italic;">
+                    ΔG = ΔH − TΔS
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ΔG</th>
+                            <th>Meaning</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Negative </br> ΔG &lt; 0</strong></td>
+                            <td>Favourable — happens spontaneously</td>
+                            <td>Protein folding, drug binding to its target</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Positive </br> ΔG &gt; 0</strong></td>
+                            <td>Unfavourable — requires energy input</td>
+                            <td>Protein unfolding, pulling a drug out of its binding site</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="highlight-box" style="font-size: 0.6em; margin-top: 15px;">
+                    <strong>Important:</strong> Rosetta does not calculate true thermodynamic free energy — it uses an approximation. The scores correlate well with real stability measurements but are not exact free energies. This is why we use <strong>REU</strong> (Rosetta Energy Units) rather than kJ/mol.
+                </div>
+                <aside class="notes">
+                    Apply both rules: protein folding has negative ΔG — spontaneous and favourable. Drug binding has negative ΔG — more negative = tighter binding = more potent drug. This is the basis of binding energy calculations in Projects 3, 4, and 5.
+                </aside>
+            </section>
+
+            <!-- Slide 6 -->
+            <section>
+                <h2 style="font-size: 1.4em;">Rosetta's scoring function</h2>
+                <div class="highlight-box" style="font-size: 0.7em; text-align: center; margin-bottom: 15px;">
+                    "Rosetta adds up all non-covalent interactions across every atom in the protein and produces a single number representing overall stability."
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Component</th>
+                            <th>What it measures</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>fa_atr</code></td><td>Attractive van der Waals forces between atom pairs</td></tr>
+                        <tr><td><code>fa_rep</code></td><td>Repulsive forces when atoms are too close (clashes)</td></tr>
+                        <tr><td><code>hbond_sc</code></td><td>Hydrogen bonds between side chains</td></tr>
+                        <tr><td><code>fa_elec</code></td><td>Electrostatic interactions between charged residues</td></tr>
+                        <tr><td><code>fa_sol</code></td><td>Solvation — how much each residue interacts with water</td></tr>
+                    </tbody>
+                </table>
+
+                <p style="font-size: 0.7em; margin-top: 12px; font-style: italic; color: #7f8c8d;">
+                    You do not need to memorise these terms — just the concept that the score is a sum of many physical contributions.
+                </p>
+                <aside class="notes">
+                    Analogy: "Think of the scoring function as a building inspector who visits every room, every wall, every joint in a structure. A well-built protein (good non-covalent contacts, no clashes, good hydrogen bond network) gets a low total score. A poorly built protein gets a high score."
+                    The get_fa_scorefxn() function = 'full atom scoring function' — examines every single atom, not just a simplified backbone.
+                </aside>
+            </section>
+
+            <!-- Slide 7 -->
+            <section>
+                <h2 style="font-size: 1.5em;">REU — the unit in every project</h2>
+
+                <div class="highlight-box" style="font-size: 0.8em; text-align: center; font-weight: bold; margin-bottom: 20px;">
+                    Lower REU = more stable protein &nbsp; </br> &nbsp; More negative = better
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Protein size</th>
+                            <th>Typical Rosetta score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Small (~100 residues, e.g. Lysozyme)</td><td>−1,000 to −2,000 REU</td></tr>
+                        <tr><td>Medium (~300 residues)</td><td>−3,000 to −6,000 REU</td></tr>
+                        <tr><td>Large (~500+ residues)</td><td>−8,000 REU and below</td></tr>
+                    </tbody>
+                </table>
+
+                <div class="highlight-box" style="border-left-color: #f39c12; font-size: 0.7em; margin-top: 15px;">
+                    <strong>Connect to Project 1:</strong> When you run Cell 3, you will see a number like −1,742.38 REU. That single number is the sum of every van der Waals contact, every hydrogen bond, every electrostatic interaction in Lysozyme.
+                </div>
+                <aside class="notes">
+                    "REU instead of kJ/mol is an honest reminder that these are computational estimates, not measured thermodynamic quantities."
+                    Why raw scores are hard to compare: a big protein has a lower score simply because it has more atoms — this is why we normalise in Project 2.
+                </aside>
+            </section>
+
+            <!-- Slide 8 -->
+            <section>
+                <h2 style="font-size: 1.5em;">Score per residue: </br>making fair comparisons</h2>
+                <p style="font-size: 0.7em; margin-bottom: 10px;"><strong>The problem:</strong> a larger protein always has a more negative raw score — simply because it has more atoms.</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Structure</th>
+                            <th>Raw score</th>
+                            <th>Residues</th>
+                            <th>Score per residue</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Lysozyme (1LYZ)</td>
+                            <td>−1,800 REU</td>
+                            <td>129</td>
+                            <td><strong>−13.95</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Lysozyme variant (2LZT)</td>
+                            <td>−2,400 REU</td>
+                            <td>200</td>
+                            <td><strong>−12.00</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="highlight-box" style="font-size: 0.72em; margin-top: 15px;">
+                    2LZT looks better by raw score — but per residue it is actually weaker. <strong>Normalisation tells the true story.</strong>
+                </div>
+
+                <p style="font-size: 0.7em; color: #7f8c8d; margin-top: 10px;">
+                    <strong>Connect to Project 2:</strong> You will download five Lysozyme structures and rank them by score per residue. This normalisation step is what makes the comparison valid.
+                </p>
+                <aside class="notes">
+                    In-class activity: give students 3 rows of data (name, raw score, residue count) and ask them to calculate score per residue and rank. Takes 3 minutes, requires only division, directly prepares them for Project 2.
+                </aside>
+            </section>
+
+            <!-- Slide 9 -->
+            <section>
+                <h2 style="font-size: 1.4em;"> Every measurement needs a reference point</h2>
+                <p style="font-size: 0.6em; margin-bottom: 15px;">A <strong>baseline</strong> is the original, unmodified measurement that all results are compared against — the same idea as a control group in an experiment.</p>
+
+                <div class="highlight-box" style="font-size: 0.6em; margin-bottom: 15px;">
+                    <strong>In Project 1 — before mutating any amino acid:</strong><br><br>
+                    <code>original_score = scorefxn(pose)</code> &nbsp;← the baseline<br><br>
+                    <code>difference = mutant_score − original_score</code><br><br>
+                    <span class="badge-red">Positive difference</span> → mutation made the protein <strong>less stable</strong> (destabilising)<br><br>
+                    <span class="badge-green">Negative difference</span> → mutation made the protein <strong>more stable</strong> (stabilising)
+                </div>
+
+                <div class="highlight-box" style="border-left-color: #f39c12; font-size: 0.48em;">
+                    <strong>Analogy:</strong> Measuring your running speed after changing shoes only means something if you know your original time. The original time is your baseline. The difference tells you whether the new shoes helped or hurt.
+                </div>
+                <aside class="notes">
+                    Concrete example: "Suppose original Lysozyme scores −1,742 REU. We mutate position 50 and the mutant scores −1,698 REU. Difference = +44 REU — positive, meaning this mutation destabilised the protein. Without the baseline, −1,698 means nothing."
+                </aside>
+            </section>
+
+
+            <!-- Slide 10 -->
+            <section>
+                <h2 style="font-size: 1.3em;">Project 1 in one picture</h2>
+                <div style="transform: scale(0.8); transform-origin: top center;">
+                    <div class="flow-row">
+                        <div class="flow-step">Load Lysozyme (1LYZ)</div>
+                        <div class="flow-arrow">↓</div>
+                    </div>
+                <div class="flow-row">
+                    <div class="flow-step">Score with <code>get_fa_scorefxn()</code></div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-step" style="background:#d5f5e3;">Original score (baseline)</div>
+                </div>
+                <div class="flow-row"><div class="flow-arrow">↓</div></div>
+                    <div class="flow-row">
+                         <div class="flow-step">Clone protein → Mutate one residue to Alanine</div>
+                    </div>
+                <div class="flow-row"><div class="flow-arrow">↓</div></div>
+                <div class="flow-row">
+                    <div class="flow-step">Score the mutant → Calculate difference</div>
+                </div>
+                <div class="flow-row"><div class="flow-arrow">↓</div></div>
+                <div class="flow-row">
+                    <div class="flow-step" style="background:#fadbd8;">Positive → Destabilising</div>
+                    <div class="flow-arrow">&nbsp;|&nbsp;</div>
+                    <div class="flow-step" style="background:#d5f5e3;">Negative → Stabilising</div>
+                </div>
+                <div class="flow-row"><div class="flow-arrow">↓</div></div>
+                <div class="flow-row">
+                    <div class="flow-step">Repeat for 7 positions → Plot bar chart</div>
+                </div>
+                </div>
+                <aside class="notes">
+                "Red bars = destabilising mutations (the protein needs that amino acid). Green bars = stabilising (removing it actually helps). Bar height = importance of that position."
+                Preview Project 2: "In Project 2 you apply the same scoring logic — but instead of mutating one protein, you download five structures of the same protein and compare scores."
+                </aside>
+            </section>
+
+            <!-- Slide 11 -->
+            <section>
+                <h2>Summary &amp; Preparation</h2>
+                <ul style="font-size: 0.75em; margin-bottom: 25px;">
+                    <li>Proteins are stable because the <strong>folded state has lower free energy</strong> than the unfolded state.</li>
+                    <li>Four non-covalent forces hold proteins together: <strong>van der Waals, hydrogen bonds, electrostatics, and the hydrophobic effect.</strong></li>
+                    <li><strong>ΔG &lt; 0</strong> means a process is favourable — both protein folding and drug binding have negative ΔG.</li>
+                    <li>The <strong>Rosetta scoring function</strong> sums all non-covalent interactions across every atom to produce a single stability score in REU.</li>
+                    <li><strong>Lower REU = more stable</strong> — more negative is always better in Rosetta.</li>
+                    <li>Dividing by residue count gives a <strong>normalised score</strong> that allows fair comparisons between proteins of different sizes.</li>
+                </ul>
+
+                <div class="highlight-box" style="border-left-color: #f39c12; font-size: 0.60em;">
+                    <strong>Preparation for Lecture 3:</strong><br>
+                    "Ibuprofen is a non-polar molecule with a large hydrophobic region. The COX-2 binding site is also largely hydrophobic. Why does this chemical match matter? What would happen if you tried to fit a highly charged, polar drug into a hydrophobic pocket?"
+                </div>
+
+                <aside class="notes">
+                    Exit ticket: "What is REU, and why do we divide Rosetta scores by residue count before comparing two structures?" Have students write one sentence each before leaving.
+                </aside>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- Reveal.js JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/notes/notes.min.js"></script>
+    <script>
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            center: true,
+            hash: false,
+            history: false,
+            transition: 'slide',
+            plugins: [ RevealNotes ]
+        });
+    </script>
+</body>
+</html>

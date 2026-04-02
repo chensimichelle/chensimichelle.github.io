@@ -1,0 +1,30 @@
+<svg width="800" height="420" viewBox="0 0 680 420" xmlns="http://www.w3.org/2000/svg">
+<rect width="680" height="420" fill="#0d2218" rx="8"/>
+<rect x="40" y="28" width="56" height="26" rx="4" fill="#16a34a"/>
+<text x="68" y="46" text-anchor="middle" font-family="monospace" font-weight="500" font-size="13" fill="white">.gro</text>
+<text x="40" y="100" font-family="sans-serif" font-weight="500" font-size="26" fill="#dcfce7">GROMACS coordinate</text>
+<text x="40" y="124" font-family="sans-serif" font-size="14" fill="rgba(255,255,255,0.5)">Plain text · atom positions + velocities · box vectors</text>
+<rect x="40" y="148" width="600" height="1" fill="rgba(255,255,255,0.08)"/>
+<text x="40" y="175" font-family="sans-serif" font-size="10" fill="rgba(255,255,255,0.3)">line 1 — title       line 2 — atom count       lines 3+ — atoms       last line — box vectors</text>
+<rect x="40" y="184" width="600" height="22" rx="3" fill="#14532d"/>
+<text x="52" y="200" font-family="monospace" font-weight="500" font-size="12" fill="#86efac">COX-2 in water, t= 0.00000</text>
+<rect x="40" y="208" width="600" height="22" fill="#0f3d22"/>
+<text x="52" y="224" font-family="monospace" font-weight="500" font-size="12" fill="rgba(255,255,255,0.5)">  43821</text>
+<text x="200" y="224" font-family="sans-serif" font-size="11" fill="rgba(255,255,255,0.3)">total number of atoms</text>
+<rect x="40" y="230" width="600" height="1" fill="rgba(255,255,255,0.08)"/>
+<text x="40" y="248" font-family="monospace" font-weight="500" font-size="11" fill="rgba(255,255,255,0.3)">  resNr resName  atomName  atomNr       x        y        z       vx       vy       vz</text>
+<rect x="40" y="254" width="600" height="22" fill="#14532d"/>
+<text x="52" y="270" font-family="monospace" font-size="12" fill="rgba(255,255,255,0.9)">    <tspan fill="#4ade80">1</tspan><tspan fill="rgba(255,255,255,0.6)">SER     </tspan><tspan fill="#86efac">N</tspan><tspan fill="rgba(255,255,255,0.6)">         1   </tspan><tspan fill="#67e8f9">3.244   6.827   5.743</tspan><tspan fill="rgba(255,255,255,0.4)">  0.2341 -0.1205  0.3891</tspan></text>
+<rect x="40" y="276" width="600" height="22" fill="#0f3d22"/>
+<text x="52" y="292" font-family="monospace" font-size="12" fill="rgba(255,255,255,0.9)">    <tspan fill="#4ade80">1</tspan><tspan fill="rgba(255,255,255,0.6)">SER     </tspan><tspan fill="#86efac">CA</tspan><tspan fill="rgba(255,255,255,0.6)">        2   </tspan><tspan fill="#67e8f9">3.109   6.782   5.709</tspan><tspan fill="rgba(255,255,255,0.4)">  0.1823  0.0941 -0.2314</tspan></text>
+<rect x="40" y="298" width="600" height="22" fill="#14532d"/>
+<text x="52" y="314" font-family="monospace" font-size="12" fill="rgba(255,255,255,0.9)">    <tspan fill="#4ade80">1</tspan><tspan fill="rgba(255,255,255,0.6)">SER     </tspan><tspan fill="#86efac">C</tspan><tspan fill="rgba(255,255,255,0.6)">         3   </tspan><tspan fill="#67e8f9">3.069   6.657   5.784</tspan><tspan fill="rgba(255,255,255,0.4)">  0.3012 -0.0823  0.1567</tspan></text>
+<rect x="40" y="320" width="600" height="22" fill="#0f3d22"/>
+<text x="52" y="336" font-family="monospace" font-size="12" fill="rgba(255,255,255,0.3)"> 43820SOL     OW    43820  ...</text>
+<rect x="40" y="342" width="600" height="22" fill="#14532d"/>
+<text x="52" y="358" font-family="monospace" font-size="12" fill="rgba(255,255,255,0.3)"> 43821SOL     HW1   43821  ...</text>
+<rect x="40" y="366" width="600" height="22" rx="3" fill="#052e16"/>
+<text x="52" y="382" font-family="monospace" font-weight="500" font-size="12" fill="#4ade80">  12.34560  12.34560  12.34560</text>
+<text x="380" y="382" font-family="sans-serif" font-size="11" fill="rgba(255,255,255,0.35)">simulation box vectors (nm)</text>
+<text x="640" y="406" text-anchor="end" font-family="sans-serif" font-size="11" fill="rgba(255,255,255,0.2)">coordinates in nm · velocities in nm/ps</text>
+</svg>

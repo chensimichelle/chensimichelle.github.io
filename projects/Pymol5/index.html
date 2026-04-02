@@ -1,0 +1,150 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> PyMOL Project E — Visualising Docking Results | Michelle's Blog </title> <meta name="author" content="Michelle Chen"> <meta name="description" content="PyMOL — Bringing Your PyRosetta Results to Life"> <meta name="keywords" content="jekyll, jekyll-theme, academic-website, portfolio-website"> <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; media-src 'self' https:; frame-src 'self' https:; connect-src 'self' https:;"> <link rel="stylesheet" href="/assets/css/bootstrap.min.css?v=a4b3f509e79c54a512b890d73235ef04"> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/css/mdb.min.css" integrity="sha256-jpjYvU3G3N6nrrBwXJoVEYI/0zw8htfFnhT9ljN3JJw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="/assets/css/academicons.min.css?v=f0b7046b84e425c55f3463ac249818f5"> <link defer rel="stylesheet" href="/assets/css/scholar-icons.css?v=62b2ac103a88034e6882a5be5f3e2772"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?v=591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%E2%9A%9B%EF%B8%8F&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?v=d41d8cd98f00b204e9800998ecf8427e"> <link rel="canonical" href="https://chensimichelle.github.io/projects/Pymol5/"> <script src="/assets/js/theme.js?v=5fea5159b787642c1bbc1f334d60f883"></script> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?v=5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark"> <script>
+    initTheme();
+  </script> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> Michelle's Blog </a> <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse text-right" id="navbarNav"> <ul class="navbar-nav ml-auto flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">about </a> </li> <li class="nav-item "> <a class="nav-link" href="/blog/">blog </a> </li> <li class="nav-item "> <a class="nav-link" href="/publications/">publications </a> </li> <li class="nav-item active"> <a class="nav-link" href="/projects/">projects <span class="sr-only">(current)</span> </a> </li> <li class="nav-item "> <a class="nav-link" href="/cv/">CV </a> </li> <li class="nav-item "> <a class="nav-link" href="/teaching/">teaching </a> </li> <li class="nav-item dropdown "> <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">submenus </a> <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown"> <a class="dropdown-item " href="/books/">bookshelf</a> <div class="dropdown-divider"></div> </div> </li> <li class="nav-item"> <button id="search-toggle" title="Search" onclick="openSearchModal()"> <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span> </button> </li> <li class="toggle-container"> <button id="light-toggle" title="Change theme"> <i class="fa-half-sun-moon" id="light-toggle-system"></i> <i class="fa-solid fa-moon" id="light-toggle-dark"></i> <i class="fa-solid fa-sun" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">PyMOL Project E — Visualising Docking Results</h1> <p class="post-description">PyMOL — Bringing Your PyRosetta Results to Life</p> </header> <article> <h2 id="what-you-will-learn">What You Will Learn</h2> <ul> <li>How to visualise the docking results you calculated in PyRosetta</li> <li>How to create a professional comparison of all three drugs in the binding pocket</li> <li>How to use colour and labelling to communicate scientific results visually</li> <li>How to make a publication-quality figure that tells the full story of your drug comparison</li> <li>How to connect computational scores to structural observations</li> </ul> <table> <tbody> <tr> <td> <strong>Time:</strong> ~40 minutes  </td> <td>  <strong>Prerequisite:</strong> PyMOL Projects A–D and PyRosetta Projects 1–2  </td> <td>  <strong>Difficulty:</strong> Intermediate</td> </tr> </tbody> </table> <hr> <h2 id="background-connecting-numbers-to-structures">Background: Connecting Numbers to Structures</h2> <p>In the PyRosetta projects, you calculated binding energy scores for three COX-2 inhibitors and ranked them. But a table of numbers alone does not tell the full scientific story. The most powerful way to communicate a result is to combine the quantitative data (the scores) with a visual explanation (the structure) — showing <em>why</em> the numbers are what they are.</p> <p>This is exactly what professional scientists do in published papers. Every paper that reports a binding energy also shows a figure of the drug sitting in the binding pocket — because seeing the structure helps readers understand the numbers.</p> <p>In this final PyMOL project, you will create a <strong>complete visual summary</strong> of your docking results — one that could go directly into a scientific poster or paper.</p> <blockquote> <p><strong>Analogy:</strong> If PyRosetta is the measuring tape that tells you how well each key fits the lock, then PyMOL is the photograph that shows <em>why</em> the best key fits better. Both are needed to tell the complete story.</p> </blockquote> <hr> <h2 id="your-results-from-pyrosetta-project-2">Your Results From PyRosetta Project 2</h2> <p>Recall the binding energies you calculated:</p> <table> <thead> <tr> <th>Rank</th> <th>Drug</th> <th>Binding Energy (REU)</th> <th>Brand Name</th> </tr> </thead> <tbody> <tr> <td>1</td> <td>Ibuprofen</td> <td>−26.94</td> <td>Advil</td> </tr> <tr> <td>2</td> <td>Celecoxib</td> <td>−20.84</td> <td>Celebrex</td> </tr> <tr> <td>3</td> <td>Meloxicam</td> <td>−15.03</td> <td>Mobic</td> </tr> </tbody> </table> <p>In this project we will build a visual explanation for these rankings.</p> <hr> <h2 id="step-by-step-instructions">Step-by-Step Instructions</h2> <h3 id="step-1--load-and-align-all-three-structures">Step 1 — Load and Align All Three Structures</h3> <p>Start with a clean session and load all three structures:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>reinitialize
+fetch 4PH9, ibuprofen
+fetch 3LN1, celecoxib
+fetch 4M11, meloxicam
+hide everything
+align celecoxib, ibuprofen
+align meloxicam, ibuprofen
+</code></pre></div></div> <p><code class="language-plaintext highlighter-rouge">reinitialize</code> clears everything from any previous PyMOL session so you start completely fresh.</p> <hr> <h3 id="step-2--set-up-a-clean-publication-ready-display">Step 2 — Set Up a Clean, Publication-Ready Display</h3> <p>Set the background and visual style:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bg_color white
+set cartoon_transparency, 0.0
+set stick_radius, 0.15
+set sphere_scale, 0.25
+</code></pre></div></div> <p>Display all three protein backbones in neutral grey — we want the drugs to be the visual focus, not the protein:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>show cartoon, ibuprofen
+show cartoon, celecoxib
+show cartoon, meloxicam
+color grey85, ibuprofen
+color grey85, celecoxib
+color grey85, meloxicam
+</code></pre></div></div> <p><strong>Key Concepts:</strong></p> <ul> <li> <strong><code class="language-plaintext highlighter-rouge">reinitialize</code>:</strong> Clears all objects, selections, and settings from the current PyMOL session.</li> <li> <strong><code class="language-plaintext highlighter-rouge">stick_radius</code>:</strong> Controls how thick the sticks are in the sticks representation.</li> <li> <strong>Grey protein:</strong> In publication figures, the protein is usually displayed in a muted colour so that the drug (in a bright colour) immediately draws the eye.</li> </ul> <hr> <h3 id="step-3--display-the-three-drugs-with-ranking-colours">Step 3 — Display the Three Drugs with Ranking Colours</h3> <p>Colour the drugs using a traffic-light scheme that immediately communicates ranking:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>select ibp, ibuprofen and resn IBP
+select cel, celecoxib and resn CEL
+select mxm, meloxicam and resn MXM
+
+show sticks, ibp
+show sticks, cel
+show sticks, mxm
+
+color green, ibp
+color orange, cel
+color red, mxm
+</code></pre></div></div> <ul> <li> <strong>Green</strong> = Rank 1, best binder (Ibuprofen, −26.94 REU)</li> <li> <strong>Orange</strong> = Rank 2 (Celecoxib, −20.84 REU)</li> <li> <strong>Red</strong> = Rank 3, weakest binder (Meloxicam, −15.03 REU)</li> </ul> <p>This colour scheme is immediately intuitive — green is good, red is weaker — and helps viewers understand the ranking at a glance before reading any text.</p> <hr> <h3 id="step-4--add-binding-energy-labels">Step 4 — Add Binding Energy Labels</h3> <p>PyMOL allows you to add custom text labels to specific atoms. We will label each drug with its binding energy:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pseudoatom label_ibp, pos=[-10, 20, 5]
+pseudoatom label_cel, pos=[-10, 15, 5]
+pseudoatom label_mxm, pos=[-10, 10, 5]
+
+label label_ibp, "Ibuprofen: -26.94 REU (#1)"
+label label_cel, "Celecoxib: -20.84 REU (#2)"
+label label_mxm, "Meloxicam: -15.03 REU (#3)"
+
+set label_size, 16
+set label_color, black
+</code></pre></div></div> <blockquote> <p><strong>Note:</strong> The <code class="language-plaintext highlighter-rouge">pos=</code> coordinates may need adjusting depending on your view angle. Use <code class="language-plaintext highlighter-rouge">pseudoatom label_ibp, selection=ibp</code> to place the label at the drug’s centre of mass instead.</p> </blockquote> <p>Alternatively, a cleaner approach for figures is to add labels in an image editing program (like PowerPoint or Keynote) after saving the raw PyMOL image.</p> <p><strong>Key Concepts:</strong></p> <ul> <li> <strong><code class="language-plaintext highlighter-rouge">pseudoatom</code>:</strong> A fake atom placed at a specific 3D coordinate — used purely to anchor a text label.</li> <li> <strong>Label placement:</strong> Good figure design places labels where they do not obscure the important structural features.</li> </ul> <hr> <h3 id="step-5--show-the-binding-pocket-surface">Step 5 — Show the Binding Pocket Surface</h3> <p>Display the molecular surface of the binding pocket around Ibuprofen (our reference structure) to provide context:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>select pocket_ref, byres (ibp expand 6)
+show surface, pocket_ref
+set transparency, 0.55
+color grey60, pocket_ref
+</code></pre></div></div> <p>The semi-transparent surface lets you see all three drugs inside the pocket simultaneously. This creates a powerful image: three coloured molecules of different sizes and shapes, all inside the same grey cavity.</p> <p>Zoom to the pocket:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>zoom ibp, 12
+</code></pre></div></div> <p>The number <code class="language-plaintext highlighter-rouge">12</code> controls the zoom distance — larger numbers zoom out more, showing more context.</p> <hr> <h3 id="step-6--highlight-the-key-interactions">Step 6 — Highlight the Key Interactions</h3> <p>For the best-binding drug (Ibuprofen, green), display its hydrogen bonds to show <em>why</em> it scores best:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>select pocket_ibp, byres (ibp expand 5)
+distance hb_ibp, ibp, pocket_ibp, mode=2
+color green, hb_ibp
+set dash_width, 3
+set dash_gap, 0.5
+</code></pre></div></div> <p>Now do the same for the weakest binder (Meloxicam, red):</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>select pocket_mxm, byres (mxm expand 5)
+distance hb_mxm, mxm, pocket_mxm, mode=2
+color red, hb_mxm
+</code></pre></div></div> <p>Count the green dashes (Ibuprofen H-bonds) and the red dashes (Meloxicam H-bonds). The drug with more hydrogen bonds generally has a more negative binding energy — your counts should reflect the ranking you calculated.</p> <p><strong>Key Concepts:</strong></p> <ul> <li> <strong><code class="language-plaintext highlighter-rouge">dash_width</code>:</strong> Controls the thickness of dashed lines used for distances and hydrogen bonds.</li> <li> <strong><code class="language-plaintext highlighter-rouge">dash_gap</code>:</strong> Controls the spacing between dashes.</li> <li> <strong>Structural explanation:</strong> When your visual hydrogen bond count matches your computational energy ranking, it validates both the structure and the calculation — they are telling the same story from two different angles.</li> </ul> <hr> <h3 id="step-7--create-three-individual-panel-figures">Step 7 — Create Three Individual Panel Figures</h3> <p>Professional papers often show one panel per drug rather than all three overlaid. Create a separate high-quality image for each drug:</p> <p><strong>Panel 1 — Ibuprofen (Best binder):</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hide sticks, cel
+hide sticks, mxm
+hide everything, hb_mxm
+zoom ibp, 10
+set_view (orient ibp)
+ray 1200, 900
+png panel_ibuprofen_rank1.png
+</code></pre></div></div> <p><strong>Panel 2 — Celecoxib:</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hide sticks, ibp
+hide sticks, mxm
+show sticks, cel
+zoom cel, 10
+ray 1200, 900
+png panel_celecoxib_rank2.png
+</code></pre></div></div> <p><strong>Panel 3 — Meloxicam (Weakest binder):</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hide sticks, cel
+show sticks, mxm
+zoom mxm, 10
+ray 1200, 900
+png panel_meloxicam_rank3.png
+</code></pre></div></div> <p><strong>Combined overview (all three):</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>show sticks, ibp
+show sticks, cel
+show sticks, mxm
+zoom ibp, 15
+ray 1600, 1000
+png combined_all_drugs.png
+</code></pre></div></div> <hr> <h3 id="step-8--build-your-final-results-figure">Step 8 — Build Your Final Results Figure</h3> <p>Create the definitive summary figure — this is the one you would put on a poster or in a report:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>reinitialize
+fetch 4PH9, ibuprofen
+fetch 3LN1, celecoxib
+fetch 4M11, meloxicam
+hide everything
+align celecoxib, ibuprofen
+align meloxicam, ibuprofen
+bg_color white
+show cartoon, ibuprofen
+color grey85, ibuprofen
+select ibp, ibuprofen and resn IBP
+select cel, celecoxib and resn CEL
+select mxm, meloxicam and resn MXM
+show sticks, ibp
+show sticks, cel
+show sticks, mxm
+color green, ibp
+color orange, cel
+color red, mxm
+select pocket_ref, byres (ibp expand 6)
+show surface, pocket_ref
+set transparency, 0.5
+color grey60, pocket_ref
+select pocket_ibp, byres (ibp expand 5)
+distance hb_ibp, ibp, pocket_ibp, mode=2
+color green, hb_ibp
+zoom ibp, 12
+ray 1800, 1200
+png FINAL_docking_results.png
+save FINAL_session.pse
+</code></pre></div></div> <hr> <h2 id="interpreting-your-complete-results">Interpreting Your Complete Results</h2> <p>Now that you have both the numbers (PyRosetta) and the visual (PyMOL), you can write a complete scientific interpretation. A strong interpretation addresses all of these points:</p> <p><strong>1. Ranking:</strong> Which drug scored best and by how much?</p> <p><strong>2. Structural reason:</strong> Looking at the pocket, why does the top-ranked drug score better? Is it:</p> <ul> <li>More hydrogen bonds?</li> <li>Better shape complementarity (fills the pocket more completely)?</li> <li>Larger contact surface area?</li> </ul> <p><strong>3. Limitations:</strong> What can our method NOT tell us?</p> <ul> <li>We used structures from different crystal forms (slightly different protein conformations)</li> <li>We did not account for how the drug gets into the body (absorption, metabolism)</li> <li>We did not test toxicity or side effects</li> </ul> <p><strong>4. Real-world context:</strong> Do our computational rankings match clinical reality? (All three drugs are approved and effective — the differences in binding energy explain differences in potency, not efficacy)</p> <hr> <h2 id="full-command-summary">Full Command Summary</h2> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>reinitialize
+fetch 4PH9, ibuprofen
+fetch 3LN1, celecoxib
+fetch 4M11, meloxicam
+hide everything
+align celecoxib, ibuprofen
+align meloxicam, ibuprofen
+bg_color white
+show cartoon, ibuprofen
+color grey85, ibuprofen
+select ibp, ibuprofen and resn IBP
+select cel, celecoxib and resn CEL
+select mxm, meloxicam and resn MXM
+show sticks, ibp
+show sticks, cel
+show sticks, mxm
+color green, ibp
+color orange, cel
+color red, mxm
+select pocket_ibp, byres (ibp expand 5)
+distance hb_ibp, ibp, pocket_ibp, mode=2
+color green, hb_ibp
+select pocket_ref, byres (ibp expand 6)
+show surface, pocket_ref
+set transparency, 0.5
+color grey60, pocket_ref
+zoom ibp, 12
+ray 1800, 1200
+png FINAL_docking_results.png
+save FINAL_session.pse
+</code></pre></div></div> <hr> <h2 id="discussion-questions">Discussion Questions</h2> <p><strong>1.</strong> Did the number of hydrogen bonds you counted in PyMOL match the energy ranking from PyRosetta? If not, what other factors might explain the discrepancy?</p> <p><strong>2.</strong> You used three different crystal structures (4PH9, 3LN1, 4M11) — each with slightly different protein conformations. How might this affect the fairness of the energy comparison? How could you design a fairer experiment?</p> <p><strong>3.</strong> Ibuprofen ranked #1 in binding energy, yet it is sold over the counter while Celecoxib (#2) requires a prescription. What factors other than binding energy must determine a drug’s prescription status?</p> <p><strong>4.</strong> Looking at your final figure, does the visual impression of the binding match the numerical ranking? Can you explain to someone who has not done this project why Ibuprofen scores better than Meloxicam — using only the PyMOL image?</p> <p><strong>5.</strong> You have now completed the full workflow: visualise (PyMOL A–E) → measure stability (PyRosetta 1) → calculate docking (PyRosetta 2). How did each step build on the previous one? Which step gave you the most scientific insight, and why?</p> <hr> <h2 id="the-complete-learning-journey">The Complete Learning Journey</h2> <p>You have now completed a full computational drug design workflow used by real pharmaceutical researchers:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PyMOL A          PyMOL B          PyMOL C
+See protein  →   Find pocket  →   Compare drugs
+   ↓                                    ↓
+PyMOL D                          PyMOL E
+Understand     ←————————————    Visualise results
+mutations                             ↑
+                                      |
+                    PyRosetta 1 → PyRosetta 2
+                    Measure         Calculate
+                    stability       docking
+</code></pre></div></div> <p>Every arrow in this diagram represents something you have done yourself — not just read about, but actually performed using the same tools that professional structural biologists and medicinal chemists use every day.</p> <hr> <h2 id="key-vocabulary">Key Vocabulary</h2> <table> <thead> <tr> <th>Term</th> <th>Definition</th> </tr> </thead> <tbody> <tr> <td><strong><code class="language-plaintext highlighter-rouge">reinitialize</code></strong></td> <td>Clears all objects and settings from PyMOL — starts completely fresh</td> </tr> <tr> <td><strong><code class="language-plaintext highlighter-rouge">pseudoatom</code></strong></td> <td>A fake atom placed at a 3D coordinate, used to anchor text labels</td> </tr> <tr> <td><strong>Traffic-light colouring</strong></td> <td>Using green/orange/red to visually communicate ranking (best/middle/worst)</td> </tr> <tr> <td><strong>Publication figure</strong></td> <td>A figure formatted and polished enough to appear in a scientific journal or poster</td> </tr> <tr> <td><strong>Structural validation</strong></td> <td>Confirming that a computational result makes structural sense when visualised</td> </tr> <tr> <td><strong>Shape complementarity</strong></td> <td>How well a drug fills the pocket — measured visually or computationally</td> </tr> <tr> <td><strong>Lead compound</strong></td> <td>The best-performing drug candidate from a screening study — the starting point for further optimisation</td> </tr> <tr> <td><strong>Multi-panel figure</strong></td> <td>A scientific figure with multiple sub-images (panels) showing different aspects of the same result</td> </tr> <tr> <td><strong>Binding affinity</strong></td> <td>How strongly a drug binds its target. Related to but not identical to binding energy</td> </tr> <tr> <td><strong>Drug discovery pipeline</strong></td> <td>The full sequence of steps from identifying a target protein to an approved medicine — computational docking is an early step</td> </tr> </tbody> </table> </article> </div> </div> <footer class="fixed-bottom" role="contentinfo"> <div class="container mt-0"> © Copyright 2026 Michelle Chen. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener">GitHub Pages</a>. Photos from <a href="https://unsplash.com" target="_blank" rel="external nofollow noopener">Unsplash</a>. </div> </footer> <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> <script src="/assets/js/bootstrap.bundle.min.js"></script> <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/js/mdb.min.js" integrity="sha256-NdbiivsvWt7VYCt6hYNT3h/th9vSTL4EDWeGs5SN3DA=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script> <script defer src="/assets/js/masonry.js?v=a0db7e5d5c70cc3252b3138b0c91dcaf" type="text/javascript"></script> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script> <script defer src="/assets/js/zoom.js?v=85ddb88934d28b74e78031fd54cf8308"></script> <script src="/assets/js/no_defer.js?v=2781658a0a2b13ed609542042a859126"></script> <script defer src="/assets/js/common.js?v=c15de51d4bb57887caa2c21988d97279"></script> <script defer src="/assets/js/copy_code.js?v=c8a01c11a92744d44b093fc3bda915df" type="text/javascript"></script> <script defer src="/assets/js/jupyter_new_tab.js?v=d9f17b6adc2311cbabd747f4538bb15f"></script> <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script> <script src="/assets/js/mathjax-setup.js?v=a5bb4e6a542c546dd929b24b8b236dfd"></script> <script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6" crossorigin="anonymous"></script> <script defer src="/assets/js/progress-bar.js?v=2f30e0e6801ea8f5036fa66e1ab0a71a" type="text/javascript"></script> <script src="/assets/js/vanilla-back-to-top.min.js?v=f40d453793ff4f64e238e420181a1d17"></script> <script>
+    addBackToTop();
+  </script> <script type="module" src="/assets/js/search/ninja-keys.min.js?v=a3446f084dcaecc5f75aa1757d087dcf"></script> <ninja-keys hidebreadcrumbs noautoloadmdicons placeholder="Type to start searching"></ninja-keys> <script src="/assets/js/search-setup.js?v=6c304f7b1992d4b60f7a07956e52f04a"></script> <script src="/assets/js/search-data.js"></script> <script src="/assets/js/shortcut-key.js?v=ccc841c459bfc0e64c1c2b5acd10df02"></script> </body> </html>

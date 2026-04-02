@@ -1,0 +1,22 @@
+<svg width="800" height="420" viewBox="0 0 680 420" xmlns="http://www.w3.org/2000/svg">
+<rect width="680" height="420" fill="#130a1e" rx="8"/>
+<rect x="40" y="28" width="56" height="26" rx="4" fill="#db2777"/>
+<text x="68" y="46" text-anchor="middle" font-family="monospace" font-weight="500" font-size="13" fill="white">.xtc</text>
+<text x="40" y="100" font-family="sans-serif" font-weight="500" font-size="26" fill="#fce7f3">GROMACS trajectory</text>
+<text x="40" y="124" font-family="sans-serif" font-size="14" fill="rgba(255,255,255,0.5)">Binary · compressed frames · protein motion over time</text>
+<rect x="40" y="148" width="600" height="1" fill="rgba(255,255,255,0.08)"/>
+<text x="40" y="174" font-family="sans-serif" font-size="11" fill="rgba(255,255,255,0.3)">Each frame = one snapshot of all atom positions at time t</text>
+<rect x="40" y="184" width="600" height="56" rx="4" fill="#1e0f2e"/>
+<text x="52" y="204" font-family="monospace" font-weight="500" font-size="12" fill="#f472b6">frame 0</text>
+<text x="52" y="222" font-family="sans-serif" font-size="11" fill="rgba(255,255,255,0.4)">t = 0 ps · 43821 atoms · box 12.3 x 12.3 x 12.3 nm</text>
+<text x="52" y="238" font-family="monospace" font-size="10" fill="rgba(255,255,255,0.2)">4d 00 2b a1 00 00 00 08 00 00 00 03 3f 80 00 00 3c a8 c5 f1 bd cc ...</text>
+<rect x="40" y="248" width="600" height="56" rx="4" fill="#1a0c28"/>
+<text x="52" y="268" font-family="monospace" font-weight="500" font-size="12" fill="#f472b6">frame 1</text>
+<text x="52" y="286" font-family="sans-serif" font-size="11" fill="rgba(255,255,255,0.4)">t = 2 ps · 43821 atoms · delta-coordinates compressed</text>
+<text x="52" y="302" font-family="monospace" font-size="10" fill="rgba(255,255,255,0.2)">3f 19 99 9a 3e cc cc cd 3f 00 00 00 bd cc cc cd 40 a3 d7 0a 3f ...</text>
+<text x="340" y="328" text-anchor="middle" font-family="sans-serif" font-size="12" fill="rgba(255,255,255,0.2)">· · · 50,000 frames · · ·</text>
+<rect x="40" y="342" width="600" height="1" fill="rgba(255,255,255,0.08)"/>
+<text x="40" y="368" font-family="sans-serif" font-weight="500" font-size="13" fill="rgba(255,255,255,0.6)">Cannot be read in a text editor —</text>
+<text x="40" y="390" font-family="sans-serif" font-size="13" fill="rgba(255,255,255,0.4)">use MDAnalysis, GROMACS gmx tools, or VMD to extract data</text>
+<text x="640" y="406" text-anchor="end" font-family="sans-serif" font-size="11" fill="rgba(255,255,255,0.2)">XDR compressed · typically GB-TB in size</text>
+</svg>

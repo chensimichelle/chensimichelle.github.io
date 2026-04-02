@@ -1,0 +1,32 @@
+<svg width="800" height="420" viewBox="0 0 680 420" xmlns="http://www.w3.org/2000/svg">
+<rect width="680" height="420" fill="#1a1a2e" rx="8"/>
+<rect x="40" y="28" width="72" height="26" rx="4" fill="#7c3aed"/>
+<text x="76" y="46" text-anchor="middle" font-family="monospace" font-weight="500" font-size="13" fill="white">.fasta</text>
+<text x="40" y="100" font-family="sans-serif" font-weight="500" font-size="26" fill="#ede9fe">FASTA sequence</text>
+<text x="40" y="124" font-family="sans-serif" font-size="14" fill="rgba(255,255,255,0.5)">Plain text · one sequence per entry · header + residues</text>
+<rect x="40" y="148" width="600" height="1" fill="rgba(255,255,255,0.08)"/>
+<rect x="40" y="164" width="600" height="22" rx="3" fill="#2d1b69"/>
+<text x="52" y="180" font-family="monospace" font-weight="500" font-size="12" fill="#a78bfa">&gt;sp|P35354|PGH2_MOUSE Cyclooxygenase-2 OS=Mus musculus</text>
+<rect x="40" y="190" width="600" height="22" fill="#1e1340"/>
+<text x="52" y="206" font-family="monospace" font-size="12">
+  <tspan fill="#60a5fa">M</tspan><tspan fill="#34d399">S</tspan><tspan fill="#60a5fa">E</tspan><tspan fill="#60a5fa">E</tspan><tspan fill="#34d399">N</tspan><tspan fill="#34d399">K</tspan><tspan fill="#34d399">K</tspan><tspan fill="#60a5fa">K</tspan><tspan fill="#fbbf24">F</tspan><tspan fill="#60a5fa">L</tspan><tspan fill="#fbbf24">F</tspan><tspan fill="#60a5fa">P</tspan><tspan fill="#60a5fa">K</tspan><tspan fill="#60a5fa">P</tspan><tspan fill="#60a5fa">K</tspan><tspan fill="#34d399">K</tspan><tspan fill="#34d399">S</tspan><tspan fill="#34d399">S</tspan><tspan fill="#60a5fa">K</tspan><tspan fill="#34d399">S</tspan><tspan fill="#34d399">S</tspan><tspan fill="#34d399">S</tspan><tspan fill="#60a5fa">A</tspan><tspan fill="#34d399">S</tspan><tspan fill="#34d399">S</tspan><tspan fill="#60a5fa">P</tspan><tspan fill="#34d399">S</tspan><tspan fill="#60a5fa">G</tspan><tspan fill="#60a5fa">L</tspan><tspan fill="#60a5fa">E</tspan><tspan fill="#fbbf24">W</tspan><tspan fill="#60a5fa">M</tspan><tspan fill="#60a5fa">P</tspan><tspan fill="#60a5fa">A</tspan><tspan fill="#60a5fa">L</tspan><tspan fill="#34d399">S</tspan><tspan fill="#60a5fa">G</tspan><tspan fill="#60a5fa">P</tspan><tspan fill="#60a5fa">P</tspan><tspan fill="#60a5fa">G</tspan>
+</text>
+<rect x="40" y="212" width="600" height="22" fill="#231649"/>
+<text x="52" y="228" font-family="monospace" font-size="12">
+  <tspan fill="#f87171">D</tspan><tspan fill="#60a5fa">L</tspan><tspan fill="#60a5fa">P</tspan><tspan fill="#34d399">N</tspan><tspan fill="#fbbf24">F</tspan><tspan fill="#60a5fa">L</tspan><tspan fill="#34d399">S</tspan><tspan fill="#60a5fa">P</tspan><tspan fill="#f87171">E</tspan><tspan fill="#34d399">K</tspan><tspan fill="#34d399">S</tspan><tspan fill="#fbbf24">Y</tspan><tspan fill="#60a5fa">P</tspan><tspan fill="#34d399">K</tspan><tspan fill="#34d399">K</tspan><tspan fill="#34d399">N</tspan><tspan fill="#34d399">N</tspan><tspan fill="#60a5fa">L</tspan><tspan fill="#60a5fa">E</tspan><tspan fill="#34d399">K</tspan><tspan fill="#fbbf24">I</tspan><tspan fill="#60a5fa">G</tspan><tspan fill="#60a5fa">L</tspan><tspan fill="#60a5fa">L</tspan><tspan fill="#34d399">K</tspan><tspan fill="#60a5fa">P</tspan><tspan fill="#60a5fa">A</tspan><tspan fill="#60a5fa">P</tspan><tspan fill="#34d399">K</tspan><tspan fill="#60a5fa">P</tspan><tspan fill="#60a5fa">A</tspan><tspan fill="#60a5fa">Q</tspan><tspan fill="#fbbf24">F</tspan><tspan fill="#60a5fa">F</tspan><tspan fill="#34d399">G</tspan><tspan fill="#34d399">L</tspan><tspan fill="#34d399">M</tspan><tspan fill="#34d399">H</tspan><tspan fill="#34d399">I</tspan><tspan fill="#34d399">I</tspan>
+</text>
+<rect x="40" y="234" width="600" height="22" fill="#1e1340"/>
+<text x="52" y="250" font-family="monospace" font-size="12" fill="rgba(255,255,255,0.35)">NKNTNSSSIENIIDHFINSNKEHKAHFNKGLGVRKSDPHNLNNIMTFKNIAKGHKVNMLN...</text>
+<rect x="40" y="256" width="600" height="22" fill="#231649"/>
+<text x="52" y="272" font-family="monospace" font-size="12" fill="rgba(255,255,255,0.2)">IPSPTSKPKRSALKTTRTNPELYNKLPKFHENTLFHPNASVNLIMKKFPPKKNEPFLMFQ...</text>
+<rect x="40" y="286" width="600" height="1" fill="rgba(255,255,255,0.08)"/>
+<rect x="40" y="302" width="12" height="12" rx="2" fill="#a78bfa"/>
+<text x="60" y="313" font-family="sans-serif" font-size="12" fill="rgba(255,255,255,0.55)">&gt; header line — UniProt ID, protein name, organism</text>
+<rect x="40" y="324" width="12" height="12" rx="2" fill="#60a5fa"/>
+<text x="60" y="335" font-family="sans-serif" font-size="12" fill="rgba(255,255,255,0.55)">nonpolar / hydrophobic residues</text>
+<rect x="40" y="346" width="12" height="12" rx="2" fill="#34d399"/>
+<text x="60" y="357" font-family="sans-serif" font-size="12" fill="rgba(255,255,255,0.55)">polar / charged residues</text>
+<rect x="40" y="368" width="12" height="12" rx="2" fill="#fbbf24"/>
+<text x="60" y="379" font-family="sans-serif" font-size="12" fill="rgba(255,255,255,0.55)">aromatic residues</text>
+<text x="640" y="406" text-anchor="end" font-family="sans-serif" font-size="11" fill="rgba(255,255,255,0.2)">587 residues · COX-2 · Mus musculus</text>
+</svg>
