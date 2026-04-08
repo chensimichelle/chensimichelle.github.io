@@ -2,7 +2,7 @@
 layout: page
 title: PyMOL Project C — Comparing Three Drugs Side by Side
 description: PyMOL — Aligning and Comparing COX-2 Inhibitors Visually
-img: assets/img/PymolCover.jpg
+img: assets/img/PymolCover.png
 importance: 3
 category: pymol
 related_publications: false

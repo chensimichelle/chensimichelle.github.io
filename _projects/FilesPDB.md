@@ -2,7 +2,7 @@
 layout: page
 title: Files — PDB File
 description: Understanding Protein Data Bank Files Before You Visualise Them
-img: assets/img/pdb_cover.SVG
+img: assets/img/pdb_cover.png
 importance: 1
 category: files
 related_publications: false

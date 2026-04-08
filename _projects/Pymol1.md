@@ -2,7 +2,7 @@
 layout: page
 title: PyMOL Project A — Meet Your Protein
 description: PyMOL for Beginners — Loading and Visualising a Real Protein
-img: assets/img/PymolCover.jpg
+img: assets/img/PymolCover.png
 importance: 1
 category: pymol
 related_publications: false

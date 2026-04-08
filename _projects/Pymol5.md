@@ -2,7 +2,7 @@
 layout: page
 title: PyMOL Project E — Visualising Docking Results
 description: PyMOL — Bringing Your PyRosetta Results to Life
-img: assets/img/PymolCover.jpg
+img: assets/img/PymolCover.png
 importance: 5
 category: pymol
 related_publications: false
