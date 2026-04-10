@@ -180,6 +180,11 @@ ninja.data = [{
           description: "A beginner-friendly guide to installing Visual Studio Code and PyMOL on Windows and Mac.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/install_vscode_pymol/";
+            },},{id: "projects-getting-started-with-visual-studio-code",
+          title: 'Getting Started with Visual Studio Code',
+          description: "A beginner&#39;s guide to the VSCode interface, the integrated terminal, and how kernels connect to WSL.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/vscode_intro/";
             },},{id: "teachings-from-protein-to-drug-target",
           title: 'From Protein to Drug Target',
           description: "A lecture series introducing A-level biology students to computational drug design. Students learn the biological and computational foundations before running PyRosetta simulations covering protein stability, docking, binding site analysis, and antibiotic resistance.",
