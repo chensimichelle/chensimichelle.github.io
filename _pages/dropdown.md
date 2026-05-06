@@ -7,5 +7,6 @@ dropdown: true
 children:
   - title: bookshelf
     permalink: /books/
-  - title: divider
+  - title: practical
+    permalink: /practical/
 ---
