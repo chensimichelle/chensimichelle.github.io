@@ -51,6 +51,13 @@ ninja.data = [{
               handler: () => {
                 window.location.href = "/books/";
               },
+            },{id: "dropdown-practical",
+              title: "practical",
+              description: "",
+              section: "Dropdown",
+              handler: () => {
+                window.location.href = "/practical/";
+              },
             },{id: "post-2022-nsaa-chemistry-s2",
         
           title: "2022 NSAA Chemistry S2",
@@ -105,6 +112,16 @@ ninja.data = [{
           description: "A hands-on summer project for high school students — visualise proteins, calculate binding energies, and model antibiotic resistance using real research tools.",
           section: "News",handler: () => {
               window.location.href = "/news/announcement_1/";
+            },},{id: "practical-qualitative-analysis",
+          title: 'Qualitative Analysis',
+          description: "CIE A-Level Chemistry 9701 · Cation, Anion &amp; Gas Tests",
+          section: "Practical",handler: () => {
+              window.location.href = "/practical/qualitative-analysis/";
+            },},{id: "practical-rate-determination-practical",
+          title: 'Rate Determination Practical',
+          description: "CIE A-Level Chemistry 9701 · Thiosulfate Clock Reaction",
+          section: "Practical",handler: () => {
+              window.location.href = "/practical/rate-experiment/";
             },},{id: "projects-files-pdb-file",
           title: 'Files — PDB File',
           description: "Understanding Protein Data Bank Files Before You Visualise Them",
