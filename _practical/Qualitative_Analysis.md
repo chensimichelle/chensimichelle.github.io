@@ -167,7 +167,7 @@ permalink: /practical/qualitative-analysis/
     </div>
   </div>
 
-  <!-- CENTRE: white ppt -->
+<!-- CENTRE: white ppt -->
   <div class="col" style="align-items:center;padding-top:10px;">
     <div style="display:flex;align-items:center;margin-bottom:3px;">
       <div class="hline arr-r" style="width:30px;"></div>
@@ -180,62 +180,67 @@ permalink: /practical/qualitative-analysis/
       <span class="bname">Soluble in excess NaOH?</span>
       <span class="bsub">add more NaOH, observe</span>
     </div>
+
+    <!-- GREEN: unchanged -->
     <div style="display:flex;width:310px;align-items:flex-start;">
-      <!-- YES: Al Pb Zn -->
+
+      <!-- YES branch -->
       <div class="col" style="flex:1;align-items:center;">
         <div class="vline arr" style="height:12px;"></div>
         <span class="alabel" style="color:var(--teal);">yes — soluble</span>
         <div class="box b-teal" style="width:145px;"><span class="bname">Soluble → colourless</span><span class="bsub">Al³⁺, Pb²⁺ or Zn²⁺</span></div>
         <div class="vline arr" style="height:10px;"></div>
         <div class="box b-gray" style="width:145px;"><span class="bname">+ NH₃(aq) excess</span><span class="bsub">ppt dissolve?</span></div>
-        <div style="display:flex;width:145px;">
-          <div class="col" style="flex:1;align-items:center;">
-            <div class="vline arr" style="height:10px;"></div>
-            <span class="alabel" style="color:var(--teal);">yes</span>
-            <div class="box b-teal" style="width:68px;"><span class="bion">Zn²⁺/Al³⁺</span><span class="bsub">sol. in NH₃</span></div>
-            <div class="vline arr" style="height:10px;"></div>
-            <div class="box b-gray" style="width:68px;"><span class="bname">+NaOH excess</span><span class="bsub">dissolve?</span></div>
-            <div style="display:flex;width:68px;">
-              <div class="col" style="flex:1;align-items:center;">
-                <div class="vline arr" style="height:10px;"></div>
-                <span class="alabel" style="color:var(--teal);">yes</span>
-                <div class="box b-teal" style="width:31px;padding:3px 2px;"><span class="bion" style="font-size:9px;">Zn²⁺</span></div>
-              </div>
-              <div class="col" style="flex:1;align-items:center;">
-                <div class="vline arr" style="height:10px;"></div>
-                <span class="alabel" style="color:var(--coral);">no</span>
-                <div class="box b-coral" style="width:31px;padding:3px 2px;"><span class="bion" style="font-size:9px;">Al³⁺</span></div>
-              </div>
+
+        <!-- BLUE BOX -->
+        <div style="position:relative;left:-40px;">
+          <div style="display:flex;width:145px;">
+            <div class="col" style="flex:1;align-items:center;">
+              <div class="vline arr" style="height:10px;"></div>
+              <span class="alabel" style="color:var(--teal);">yes</span>
+              <div class="box b-teal" style="width:68px;"><span class="bion">Zn²⁺</span><span class="bsub">sol. in NH₃</span></div>
+            </div>
+            <div class="col" style="flex:1;align-items:center;">
+              <div class="vline arr" style="height:10px;"></div>
+              <span class="alabel" style="color:var(--coral);">no</span>
+              <div class="box b-coral" style="width:68px;"><span class="bion">Pb²⁺/Al³⁺</span><span class="bsub">insol. in NH₃</span></div>
             </div>
           </div>
-          <div class="col" style="flex:1;align-items:center;">
-            <div class="vline arr" style="height:10px;"></div>
-            <span class="alabel" style="color:var(--coral);">no</span>
-            <div class="box b-coral" style="width:68px;"><span class="bion">Pb²⁺</span><span class="bsub">insol. in NH₃</span></div>
-          </div>
         </div>
+        <!-- END BLUE BOX -->
+
       </div>
-      <!-- NO: Mg Ca -->
+
+      <!-- NO branch -->
       <div class="col" style="flex:1;align-items:center;">
         <div class="vline arr" style="height:12px;"></div>
         <span class="alabel" style="color:var(--coral);">no — insol.</span>
         <div class="box b-coral" style="width:145px;"><span class="bname">Insoluble in excess</span><span class="bsub">Mg²⁺ or Ca²⁺</span></div>
         <div class="vline arr" style="height:10px;"></div>
         <div class="box b-gray" style="width:145px;"><span class="bname">+ NH₃(aq)</span><span class="bsub">ppt form?</span></div>
-        <div style="display:flex;width:145px;">
-          <div class="col" style="flex:1;align-items:center;">
-            <div class="vline arr" style="height:10px;"></div>
-            <span class="alabel" style="color:var(--teal);">white ppt</span>
-            <div class="box b-teal" style="width:68px;"><span class="bion">Mg²⁺</span><span class="bsub">insol. NH₃</span></div>
-          </div>
-          <div class="col" style="flex:1;align-items:center;">
-            <div class="vline arr" style="height:10px;"></div>
-            <span class="alabel" style="color:var(--coral);">no ppt</span>
-            <div class="box b-coral" style="width:68px;"><span class="bion">Ca²⁺</span><span class="bsub">no ppt NH₃</span></div>
+
+        <!-- YELLOW BOX -->
+        <div style="position:relative;left:-40px;">
+          <div style="display:flex;width:145px;">
+            <div class="col" style="flex:1;align-items:center;">
+              <div class="vline arr" style="height:10px;"></div>
+              <span class="alabel" style="color:var(--teal);">white ppt</span>
+              <div class="box b-teal" style="width:68px;"><span class="bion">Mg²⁺</span><span class="bsub">insol. NH₃</span></div>
+            </div>
+            <div class="col" style="flex:1;align-items:center;">
+              <div class="vline arr" style="height:10px;"></div>
+              <span class="alabel" style="color:var(--coral);">no ppt</span>
+              <div class="box b-coral" style="width:68px;"><span class="bion">Ca²⁺</span><span class="bsub">no ppt NH₃</span></div>
+            </div>
           </div>
         </div>
+        <!-- END YELLOW BOX -->
+
       </div>
+
     </div>
+    <!-- END GREEN -->
+
   </div>
 
   <!-- RIGHT: coloured ppt -->
