@@ -32,8 +32,31 @@ description: Practical reference sheets for Chemistry and Biology.
       </div>
     </div>
   </a>
+  <a href="/practical/titration/" class="project">
+    <div class="card" style="height:100%;">
+      <div class="card-img" style="height:180px; overflow:hidden;">
+        <img src="/assets/img/chemistrypracticalcover.jpg" alt="Titration Practical" style="width:100%; height:100%; object-fit:cover;">
+      </div>
+      <div class="card-body">
+        <h2 class="card-title">Titration Practical</h2>
+        <p class="card-text">CIE A-Level Chemistry 9701 · Iodometric Back-Titration &amp; CuSO₄·xH₂O</p>
+      </div>
+    </div>
+  </a>
+  <a href="/practical/qualitative-analysis-exam-skills/">
+    <div class="card" style="height:100%;">
+      <div class="card-img" style="height:180px; overflow:hidden;">
+        <img src="/assets/img/chemistrypracticalcover.jpg" alt="Qualitative Analysis Exam Skill" style="width:100%; height:100%; object-fit:cover;">
+      </div>
+      <div class="card-body">
+        <h2 class="card-title">Titration Practical</h2>
+        <p class="card-text">CIE A-Level Chemistry 9701 · How to Write Observations, Further Tests &amp; Ionic Equations</p>
+      </div>
+    </div>
+  </a>
 </div>
 {% endraw %}
+
 
 ## biology
 

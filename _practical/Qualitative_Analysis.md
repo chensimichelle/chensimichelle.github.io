@@ -5,7 +5,7 @@ description: CIE A-Level Chemistry 9701 · Cation, Anion & Gas Tests
 img: assets/img/chemistrypracticalcover.jpg
 permalink: /practical/qualitative-analysis/
 ---
-
+{% raw %}
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Source+Code+Pro:wght@500&display=swap');
 
@@ -100,7 +100,7 @@ permalink: /practical/qualitative-analysis/
     font-family: var(--mono); font-weight: 600; font-size: 12px;
     line-height: 1.2; align-self: center;
   }
-  .chain { display: flex; align-items: center; flex-wrap: wrap; gap: 0; flex: 1; }
+  .chain { display: flex; align-items: center; flex-wrap: wrap; gap: 0; flex: 1; justify-content: space-between; }
 
   .gas-grid {
     display: grid; grid-template-columns: 80px 1fr 1fr;
@@ -116,6 +116,11 @@ permalink: /practical/qualitative-analysis/
   .legend { display: flex; flex-wrap: wrap; gap: 7px 16px; margin-top: 16px; padding-top: 10px; border-top: 1px solid #E5E7EB; }
   .li { display: flex; align-items: center; gap: 4px; font-size: 8.5px; color: var(--gray); }
   .ls { width: 12px; height: 12px; border-radius: 3px; border: 1px solid; flex-shrink: 0; }
+
+  .qa-nav{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 1.2rem}
+  .qa-nav button{padding:5px 14px;border-radius:6px;font-size:12px;cursor:pointer;border:1px solid #ccc;background:#fff;color:#555;font-family:var(--mono);letter-spacing:0.02em;transition:all 0.15s}
+  .qa-nav button.on{background:#1F2937;color:#fff;font-weight:500;border-color:#1F2937}
+  .qa-pnl{display:none}.qa-pnl.on{display:block}
 </style>
 
 <div class="qa-wrap">
@@ -123,7 +128,15 @@ permalink: /practical/qualitative-analysis/
 <!-- ═══════════════════════════════════════════════════
      SECTION 1: CATION TESTS
 ═══════════════════════════════════════════════════ -->
-<h2>1 — Cation identification (NaOH &amp; NH₃ tests)</h2>
+<div class="qa-nav">
+  <button class="on" onclick="showQA('cation',this)">01 Cation tests</button>
+  <button onclick="showQA('anion',this)">02 Anion tests</button>
+  <button onclick="showQA('gas',this)">03 Gas tests</button>
+</div>
+
+<div id="qa-cation" class="qa-pnl on">
+<!-- ═══ SECTION 1: CATION TESTS ═══ -->
+<h2>1 — Cation identification</h2>
 
 <div class="col" style="align-items:center;">
   <div class="box b-dark" style="width:165px;font-size:11px;font-weight:700;padding:7px 14px;">Aqueous salt sample</div>
@@ -172,7 +185,7 @@ permalink: /practical/qualitative-analysis/
     <div style="display:flex;align-items:center;margin-bottom:3px;">
       <div class="hline arr-r" style="width:30px;"></div>
       <span class="alabel">white ppt</span>
-      <div class="hline arr-r" style="width:10px;"></div>
+      <div class="hline arr-r" style="flex:1;min-width:10px;"></div>
     </div>
     <div class="box b-teal" style="width:155px;"><span class="bname">White ppt in NaOH</span></div>
     <div class="vline arr" style="height:12px;"></div>
@@ -240,7 +253,6 @@ permalink: /practical/qualitative-analysis/
 
     </div>
     <!-- END GREEN -->
-
   </div>
 
   <!-- RIGHT: coloured ppt -->
@@ -257,23 +269,22 @@ permalink: /practical/qualitative-analysis/
     </div>
     <div style="display:flex;align-items:center;gap:0;">
       <div class="box b-gray" style="width:135px;"><span class="bname">Grey-green ppt</span><span class="bsub">sol. in NaOH→dark green</span></div>
-      <div class="hline arr-r" style="width:10px;"></div>
+      <div class="hline arr-r" style="flex:1;min-width:10px;"></div>
       <div class="box b-gray" style="width:115px;"><span class="bname">+ NH₃ excess</span><span class="bsub">grey-green insol.</span></div>
-      <div class="hline arr-r" style="width:10px;"></div>
+      <div class="hline arr-r" style="flex:1;min-width:10px;"></div>
       <div class="box b-gray" style="width:80px;"><span class="bion">Cr³⁺</span><span class="bsub">confirmed</span></div>
     </div>
     <div style="display:flex;align-items:center;gap:0;">
       <div class="box b-blue" style="width:135px;"><span class="bname">Pale blue ppt</span><span class="bsub">insol. in NaOH</span></div>
-      <div class="hline arr-r" style="width:10px;"></div>
+      <div class="hline arr-r" style="flex:1;min-width:10px;"></div>
       <div class="box b-gray" style="width:115px;"><span class="bname">+ NH₃ excess</span><span class="bsub">ppt dissolve?</span></div>
-      <div class="hline arr-r" style="width:10px;"></div>
+      <div class="hline arr-r" style="flex:1;min-width:10px;"></div>
       <div class="box b-blue" style="width:80px;"><span class="bion">Cu²⁺</span><span class="bsub">dark blue soln</span></div>
     </div>
     <div style="display:flex;align-items:center;">
       <div class="box b-amber" style="width:135px;"><span class="bname">Off-white ppt</span><span class="bion">Mn²⁺</span><span class="bsub">insol. in excess — done</span></div>
     </div>
   </div>
-
 </div>
 
 <div class="legend">
@@ -285,13 +296,15 @@ permalink: /practical/qualitative-analysis/
   <div class="li"><div class="ls" style="background:var(--amber-f);border-color:var(--amber-b);"></div>Mn²⁺ off-white ppt</div>
   <div class="li"><div class="ls" style="background:var(--pink-f);border-color:var(--pink-b);"></div>No ppt branch</div>
 </div>
-
 <hr class="divider">
+</div>
 
 
 <!-- ═══════════════════════════════════════════════════
      SECTION 2: ANION TESTS
 ═══════════════════════════════════════════════════ -->
+<div id="qa-anion" class="qa-pnl">
+<!-- ═══ SECTION 2: ANION TESTS ═══ -->
 <h2>2 — Anion identification</h2>
 
 <div style="font-size:8.5px;color:var(--gray);margin-bottom:10px;display:flex;align-items:center;gap:6px;">
@@ -311,11 +324,11 @@ permalink: /practical/qualitative-analysis/
   <div class="hline arr-r" style="width:10px;align-self:center;"></div>
   <div class="chain">
     <div class="box b-gray" style="width:120px;"><span class="bname">Dilute acid</span><span class="bsub">(HCl or HNO₃)</span></div>
-    <div class="hline arr-r" style="width:10px;"></div>
+    <div class="hline arr-r" style="flex:1;min-width:10px;"></div>
     <div class="box b-teal" style="width:165px;"><span class="bname">Colourless gas evolved</span><span class="bsub">CO₂ — test with limewater</span></div>
-    <div class="hline arr-r" style="width:10px;"></div>
+    <div class="hline arr-r" style="flex:1;min-width:10px;"></div>
     <div class="box b-teal" style="width:160px;"><span class="bobs">White ppt in limewater</span><span class="bsub">(dissolves with excess CO₂)</span></div>
-    <div class="hline arr-r" style="width:10px;"></div>
+    <div class="hline arr-r" style="flex:1;min-width:10px;"></div>
     <div class="box b-green" style="width:70px;"><span class="bion">CO₃²⁻</span><span class="bsub">confirmed</span></div>
   </div>
 </div>
@@ -326,11 +339,11 @@ permalink: /practical/qualitative-analysis/
   <div class="hline arr-r" style="width:10px;align-self:center;"></div>
   <div class="chain">
     <div class="box b-gray" style="width:120px;"><span class="bname">Ba²⁺(aq)</span><span class="bsub">e.g. BaCl₂ solution</span></div>
-    <div class="hline arr-r" style="width:10px;"></div>
+    <div class="hline arr-r" style="flex:1;min-width:10px;"></div>
     <div class="box b-blue" style="width:130px;"><span class="bname">White ppt forms</span><span class="bsub">BaSO₄</span></div>
-    <div class="hline arr-r" style="width:10px;"></div>
+    <div class="hline arr-r" style="flex:1;min-width:10px;"></div>
     <div class="box b-gray" style="width:175px;"><span class="bname">Add dilute HCl / HNO₃</span><span class="bsub">ppt insoluble in excess acid</span></div>
-    <div class="hline arr-r" style="width:10px;"></div>
+    <div class="hline arr-r" style="flex:1;min-width:10px;"></div>
     <div class="box b-blue" style="width:70px;"><span class="bion">SO₄²⁻</span><span class="bsub">confirmed</span></div>
   </div>
 </div>
@@ -341,19 +354,19 @@ permalink: /practical/qualitative-analysis/
   <div class="hline arr-r" style="width:10px;align-self:center;"></div>
   <div class="chain" style="flex-wrap:wrap;">
     <div class="box b-gray" style="width:120px;"><span class="bname">Ba²⁺(aq)</span><span class="bsub">e.g. BaCl₂ solution</span></div>
-    <div class="hline arr-r" style="width:10px;"></div>
+    <div class="hline arr-r" style="flex:1;min-width:10px;"></div>
     <div class="box b-amber" style="width:130px;"><span class="bname">White ppt forms</span><span class="bsub">BaSO₃</span></div>
-    <div class="hline arr-r" style="width:10px;"></div>
+    <div class="hline arr-r" style="flex:1;min-width:10px;"></div>
     <div class="box b-gray" style="width:175px;"><span class="bname">Add dilute HCl / HNO₃</span><span class="bsub">ppt dissolves in excess acid</span></div>
-    <div class="hline arr-r" style="width:10px;"></div>
+    <div class="hline arr-r" style="flex:1;min-width:10px;"></div>
     <div class="box b-amber" style="width:70px;"><span class="bion">SO₃²⁻</span><span class="bsub">confirmed</span></div>
     <div style="display:flex;align-items:center;width:100%;margin-top:4px;">
       <span class="alabel" style="color:var(--amber);">or:</span>
       <div class="hline arr-r" style="width:6px;"></div>
       <div class="box b-gray" style="width:120px;"><span class="bname">Dilute acid</span><span class="bsub">(HCl or HNO₃)</span></div>
-      <div class="hline arr-r" style="width:10px;"></div>
+      <div class="hline arr-r" style="flex:1;min-width:10px;"></div>
       <div class="box b-amber" style="width:200px;"><span class="bname">SO₂ gas evolved</span><span class="bsub">test with K₂Cr₂O₇ paper</span></div>
-      <div class="hline arr-r" style="width:10px;"></div>
+      <div class="hline arr-r" style="flex:1;min-width:10px;"></div>
       <div class="box b-amber" style="width:160px;"><span class="bobs">Orange → green</span><span class="bsub">K₂Cr₂O₇(VI) turns green</span></div>
     </div>
   </div>
@@ -367,11 +380,11 @@ permalink: /practical/qualitative-analysis/
   <div class="hline arr-r" style="width:10px;align-self:center;"></div>
   <div class="chain">
     <div class="box b-gray" style="width:155px;"><span class="bname">OH⁻(aq) + Al foil</span><span class="bsub">heat gently</span></div>
-    <div class="hline arr-r" style="width:10px;"></div>
+    <div class="hline arr-r" style="flex:1;min-width:10px;"></div>
     <div class="box b-teal" style="width:175px;"><span class="bname">NH₃ gas evolved</span><span class="bsub">test with damp red litmus</span></div>
-    <div class="hline arr-r" style="width:10px;"></div>
+    <div class="hline arr-r" style="flex:1;min-width:10px;"></div>
     <div class="box b-teal" style="width:120px;"><span class="bobs">Litmus turns blue</span></div>
-    <div class="hline arr-r" style="width:10px;"></div>
+    <div class="hline arr-r" style="flex:1;min-width:10px;"></div>
     <div class="box b-green" style="width:70px;"><span class="bion">NO₃⁻</span><span class="bsub">confirmed</span></div>
   </div>
 </div>
@@ -382,15 +395,15 @@ permalink: /practical/qualitative-analysis/
   <div class="hline arr-r" style="width:10px;align-self:center;"></div>
   <div class="chain" style="flex-wrap:wrap;">
     <div class="box b-gray" style="width:155px;"><span class="bname">OH⁻(aq) + Al foil</span><span class="bsub">heat gently</span></div>
-    <div class="hline arr-r" style="width:10px;"></div>
+    <div class="hline arr-r" style="flex:1;min-width:10px;"></div>
     <div class="box b-teal" style="width:175px;"><span class="bname">NH₃ gas evolved</span><span class="bsub">same as NO₃⁻</span></div>
     <div style="display:flex;align-items:center;width:100%;margin-top:4px;">
       <span class="alabel" style="color:var(--coral);">also:</span>
       <div class="hline arr-r" style="width:6px;"></div>
       <div class="box b-gray" style="width:155px;"><span class="bname">Dilute acid</span><span class="bsub">(HCl or HNO₃)</span></div>
-      <div class="hline arr-r" style="width:10px;"></div>
+      <div class="hline arr-r" style="flex:1;min-width:10px;"></div>
       <div class="box b-coral" style="width:195px;"><span class="bname">Colourless NO gas → air</span><span class="bsub">turns pale brown (NO₂)</span></div>
-      <div class="hline arr-r" style="width:10px;"></div>
+      <div class="hline arr-r" style="flex:1;min-width:10px;"></div>
       <div class="box b-coral" style="width:90px;"><span class="bion">NO₂⁻</span><span class="bsub">confirmed</span></div>
     </div>
   </div>
@@ -404,11 +417,11 @@ permalink: /practical/qualitative-analysis/
   <div class="hline arr-r" style="width:10px;align-self:center;"></div>
   <div class="chain">
     <div class="box b-gray" style="width:120px;"><span class="bname">Ag⁺(aq)</span><span class="bsub">AgNO₃ solution</span></div>
-    <div class="hline arr-r" style="width:10px;"></div>
+    <div class="hline arr-r" style="flex:1;min-width:10px;"></div>
     <div class="box b-gray" style="width:120px;"><span class="bname">White ppt</span><span class="bsub">AgCl forms</span></div>
-    <div class="hline arr-r" style="width:10px;"></div>
+    <div class="hline arr-r" style="flex:1;min-width:10px;"></div>
     <div class="box b-gray" style="width:140px;"><span class="bname">Add NH₃(aq)</span><span class="bsub">ppt dissolves fully</span></div>
-    <div class="hline arr-r" style="width:10px;"></div>
+    <div class="hline arr-r" style="flex:1;min-width:10px;"></div>
     <div class="box b-green" style="width:70px;"><span class="bion">Cl⁻</span><span class="bsub">confirmed</span></div>
   </div>
 </div>
@@ -419,11 +432,11 @@ permalink: /practical/qualitative-analysis/
   <div class="hline arr-r" style="width:10px;align-self:center;"></div>
   <div class="chain">
     <div class="box b-gray" style="width:120px;"><span class="bname">Ag⁺(aq)</span><span class="bsub">AgNO₃ solution</span></div>
-    <div class="hline arr-r" style="width:10px;"></div>
+    <div class="hline arr-r" style="flex:1;min-width:10px;"></div>
     <div class="box b-amber" style="width:120px;"><span class="bname">Cream ppt</span><span class="bsub">AgBr forms</span></div>
-    <div class="hline arr-r" style="width:10px;"></div>
+    <div class="hline arr-r" style="flex:1;min-width:10px;"></div>
     <div class="box b-gray" style="width:160px;"><span class="bname">Add NH₃(aq)</span><span class="bsub">ppt partially soluble</span></div>
-    <div class="hline arr-r" style="width:10px;"></div>
+    <div class="hline arr-r" style="flex:1;min-width:10px;"></div>
     <div class="box b-amber" style="width:70px;"><span class="bion">Br⁻</span><span class="bsub">confirmed</span></div>
   </div>
 </div>
@@ -434,11 +447,11 @@ permalink: /practical/qualitative-analysis/
   <div class="hline arr-r" style="width:10px;align-self:center;"></div>
   <div class="chain">
     <div class="box b-gray" style="width:120px;"><span class="bname">Ag⁺(aq)</span><span class="bsub">AgNO₃ solution</span></div>
-    <div class="hline arr-r" style="width:10px;"></div>
+    <div class="hline arr-r" style="flex:1;min-width:10px;"></div>
     <div class="box b-purple" style="width:120px;"><span class="bname">Yellow ppt</span><span class="bsub">AgI forms</span></div>
-    <div class="hline arr-r" style="width:10px;"></div>
+    <div class="hline arr-r" style="flex:1;min-width:10px;"></div>
     <div class="box b-gray" style="width:160px;"><span class="bname">Add NH₃(aq)</span><span class="bsub">ppt insoluble</span></div>
-    <div class="hline arr-r" style="width:10px;"></div>
+    <div class="hline arr-r" style="flex:1;min-width:10px;"></div>
     <div class="box b-purple" style="width:70px;"><span class="bion">I⁻</span><span class="bsub">confirmed</span></div>
   </div>
 </div>
@@ -451,19 +464,19 @@ permalink: /practical/qualitative-analysis/
   <div class="hline arr-r" style="width:10px;align-self:center;"></div>
   <div class="chain" style="flex-wrap:wrap;gap:4px 0;">
     <div class="box b-amber" style="width:150px;"><span class="bname">Yellow solution</span><span class="bsub">characteristic colour</span></div>
-    <div class="hline arr-r" style="width:10px;"></div>
+    <div class="hline arr-r" style="flex:1;min-width:10px;"></div>
     <div class="box b-gray" style="width:95px;"><span class="bname">Add H⁺(aq)</span></div>
-    <div class="hline arr-r" style="width:10px;"></div>
+    <div class="hline arr-r" style="flex:1;min-width:10px;"></div>
     <div class="box b-amber" style="width:130px;"><span class="bname">Turns orange</span><span class="bsub">(→ Cr₂O₇²⁻)</span></div>
     <div style="display:flex;align-items:center;width:100%;margin-top:2px;">
       <span class="alabel" style="color:var(--amber);">or:</span>
       <div class="hline arr-r" style="width:6px;"></div>
       <div class="box b-gray" style="width:95px;"><span class="bname">Add Ba²⁺(aq)</span></div>
-      <div class="hline arr-r" style="width:10px;"></div>
+      <div class="hline arr-r" style="flex:1;min-width:10px;"></div>
       <div class="box b-amber" style="width:120px;"><span class="bname">Yellow ppt BaCrO₄</span></div>
-      <div class="hline arr-r" style="width:10px;"></div>
+      <div class="hline arr-r" style="flex:1;min-width:10px;"></div>
       <div class="box b-gray" style="width:95px;"><span class="bname">Add Pb²⁺(aq)</span></div>
-      <div class="hline arr-r" style="width:10px;"></div>
+      <div class="hline arr-r" style="flex:1;min-width:10px;"></div>
       <div class="box b-amber" style="width:140px;"><span class="bname">Bright yellow ppt PbCrO₄</span></div>
     </div>
   </div>
@@ -480,11 +493,14 @@ permalink: /practical/qualitative-analysis/
 </div>
 
 <hr class="divider">
+</div>
 
 
 <!-- ═══════════════════════════════════════════════════
      SECTION 3: GAS TESTS
 ═══════════════════════════════════════════════════ -->
+<div id="qa-gas" class="qa-pnl">
+<!-- ═══ SECTION 3: GAS TESTS ═══ -->
 <h2>3 — Gas tests</h2>
 
 <div class="gas-grid">
@@ -523,5 +539,14 @@ permalink: /practical/qualitative-analysis/
   <div class="li"><div class="ls" style="background:var(--amber-f);border-color:var(--amber-b);"></div>H₂ / SO₂</div>
   <div class="li"><div class="ls" style="background:var(--coral-f);border-color:var(--coral-b);"></div>O₂ (oxidising)</div>
 </div>
-
 </div>
+</div>
+<script>
+function showQA(name, btn) {
+  document.querySelectorAll('.qa-pnl').forEach(function(p){ p.classList.remove('on'); });
+  document.querySelectorAll('.qa-nav button').forEach(function(b){ b.classList.remove('on'); });
+  document.getElementById('qa-' + name).classList.add('on');
+  if (btn) btn.classList.add('on');
+}
+</script>
+{% endraw %}
