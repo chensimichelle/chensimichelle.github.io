@@ -122,6 +122,16 @@ ninja.data = [{
           description: "CIE A-Level Chemistry 9701 · Thiosulfate Clock Reaction",
           section: "Practical",handler: () => {
               window.location.href = "/practical/rate-experiment/";
+            },},{id: "practical-qualitative-analysis-exam-skills",
+          title: 'Qualitative Analysis — Exam Skills',
+          description: "CIE A-Level Chemistry 9701 · How to Answer Identification Questions",
+          section: "Practical",handler: () => {
+              window.location.href = "/practical/qualitative-analysis-exam-skills/";
+            },},{id: "practical-titration-practical",
+          title: 'Titration Practical',
+          description: "CIE A-Level Chemistry 9701 · Iodometric Back-Titration &amp; CuSO₄·xH₂O",
+          section: "Practical",handler: () => {
+              window.location.href = "/practical/titration/";
             },},{id: "projects-files-pdb-file",
           title: 'Files — PDB File',
           description: "Understanding Protein Data Bank Files Before You Visualise Them",
