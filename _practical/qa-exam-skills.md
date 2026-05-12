@@ -182,6 +182,7 @@ This guide uses a real CIE exam question (9701/34, Oct/Nov 2020, Question 3) to 
         FB 4: white precipitate forms<br>
         FB 5: no reaction / no change / no ppt
       </div>
+      <code style="display:block;margin-top:8px;font-size:11px;background:#fff;border-radius:4px;padding:4px 8px;color:var(--teal);">Zn²⁺(aq) + CO₃²⁻(aq) → ZnCO₃(s)</code>
     </div>
   </div>
   <div class="explain">
@@ -210,6 +211,8 @@ This guide uses a real CIE exam question (9701/34, Oct/Nov 2020, Question 3) to 
         FB 4: white precipitate forms <strong>and</strong> dissolves / is soluble in excess NH₃<br>
         FB 5: no reaction / no change / no ppt
       </div>
+      <code style="display:block;margin-top:8px;font-size:11px;background:#fff;border-radius:4px;padding:4px 8px;color:var(--teal);">Zn²⁺(aq) + 2NH₃(aq) + 2H₂O(l) → Zn(OH)₂(s) + 2NH₄⁺(aq)</code>
+      <code style="display:block;margin-top:4px;font-size:11px;background:#fff;border-radius:4px;padding:4px 8px;color:var(--teal);">Zn(OH)₂(s) + 4NH₃(aq) → [Zn(NH₃)₄]²⁺(aq) + 2OH⁻(aq) &nbsp;(dissolves in excess)</code>
     </div>
   </div>
   <div class="explain">
@@ -225,11 +228,15 @@ This guide uses a real CIE exam question (9701/34, Oct/Nov 2020, Question 3) to 
     <span class="q-sub">This is a 3-stage test — you must report observations at each stage separately.</span>
   </div>
 
-  <table class="ms-table">
+<table class="ms-table">
     <tr><th>Stage</th><th>FB 4 (Zn²⁺) — correct observation</th><th>FB 5 (SO₃²⁻) — correct observation</th></tr>
     <tr>
       <td>Add NaOH</td>
-      <td class="ok">White precipitate, soluble in excess</td>
+      <td class="ok">
+        White precipitate, soluble in excess
+        <code style="display:block;margin-top:6px;font-size:11px;background:#E1F5EE;border-radius:4px;padding:4px 8px;color:var(--teal);font-weight:500;">Zn²⁺(aq) + 2OH⁻(aq) → Zn(OH)₂(s)</code>
+        <code style="display:block;margin-top:3px;font-size:11px;background:#E1F5EE;border-radius:4px;padding:4px 8px;color:var(--teal);font-weight:500;">Zn(OH)₂(s) + 2OH⁻(aq) → [Zn(OH)₄]²⁻(aq) &nbsp;(excess)</code>
+      </td>
       <td>No change / no ppt</td>
     </tr>
     <tr>
@@ -238,10 +245,23 @@ This guide uses a real CIE exam question (9701/34, Oct/Nov 2020, Question 3) to 
     </tr>
     <tr>
       <td>Add Al foil</td>
-      <td class="ok">Effervescence / fizzing — gas turns red litmus blue (NH₃)</td>
-      <td class="ok">Effervescence / fizzing / bubbling — gas pops with lighted splint (H₂)</td>
+      <td class="ok">
+        Effervescence / fizzing — gas turns red litmus blue (NH₃)
+        <code style="display:block;margin-top:6px;font-size:11px;background:#E1F5EE;border-radius:4px;padding:4px 8px;color:var(--teal);font-weight:500;">8Al(s) + 3NO₃⁻(aq) + 5OH⁻(aq) + 2H₂O(l) → 8AlO₂⁻(aq) + 3NH₃(g)</code>
+        <code style="display:block;margin-top:3px;font-size:11px;background:#E1F5EE;border-radius:4px;padding:4px 8px;color:var(--teal);font-weight:500;">NH₃ turns damp red litmus blue ✓</code>
+      </td>
+      <td class="ok">
+        Effervescence / fizzing / bubbling — gas pops with lighted splint (H₂)
+        <code style="display:block;margin-top:6px;font-size:11px;background:#E1F5EE;border-radius:4px;padding:4px 8px;color:var(--teal);font-weight:500;">2Al(s) + 2OH⁻(aq) + 2H₂O(l) → 2AlO₂⁻(aq) + 3H₂(g)</code>
+        <code style="display:block;margin-top:3px;font-size:11px;background:#E1F5EE;border-radius:4px;padding:4px 8px;color:var(--teal);font-weight:500;">H₂ gives squeaky pop with lighted splint ✓</code>
+      </td>
     </tr>
   </table>
+
+  <div class="explain">
+    <span class="ex-label">Why different gases?</span>
+    The anion determines the gas — not the cation. FB 4 contains NO₃⁻, which is reduced by Al in alkaline solution to produce NH₃. FB 5 contains SO₃²⁻, which is not reduced under these conditions — instead Al simply reacts with the excess NaOH to produce H₂. This is why the Al foil test can distinguish NO₃⁻ from SO₃²⁻.
+  </div>
 
   <div class="warn">
     <strong>Critical:</strong> If you reported gas (NH₃ or any other gas) during the heating stage alone, the gas test observation in the Al foil stage is rejected. Always say "more effervescence" when adding Al foil if you already noted bubbling on heating.
@@ -267,67 +287,61 @@ This guide uses a real CIE exam question (9701/34, Oct/Nov 2020, Question 3) to 
     <strong>What the redox table tells you:</strong> From tests 3(a) and 3(b) you already know FB 4 contains Zn²⁺ (white ppt with NH₃, soluble in excess) and FB 5 contains SO₃²⁻ or SO₄²⁻ (white ppt with Ba²⁺). The redox table is the key — sulfite is easily oxidised, sulfate cannot be.
   </div>
 
-  <h3>Approach A — Ba²⁺ then acid (most reliable)</h3>
-
-  <div class="ans-grid">
-    <div class="ans-card ans-bad">
-      <span class="ans-label">✕ Wrong</span>
-      <div class="ans-text">
-        Reagent: barium sulfate<br>
-        Explanation: it forms a precipitate with sulfate ions<br>
-        Observation: white precipitate in FB 5
-      </div>
-    </div>
-    <div class="ans-card ans-ok">
-      <span class="ans-label">✓ Correct</span>
-      <div class="ans-text">
-        Reagent: Ba²⁺(aq) / BaCl₂(aq), then dilute HCl or HNO₃<br>
-        Explanation: both SO₄²⁻ and SO₃²⁻ give white ppt with Ba²⁺; adding acid distinguishes them — BaSO₄ is insoluble in acid (SO₄²⁻), BaSO₃ dissolves (SO₃²⁻)<br>
-        Observation: white ppt in FB 5 with Ba²⁺; ppt dissolves on adding dilute HCl → SO₃²⁻ confirmed
-      </div>
-    </div>
-  </div>
-  <div class="explain">
-    <span class="ex-label">Why the wrong answer fails</span>
-    "Barium sulfate" is the product, not the reagent — you add BaCl₂(aq) or Ba(NO₃)₂(aq). More critically, adding Ba²⁺ alone does not distinguish SO₄²⁻ from SO₃²⁻ — both give white precipitates. You must add the acid step and observe whether the precipitate dissolves.
-  </div>
-  <div class="explain">
-    <span class="ex-label">Important</span>
-    Never use H₂SO₄ as the acid in this test — it would introduce SO₄²⁻ ions and create a false positive for sulfate.
-  </div>
-
-  <h3>Approach B — oxidising agent (acidified KMnO₄)</h3>
+<h3>Approach A — acidified KMnO₄</h3>
 
   <div class="ans-grid">
     <div class="ans-card ans-bad">
       <span class="ans-label">✕ Wrong</span>
       <div class="ans-text">
         Reagent: KMnO₄<br>
-        Explanation: oxidises sulfite<br>
-        Observation: colour changes
+        Explanation: it oxidises sulfite<br>
+        Observation: colour changes in FB 5
       </div>
     </div>
     <div class="ans-card ans-ok">
       <span class="ans-label">✓ Correct</span>
       <div class="ans-text">
-        Reagent: acidified KMnO₄ (potassium manganate(VII))<br>
-        Explanation: sulfite (SO₃²⁻) is easily oxidised and decolourises KMnO₄; sulfate (SO₄²⁻) cannot be oxidised so no colour change — this distinguishes the two anions<br>
-        Observation: FB 5 decolourises the purple KMnO₄ solution; FB 4 (NO₃⁻) causes no change
+        Reagent: acidified potassium manganate(VII) / acidified KMnO₄<br>
+        Explanation: SO₃²⁻ is easily oxidised and decolourises KMnO₄; NO₃⁻ cannot be oxidised so causes no colour change — this distinguishes the two anions<br>
+        Observation: FB 5 decolourises the purple KMnO₄; FB 4 no change
       </div>
+      <code style="display:block;margin-top:8px;font-size:11px;background:#fff;border-radius:4px;padding:4px 8px;color:var(--teal);">5SO₃²⁻(aq) + 2MnO₄⁻(aq) + 6H⁺(aq) → 5SO₄²⁻(aq) + 2Mn²⁺(aq) + 3H₂O(l)</code>
     </div>
   </div>
   <div class="explain">
-    <span class="ex-label">Why</span>
-    The explanation must state <em>why</em> the test works — linking the observation to the redox property given in the table. "Oxidises sulfite" alone is insufficient; you must say what colour change this causes and what the contrast with the other solution is. "Acidified" is required — KMnO₄ without acid is not a valid answer.
+    <span class="ex-label">Why the wrong answer fails</span>
+    "KMnO₄" alone is not accepted — it must be <strong>acidified</strong>. The explanation must link the observation to the redox property in the table: SO₃²⁻ is easily oxidised (decolourises KMnO₄); NO₃⁻ cannot be oxidised (no change). You must describe the contrast between both solutions, not just the positive result for FB 5.
   </div>
 
-  <div class="divider"></div>
+  <h3>Approach B — acidified K₂Cr₂O₇</h3>
 
-  <h3>Structure your answer in three parts</h3>
-  <div class="step-row"><div class="step-n">1</div><div class="step-t"><strong>Reagent:</strong> give the full name or correct formula. "BaCl₂(aq)" or "aqueous barium chloride" — not just "barium".</div></div>
-  <div class="step-row"><div class="step-n">2</div><div class="step-t"><strong>Explanation:</strong> state what property of the ion the test exploits and why this distinguishes FB 4 from FB 5. Reference the redox table if relevant.</div></div>
-  <div class="step-row"><div class="step-n">3</div><div class="step-t"><strong>Observations:</strong> write what you see for <em>each</em> solution — not just the positive result. Contrast is what earns the mark.</div></div>
-</div>
+  <div class="ans-grid">
+    <div class="ans-card ans-bad">
+      <span class="ans-label">✕ Wrong</span>
+      <div class="ans-text">
+        Reagent: K₂Cr₂O₇<br>
+        Explanation: dichromate oxidises sulfite<br>
+        Observation: turns green in FB 5
+      </div>
+    </div>
+    <div class="ans-card ans-ok">
+      <span class="ans-label">✓ Correct</span>
+      <div class="ans-text">
+        Reagent: acidified potassium dichromate(VI) / acidified K₂Cr₂O₇<br>
+        Explanation: SO₃²⁻ is easily oxidised and reduces Cr₂O₇²⁻ from orange to green; NO₃⁻ cannot be oxidised so no colour change<br>
+        Observation: FB 5 turns orange solution green; FB 4 no change
+      </div>
+      <code style="display:block;margin-top:8px;font-size:11px;background:#fff;border-radius:4px;padding:4px 8px;color:var(--teal);">3SO₃²⁻(aq) + Cr₂O₇²⁻(aq) + 8H⁺(aq) → 3SO₄²⁻(aq) + 2Cr³⁺(aq) + 4H₂O(l)</code>
+    </div>
+  </div>
+  <div class="explain">
+    <span class="ex-label">Why the wrong answer fails</span>
+    Same issue as KMnO₄ — must specify <strong>acidified</strong>. The colour change must be stated precisely: orange → green (Cr⁶⁺ → Cr³⁺). Writing "colour changes" without specifying the colours scores no mark for the observation.
+  </div>
+
+  <div class="warn">
+    <strong>Both approaches are accepted by the mark scheme.</strong> KMnO₄ and K₂Cr₂O₇ are equally valid. In both cases the key word is <strong>acidified</strong> — the oxidising power of both reagents depends on H⁺ ions being present.
+  </div>
 
 <!-- ── 03 IONIC EQUATIONS ───────────────────────────────────── -->
 <div id="sec-ionic" class="es-pnl">
@@ -397,6 +411,7 @@ This guide uses a real CIE exam question (9701/34, Oct/Nov 2020, Question 3) to 
     <strong>Do not write ionic equations for reactions where no precipitate forms.</strong> "No reaction" has no ionic equation. Only write equations for the tests where you observed a solid precipitate forming.
   </div>
 </div>
+</div>
 
 <!-- ── 04 GOLDEN RULES ──────────────────────────────────────── -->
 <div id="sec-rules" class="es-pnl">
@@ -451,6 +466,7 @@ This guide uses a real CIE exam question (9701/34, Oct/Nov 2020, Question 3) to 
   </ul>
 
   <div class="divider"></div>
+  </div>
 
   <h3>Ionic equations</h3>
   <ul class="rule-list">
@@ -514,7 +530,6 @@ This guide uses a real CIE exam question (9701/34, Oct/Nov 2020, Question 3) to 
     </tr>
   </table>
 </div>
-
 </div>
 <script>
 function showES(name, btn) {

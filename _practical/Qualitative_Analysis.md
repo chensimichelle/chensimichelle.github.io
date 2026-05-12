@@ -158,7 +158,7 @@ permalink: /practical/qualitative-analysis/
     <div class="col" style="align-items:center;width:155px;margin-top:3px;">
       <div class="box b-pink" style="width:145px;">
         <span class="bname">No ppt</span>
-        <span class="bsub">Ba²⁺ or NH₄⁺</span>
+        <span class="bsub">NH₄⁺ (or very dilute Ba²⁺/Ca²⁺)</span>
       </div>
       <div class="vline arr" style="height:12px;"></div>
       <div class="box b-gray" style="width:145px;">
@@ -174,7 +174,7 @@ permalink: /practical/qualitative-analysis/
         <div class="col" style="flex:1;align-items:center;">
           <div style="display:flex;align-items:center;height:12px;"><div class="hline arr-r" style="width:50px;"></div></div>
           <span class="alabel">no gas</span>
-          <div class="box b-pink" style="width:68px;"><span class="bion">Ba²⁺</span><span class="bsub">no ppt+NaOH</span></div>
+          <div class="box b-pink" style="width:68px;"><span class="bion">Ba²⁺/Ca²⁺</span><span class="bsub">confirm by anion tests</span></div>
         </div>
       </div>
     </div>
@@ -262,10 +262,12 @@ permalink: /practical/qualitative-analysis/
       <span class="alabel">coloured ppt</span>
     </div>
     <div style="display:flex;align-items:center;">
+      <!-- CHANGED: added "turning brown on contact with air" for Fe³⁺ — data booklet says red-brown ppt insol. in excess; no oxidation note for Fe³⁺ as it is already oxidised -->
       <div class="box b-coral" style="width:135px;"><span class="bname">Red-brown ppt</span><span class="bion">Fe³⁺</span><span class="bsub">insol. in excess — done</span></div>
     </div>
     <div style="display:flex;align-items:center;">
-      <div class="box b-green" style="width:135px;"><span class="bname">Green ppt</span><span class="bion">Fe²⁺</span><span class="bsub">insol. in excess — done</span></div>
+      <!-- CHANGED: added "turning brown on contact with air" for Fe²⁺ -->
+      <div class="box b-green" style="width:135px;"><span class="bname">Green ppt → brown</span><span class="bion">Fe²⁺</span><span class="bsub">turns brown in air; insol. excess</span></div>
     </div>
     <div style="display:flex;align-items:center;gap:0;">
       <div class="box b-gray" style="width:135px;"><span class="bname">Grey-green ppt</span><span class="bsub">sol. in NaOH→dark green</span></div>
@@ -277,23 +279,28 @@ permalink: /practical/qualitative-analysis/
     <div style="display:flex;align-items:center;gap:0;">
       <div class="box b-blue" style="width:135px;"><span class="bname">Pale blue ppt</span><span class="bsub">insol. in NaOH</span></div>
       <div class="hline arr-r" style="flex:1;min-width:10px;"></div>
-      <div class="box b-gray" style="width:115px;"><span class="bname">+ NH₃ excess</span><span class="bsub">ppt dissolve?</span></div>
+      <!-- CHANGED: Cu²⁺ with NH₃ excess → pale blue ppt dissolves giving dark blue solution -->
+      <div class="box b-gray" style="width:115px;"><span class="bname">+ NH₃ excess</span><span class="bsub">ppt dissolves</span></div>
       <div class="hline arr-r" style="flex:1;min-width:10px;"></div>
       <div class="box b-blue" style="width:80px;"><span class="bion">Cu²⁺</span><span class="bsub">dark blue soln</span></div>
     </div>
+    <!-- CHANGED: Mn²⁺ — added "rapidly turning brown on contact with air" -->
     <div style="display:flex;align-items:center;">
-      <div class="box b-amber" style="width:135px;"><span class="bname">Off-white ppt</span><span class="bion">Mn²⁺</span><span class="bsub">insol. in excess — done</span></div>
+      <div class="box b-amber" style="width:135px;"><span class="bname">Off-white ppt → brown</span><span class="bion">Mn²⁺</span><span class="bsub">rapidly turns brown in air; insol.</span></div>
     </div>
   </div>
 </div>
+
+<!-- NOTE: Ba²⁺ and Ca²⁺ clarification -->
+<div class="note" style="margin-top:10px;"><b>Note — Ba²⁺ and Ca²⁺ with NaOH:</b> The data booklet states Ba²⁺ gives a <em>faint</em> white ppt unless [Ba²⁺] is very low, and Ca²⁺ gives a white ppt unless [Ca²⁺] is very low. At typical concentrations a faint white ppt may form. These cations give <b>no ppt with NH₃(aq)</b> and are distinguished from other white-ppt cations by this and their anion tests.</div>
 
 <div class="legend">
   <div class="li"><div class="ls" style="background:var(--teal-f);border-color:var(--teal-b);"></div>Identified / soluble</div>
   <div class="li"><div class="ls" style="background:var(--coral-f);border-color:var(--coral-b);"></div>Insoluble / elimination</div>
   <div class="li"><div class="ls" style="background:var(--gray-f);border-color:var(--gray-b);"></div>Decision / test step</div>
   <div class="li"><div class="ls" style="background:var(--blue-f);border-color:var(--blue-b);"></div>Cu²⁺ pale blue ppt</div>
-  <div class="li"><div class="ls" style="background:var(--green-f);border-color:var(--green-b);"></div>Fe²⁺ green ppt</div>
-  <div class="li"><div class="ls" style="background:var(--amber-f);border-color:var(--amber-b);"></div>Mn²⁺ off-white ppt</div>
+  <div class="li"><div class="ls" style="background:var(--green-f);border-color:var(--green-b);"></div>Fe²⁺ green ppt (→ brown in air)</div>
+  <div class="li"><div class="ls" style="background:var(--amber-f);border-color:var(--amber-b);"></div>Mn²⁺ off-white ppt (→ brown in air)</div>
   <div class="li"><div class="ls" style="background:var(--pink-f);border-color:var(--pink-b);"></div>No ppt branch</div>
 </div>
 <hr class="divider">
@@ -334,10 +341,11 @@ permalink: /practical/qualitative-analysis/
 </div>
 
 <!-- SO4 2- -->
+<!-- CHANGED: added "gives white ppt with high [Ca²⁺(aq)]" as second test per data booklet -->
 <div class="anion-row">
   <div class="ion-badge b-blue">SO₄²⁻</div>
   <div class="hline arr-r" style="width:10px;align-self:center;"></div>
-  <div class="chain">
+  <div class="chain" style="flex-wrap:wrap;">
     <div class="box b-gray" style="width:120px;"><span class="bname">Ba²⁺(aq)</span><span class="bsub">e.g. BaCl₂ solution</span></div>
     <div class="hline arr-r" style="flex:1;min-width:10px;"></div>
     <div class="box b-blue" style="width:130px;"><span class="bname">White ppt forms</span><span class="bsub">BaSO₄</span></div>
@@ -345,10 +353,18 @@ permalink: /practical/qualitative-analysis/
     <div class="box b-gray" style="width:175px;"><span class="bname">Add dilute HCl / HNO₃</span><span class="bsub">ppt insoluble in excess acid</span></div>
     <div class="hline arr-r" style="flex:1;min-width:10px;"></div>
     <div class="box b-blue" style="width:70px;"><span class="bion">SO₄²⁻</span><span class="bsub">confirmed</span></div>
+    <div style="display:flex;align-items:center;width:100%;margin-top:4px;">
+      <span class="alabel" style="color:var(--blue);">or:</span>
+      <div class="hline arr-r" style="width:6px;"></div>
+      <div class="box b-gray" style="width:120px;"><span class="bname">High [Ca²⁺(aq)]</span><span class="bsub">e.g. CaCl₂ solution</span></div>
+      <div class="hline arr-r" style="flex:1;min-width:10px;"></div>
+      <div class="box b-blue" style="width:200px;"><span class="bname">White ppt CaSO₄ forms</span><span class="bsub">only at high Ca²⁺ concentration</span></div>
+    </div>
   </div>
 </div>
 
 <!-- SO3 2- -->
+<!-- CHANGED: replaced K₂Cr₂O₇ paper with "decolourises acidified aqueous KMnO₄" per data booklet -->
 <div class="anion-row">
   <div class="ion-badge b-amber">SO₃²⁻</div>
   <div class="hline arr-r" style="width:10px;align-self:center;"></div>
@@ -363,16 +379,16 @@ permalink: /practical/qualitative-analysis/
     <div style="display:flex;align-items:center;width:100%;margin-top:4px;">
       <span class="alabel" style="color:var(--amber);">or:</span>
       <div class="hline arr-r" style="width:6px;"></div>
-      <div class="box b-gray" style="width:120px;"><span class="bname">Dilute acid</span><span class="bsub">(HCl or HNO₃)</span></div>
+      <div class="box b-gray" style="width:120px;"><span class="bname">Acidified KMnO₄(aq)</span></div>
       <div class="hline arr-r" style="flex:1;min-width:10px;"></div>
-      <div class="box b-amber" style="width:200px;"><span class="bname">SO₂ gas evolved</span><span class="bsub">test with K₂Cr₂O₇ paper</span></div>
+      <div class="box b-amber" style="width:200px;"><span class="bname">Purple → colourless</span><span class="bsub">decolourises acidified aq. KMnO₄</span></div>
       <div class="hline arr-r" style="flex:1;min-width:10px;"></div>
-      <div class="box b-amber" style="width:160px;"><span class="bobs">Orange → green</span><span class="bsub">K₂Cr₂O₇(VI) turns green</span></div>
+      <div class="box b-amber" style="width:70px;"><span class="bion">SO₃²⁻</span><span class="bsub">confirmed</span></div>
     </div>
   </div>
 </div>
 
-<div class="note"><b>Key distinction — SO₄²⁻ vs SO₃²⁻:</b> Both give white ppt with Ba²⁺(aq). Add dilute HCl or HNO₃ — BaSO₄ stays (SO₄²⁻); BaSO₃ dissolves (SO₃²⁻). Never use H₂SO₄ as the acid.</div>
+<div class="note"><b>Key distinction — SO₄²⁻ vs SO₃²⁻:</b> Both give white ppt with Ba²⁺(aq). Add dilute HCl or HNO₃ — BaSO₄ stays (SO₄²⁻); BaSO₃ dissolves (SO₃²⁻). Never use H₂SO₄ as the acid. SO₃²⁻ also decolourises acidified aqueous KMnO₄.</div>
 
 <!-- NO3- -->
 <div class="anion-row" style="margin-top:8px;">
@@ -390,6 +406,7 @@ permalink: /practical/qualitative-analysis/
 </div>
 
 <!-- NO2- -->
+<!-- CHANGED: replaced K₂Cr₂O₇ paper with "decolourises acidified aqueous KMnO₄" per data booklet -->
 <div class="anion-row">
   <div class="ion-badge b-coral">NO₂⁻</div>
   <div class="hline arr-r" style="width:10px;align-self:center;"></div>
@@ -400,16 +417,16 @@ permalink: /practical/qualitative-analysis/
     <div style="display:flex;align-items:center;width:100%;margin-top:4px;">
       <span class="alabel" style="color:var(--coral);">also:</span>
       <div class="hline arr-r" style="width:6px;"></div>
-      <div class="box b-gray" style="width:155px;"><span class="bname">Dilute acid</span><span class="bsub">(HCl or HNO₃)</span></div>
+      <div class="box b-gray" style="width:155px;"><span class="bname">Acidified KMnO₄(aq)</span></div>
       <div class="hline arr-r" style="flex:1;min-width:10px;"></div>
-      <div class="box b-coral" style="width:195px;"><span class="bname">Colourless NO gas → air</span><span class="bsub">turns pale brown (NO₂)</span></div>
+      <div class="box b-coral" style="width:195px;"><span class="bname">Purple → colourless</span><span class="bsub">decolourises acidified aq. KMnO₄</span></div>
       <div class="hline arr-r" style="flex:1;min-width:10px;"></div>
       <div class="box b-coral" style="width:90px;"><span class="bion">NO₂⁻</span><span class="bsub">confirmed</span></div>
     </div>
   </div>
 </div>
 
-<div class="note"><b>Key distinction — NO₃⁻ vs NO₂⁻:</b> Both produce NH₃ with OH⁻ + Al foil. Only NO₂⁻ also reacts with dilute acid to produce colourless NO gas that turns brown in air. Use the acid test to distinguish.</div>
+<div class="note"><b>Key distinction — NO₃⁻ vs NO₂⁻:</b> Both produce NH₃ with OH⁻ + Al foil. Only NO₂⁻ also decolourises acidified aqueous KMnO₄. Use the KMnO₄ test to distinguish.</div>
 
 <!-- Cl- -->
 <div class="anion-row" style="margin-top:8px;">
@@ -433,7 +450,8 @@ permalink: /practical/qualitative-analysis/
   <div class="chain">
     <div class="box b-gray" style="width:120px;"><span class="bname">Ag⁺(aq)</span><span class="bsub">AgNO₃ solution</span></div>
     <div class="hline arr-r" style="flex:1;min-width:10px;"></div>
-    <div class="box b-amber" style="width:120px;"><span class="bname">Cream ppt</span><span class="bsub">AgBr forms</span></div>
+    <!-- CHANGED: data booklet says "cream/off-white ppt" -->
+    <div class="box b-amber" style="width:120px;"><span class="bname">Cream/off-white ppt</span><span class="bsub">AgBr forms</span></div>
     <div class="hline arr-r" style="flex:1;min-width:10px;"></div>
     <div class="box b-gray" style="width:160px;"><span class="bname">Add NH₃(aq)</span><span class="bsub">ppt partially soluble</span></div>
     <div class="hline arr-r" style="flex:1;min-width:10px;"></div>
@@ -442,13 +460,14 @@ permalink: /practical/qualitative-analysis/
 </div>
 
 <!-- I- -->
+<!-- CHANGED: data booklet says "pale yellow ppt" not just "yellow ppt" -->
 <div class="anion-row">
   <div class="ion-badge b-purple">I⁻</div>
   <div class="hline arr-r" style="width:10px;align-self:center;"></div>
   <div class="chain">
     <div class="box b-gray" style="width:120px;"><span class="bname">Ag⁺(aq)</span><span class="bsub">AgNO₃ solution</span></div>
     <div class="hline arr-r" style="flex:1;min-width:10px;"></div>
-    <div class="box b-purple" style="width:120px;"><span class="bname">Yellow ppt</span><span class="bsub">AgI forms</span></div>
+    <div class="box b-purple" style="width:120px;"><span class="bname">Pale yellow ppt</span><span class="bsub">AgI forms</span></div>
     <div class="hline arr-r" style="flex:1;min-width:10px;"></div>
     <div class="box b-gray" style="width:160px;"><span class="bname">Add NH₃(aq)</span><span class="bsub">ppt insoluble</span></div>
     <div class="hline arr-r" style="flex:1;min-width:10px;"></div>
@@ -456,7 +475,7 @@ permalink: /practical/qualitative-analysis/
   </div>
 </div>
 
-<div class="note"><b>Key distinction — Cl⁻ vs Br⁻ vs I⁻:</b> All give ppt with Ag⁺(aq). Distinguish by colour (white / cream / yellow) and NH₃ solubility: AgCl dissolves fully, AgBr partially, AgI insoluble.</div>
+<div class="note"><b>Key distinction — Cl⁻ vs Br⁻ vs I⁻:</b> All give ppt with Ag⁺(aq). Distinguish by colour (white / cream-off-white / pale yellow) and NH₃ solubility: AgCl dissolves fully, AgBr partially, AgI insoluble.</div>
 
 <!-- CrO4 2- -->
 <div class="anion-row" style="margin-top:8px;">
@@ -482,6 +501,20 @@ permalink: /practical/qualitative-analysis/
   </div>
 </div>
 
+<!-- S2O3 2- NEW -->
+<!-- CHANGED: added thiosulfate — present in data booklet, was missing entirely -->
+<div class="anion-row" style="margin-top:8px;">
+  <div class="ion-badge b-gray" style="font-size:10px;">S₂O₃²⁻</div>
+  <div class="hline arr-r" style="width:10px;align-self:center;"></div>
+  <div class="chain">
+    <div class="box b-gray" style="width:120px;"><span class="bname">Dilute acid H⁺(aq)</span><span class="bsub">(HCl or HNO₃)</span></div>
+    <div class="hline arr-r" style="flex:1;min-width:10px;"></div>
+    <div class="box b-gray" style="width:200px;"><span class="bname">Off-white / pale yellow ppt — slowly</span><span class="bsub">sulfur precipitate forms over time</span></div>
+    <div class="hline arr-r" style="flex:1;min-width:10px;"></div>
+    <div class="box b-green" style="width:70px;"><span class="bion">S₂O₃²⁻</span><span class="bsub">confirmed</span></div>
+  </div>
+</div>
+
 <div class="legend">
   <div class="li"><div class="ls" style="background:var(--gray-f);border-color:var(--gray-b);"></div>Reagent / test step</div>
   <div class="li"><div class="ls" style="background:var(--teal-f);border-color:var(--teal-b);"></div>Observation (positive)</div>
@@ -503,6 +536,7 @@ permalink: /practical/qualitative-analysis/
 <!-- ═══ SECTION 3: GAS TESTS ═══ -->
 <h2>3 — Gas tests</h2>
 
+<!-- CHANGED: removed Cl₂ and SO₂ (not in data booklet gas table); kept as note below -->
 <div class="gas-grid">
   <div class="gas-hdr">Gas</div>
   <div class="gas-hdr">Test</div>
@@ -516,28 +550,39 @@ permalink: /practical/qualitative-analysis/
   <div class="gas-cell gas-row-even">Bubble gas through limewater (Ca(OH)₂ solution)</div>
   <div class="gas-cell gas-row-even" style="color:var(--gray);"><b>White ppt</b> forms (CaCO₃) — dissolves with excess CO₂</div>
 
-  <div class="gas-cell gas-name">Cl₂</div>
-  <div class="gas-cell">Hold damp litmus paper in the gas</div>
-  <div class="gas-cell b-green" style="color:var(--green);">Paper is <b>bleached / decolourised</b></div>
+  <div class="gas-cell gas-name">H₂</div>
+  <div class="gas-cell">Hold a lighted splint at the mouth of the tube</div>
+  <div class="gas-cell b-amber" style="color:var(--amber);"><b>"Pop"</b> sound heard</div>
 
-  <div class="gas-cell gas-name gas-row-even">H₂</div>
-  <div class="gas-cell gas-row-even">Hold a lighted splint at the mouth of the tube</div>
-  <div class="gas-cell gas-row-even b-amber" style="color:var(--amber);"><b>"Pop"</b> sound heard</div>
+  <div class="gas-cell gas-name gas-row-even">O₂</div>
+  <div class="gas-cell gas-row-even">Insert a glowing splint into the gas</div>
+  <div class="gas-cell gas-row-even b-coral" style="color:var(--coral);">Splint <b>relights</b></div>
+</div>
 
-  <div class="gas-cell gas-name">O₂</div>
-  <div class="gas-cell">Insert a glowing splint into the gas</div>
-  <div class="gas-cell b-coral" style="color:var(--coral);">Splint <b>relights</b></div>
+<!-- CHANGED: Cl₂ and SO₂ moved here as supplementary note; not in official data booklet gas table -->
+<div class="note" style="margin-top:10px;"><b>Additional gas tests (not in official data booklet gas table — for reference only):</b><br>
+• <b>Cl₂:</b> Hold damp litmus paper in gas → paper is bleached / decolourised.<br>
+• <b>SO₂:</b> Hold damp potassium dichromate(VI) paper in gas → paper turns orange to green (Cr³⁺ formed). Note: SO₂ also decolourises acidified aqueous KMnO₄.
+</div>
 
-  <div class="gas-cell gas-name gas-row-even">SO₂</div>
-  <div class="gas-cell gas-row-even">Hold damp potassium dichromate(VI) paper in the gas</div>
-  <div class="gas-cell gas-row-even b-amber" style="color:var(--amber);">Paper turns from <b>orange → green</b></div>
+<!-- CHANGED: added Tests for elements section — present in data booklet, was entirely missing -->
+<h2 style="margin-top:20px;">4 — Tests for elements</h2>
+
+<div class="gas-grid">
+  <div class="gas-hdr">Element</div>
+  <div class="gas-hdr">Test</div>
+  <div class="gas-hdr">Positive result</div>
+
+  <div class="gas-cell gas-name">I₂</div>
+  <div class="gas-cell">Add starch solution to the sample</div>
+  <div class="gas-cell b-purple" style="color:var(--purple);">Solution turns <b>blue-black</b></div>
 </div>
 
 <div class="legend">
   <div class="li"><div class="ls" style="background:var(--teal-f);border-color:var(--teal-b);"></div>NH₃ (alkaline)</div>
-  <div class="li"><div class="ls" style="background:var(--green-f);border-color:var(--green-b);"></div>Cl₂ (bleaching)</div>
-  <div class="li"><div class="ls" style="background:var(--amber-f);border-color:var(--amber-b);"></div>H₂ / SO₂</div>
+  <div class="li"><div class="ls" style="background:var(--amber-f);border-color:var(--amber-b);"></div>H₂ (pop)</div>
   <div class="li"><div class="ls" style="background:var(--coral-f);border-color:var(--coral-b);"></div>O₂ (oxidising)</div>
+  <div class="li"><div class="ls" style="background:var(--purple-f);border-color:var(--purple-b);"></div>I₂ (starch test)</div>
 </div>
 </div>
 </div>
