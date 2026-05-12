@@ -127,6 +127,11 @@ ninja.data = [{
           description: "CIE A-Level Chemistry 9701 · How to Answer Identification Questions",
           section: "Practical",handler: () => {
               window.location.href = "/practical/qualitative-analysis-exam-skills/";
+            },},{id: "practical-thermal-decomposition-practical",
+          title: 'Thermal Decomposition Practical',
+          description: "CIE A-Level Chemistry 9701 · Hydrated Aluminium Sulfate Al₂(SO₄)₃·xH₂O",
+          section: "Practical",handler: () => {
+              window.location.href = "/practical/thermal-decomposition/";
             },},{id: "practical-titration-practical",
           title: 'Titration Practical',
           description: "CIE A-Level Chemistry 9701 · Iodometric Back-Titration &amp; CuSO₄·xH₂O",
