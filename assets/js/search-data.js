@@ -16,6 +16,13 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/blog/";
           },
+        },{id: "nav-cie-biology",
+          title: "CIE Biology",
+          description: "CIE A-Level Biology notes and resources.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/cie-biology/";
+          },
         },{id: "nav-publications",
           title: "publications",
           description: "Study resources and materials.",
@@ -107,6 +114,11 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/the_godfather/";
+            },},{id: "cie_biology-as-level-biology-9700-2025-exam-study-guide",
+          title: 'AS Level Biology 9700 — 2025 Exam Study Guide',
+          description: "",
+          section: "Cie_biology",handler: () => {
+              window.location.href = "/cie-biology/9700-study-guide/";
             },},{id: "news-drug-design-research-programme",
           title: 'Drug Design Research Programme',
           description: "A hands-on summer project for high school students — visualise proteins, calculate binding energies, and model antibiotic resistance using real research tools.",
