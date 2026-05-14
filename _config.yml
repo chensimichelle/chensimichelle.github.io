@@ -91,8 +91,8 @@ bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 # Blog
 # -----------------------------------------------------------------------------
 
-blog_name: NSAA Practice
-blog_description: interactive past paper questions for Cambridge admissions
+blog_name: Application Guide
+blog_description: programmes, procedures, and admissions prep for science & engineering applicants
 permalink: /blog/:year/:title/
 lsi: false # produce an index for related posts
 
@@ -275,8 +275,19 @@ jekyll-archives:
   books:
     enabled: [year, tags, categories] # enables year, tag and category archives (remove if you need to disable one of them).
 
-display_tags: ["chemistry", "biology", "s1", "s2"] # these tags will be displayed on the front page of your blog
-display_categories: ["nsaa"] # these categories will be displayed on the front page of your blog
+display_tags:
+  - uk
+  - canada
+  - australia
+  - hk
+  - oxcam
+  - ic
+  - ucl
+  - admission test
+  - nsaa
+  - program introduction
+
+display_categories: []
 
 # -----------------------------------------------------------------------------
 # Jekyll Scholar
