@@ -65,7 +65,18 @@ ninja.data = [{
               handler: () => {
                 window.location.href = "/practical/";
               },
-            },{id: "post-2022-nsaa-chemistry-s2",
+            },{id: "post-canada-life-sciences-guide-ubc-mcgill-u-of-t",
+        
+          title: "Canada Life Sciences Guide — UBC · McGill · U of T",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/canada-life-sciences/";
+          
+        },
+      },{id: "post-2022-nsaa-chemistry-s2",
         
           title: "2022 NSAA Chemistry S2",
         
