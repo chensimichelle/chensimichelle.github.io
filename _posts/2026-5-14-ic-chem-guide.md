@@ -627,48 +627,74 @@ categories: []
 </div>
 
 <script>
-<script>
-var OFFER_DEPTS = [
-  { programs:[
-    { name:'Chemistry (BSc)',         color:'#1a5fa8', dash:[],        apps:[402,541,567,640,704],  offers:[206,237,142,152,202] },
-    { name:'Chem w/ Management',      color:'#5b9bd5', dash:[5,3],     apps:[45,47,45,48,56],       offers:[18,24,11,9,6] },
-    { name:'Chem w/ Med. Chem',       color:'#0a3060', dash:[2,2],     apps:[109,135,133,127,159],  offers:[52,59,33,34,47] },
-    { name:'Chem w/ Mol. Physics',    color:'#a8c8ef', dash:[8,3],     apps:[55,66,76,59,null],     offers:[37,46,35,21,null] },
-    { name:'Chem w/ Research Abroad', color:'#2d7fc1', dash:[4,2,2,2], apps:[50,33,60,59,71],       offers:[40,30,28,28,33] }
-  ]},
-  { programs:[
-    { name:'Materials Science & Eng',   color:'#5a3080', dash:[],    apps:[302,272,215,254,391], offers:[75,96,76,109,114] },
-    { name:'Biomaterials & Tissue Eng', color:'#9060c0', dash:[5,3], apps:[51,57,37,46,58],      offers:[27,20,16,17,6] },
-    { name:'Materials w/ Nuclear Eng',  color:'#c8a8e8', dash:[2,2], apps:[43,37,49,47,77],      offers:[18,21,19,21,24] }
-  ]},
-  { programs:[
-    { name:'Biomedical Engineering',   color:'#0d7a55', dash:[],    apps:[554,570,552,651,709], offers:[302,328,338,311,341] },
-    { name:'Molecular Bioengineering', color:'#4ab890', dash:[5,3], apps:[169,172,174,175,240], offers:[131,127,143,117,133] }
-  ]},
-  { programs:[
-    { name:'Chemical Engineering', color:'#8a5a00', dash:[], apps:[754,878,752,852,979], offers:[385,372,379,396,428] }
-  ]}
-];
-var _offerChartsBuilt = false;
-function buildOfferCharts() {
-  if (_offerChartsBuilt) return;
-  _offerChartsBuilt = true;
+var _chartsBuilt = false;
+function buildAdmissionCharts() {
+  if (_chartsBuilt) return;
+  _chartsBuilt = true;
+
   var YEARS = ['2020','2021','2022','2023','2024'];
   Chart.defaults.font.family = "'DM Sans', sans-serif";
   Chart.defaults.font.size = 11;
   Chart.defaults.color = '#7a7a7a';
-  OFFER_DEPTS.forEach(function(dept, di) {
-    var cv = document.getElementById('chartOffer'+di);
+
+  /* ── DATA ─────────────────────────────────────────── */
+  var offerDepts = [
+    { programs:[
+      { name:'Chemistry (BSc)',         color:'#1a5fa8', dash:[],        apps:[402,541,567,640,704],  offers:[206,237,142,152,202] },
+      { name:'Chem w/ Management',      color:'#5b9bd5', dash:[5,3],     apps:[45,47,45,48,56],       offers:[18,24,11,9,6] },
+      { name:'Chem w/ Med. Chem',       color:'#0a3060', dash:[2,2],     apps:[109,135,133,127,159],  offers:[52,59,33,34,47] },
+      { name:'Chem w/ Mol. Physics',    color:'#a8c8ef', dash:[8,3],     apps:[55,66,76,59,null],     offers:[37,46,35,21,null] },
+      { name:'Chem w/ Research Abroad', color:'#2d7fc1', dash:[4,2,2,2], apps:[50,33,60,59,71],       offers:[40,30,28,28,33] }
+    ]},
+    { programs:[
+      { name:'Materials Science & Eng',   color:'#5a3080', dash:[],    apps:[302,272,215,254,391], offers:[75,96,76,109,114] },
+      { name:'Biomaterials & Tissue Eng', color:'#9060c0', dash:[5,3], apps:[51,57,37,46,58],      offers:[27,20,16,17,6] },
+      { name:'Materials w/ Nuclear Eng',  color:'#c8a8e8', dash:[2,2], apps:[43,37,49,47,77],      offers:[18,21,19,21,24] }
+    ]},
+    { programs:[
+      { name:'Biomedical Engineering',   color:'#0d7a55', dash:[],    apps:[554,570,552,651,709], offers:[302,328,338,311,341] },
+      { name:'Molecular Bioengineering', color:'#4ab890', dash:[5,3], apps:[169,172,174,175,240], offers:[131,127,143,117,133] }
+    ]},
+    { programs:[
+      { name:'Chemical Engineering', color:'#8a5a00', dash:[], apps:[754,878,752,852,979], offers:[385,372,379,396,428] }
+    ]}
+  ];
+
+  var ovDepts = [
+    { programs:[
+      { name:'Chemistry (BSc)',         color:'#1a5fa8', overseas:[120,174,95,91,125] },
+      { name:'Chem w/ Management',      color:'#5b9bd5', overseas:[8,14,0,7,0] },
+      { name:'Chem w/ Med. Chem',       color:'#0a3060', overseas:[23,37,18,23,21] },
+      { name:'Chem w/ Mol. Physics',    color:'#a8c8ef', overseas:[9,9,15,9,9] },
+      { name:'Chem w/ Research Abroad', color:'#2d7fc1', overseas:[7,0,8,6,7] }
+    ]},
+    { programs:[
+      { name:'Materials Science & Eng',   color:'#5a3080', overseas:[43,66,57,78,74] },
+      { name:'Biomaterials & Tissue Eng', color:'#9060c0', overseas:[15,8,0,10,0] },
+      { name:'Materials w/ Nuclear Eng',  color:'#c8a8e8', overseas:[6,8,6,12,7] }
+    ]},
+    { programs:[
+      { name:'Biomedical Engineering',   color:'#0d7a55', overseas:[154,226,230,213,249] },
+      { name:'Molecular Bioengineering', color:'#4ab890', overseas:[77,107,102,81,98] }
+    ]},
+    { programs:[
+      { name:'Chemical Engineering', color:'#8a5a00', overseas:[193,196,202,213,206] }
+    ]}
+  ];
+
+  /* ── CHART 1: Offer rate 2×2 ─────────────────────── */
+  offerDepts.forEach(function(dept, di) {
+    var cv = document.getElementById('chartOffer' + di);
     if (!cv) return;
     var datasets = dept.programs.map(function(p) {
       return {
         label: p.name,
         data: YEARS.map(function(_, i) {
-          var a=p.apps[i], o=p.offers[i];
-          return (a&&o) ? +(o/a*100).toFixed(1) : null;
+          var a = p.apps[i], o = p.offers[i];
+          return (a && o) ? +(o / a * 100).toFixed(1) : null;
         }),
         borderColor: p.color,
-        backgroundColor: p.color+'18',
+        backgroundColor: p.color + '15',
         borderWidth: 2,
         borderDash: p.dash,
         pointRadius: 4,
@@ -677,16 +703,16 @@ function buildOfferCharts() {
         spanGaps: false
       };
     });
-    var legendHtml = dept.programs.map(function(p) {
-      var sw = p.dash.length
-        ? 'border-top:2px dashed '+p.color+';height:0;width:18px;background:transparent;'
-        : 'background:'+p.color+';height:3px;width:18px;border-radius:2px;';
-      return '<span style="display:flex;align-items:center;gap:4px;font-size:0.68rem;color:#555;">'
-           + '<span style="display:inline-block;flex-shrink:0;'+sw+'"></span>'+p.name+'</span>';
-    }).join('');
+    /* legend */
     var legendDiv = document.createElement('div');
-    legendDiv.style.cssText = 'display:flex;flex-wrap:wrap;gap:6px 12px;margin-top:6px;';
-    legendDiv.innerHTML = legendHtml;
+    legendDiv.style.cssText = 'display:flex;flex-wrap:wrap;gap:5px 10px;margin-top:5px;';
+    legendDiv.innerHTML = dept.programs.map(function(p) {
+      var sw = p.dash.length
+        ? 'border-top:2px dashed ' + p.color + ';height:0;width:16px;background:transparent;display:inline-block;flex-shrink:0;'
+        : 'background:' + p.color + ';height:3px;width:16px;border-radius:2px;display:inline-block;flex-shrink:0;';
+      return '<span style="display:flex;align-items:center;gap:4px;font-size:0.65rem;color:#555;">'
+           + '<span style="' + sw + '"></span>' + p.name + '</span>';
+    }).join('');
     cv.parentNode.appendChild(legendDiv);
     new Chart(cv, {
       type: 'line',
@@ -697,21 +723,75 @@ function buildOfferCharts() {
         plugins: {
           legend: { display: false },
           tooltip: { callbacks: { label: function(ctx) {
-            return ctx.raw==null ? ctx.dataset.label+': N/A'
-                                 : ctx.dataset.label+': '+ctx.raw.toFixed(1)+'%';
+            return ctx.raw == null ? ctx.dataset.label + ': N/A'
+                                   : ctx.dataset.label + ': ' + ctx.raw.toFixed(1) + '%';
           }}}
         },
         scales: {
-          x: { grid: { color:'rgba(0,0,0,0.05)' } },
-          y: { min:0, max:100,
-            ticks: { callback:function(v){return v+'%';}, stepSize:20 },
-            grid: { color:'rgba(0,0,0,0.05)' },
-            title: { display:true, text:'Offer rate (%)', color:'#aaa', font:{size:10} }
+          x: { grid: { color: 'rgba(0,0,0,0.05)' } },
+          y: {
+            min: 0, max: 100,
+            ticks: { callback: function(v) { return v + '%'; }, stepSize: 20 },
+            grid: { color: 'rgba(0,0,0,0.05)' },
+            title: { display: true, text: 'Offer rate (%)', color: '#aaa', font: { size: 10 } }
           }
         }
       }
     });
   });
+
+  /* ── CHART 2: Overseas offers stacked bars ──────────── */
+  var ovIds = ['chartOvChem','chartOvMat','chartOvBioe','chartOvChemEng'];
+  ovDepts.forEach(function(dept, di) {
+    var cv = document.getElementById(ovIds[di]);
+    if (!cv) return;
+    new Chart(cv, {
+      type: 'bar',
+      data: {
+        labels: YEARS,
+        datasets: dept.programs.map(function(p) {
+          return { label: p.name, data: p.overseas, backgroundColor: p.color,
+                   borderColor: 'rgba(255,255,255,0.3)', borderWidth: 0.5, stack: 'v' };
+        })
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: false }, tooltip: { callbacks: { label: function(ctx) {
+          return ctx.dataset.label + ': ' + (ctx.raw === 0 ? 'suppressed' : ctx.raw);
+        }}}},
+        scales: {
+          x: { stacked: true, grid: { display: false } },
+          y: { stacked: true, title: { display: true, text: 'Overseas offers', color: '#aaa', font: { size: 10 } } }
+        }
+      }
+    });
+  });
+
+  /* ── CHART 3: Entrant grades stacked bar ────────────── */
+  var cvG = document.getElementById('chartEntrantGrades');
+  if (cvG) {
+    new Chart(cvG, {
+      type: 'bar',
+      data: {
+        labels: ['Chemistry','Chemical Engineering','Materials','Biomedical Engineering'],
+        datasets: [
+          { label:'A*A*A*+', backgroundColor:'#1a1a1a', data:[51,64,30,28] },
+          { label:'A*A*A',   backgroundColor:'#555555', data:[34,25,25,30] },
+          { label:'A*AA',    backgroundColor:'#2a9d8f', data:[ 9, 8,25,26] },
+          { label:'AAA',     backgroundColor:'#4a90d9', data:[ 3, 2,20,16] },
+          { label:'Other',   backgroundColor:'#c8dfc8', data:[ 3, 1, 0, 0] }
+        ]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { position: 'bottom' }, tooltip: { callbacks: { label: function(c) { return c.dataset.label + ': ' + c.raw + '%'; } } } },
+        scales: {
+          x: { stacked: true, grid: { display: false } },
+          y: { stacked: true, max: 100, ticks: { callback: function(v) { return v + '%'; } } }
+        }
+      }
+    });
+  }
 }
 </script>
 
@@ -725,11 +805,22 @@ function buildOfferCharts() {
     if(panel){panel.classList.add('active');panel.style.display='block';}
     if(btn) btn.classList.add('active');
     if(id==='admissions'){
-      setTimeout(function(){buildOfferCharts();},80);
+      setTimeout(function(){buildAdmissionCharts();},80);
     } else if(typeof Chart!=='undefined'){
       setTimeout(function(){Chart.instances.forEach(function(c){c.resize();});},50);
     }
     window.scrollTo({top:0,behavior:'smooth'});
   }
-  document.addEventListener('DOMContentLoaded',function(){var f=document.getElementById('tab-overview');if(f)f.style.display='block';});
+  document.addEventListener('DOMContentLoaded',function(){
+    var f=document.getElementById('tab-overview');if(f)f.style.display='block';
+    var adm=document.getElementById('tab-admissions');
+    if(adm && adm.style.display==='block'){buildAdmissionCharts();}
+  });
+  window.addEventListener('load', function(){
+    setTimeout(function(){
+      var adm = document.getElementById('tab-admissions');
+      if (adm) adm.style.display = 'block';
+      buildAdmissionCharts();
+    }, 150);
+  });
 </script>
