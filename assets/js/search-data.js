@@ -65,7 +65,29 @@ ninja.data = [{
               handler: () => {
                 window.location.href = "/practical/";
               },
-            },{id: "post-canada-life-sciences-guide-ubc-mcgill-u-of-t",
+            },{id: "post-imperial-college-london-chemistry-chemical-engineering-materials-amp-biomedical-engineering-guide",
+        
+          title: "Imperial College London — Chemistry, Chemical Engineering, Materials &amp; Biomedical Engineering Guide",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/ic-chem-guide/";
+          
+        },
+      },{id: "post-imperial-college-london-bioscience-guide-a-level-applicant-guide",
+        
+          title: "Imperial College London Bioscience Guide — A-Level Applicant Guide",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/ic-bio-guide/";
+          
+        },
+      },{id: "post-canada-life-sciences-guide-ubc-mcgill-u-of-t",
         
           title: "Canada Life Sciences Guide — UBC · McGill · U of T",
         
