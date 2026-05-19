@@ -1,9 +1,11 @@
 ---
 layout: post
-title: "Imperial College London — Chemistry, Chemical Engineering, Materials & Biomedical Engineering Guide"
-date: 2026-05-14
+title: "Imperial College London - Chemistry, Chemical Engineering, Materials & Biomedical Engineering Guide"
+date: 2026-05-19
 tags: [uk, program introduction]
 categories: []
+chart:
+  chartjs: true
 ---
 
 <style>
@@ -184,7 +186,6 @@ categories: []
   }
 </style>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 
 <nav class="tab-nav">
   <div class="tab-nav-inner">
@@ -461,73 +462,52 @@ categories: []
   </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 <!-- TAB 4 ADMISSIONS DATA -->
+<!-- ✅ Chart.js loaded once -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- TAB 4: ADMISSIONS DATA (includes Chinese applicant data) -->
 <div id="tab-admissions" class="tab-panel">
-  <p style="margin-top:1.5rem;font-size:0.82rem;color:var(--text-muted);">Applications · Offer rates · Success rates · Overseas offers · 2020–2024 UCAS data</p>
+
+  <!-- SECTION 1: Overall offer rates -->
+  <p style="margin-top:1.5rem;font-size:0.82rem;color:var(--text-muted);">Applications · Offer rates · 2020–2024 UCAS data</p>
   <h2 class="section-title">Admissions Data</h2>
   <div class="divider"></div>
-  <!-- CHART 1: Offer rates 2x2 -->
+
   <div class="chart-section">
-    <div class="chart-lbl">Programme Performance</div>
-    <h3 class="chart-title">Offer Rate by Department (2020–2024)</h3>
-    <p class="chart-sub">Percentage of applicants who received an offer, per sub-programme · One graph per department</p>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:0.5rem;">
+    <div class="chart-lbl">Offer Rate by Department · 2020–2024</div>
+    <p class="chart-sub">Offer rate = offers made / applications received · 0–100% fixed scale</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:1rem;">
       <div>
-        <div style="font-weight:700;font-size:0.8rem;color:#1a5fa8;margin-bottom:0.25rem;">Chemistry</div>
-        <div class="chart-wrap" style="height:200px;"><canvas id="chartOffer0"></canvas></div>
+        <h3 class="chart-title" style="margin-top:0;">Chemistry</h3>
+        <canvas id="chart-chem" height="180"></canvas>
       </div>
       <div>
-        <div style="font-weight:700;font-size:0.8rem;color:#5a3080;margin-bottom:0.25rem;">Materials</div>
-        <div class="chart-wrap" style="height:200px;"><canvas id="chartOffer1"></canvas></div>
+        <h3 class="chart-title" style="margin-top:0;">Materials</h3>
+        <canvas id="chart-materials" height="180"></canvas>
       </div>
       <div>
-        <div style="font-weight:700;font-size:0.8rem;color:#0d7a55;margin-bottom:0.25rem;">Biomedical Engineering</div>
-        <div class="chart-wrap" style="height:200px;"><canvas id="chartOffer2"></canvas></div>
+        <h3 class="chart-title" style="margin-top:0;">Biomedical Engineering</h3>
+        <canvas id="chart-biomed" height="180"></canvas>
       </div>
       <div>
-        <div style="font-weight:700;font-size:0.8rem;color:#8a5a00;margin-bottom:0.25rem;">Chemical Engineering</div>
-        <div class="chart-wrap" style="height:200px;"><canvas id="chartOffer3"></canvas></div>
+        <h3 class="chart-title" style="margin-top:0;">Chemical Engineering</h3>
+        <canvas id="chart-chemeng" height="180"></canvas>
       </div>
     </div>
-    <div style="font-size:0.67rem;color:var(--text-muted);line-height:1.5;">Offer rate = offers made / applications received. Suppressed values (≤5) shown as gaps. Source: Imperial College London UG Admissions Statistics 2020–2024.</div>
+    <p style="font-size:0.67rem;color:var(--text-muted);line-height:1.5;margin-top:0.8rem;">Offer rate = offers made / applications received. Suppressed values (≤5) shown as null. Source: Imperial College London UG Admissions Statistics 2020–2024.</p>
   </div>
 
-  <!-- CHART 2: Overseas offers 2x2 -->
-  <div class="chart-section">
-    <div class="chart-lbl">Overseas Applicants — Volume</div>
-    <h3 class="chart-title">Overseas Offers Made by Sub-Programme (2020–2024)</h3>
-    <p class="chart-sub">Stacked by sub-programme within each department</p>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;">
-      <div>
-        <div style="font-weight:700;font-size:0.8rem;color:var(--chem-color);margin-bottom:0.25rem;">Chemistry dept</div>
-        <div style="font-size:0.68rem;color:var(--text-muted);margin-bottom:0.4rem;">BSc · w/Management · w/Med. Chem · w/Mol. Physics · w/Research Abroad</div>
-        <div class="chart-wrap" style="height:185px;"><canvas id="chartOvChem"></canvas></div>
-      </div>
-      <div>
-        <div style="font-weight:700;font-size:0.8rem;color:var(--mat-color);margin-bottom:0.25rem;">Materials dept</div>
-        <div style="font-size:0.68rem;color:var(--text-muted);margin-bottom:0.4rem;">Materials Science &amp; Eng · Biomaterials &amp; Tissue Eng · Materials w/ Nuclear Eng</div>
-        <div class="chart-wrap" style="height:185px;"><canvas id="chartOvMat"></canvas></div>
-      </div>
-      <div>
-        <div style="font-weight:700;font-size:0.8rem;color:var(--bioe-color);margin-bottom:0.25rem;">Bioengineering dept</div>
-        <div style="font-size:0.68rem;color:var(--text-muted);margin-bottom:0.4rem;">Biomedical Engineering MEng · Molecular Bioengineering MEng</div>
-        <div class="chart-wrap" style="height:185px;"><canvas id="chartOvBioe"></canvas></div>
-      </div>
-      <div>
-        <div style="font-weight:700;font-size:0.8rem;color:var(--chemeng-color);margin-bottom:0.25rem;">Chemical Engineering dept</div>
-        <div style="font-size:0.68rem;color:var(--text-muted);margin-bottom:0.4rem;">Single programme</div>
-        <div class="chart-wrap" style="height:185px;"><canvas id="chartOvChemEng"></canvas></div>
-      </div>
-    </div>
-    <div class="chart-insight">Biomedical Engineering overseas offers more than doubled (154 → 341) making it the largest by far. Chemical Engineering overseas offers are the most stable (193 → 206). Chemistry recovered to 202 in 2024 after a dip in 2021–2023.</div>
-  </div>
-
-  <!-- CHART 3: Entrant grades -->
-  <div class="chart-section">
+  <!-- SECTION 2: Entrant grades -->
+  <div class="chart-section" style="margin-top:1.5rem;">
     <div class="chart-lbl">New Entrants' Grades</div>
     <h3 class="chart-title">Achieved A-Level Grades of Students Who Enrolled (2024)</h3>
     <p class="chart-sub">What grades entrants actually held on results day — the most honest measure of competition</p>
-    <div class="chart-wrap" style="height:275px;"><canvas id="chartEntrantGrades"></canvas></div>
+    <canvas id="chart-grades" height="120"></canvas>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.55rem;margin-top:0.8rem;">
       <div class="callout" style="border-color:var(--chem-color);">Chemistry: 51% arrived with A*A*A*+; 85% held A*A*A or above.</div>
       <div class="callout" style="border-color:var(--chemeng-color);">Chemical Engineering: 64% arrived with A*A*A*+ — far above the A*AA stated minimum.</div>
@@ -536,20 +516,155 @@ categories: []
     </div>
   </div>
 
-  <!-- Key takeaways -->
-  <div class="chart-section">
-    <div class="chart-lbl">Key Takeaways</div>
-    <h3 class="chart-title">What the Data Tells Us</h3>
-    <div style="margin-top:0.9rem;">
-      <div class="tw-row"><span class="tw-num">1</span><div><strong>Biomedical Engineering has the highest offer rate and fastest overseas growth</strong> — 48.1% offer rate; overseas offers more than doubled (154→341) since 2020. Most accessible entry of the four, but growing fast.</div></div>
-      <div class="tw-row"><span class="tw-num">2</span><div><strong>Stated minimums dramatically understate real competition</strong> — 51% of Chemistry and 64% of Chemical Engineering 2024 entrants held A*A*A*+. A*AA is the floor, not a target.</div></div>
-      <div class="tw-row"><span class="tw-num">3</span><div><strong>Chemical Engineering is the only programme requiring ESAT</strong> — plus an interview. Offer rate 43.7% looks high, but applicant quality is extreme. Average success rate 17.2%.</div></div>
-      <div class="tw-row"><span class="tw-num">4</span><div><strong>Chemistry applications have grown 75% since 2020</strong> — from 402 to 704. Overseas offers recovered to 202 in 2024 after mid-period dip. Significant variation across sub-programmes.</div></div>
-      <div class="tw-row"><span class="tw-num">5</span><div><strong>Materials is the smallest by volume but shows strong growth</strong> — MSci applications surged to 391 in 2024. More grade spread (AAA entrants) and only programme requiring A*A*A offer grade.</div></div>
+  <!-- SECTION 3: Chinese applicants -->
+  <div class="chart-section" style="margin-top:2rem;">
+    <div class="chart-lbl">Chinese Applicants · 2020–2024</div>
+    <h2 class="section-title" style="font-size:1.1rem;">Chinese Applicant Data</h2>
+    <div class="divider"></div>
+
+    <h3 class="chart-title">Offer Rate for Chinese Applicants · 2020–2024</h3>
+    <p class="chart-sub">Applications rose while offers contracted — offer rate = offers made / Chinese applications received</p>
+    <canvas id="chart-cn-offerrate" height="110"></canvas>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0.6rem;margin-top:1rem;">
+      <div class="callout" style="border-color:#1a5fa8;text-align:center;">
+        <div style="font-size:1.1rem;font-weight:700;color:#1a5fa8;">−16pp</div>
+        <div style="font-size:0.75rem;color:var(--text-muted);">Chemistry<br>40% → 24%</div>
+      </div>
+      <div class="callout" style="border-color:#8a5a00;text-align:center;">
+        <div style="font-size:1.1rem;font-weight:700;color:#8a5a00;">−27pp</div>
+        <div style="font-size:0.75rem;color:var(--text-muted);">Chemical Eng.<br>50% → 23%</div>
+      </div>
+      <div class="callout" style="border-color:#5a3080;text-align:center;">
+        <div style="font-size:1.1rem;font-weight:700;color:#5a3080;">+3pp</div>
+        <div style="font-size:0.75rem;color:var(--text-muted);">Materials<br>16% → 19%</div>
+      </div>
+      <div class="callout" style="border-color:#555;text-align:center;">
+        <div style="font-size:1.1rem;font-weight:700;color:#555;">−12pp</div>
+        <div style="font-size:0.75rem;color:var(--text-muted);">Overall avg<br>34% → 22%</div>
+      </div>
     </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:1.5rem;">
+      <div>
+        <div class="chart-lbl">Chinese Application Volume · 2020–2024</div>
+        <h3 class="chart-title" style="margin-top:0.3rem;">Applications grew +41% across 3 departments</h3>
+        <p class="chart-sub">Chemistry dominates volume; Chemical Engineering grew fastest</p>
+        <canvas id="chart-cn-apps" height="200"></canvas>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;margin-top:0.8rem;">
+          <div class="callout" style="border-color:#555;text-align:center;">
+            <div style="font-size:1.15rem;font-weight:700;">1,110</div>
+            <div style="font-size:0.72rem;color:var(--text-muted);">Total Chinese apps 2024</div>
+          </div>
+          <div class="callout" style="border-color:#555;text-align:center;">
+            <div style="font-size:1.15rem;font-weight:700;">+41%</div>
+            <div style="font-size:0.72rem;color:var(--text-muted);">Growth 2020→2024</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="chart-lbl">Admissions Funnel · Chinese Applicants · 2024</div>
+        <h3 class="chart-title" style="margin-top:0.3rem;">Applications → Offers → Enrolled</h3>
+        <p class="chart-sub" style="margin-top:1.5rem;">Chemistry, Chemical Engineering & Materials</p>
+        <canvas id="chart-cn-funnel" height="200"></canvas>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;margin-top:0.8rem;">
+          <div class="callout" style="border-color:#0d7a55;text-align:center;">
+            <div style="font-size:1.15rem;font-weight:700;">22.2%</div>
+            <div style="font-size:0.72rem;color:var(--text-muted);">Overall offer rate 2024</div>
+          </div>
+          <div class="callout" style="border-color:#c0392b;text-align:center;">
+            <div style="font-size:1.15rem;font-weight:700;">−13pp</div>
+            <div style="font-size:0.72rem;color:var(--text-muted);">Drop since 2020</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p style="font-size:0.67rem;color:var(--text-muted);line-height:1.5;margin-top:1rem;">Source: Imperial College London Undergraduate Admissions Statistics 2020–2024. Chemical Engineering dept includes Biomedical Engineering and Biomedical Tech Ventures in addition to Molecular Chemical Engineering.</p>
   </div>
-  <div style="font-size:0.7rem;color:var(--text-muted);font-style:italic;padding:0.7rem 0.9rem;background:var(--bg-soft);border-radius:8px;border:1px solid var(--border);margin-top:1.5rem;">Source: Imperial College London Undergraduate Admissions Statistics 2020–2024. Bioengineering dept includes Biomedical Engineering MEng and Molecular Bioengineering MEng. Materials dept includes Materials Science &amp; Eng, Biomaterials &amp; Tissue Eng, and Materials with Nuclear Eng. Suppressed values (≤5) estimated at 3.</div>
-</div>
+
+</div><!-- end tab-admissions -->
+
+<!-- ✅ All charts drawn lazily when tab becomes visible -->
+<script>
+(function() {
+  const years = ["2020","2021","2022","2023","2024"];
+  const sharedOfferOpts = {
+    responsive: true,
+    plugins: { legend: { position: "bottom" } },
+    scales: { y: { min:0, max:100, title:{ display:true, text:"Offer rate (%)" }, ticks:{ stepSize:20 } } }
+  };
+
+  const chartDefs = [
+    { id:'chart-chem', cfg:{ type:'line', data:{ labels:years, datasets:[
+      { label:"Chemistry BSc",           data:[51.2,43.8,25.0,23.8,28.7], borderColor:"#1a5fa8", backgroundColor:"rgba(26,95,168,0.1)",  borderWidth:2, tension:0.3, fill:false },
+      { label:"Chem w/ Research Abroad", data:[80.0,90.9,46.7,47.5,46.5], borderColor:"#2d7fc1", backgroundColor:"rgba(45,127,193,0.1)", borderWidth:2, borderDash:[5,5], tension:0.3, fill:false }
+    ]}, options:sharedOfferOpts }},
+    { id:'chart-materials', cfg:{ type:'line', data:{ labels:years, datasets:[
+      { label:"Materials Science & Eng",  data:[24.8,35.3,35.3,43.0,29.2], borderColor:"#5a3080", backgroundColor:"#5a308015", borderWidth:2, pointRadius:4, tension:0.3 },
+      { label:"Biomaterials & Tissue Eng",data:[52.9,35.1,43.2,37.0,10.3], borderColor:"#9060c0", backgroundColor:"#9060c015", borderWidth:2, borderDash:[5,3], pointRadius:4, tension:0.3 },
+      { label:"Materials w/ Nuclear Eng", data:[41.9,56.8,38.8,44.7,31.2], borderColor:"#c8a8e8", backgroundColor:"#c8a8e815", borderWidth:2, borderDash:[2,2], pointRadius:4, tension:0.3 }
+    ]}, options:sharedOfferOpts }},
+    { id:'chart-biomed', cfg:{ type:'line', data:{ labels:years, datasets:[
+      { label:"Biomedical Engineering",   data:[54.5,57.5,61.2,47.8,48.1], borderColor:"#0d7a55", backgroundColor:"#0d7a5515", borderWidth:2, pointRadius:4, tension:0.3 },
+      { label:"Molecular Bioengineering", data:[77.5,73.8,82.2,66.9,55.4], borderColor:"#4ab890", backgroundColor:"#4ab89015", borderWidth:2, borderDash:[5,3], pointRadius:4, tension:0.3 }
+    ]}, options:sharedOfferOpts }},
+    { id:'chart-chemeng', cfg:{ type:'line', data:{ labels:years, datasets:[
+      { label:"Chemical Engineering", data:[51.1,42.4,50.4,46.5,43.7], borderColor:"#8a5a00", backgroundColor:"#8a5a0015", borderWidth:2, pointRadius:4, tension:0.3 }
+    ]}, options:sharedOfferOpts }},
+    { id:'chart-grades', cfg:{ type:'bar', data:{ labels:["Chemistry","Chemical Engineering","Materials","Biomedical Engineering"], datasets:[
+      { label:"A*A*A*+", backgroundColor:"#1a1a1a", data:[51,64,30,28] },
+      { label:"A*A*A",   backgroundColor:"#555555", data:[34,25,25,30] },
+      { label:"A*AA",    backgroundColor:"#2a9d8f", data:[9,8,25,26]   },
+      { label:"AAA",     backgroundColor:"#4a90d9", data:[3,2,20,16]   },
+      { label:"Other",   backgroundColor:"#c8dfc8", data:[3,1,0,0]     }
+    ]}, options:{ responsive:true, plugins:{legend:{position:"bottom"}}, scales:{ x:{stacked:true}, y:{stacked:true,max:100,title:{display:true,text:"%"},ticks:{stepSize:20}} } }}},
+    { id:'chart-cn-offerrate', cfg:{ type:'line', data:{ labels:years, datasets:[
+      { label:"Chemistry",            data:[40,33,22,20,24], borderColor:"#1a5fa8", backgroundColor:"rgba(26,95,168,0.08)",  borderWidth:2, pointRadius:4, tension:0.3, fill:false },
+      { label:"Chemical Engineering", data:[50,44,38,30,23], borderColor:"#8a5a00", backgroundColor:"rgba(138,90,0,0.08)",   borderWidth:2, pointRadius:4, tension:0.3, fill:false },
+      { label:"Materials",            data:[16,20,18,17,19], borderColor:"#5a3080", backgroundColor:"rgba(90,48,128,0.08)",  borderWidth:2, pointRadius:4, borderDash:[4,3], tension:0.3, fill:false }
+    ]}, options:{ responsive:true, plugins:{legend:{position:"bottom"}}, scales:{ y:{ min:0,max:60, title:{display:true,text:"Offer rate (%)"},ticks:{stepSize:10} } } }}},
+    { id:'chart-cn-apps', cfg:{ type:'bar', data:{ labels:years, datasets:[
+      { label:"Chemistry",            data:[600,641,668,693,600], backgroundColor:"rgba(26,95,168,0.75)" },
+      { label:"Chemical Engineering", data:[96,120,142,165,186],  backgroundColor:"rgba(138,90,0,0.75)"  },
+      { label:"Materials",            data:[93,100,106,125,324],  backgroundColor:"rgba(90,48,128,0.75)" }
+    ]}, options:{ responsive:true, plugins:{ legend:{ position:"bottom", labels:{ font:{size:11}, boxWidth:12, padding:8 } } }, scales:{ x:{stacked:true}, y:{stacked:true,title:{display:true,text:"Chinese applications"},ticks:{stepSize:200}} } }}},
+    { id:'chart-cn-funnel', cfg:{ type:'bar', data:{ labels:["Chemistry","Chemical Eng.","Materials"], datasets:[
+      { label:"Applications", data:[600,186,324], backgroundColor:"rgba(74,120,200,0.8)"  },
+      { label:"Offers made",  data:[145,43,60],   backgroundColor:"rgba(42,157,143,0.8)"  },
+      { label:"Enrolled",     data:[60,98,10],    backgroundColor:"rgba(231,111,81,0.8)" }
+    ]}, options:{ responsive:true, plugins:{legend:{position:"bottom"}}, scales:{ y:{title:{display:true,text:"Number of students"}} } }}}
+  ];
+
+  const drawn = {};
+
+  function drawAll() {
+    const tab = document.getElementById('tab-admissions');
+    if (!tab || getComputedStyle(tab).display === 'none') return;
+    chartDefs.forEach(function(def) {
+      if (drawn[def.id]) return;
+      const canvas = document.getElementById(def.id);
+      if (canvas) { new Chart(canvas, def.cfg); drawn[def.id] = true; }
+    });
+  }
+
+  // Draw on load if tab already visible
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', drawAll);
+  } else {
+    drawAll();
+  }
+
+  // Watch for tab becoming visible via style/class changes
+  const tab = document.getElementById('tab-admissions');
+  if (tab) {
+    new MutationObserver(drawAll).observe(tab, { attributes:true, attributeFilter:['style','class'] });
+  }
+
+  // Also catch any click anywhere on the page (tab buttons)
+  document.addEventListener('click', function() { setTimeout(drawAll, 60); });
+})();
+</script>
 
 <!-- TAB 5 HOW TO APPLY -->
 <div id="tab-apply" class="tab-panel">
@@ -626,174 +741,6 @@ categories: []
   <div class="info-box"><strong>All information current as of May 2026.</strong> Always verify requirements on official Imperial course pages before submitting — offer grades, ESAT sections, and programme structures can change year to year.</div>
 </div>
 
-<script>
-var _chartsBuilt = false;
-function buildAdmissionCharts() {
-  if (_chartsBuilt) return;
-  _chartsBuilt = true;
-
-  var YEARS = ['2020','2021','2022','2023','2024'];
-  Chart.defaults.font.family = "'DM Sans', sans-serif";
-  Chart.defaults.font.size = 11;
-  Chart.defaults.color = '#7a7a7a';
-
-  /* ── DATA ─────────────────────────────────────────── */
-  var offerDepts = [
-    { programs:[
-      { name:'Chemistry (BSc)',         color:'#1a5fa8', dash:[],        apps:[402,541,567,640,704],  offers:[206,237,142,152,202] },
-      { name:'Chem w/ Management',      color:'#5b9bd5', dash:[5,3],     apps:[45,47,45,48,56],       offers:[18,24,11,9,6] },
-      { name:'Chem w/ Med. Chem',       color:'#0a3060', dash:[2,2],     apps:[109,135,133,127,159],  offers:[52,59,33,34,47] },
-      { name:'Chem w/ Mol. Physics',    color:'#a8c8ef', dash:[8,3],     apps:[55,66,76,59,null],     offers:[37,46,35,21,null] },
-      { name:'Chem w/ Research Abroad', color:'#2d7fc1', dash:[4,2,2,2], apps:[50,33,60,59,71],       offers:[40,30,28,28,33] }
-    ]},
-    { programs:[
-      { name:'Materials Science & Eng',   color:'#5a3080', dash:[],    apps:[302,272,215,254,391], offers:[75,96,76,109,114] },
-      { name:'Biomaterials & Tissue Eng', color:'#9060c0', dash:[5,3], apps:[51,57,37,46,58],      offers:[27,20,16,17,6] },
-      { name:'Materials w/ Nuclear Eng',  color:'#c8a8e8', dash:[2,2], apps:[43,37,49,47,77],      offers:[18,21,19,21,24] }
-    ]},
-    { programs:[
-      { name:'Biomedical Engineering',   color:'#0d7a55', dash:[],    apps:[554,570,552,651,709], offers:[302,328,338,311,341] },
-      { name:'Molecular Bioengineering', color:'#4ab890', dash:[5,3], apps:[169,172,174,175,240], offers:[131,127,143,117,133] }
-    ]},
-    { programs:[
-      { name:'Chemical Engineering', color:'#8a5a00', dash:[], apps:[754,878,752,852,979], offers:[385,372,379,396,428] }
-    ]}
-  ];
-
-  var ovDepts = [
-    { programs:[
-      { name:'Chemistry (BSc)',         color:'#1a5fa8', overseas:[120,174,95,91,125] },
-      { name:'Chem w/ Management',      color:'#5b9bd5', overseas:[8,14,0,7,0] },
-      { name:'Chem w/ Med. Chem',       color:'#0a3060', overseas:[23,37,18,23,21] },
-      { name:'Chem w/ Mol. Physics',    color:'#a8c8ef', overseas:[9,9,15,9,9] },
-      { name:'Chem w/ Research Abroad', color:'#2d7fc1', overseas:[7,0,8,6,7] }
-    ]},
-    { programs:[
-      { name:'Materials Science & Eng',   color:'#5a3080', overseas:[43,66,57,78,74] },
-      { name:'Biomaterials & Tissue Eng', color:'#9060c0', overseas:[15,8,0,10,0] },
-      { name:'Materials w/ Nuclear Eng',  color:'#c8a8e8', overseas:[6,8,6,12,7] }
-    ]},
-    { programs:[
-      { name:'Biomedical Engineering',   color:'#0d7a55', overseas:[154,226,230,213,249] },
-      { name:'Molecular Bioengineering', color:'#4ab890', overseas:[77,107,102,81,98] }
-    ]},
-    { programs:[
-      { name:'Chemical Engineering', color:'#8a5a00', overseas:[193,196,202,213,206] }
-    ]}
-  ];
-
-  /* ── CHART 1: Offer rate 2×2 ─────────────────────── */
-  offerDepts.forEach(function(dept, di) {
-    var cv = document.getElementById('chartOffer' + di);
-    if (!cv) return;
-    var datasets = dept.programs.map(function(p) {
-      return {
-        label: p.name,
-        data: YEARS.map(function(_, i) {
-          var a = p.apps[i], o = p.offers[i];
-          return (a && o) ? +(o / a * 100).toFixed(1) : null;
-        }),
-        borderColor: p.color,
-        backgroundColor: p.color + '15',
-        borderWidth: 2,
-        borderDash: p.dash,
-        pointRadius: 4,
-        pointBackgroundColor: p.color,
-        tension: 0.3,
-        spanGaps: false
-      };
-    });
-    /* legend */
-    var legendDiv = document.createElement('div');
-    legendDiv.style.cssText = 'display:flex;flex-wrap:wrap;gap:5px 10px;margin-top:5px;';
-    legendDiv.innerHTML = dept.programs.map(function(p) {
-      var sw = p.dash.length
-        ? 'border-top:2px dashed ' + p.color + ';height:0;width:16px;background:transparent;display:inline-block;flex-shrink:0;'
-        : 'background:' + p.color + ';height:3px;width:16px;border-radius:2px;display:inline-block;flex-shrink:0;';
-      return '<span style="display:flex;align-items:center;gap:4px;font-size:0.65rem;color:#555;">'
-           + '<span style="' + sw + '"></span>' + p.name + '</span>';
-    }).join('');
-    cv.parentNode.appendChild(legendDiv);
-    new Chart(cv, {
-      type: 'line',
-      data: { labels: YEARS, datasets: datasets },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: { display: false },
-          tooltip: { callbacks: { label: function(ctx) {
-            return ctx.raw == null ? ctx.dataset.label + ': N/A'
-                                   : ctx.dataset.label + ': ' + ctx.raw.toFixed(1) + '%';
-          }}}
-        },
-        scales: {
-          x: { grid: { color: 'rgba(0,0,0,0.05)' } },
-          y: {
-            min: 0, max: 100,
-            ticks: { callback: function(v) { return v + '%'; }, stepSize: 20 },
-            grid: { color: 'rgba(0,0,0,0.05)' },
-            title: { display: true, text: 'Offer rate (%)', color: '#aaa', font: { size: 10 } }
-          }
-        }
-      }
-    });
-  });
-
-  /* ── CHART 2: Overseas offers stacked bars ──────────── */
-  var ovIds = ['chartOvChem','chartOvMat','chartOvBioe','chartOvChemEng'];
-  ovDepts.forEach(function(dept, di) {
-    var cv = document.getElementById(ovIds[di]);
-    if (!cv) return;
-    new Chart(cv, {
-      type: 'bar',
-      data: {
-        labels: YEARS,
-        datasets: dept.programs.map(function(p) {
-          return { label: p.name, data: p.overseas, backgroundColor: p.color,
-                   borderColor: 'rgba(255,255,255,0.3)', borderWidth: 0.5, stack: 'v' };
-        })
-      },
-      options: {
-        responsive: true, maintainAspectRatio: false,
-        plugins: { legend: { display: false }, tooltip: { callbacks: { label: function(ctx) {
-          return ctx.dataset.label + ': ' + (ctx.raw === 0 ? 'suppressed' : ctx.raw);
-        }}}},
-        scales: {
-          x: { stacked: true, grid: { display: false } },
-          y: { stacked: true, title: { display: true, text: 'Overseas offers', color: '#aaa', font: { size: 10 } } }
-        }
-      }
-    });
-  });
-
-  /* ── CHART 3: Entrant grades stacked bar ────────────── */
-  var cvG = document.getElementById('chartEntrantGrades');
-  if (cvG) {
-    new Chart(cvG, {
-      type: 'bar',
-      data: {
-        labels: ['Chemistry','Chemical Engineering','Materials','Biomedical Engineering'],
-        datasets: [
-          { label:'A*A*A*+', backgroundColor:'#1a1a1a', data:[51,64,30,28] },
-          { label:'A*A*A',   backgroundColor:'#555555', data:[34,25,25,30] },
-          { label:'A*AA',    backgroundColor:'#2a9d8f', data:[ 9, 8,25,26] },
-          { label:'AAA',     backgroundColor:'#4a90d9', data:[ 3, 2,20,16] },
-          { label:'Other',   backgroundColor:'#c8dfc8', data:[ 3, 1, 0, 0] }
-        ]
-      },
-      options: {
-        responsive: true, maintainAspectRatio: false,
-        plugins: { legend: { position: 'bottom' }, tooltip: { callbacks: { label: function(c) { return c.dataset.label + ': ' + c.raw + '%'; } } } },
-        scales: {
-          x: { stacked: true, grid: { display: false } },
-          y: { stacked: true, max: 100, ticks: { callback: function(v) { return v + '%'; } } }
-        }
-      }
-    });
-  }
-}
-</script>
 
 
 
@@ -804,10 +751,8 @@ function buildAdmissionCharts() {
     var panel=document.getElementById('tab-'+id);
     if(panel){panel.classList.add('active');panel.style.display='block';}
     if(btn) btn.classList.add('active');
-    if(id==='admissions'){
-      setTimeout(function(){buildAdmissionCharts();},80);
-    } else if(typeof Chart!=='undefined'){
-      setTimeout(function(){Chart.instances.forEach(function(c){c.resize();});},50);
+    if(typeof Chart!=='undefined'){
+      setTimeout(function(){if(typeof Chart.instances!=='undefined')Chart.instances.forEach(function(c){c.resize();});},50);
     }
     window.scrollTo({top:0,behavior:'smooth'});
   }
@@ -815,12 +760,5 @@ function buildAdmissionCharts() {
     var f=document.getElementById('tab-overview');if(f)f.style.display='block';
     var adm=document.getElementById('tab-admissions');
     if(adm && adm.style.display==='block'){buildAdmissionCharts();}
-  });
-  window.addEventListener('load', function(){
-    setTimeout(function(){
-      var adm = document.getElementById('tab-admissions');
-      if (adm) adm.style.display = 'block';
-      buildAdmissionCharts();
-    }, 150);
   });
 </script>
