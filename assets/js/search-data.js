@@ -67,13 +67,13 @@ ninja.data = [{
               },
             },{id: "post-imperial-college-london-chemistry-chemical-engineering-materials-amp-biomedical-engineering-guide",
         
-          title: "Imperial College London — Chemistry, Chemical Engineering, Materials &amp; Biomedical Engineering Guide",
+          title: "Imperial College London - Chemistry, Chemical Engineering, Materials &amp; Biomedical Engineering Guide",
         
         description: "",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2026/ic-chem-guide/";
+            window.location.href = "/blog/2026/chem-guide/";
           
         },
       },{id: "post-imperial-college-london-bioscience-guide-a-level-applicant-guide",
