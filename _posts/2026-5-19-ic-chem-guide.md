@@ -190,7 +190,6 @@ chart:
 <nav class="tab-nav">
   <div class="tab-nav-inner">
     <button class="tab-btn active" onclick="showTab('overview',this)">Overview</button>
-    <button class="tab-btn" onclick="showTab('requirements',this)">Requirements</button>
     <button class="tab-btn" onclick="showTab('programmes',this)">Programmes</button>
     <button class="tab-btn" onclick="showTab('admissions',this)">Admissions Data</button>
     <button class="tab-btn" onclick="showTab('apply',this)">How to Apply</button>
@@ -260,6 +259,8 @@ chart:
       </div>
     </div>
   </div>
+  <div class="info-box"><strong>Real vs stated minimums:</strong> 51% of Chemistry and 64% of Chemical Engineering 2024 entrants held A*A*A*+. Biomedical Engineering has the highest offer rate (48.1%) but applications have grown 28% since 2020. A*AA is the floor, not a competitive target.</div>
+  <div class="info-box"><strong>ESAT for Chemical Engineering — 3 sections:</strong> Mathematics 1 (algebra, functions, calculus) · Chemistry (mole calculations, physical chemistry) · Physics (mechanics, electricity, waves). Note: ChemEng uses Physics, NOT Biology. Scores 1.0–9.0. Top 10% score above 7.0. Sit ONLY ONCE — only first score used. Registration opens July 2026; Sitting 1 October 2026 (recommended); Sitting 2 January 2027.</div>
   <h3 style="font-family:'DM Serif Display',serif;font-size:1.1rem;margin-bottom:0.5rem;">Which Programme Suits You?</h3>
   <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:1rem;">Find your best fit based on your interests and strengths</p>
   <div class="decision-grid">
@@ -273,86 +274,6 @@ chart:
     <div class="decision-card"><div class="decision-q">"I want an interdisciplinary degree bridging chemistry, physics and engineering"</div><div class="decision-best">→ Materials</div><div class="decision-also">Also consider: Chemistry (if chemistry side dominates)</div></div>
   </div>
   <div class="info-box"><strong>Important:</strong> All four programmes are highly selective. Real entrant grades far exceed stated minimums — 64% of 2024 Chemical Engineering entrants held A*A*A*+. Biomedical Engineering is the most accessible by offer rate (48.1%) but is growing fast. Apply for what genuinely excites you — passion shows in your personal statement and interview.</div>
-</div>
-
-<!-- TAB 2 REQUIREMENTS -->
-<div id="tab-requirements" class="tab-panel">
-  <p style="margin-top:1.5rem;font-size:0.82rem;color:var(--text-muted);">A-Levels · Interview · ESAT · IELTS</p>
-  <h2 class="section-title">Entry Requirements</h2>
-  <div class="divider"></div>
-  <h3 style="font-family:'DM Serif Display',serif;font-size:1.1rem;margin-bottom:0.5rem;">A-Level Offers at a Glance</h3>
-  <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:1rem;">Typical offers for 2027 entry. General Studies &amp; Critical Thinking NOT accepted. Science practical endorsement pass required.</p>
-  <div class="req-table-wrap">
-    <table class="req-table">
-      <thead><tr><th>Programme</th><th>Offer</th><th>Must Include</th><th>Selection</th><th>2024 Success Rate</th></tr></thead>
-      <tbody>
-        <tr>
-          <td class="row-label" style="color:var(--chem-color);">Chemistry (BSc/MSci)</td>
-          <td><span class="badge">A*AA</span></td>
-          <td>Chemistry + Maths / Physics / Biology</td>
-          <td><span style="display:inline-block;font-size:0.72rem;font-weight:700;background:var(--chem-color);color:white;padding:0.17rem 0.48rem;border-radius:5px;">Interview</span></td>
-          <td style="font-weight:700;color:#c0392b;">14.2%</td>
-        </tr>
-        <tr>
-          <td class="row-label" style="color:var(--chemeng-color);">Chemical Engineering (MEng)</td>
-          <td><span class="badge">A*AA</span></td>
-          <td>Chemistry + Mathematics (both required)</td>
-          <td><span style="display:inline-block;font-size:0.72rem;font-weight:700;background:var(--chemeng-color);color:white;padding:0.17rem 0.48rem;border-radius:5px;">ESAT + Interview</span></td>
-          <td style="font-weight:700;color:#c0392b;">17.2%</td>
-        </tr>
-        <tr>
-          <td class="row-label" style="color:var(--mat-color);">Materials (BSc/MSci)</td>
-          <td><span class="badge">A*A*A</span></td>
-          <td>Chemistry or Physics + Mathematics</td>
-          <td><span style="display:inline-block;font-size:0.72rem;font-weight:700;background:var(--mat-color);color:white;padding:0.17rem 0.48rem;border-radius:5px;">Interview</span></td>
-          <td style="font-weight:700;color:#c0392b;">~14%</td>
-        </tr>
-        <tr>
-          <td class="row-label" style="color:var(--bioe-color);">Biomedical Engineering (MEng)</td>
-          <td><span class="badge">A*AA</span></td>
-          <td>Mathematics + Biology or Chemistry</td>
-          <td><span style="display:inline-block;font-size:0.72rem;font-weight:700;background:var(--bioe-color);color:white;padding:0.17rem 0.48rem;border-radius:5px;">Interview</span></td>
-          <td style="font-weight:700;color:#e67e22;">19.0%</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="info-box"><strong>Real vs stated minimums:</strong> 51% of Chemistry and 64% of Chemical Engineering 2024 entrants held A*A*A*+. Biomedical Engineering has the highest offer rate (48.1%) but applications have grown 28% since 2020. A*AA is the floor, not a competitive target.</div>
-  <h3 style="font-family:'DM Serif Display',serif;font-size:1.1rem;margin-bottom:0.5rem;margin-top:2rem;">Admissions Tests by Programme</h3>
-  <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:1rem;">All four use interviews. Only Chemical Engineering additionally requires the ESAT.</p>
-  <div class="esat-grid">
-    <div class="esat-card" style="background:var(--chem-light);border:1px solid var(--chem-mid);border-top:3px solid var(--chem-color);">
-      <div style="font-weight:700;font-size:0.84rem;color:var(--chem-color);margin-bottom:0.65rem;">Chemistry — Interview Only</div>
-      <div class="esat-row">No ESAT required <span class="etag" style="background:var(--chem-color);">Interview</span></div>
-      <div class="esat-row">Shortlisted from application <span class="etag" style="background:var(--chem-color);">Selective</span></div>
-      <div class="esat-note" style="border-left:2px solid var(--chem-color);">Interview tests problem-solving and A-level depth. 704 applications in 2024; 202 offers; 100 enrolled. Offer rate: 28.7%.</div>
-    </div>
-    <div class="esat-card" style="background:var(--chemeng-light);border:1px solid var(--chemeng-mid);border-top:3px solid var(--chemeng-color);">
-      <div style="font-weight:700;font-size:0.84rem;color:var(--chemeng-color);margin-bottom:0.65rem;">Chemical Engineering — ESAT + Interview</div>
-      <div class="esat-row">Mathematics 1 <span class="etag" style="background:var(--chemeng-color);">REQUIRED</span></div>
-      <div class="esat-row">Chemistry <span class="etag" style="background:var(--chemeng-color);">REQUIRED</span></div>
-      <div class="esat-row">Physics <span class="etag" style="background:var(--chemeng-color);">REQUIRED</span></div>
-      <div class="esat-note" style="border-left:2px solid var(--chemeng-color);">Most demanding entry of the four. 979 applications in 2024; 428 offers; 168 enrolled. Offer rate: 43.7%. Most entrants hold A* in both Chemistry and Maths.</div>
-    </div>
-    <div class="esat-card" style="background:var(--mat-light);border:1px solid var(--mat-mid);border-top:3px solid var(--mat-color);">
-      <div style="font-weight:700;font-size:0.84rem;color:var(--mat-color);margin-bottom:0.65rem;">Materials — Interview Only</div>
-      <div class="esat-row">No ESAT required <span class="etag" style="background:var(--mat-color);">Interview</span></div>
-      <div class="esat-row">Shortlisted from application <span class="etag" style="background:var(--mat-color);">Selective</span></div>
-      <div class="esat-note" style="border-left:2px solid var(--mat-color);">Bridging chemistry, physics and engineering. 526 applications (combined) in 2024; 144 offers; 63 enrolled. More grade spread — ~20% of entrants held AAA.</div>
-    </div>
-    <div class="esat-card" style="background:var(--bioe-light);border:1px solid var(--bioe-mid);border-top:3px solid var(--bioe-color);">
-      <div style="font-weight:700;font-size:0.84rem;color:var(--bioe-color);margin-bottom:0.65rem;">Biomedical Engineering — Interview Only</div>
-      <div class="esat-row">No ESAT required <span class="etag" style="background:var(--bioe-color);">Interview</span></div>
-      <div class="esat-row">Shortlisted from application <span class="etag" style="background:var(--bioe-color);">Selective</span></div>
-      <div class="esat-note" style="border-left:2px solid var(--bioe-color);">Largest overseas offer volume (341 in 2024). 709 applications; 341 offers; 135 enrolled. Offer rate: 48.1% — highest of the four, but growing competition.</div>
-    </div>
-  </div>
-  <div class="info-box"><strong>ESAT for Chemical Engineering — 3 sections:</strong> Mathematics 1 (algebra, functions, calculus) · Chemistry (mole calculations, physical chemistry) · Physics (mechanics, electricity, waves). Note: ChemEng uses Physics, NOT Biology. Scores 1.0–9.0. Top 10% score above 7.0. Sit ONLY ONCE — only first score used. Registration opens July 2026; Sitting 1 October 2026 (recommended); Sitting 2 January 2027.</div>
-  <h3 style="font-family:'DM Serif Display',serif;font-size:1.1rem;margin-bottom:0.5rem;margin-top:0.5rem;">IELTS Requirements</h3>
-  <div class="ielts-box">
-    <div style="text-align:center;flex-shrink:0;"><span class="ielts-num">7.0</span><div class="ielts-lbl">Overall band</div></div>
-    <div class="ielts-desc"><strong>All 4 programmes</strong> require a minimum IELTS Academic score of <strong>7.0 overall</strong> with <strong>minimum 6.5 in every individual section</strong>. Scores valid for 2 years only. Must be from a single sitting. IELTS Academic only.</div>
-  </div>
 </div>
 
 <!-- TAB 3 PROGRAMMES -->
@@ -601,13 +522,13 @@ chart:
       { label:"Chem w/ Research Abroad", data:[80.0,90.9,46.7,47.5,46.5], borderColor:"#2d7fc1", backgroundColor:"rgba(45,127,193,0.1)", borderWidth:2, borderDash:[5,5], tension:0.3, fill:false }
     ]}, options:sharedOfferOpts }},
     { id:'chart-materials', cfg:{ type:'line', data:{ labels:years, datasets:[
-      { label:"Materials Science & Eng",  data:[24.8,35.3,35.3,43.0,29.2], borderColor:"#5a3080", backgroundColor:"#5a308015", borderWidth:2, pointRadius:4, tension:0.3 },
-      { label:"Biomaterials & Tissue Eng",data:[52.9,35.1,43.2,37.0,10.3], borderColor:"#9060c0", backgroundColor:"#9060c015", borderWidth:2, borderDash:[5,3], pointRadius:4, tension:0.3 },
-      { label:"Materials w/ Nuclear Eng", data:[41.9,56.8,38.8,44.7,31.2], borderColor:"#c8a8e8", backgroundColor:"#c8a8e815", borderWidth:2, borderDash:[2,2], pointRadius:4, tension:0.3 }
-    ]}, options:sharedOfferOpts }},
+      { label:"Materials",  data:[24.8,35.3,35.3,43.0,29.2], borderColor:"#5a3080", backgroundColor:"#5a308015", borderWidth:2, pointRadius:4, tension:0.3 },
+      { label:"Biomaterials",data:[52.9,35.1,43.2,37.0,10.3], borderColor:"#9060c0", backgroundColor:"#9060c015", borderWidth:2, borderDash:[5,3], pointRadius:4, tension:0.3 },
+      { label:"Materials (Nuclear)", data:[41.9,56.8,38.8,44.7,31.2], borderColor:"#c8a8e8", backgroundColor:"#c8a8e815", borderWidth:2, borderDash:[2,2], pointRadius:4, tension:0.3 }
+    ]}, options:{ ...sharedOfferOpts, plugins:{ legend:{ position:"bottom", labels:{ font:{size:11}, boxWidth:12, padding:8 } } } } }},
     { id:'chart-biomed', cfg:{ type:'line', data:{ labels:years, datasets:[
-      { label:"Biomedical Engineering",   data:[54.5,57.5,61.2,47.8,48.1], borderColor:"#0d7a55", backgroundColor:"#0d7a5515", borderWidth:2, pointRadius:4, tension:0.3 },
-      { label:"Molecular Bioengineering", data:[77.5,73.8,82.2,66.9,55.4], borderColor:"#4ab890", backgroundColor:"#4ab89015", borderWidth:2, borderDash:[5,3], pointRadius:4, tension:0.3 }
+      { label:"Biomedical Eng",   data:[54.5,57.5,61.2,47.8,48.1], borderColor:"#0d7a55", backgroundColor:"#0d7a5515", borderWidth:2, pointRadius:4, tension:0.3 },
+      { label:"Molecular Bioeng", data:[77.5,73.8,82.2,66.9,55.4], borderColor:"#4ab890", backgroundColor:"#4ab89015", borderWidth:2, borderDash:[5,3], pointRadius:4, tension:0.3 }
     ]}, options:sharedOfferOpts }},
     { id:'chart-chemeng', cfg:{ type:'line', data:{ labels:years, datasets:[
       { label:"Chemical Engineering", data:[51.1,42.4,50.4,46.5,43.7], borderColor:"#8a5a00", backgroundColor:"#8a5a0015", borderWidth:2, pointRadius:4, tension:0.3 }

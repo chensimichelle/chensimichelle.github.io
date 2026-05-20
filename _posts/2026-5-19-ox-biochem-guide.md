@@ -1,0 +1,764 @@
+---
+layout: post
+title: "University of Oxford - Undergraduate Science Programmes Guide"
+date: 2026-05-19
+tags: [uk, program introduction]
+categories: []
+chart:
+  chartjs: true
+---
+
+<style>
+  :root {
+    --blog-accent: #cc00cc;
+    --blog-accent-light: #fdf0fd;
+    --blog-accent-mid: #f0d0f0;
+    --ox-color: #002147;
+    --ox-light: #e8ecf2;
+    --ox-mid: #a8b8d0;
+    --biochem-color: #1a5fa8;
+    --biochem-light: #e8f0fb;
+    --bio-color: #27ae60;
+    --bio-light: #eafaf1;
+    --bms-color: #8e44ad;
+    --bms-light: #f5eefb;
+    --chem-color: #d35400;
+    --chem-light: #fdf0e8;
+    --hs-color: #16a085;
+    --hs-light: #e8f8f5;
+    --mat-color: #7f8c8d;
+    --mat-light: #f2f3f4;
+    --med-color: #c0392b;
+    --med-light: #fdf3f3;
+    --text-primary: #1a1a1a;
+    --text-secondary: #4a4a4a;
+    --text-muted: #7a7a7a;
+    --border: #e8e8e8;
+    --bg: #ffffff;
+    --bg-soft: #fafafa;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', sans-serif; color: var(--text-primary); background: var(--bg); line-height: 1.6; font-size: 15px; }
+  .tab-nav { position: sticky; top: 0; z-index: 100; background: #fdf0fd; border-bottom: 2px solid #f0d0f0; box-shadow: 0 2px 12px rgba(204,0,204,0.06); overflow-x: auto; white-space: nowrap; scrollbar-width: none; }
+  .tab-nav::-webkit-scrollbar { display: none; }
+  .tab-nav-inner { display: inline-flex; gap: 0; padding: 0 1.5rem; min-width: 100%; }
+  .tab-btn { font-family: 'DM Sans', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); background: none; border: none; border-bottom: 3px solid transparent; padding: 0.9rem 1.1rem; cursor: pointer; transition: color 0.2s, border-color 0.2s; white-space: nowrap; margin-bottom: -2px; }
+  .tab-btn:hover { color: var(--blog-accent); }
+  .tab-btn.active { color: var(--blog-accent); border-bottom-color: var(--blog-accent); }
+  .tab-panel { display: none; padding: 2rem 1.5rem 3rem; max-width: 860px; margin: 0 auto; }
+  .tab-panel.active { display: block; animation: fadeIn 0.25s ease; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+  .section-title { font-family: 'DM Serif Display', serif; font-size: 1.65rem; font-weight: 400; color: var(--text-primary); margin-bottom: 0.35rem; }
+  .divider { width: 3rem; height: 3px; background: var(--blog-accent); border-radius: 2px; margin: 0.6rem 0 2rem; }
+  .overview-intro { background: var(--blog-accent-light); border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem; border: 1px solid var(--blog-accent-mid); }
+  .overview-intro p { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.75; }
+  .overview-intro p + p { margin-top: 0.75rem; }
+  .stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 2rem; }
+  .stat-card { background: var(--ox-light); border: 1px solid var(--ox-mid); border-top: 3px solid var(--ox-color); border-radius: 10px; padding: 1rem 1.25rem; text-align: center; }
+  .stat-card-num { font-family: 'DM Serif Display', serif; font-size: 1.6rem; color: var(--ox-color); font-weight: 400; display: block; }
+  .stat-card-label { font-size: 0.72rem; color: var(--text-muted); line-height: 1.4; }
+  .decision-grid { display:grid; grid-template-columns:1fr 1fr; gap:0.75rem; margin-bottom:2rem; }
+  .decision-card { background:var(--bg-soft); border:1px solid var(--border); border-left:3px solid var(--ox-color); border-radius:0 8px 8px 0; padding:0.85rem 1rem; }
+  .decision-q { font-size:0.82rem; font-style:italic; color:var(--text-muted); margin-bottom:0.3rem; line-height:1.4; }
+  .decision-best { font-weight:700; font-size:0.85rem; color:var(--ox-color); margin-bottom:0.12rem; }
+  .decision-also { font-size:0.73rem; color:var(--text-muted); }
+  .info-box { background:var(--blog-accent-light); border-left:4px solid var(--blog-accent); border-radius:0 10px 10px 0; padding:1rem 1.25rem; margin-bottom:1.5rem; font-size:0.83rem; color:var(--text-secondary); line-height:1.65; }
+  .info-box strong { color:var(--text-primary); }
+  .warn-box { background:#fff8e1; border-left:4px solid #f39c12; border-radius:0 10px 10px 0; padding:1rem 1.25rem; margin-bottom:1.5rem; font-size:0.83rem; color:var(--text-secondary); line-height:1.65; }
+  .warn-box strong { color:#7a4f00; }
+  .req-table-wrap { overflow-x:auto; margin-bottom:2rem; }
+  .req-table { width:100%; border-collapse:collapse; font-size:0.82rem; }
+  .req-table th { padding:0.65rem 0.9rem; text-align:left; font-size:0.72rem; font-weight:700; letter-spacing:0.07em; text-transform:uppercase; border-bottom:2px solid var(--border); background:var(--ox-light); color:var(--ox-color); }
+  .req-table td { padding:0.65rem 0.9rem; border-bottom:1px solid var(--border); color:var(--text-secondary); vertical-align:top; line-height:1.5; font-size:0.8rem; }
+  .req-table tr:nth-child(even) td { background:var(--bg-soft); }
+  .req-table tr:last-child td { border-bottom:none; }
+  .req-table .row-label { font-weight:600; }
+  .prog-detail { border-radius:12px; border:1px solid var(--border); padding:1.4rem; margin-bottom:1.4rem; position:relative; overflow:hidden; }
+  .prog-detail::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; }
+  .prog-detail.biochem { background:var(--biochem-light); } .prog-detail.biochem::before { background:var(--biochem-color); }
+  .prog-detail.bio    { background:var(--bio-light);   } .prog-detail.bio::before    { background:var(--bio-color);   }
+  .prog-detail.bms    { background:var(--bms-light);   } .prog-detail.bms::before    { background:var(--bms-color);   }
+  .prog-detail.chem   { background:var(--chem-light);  } .prog-detail.chem::before   { background:var(--chem-color);  }
+  .prog-detail.hs     { background:var(--hs-light);    } .prog-detail.hs::before     { background:var(--hs-color);    }
+  .prog-detail.mat    { background:var(--mat-light);   } .prog-detail.mat::before    { background:var(--mat-color);   }
+  .prog-detail.med    { background:var(--med-light);   } .prog-detail.med::before    { background:var(--med-color);   }
+  .prog-detail-hdr { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.85rem; flex-wrap:wrap; gap:0.5rem; }
+  .prog-detail-title { font-family:'DM Serif Display',serif; font-size:1.15rem; }
+  .biochem .prog-detail-title { color:var(--biochem-color); } .bio .prog-detail-title  { color:var(--bio-color);   }
+  .bms .prog-detail-title     { color:var(--bms-color);   } .chem .prog-detail-title { color:var(--chem-color);  }
+  .hs .prog-detail-title      { color:var(--hs-color);    } .mat .prog-detail-title  { color:var(--mat-color);   }
+  .med .prog-detail-title     { color:var(--med-color);   }
+  .prog-detail-meta { font-size:0.73rem; color:var(--text-muted); margin-top:0.15rem; }
+  .ptags { display:flex; gap:0.4rem; flex-wrap:wrap; }
+  .ptag { font-size:0.67rem; font-weight:700; letter-spacing:0.06em; padding:0.18rem 0.55rem; border-radius:20px; color:white; }
+  .ptag.veryhigh { background:#7b241c; } .ptag.high { background:#c0392b; } .ptag.mod { background:#e67e22; }
+  .ptag.esat { background:#8e44ad; } .ptag.tara { background:#16a085; } .ptag.ucat { background:#c0392b; }
+  .ptag.notest { background:#27ae60; }
+  .prog-detail-body { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:0.85rem; }
+  .sec-label { font-size:0.63rem; font-weight:700; letter-spacing:0.09em; text-transform:uppercase; color:var(--text-muted); margin-bottom:0.35rem; }
+  .prog-desc { font-size:0.8rem; color:var(--text-secondary); line-height:1.65; }
+  .plist { list-style:none; }
+  .plist li { font-size:0.78rem; color:var(--text-secondary); padding:0.22rem 0 0.22rem 1rem; position:relative; line-height:1.4; border-bottom:1px solid rgba(0,0,0,0.05); }
+  .plist li:last-child { border-bottom:none; }
+  .plist li::before { content:'›'; position:absolute; left:0; font-weight:700; }
+  .biochem .plist li::before { color:var(--biochem-color); } .bio .plist li::before  { color:var(--bio-color);   }
+  .bms .plist li::before     { color:var(--bms-color);   } .chem .plist li::before { color:var(--chem-color);  }
+  .hs .plist li::before      { color:var(--hs-color);    } .mat .plist li::before  { color:var(--mat-color);   }
+  .med .plist li::before     { color:var(--med-color);   }
+  .prog-detail-footer { display:grid; grid-template-columns:repeat(3,1fr); gap:0.65rem; padding-top:0.7rem; border-top:1px solid rgba(0,0,0,0.08); }
+  .pf-label { font-size:0.62rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.12rem; }
+  .biochem .pf-label { color:var(--biochem-color); } .bio .pf-label  { color:var(--bio-color);   }
+  .bms .pf-label     { color:var(--bms-color);   } .chem .pf-label { color:var(--chem-color);  }
+  .hs .pf-label      { color:var(--hs-color);    } .mat .pf-label  { color:var(--mat-color);   }
+  .med .pf-label     { color:var(--med-color);   }
+  .pf-val { font-size:0.78rem; color:var(--text-primary); font-weight:600; }
+  .prog-star { margin-top:0.7rem; font-size:0.75rem; font-style:italic; padding:0.45rem 0.7rem; background:rgba(255,255,255,0.7); border-radius:0 6px 6px 0; color:var(--text-muted); line-height:1.5; }
+  .biochem .prog-star { border-left:2px solid var(--biochem-color); } .bio .prog-star  { border-left:2px solid var(--bio-color);   }
+  .bms .prog-star     { border-left:2px solid var(--bms-color);   } .chem .prog-star { border-left:2px solid var(--chem-color);  }
+  .hs .prog-star      { border-left:2px solid var(--hs-color);    } .mat .prog-star  { border-left:2px solid var(--mat-color);   }
+  .med .prog-star     { border-left:2px solid var(--med-color);   }
+  .test-card { border-radius:12px; border:1px solid var(--border); padding:1.4rem; margin-bottom:1.4rem; }
+  .test-card-title { font-family:'DM Serif Display',serif; font-size:1.1rem; margin-bottom:0.2rem; }
+  .test-card-sub { font-size:0.72rem; color:var(--text-muted); margin-bottom:1rem; }
+  .test-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+  .test-item { background:var(--bg-soft); border-radius:8px; padding:0.7rem; margin-bottom:0.5rem; }
+  .test-item-label { font-size:0.62rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-muted); margin-bottom:0.25rem; }
+  .test-item-val { font-size:0.8rem; color:var(--text-primary); line-height:1.45; }
+  .tip-list { list-style:none; }
+  .tip-list li { font-size:0.78rem; color:var(--text-secondary); padding:0.22rem 0 0.22rem 1.1rem; position:relative; line-height:1.4; }
+  .tip-list li::before { content:'→'; position:absolute; left:0; color:var(--ox-color); font-weight:700; }
+  .chart-section { background:var(--bg-soft); border:1px solid var(--border); border-radius:12px; padding:1.25rem 1.5rem; margin-bottom:1.75rem; }
+  .chart-lbl { font-size:0.63rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--ox-color); margin-bottom:0.25rem; }
+  .chart-title { font-family:'DM Serif Display',serif; font-size:1.05rem; font-weight:400; color:var(--text-primary); margin-bottom:0.18rem; }
+  .chart-sub { font-size:0.77rem; font-style:italic; color:var(--text-muted); margin-bottom:0.9rem; }
+  .chart-insight { margin-top:0.8rem; font-size:0.79rem; color:var(--text-secondary); background:var(--ox-light); border-left:3px solid var(--ox-color); padding:0.5rem 0.8rem; border-radius:0 6px 6px 0; line-height:1.55; }
+  .callout { font-size:0.77rem; color:var(--text-secondary); background:white; border:1px solid var(--border); border-left:3px solid; border-radius:0 7px 7px 0; padding:0.45rem 0.7rem; line-height:1.5; }
+  .ielts-box { background:var(--ox-light); border:1px solid var(--ox-mid); border-left:4px solid var(--ox-color); border-radius:0 10px 10px 0; padding:1.25rem 1.5rem; margin-bottom:2rem; display:flex; gap:2rem; align-items:center; flex-wrap:wrap; }
+  .ielts-num { font-family:'DM Serif Display',serif; font-size:2.5rem; color:var(--ox-color); display:block; line-height:1; }
+  .ielts-lbl { font-size:0.7rem; color:var(--text-muted); }
+  .ielts-desc { font-size:0.82rem; color:var(--text-secondary); line-height:1.7; }
+  .flow-section { background:var(--bg-soft); border-radius:12px; padding:1.5rem; margin-bottom:2rem; border:1px solid var(--border); }
+  .flow-title { font-size:0.78rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-muted); margin-bottom:1.1rem; }
+  .flow-steps { display:flex; flex-direction:column; gap:0.55rem; }
+  .flow-row { display:grid; grid-template-columns:100px 1fr; gap:1rem; align-items:start; }
+  .flow-num { color:white; font-weight:700; font-size:0.73rem; border-radius:6px; padding:0.32rem 0.55rem; text-align:center; white-space:normal; word-break:break-word; line-height:1.3; background:var(--ox-color); }
+  .flow-num.hl { background:#c0392b; }
+  .flow-body { background:white; border:1px solid var(--border); border-left:3px solid var(--ox-color); border-radius:7px; padding:0.5rem 0.85rem; font-size:0.81rem; color:var(--text-secondary); line-height:1.5; }
+  .flow-body strong { color:var(--text-primary); }
+  .do-dont { display:grid; grid-template-columns:1fr 1fr; gap:1.1rem; margin-bottom:2rem; }
+  .do-card { background:#f0faf3; border-top:3px solid #27ae60; border-radius:10px; padding:1.1rem; }
+  .dont-card { background:#fdf3f3; border-top:3px solid #c0392b; border-radius:10px; padding:1.1rem; }
+  .do-card-title { color:#27ae60; font-weight:700; font-size:0.84rem; margin-bottom:0.65rem; }
+  .dont-card-title { color:#c0392b; font-weight:700; font-size:0.84rem; margin-bottom:0.65rem; }
+  .ddlist { list-style:none; }
+  .ddlist li { font-size:0.79rem; color:var(--text-secondary); padding:0.28rem 0 0.28rem 1.15rem; position:relative; line-height:1.45; border-bottom:1px solid rgba(0,0,0,0.05); }
+  .ddlist li:last-child { border-bottom:none; }
+  .do-card .ddlist li::before { content:'✓'; position:absolute; left:0; color:#27ae60; font-weight:700; }
+  .dont-card .ddlist li::before { content:'✗'; position:absolute; left:0; color:#c0392b; font-weight:700; }
+  .mistake-item { display:grid; grid-template-columns:1fr 1fr; gap:0.45rem; margin-bottom:0.55rem; }
+  .mw { background:#fdf3f3; border-left:3px solid #c0392b; border-radius:0 7px 7px 0; padding:0.55rem 0.8rem; font-size:0.8rem; color:var(--text-secondary); line-height:1.45; }
+  .mr { background:#f0faf3; border-left:3px solid #27ae60; border-radius:0 7px 7px 0; padding:0.55rem 0.8rem; font-size:0.8rem; color:var(--text-secondary); line-height:1.45; }
+  .mw::before { content:'✗ '; color:#c0392b; font-weight:700; }
+  .mr::before { content:'✓ '; color:#27ae60; font-weight:700; }
+  .tl-track { display:flex; overflow-x:auto; padding-bottom:0.5rem; margin-bottom:2rem; }
+  .tl-item { flex:0 0 auto; display:flex; flex-direction:column; align-items:center; width:120px; position:relative; }
+  .tl-item:not(:last-child)::after { content:''; position:absolute; top:10px; left:60px; width:120px; height:2px; background:var(--ox-color); opacity:0.22; }
+  .tl-dot { width:20px; height:20px; border-radius:50%; background:var(--ox-color); border:2px solid white; margin-bottom:0.45rem; flex-shrink:0; z-index:1; }
+  .tl-item.hl .tl-dot { background:#c0392b; }
+  .tl-date { font-size:0.7rem; font-weight:700; color:var(--ox-color); margin-bottom:0.18rem; text-align:center; }
+  .tl-item.hl .tl-date { color:#c0392b; }
+  .tl-lbl { font-size:0.66rem; color:var(--text-primary); text-align:center; line-height:1.3; }
+  .res-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(185px,1fr)); gap:0.7rem; margin-bottom:2rem; }
+  .res-card { background:var(--ox-light); border:1px solid var(--ox-mid); border-radius:8px; padding:0.8rem 1rem; }
+  .res-card-label { font-weight:700; color:var(--ox-color); font-size:0.79rem; margin-bottom:0.22rem; }
+  .res-card a { color:var(--ox-color); font-size:0.73rem; word-break:break-all; }
+  @media (max-width:680px) {
+    .stat-row,.do-dont,.decision-grid,.test-grid { grid-template-columns:1fr; }
+    .prog-detail-body,.prog-detail-footer,.mistake-item { grid-template-columns:1fr; }
+  }
+</style>
+
+<nav class="tab-nav">
+  <div class="tab-nav-inner">
+    <button class="tab-btn active" onclick="showTab('overview',this)">Overview</button>
+    <button class="tab-btn" onclick="showTab('programmes',this)">Programmes</button>
+    <button class="tab-btn" onclick="showTab('tests',this)">Admissions Tests</button>
+    <button class="tab-btn" onclick="showTab('admissions',this)">Admissions Data</button>
+    <button class="tab-btn" onclick="showTab('apply',this)">How to Apply</button>
+  </div>
+</nav>
+
+<!-- TAB 1: OVERVIEW -->
+<div id="tab-overview" class="tab-panel active" style="display:block">
+  <p style="margin-top:1.5rem;font-size:0.82rem;color:var(--text-muted);">UK · Biochemistry (Molecular and Cellular) · Biology · Biomedical Sciences · Chemistry · Human Sciences · Materials Science · Medicine · A-Level Applicant Guide · 2026–27 Entry</p>
+  <h2 class="section-title">University of Oxford</h2>
+  <div class="divider"></div>
+  <div class="overview-intro">
+    <p>This guide covers <strong>7 undergraduate science programmes</strong> at the University of Oxford (established c.1096), ranked among the world's top three universities. Written for students applying with <strong>A-levels</strong> from international schools for <strong>2026–27 entry</strong>. All data verified against official Oxford course pages, May 2026.</p>
+    <p>Key differentiators from Cambridge: Oxford uses <strong>single-subject degrees from Day 1</strong> — you apply directly to Biology, Biochemistry, Chemistry or Medicine. Teaching is via the <strong>tutorial system</strong> (2–4 students with an academic). The UCAS deadline is <strong>15 October</strong>. Unlike Cambridge, no supplementary form is required after UCAS. <strong>You cannot apply to both Oxford and Cambridge in the same year.</strong> Only 3 of 7 programmes require an admissions test: ESAT for BMS, TARA for Human Sciences, and UCAT for Medicine. Biochemistry, Biology, Chemistry and Materials Science require <strong>no admissions test</strong>.</p>
+  </div>
+  <div class="stat-row">
+    <div class="stat-card"><span class="stat-card-num">Est.&nbsp;1096</span><span class="stat-card-label">University of Oxford</span></div>
+    <div class="stat-card"><span class="stat-card-num">16.4%</span><span class="stat-card-label">Overall offer rate 2024/25</span></div>
+    <div class="stat-card"><span class="stat-card-num">7.5</span><span class="stat-card-label">IELTS required (7.0 per component)</span></div>
+    <div class="stat-card"><span class="stat-card-num">15 Oct</span><span class="stat-card-label">UCAS deadline (6pm UK)</span></div>
+  </div>
+
+  <h3 style="font-family:'DM Serif Display',serif;font-size:1.1rem;margin-bottom:0.5rem;">7 Programmes at a Glance</h3>
+  <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:1rem;">3-year average 2023–25 · Source: Official Oxford undergraduate course pages · IELTS 7.5 required for all · All include December interview</p>
+  <div class="req-table-wrap">
+    <table class="req-table">
+      <thead><tr><th>Programme</th><th>Degree</th><th>Intake</th><th>Interviewed</th><th>Success rate</th><th>A-level offer</th><th>Admissions test</th></tr></thead>
+      <tbody>
+        <tr><td class="row-label" style="color:var(--biochem-color);">Biochemistry (Mol. &amp; Cell.)</td><td>MBiochem · 4 yrs · UCAS: C700</td><td>100</td><td>41%</td><td>12%</td><td>A*AA · Chem + one sci/Maths · A* in Maths/Physics/Chem/Bio</td><td style="color:#27ae60;font-weight:700;">None</td></tr>
+        <tr><td class="row-label" style="color:var(--bio-color);">Biology</td><td>MBiol / BA · 3–4 yrs · UCAS: C100</td><td>112</td><td>46%</td><td>15%</td><td>A*AA · Bio + one sci/Maths · A* in science or Maths</td><td style="color:#27ae60;font-weight:700;">None</td></tr>
+        <tr><td class="row-label" style="color:var(--bms-color);">Biomedical Sciences</td><td>MBiomedSci / BA · 3–4 yrs · UCAS: BC98</td><td>45</td><td>24%</td><td>8%</td><td>A*AA · Two from: Bio, Chem, Physics, Maths</td><td style="color:var(--bms-color);font-weight:700;">ESAT · 12–16 Oct</td></tr>
+        <tr><td class="row-label" style="color:var(--chem-color);">Chemistry</td><td>MChem · 4 yrs · UCAS: F100</td><td>180</td><td>63%</td><td>17%</td><td>A*A*A · Chem + Maths · both A*s in science/maths</td><td style="color:#27ae60;font-weight:700;">None</td></tr>
+        <tr><td class="row-label" style="color:var(--hs-color);">Human Sciences</td><td>BA · 3 yrs · UCAS: BCL0</td><td>28</td><td>56%</td><td>16%</td><td>AAA · Flexible — science or humanities</td><td style="color:var(--hs-color);font-weight:700;">TARA · 12–16 Oct</td></tr>
+        <tr><td class="row-label" style="color:var(--mat-color);">Materials Science</td><td>MEng · 4 yrs · UCAS: FJ22</td><td>43</td><td>62%</td><td>22%</td><td>A*AA · Maths + Physics · A* in Maths, Physics or Chem</td><td style="color:#27ae60;font-weight:700;">None</td></tr>
+        <tr><td class="row-label" style="color:var(--med-color);">Medicine</td><td>BA / BM BCh · 6 yrs · UCAS: A100</td><td>155</td><td>29%</td><td>11%</td><td>A*AA · Chem + one sci/Maths (excl. Critical Thinking)</td><td style="color:var(--med-color);font-weight:700;">UCAT · Jul–Sep</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="info-box"><strong>Most programmes require no admissions test.</strong> Biochemistry, Biology, Chemistry and Materials Science all confirmed on their official pages: "You do not need to take a written test as part of an application for this course." Only BMS (ESAT, 12–16 Oct), Human Sciences (TARA, 12–16 Oct) and Medicine (UCAT, Jul–Sep) require a test. Note that UCAT for Medicine must be sat before UCAS even opens for submission.</div>
+
+  <div class="info-box"><strong>International applicants face roughly half the UK success rate.</strong> All rates are 3-year averages 2023–25 from official Oxford course pages. For Chinese applicants the effective rate is approximately 8% overall. Materials Science (22% overall) is the most accessible programme; Medicine is uniquely constrained by a UK government cap on international medical students.</div>
+
+  <h3 style="font-family:'DM Serif Display',serif;font-size:1.1rem;margin-bottom:0.5rem;">Which Programme Suits You?</h3>
+  <div class="decision-grid">
+    <div class="decision-card"><div class="decision-q">"I want to study the molecular basis of life — enzymes, genes, cells"</div><div class="decision-best">→ Biochemistry (Molecular and Cellular)</div><div class="decision-also">Chemistry required · No admissions test · 4-year MBiochem with Year 4 research project</div></div>
+    <div class="decision-card"><div class="decision-q">"I love ecology, evolution, genetics and want a broad biology degree"</div><div class="decision-best">→ Biology (MBiol / BA)</div><div class="decision-also">Biology required · No admissions test · Compulsory field course in Year 1</div></div>
+    <div class="decision-card"><div class="decision-q">"I want to understand the science behind disease — bench to bedside"</div><div class="decision-best">→ Biomedical Sciences</div><div class="decision-also">ESAT required 12–16 Oct · Graduates as Neuroscience or Cell &amp; Systems Biology</div></div>
+    <div class="decision-card"><div class="decision-q">"I want to become a doctor and am set on clinical training"</div><div class="decision-best">→ Medicine (BA / BM BCh)</div><div class="decision-also">UCAT required Jul–Sep · International places strictly capped · 6-year programme</div></div>
+    <div class="decision-card"><div class="decision-q">"Chemistry is my passion — from physical chemistry to synthesis"</div><div class="decision-best">→ Chemistry (MChem)</div><div class="decision-also">A*A*A required · No admissions test · Year 4 exclusively research since 1916</div></div>
+    <div class="decision-card"><div class="decision-q">"I want to engineer the materials of the future — metals, polymers, nanoscience"</div><div class="decision-best">→ Materials Science (MEng)</div><div class="decision-also">No admissions test · A* in Maths, Physics or Chem · Highest success rate (22%)</div></div>
+    <div class="decision-card"><div class="decision-q">"I'm curious about what makes humans human — biology meets social science"</div><div class="decision-best">→ Human Sciences (BA)</div><div class="decision-also">TARA required 12–16 Oct · AAA offer · Only 28 places/year</div></div>
+    <div class="decision-card"><div class="decision-q">"I want pharma, medical research or a PhD — not clinical medicine"</div><div class="decision-best">→ Biochemistry or Biomedical Sciences</div><div class="decision-also">Biochemistry: no test, larger cohort · BMS: ESAT required, more clinically oriented</div></div>
+  </div>
+
+  <div class="warn-box"><strong>⚠ You CANNOT apply to both Oxford and Cambridge in the same year.</strong> The UCAS deadline for both is 15 October — three months before Imperial and UCL's January deadline. Oxford does not require a supplementary form after UCAS (unlike Cambridge's MyCApp).</div>
+</div>
+
+<!-- TAB 2: PROGRAMMES -->
+<div id="tab-programmes" class="tab-panel">
+  <p style="margin-top:1.5rem;font-size:0.82rem;color:var(--text-muted);">7 programmes · All include December interview · IELTS 7.5 · Data from official Oxford course pages (3-year average 2023–25)</p>
+  <h2 class="section-title">Programme Introductions</h2>
+  <div class="divider"></div>
+
+  <!-- BIOCHEMISTRY -->
+  <div class="prog-detail biochem">
+    <div class="prog-detail-hdr">
+      <div><div class="prog-detail-title">Biochemistry (Molecular and Cellular)</div><div class="prog-detail-meta">MBiochem · 4 years · Department of Biochemistry · UCAS: C700</div></div>
+      <div class="ptags"><span class="ptag high">High Competition</span><span class="ptag notest">No Test</span></div>
+    </div>
+    <div class="prog-detail-body">
+      <div>
+        <div class="sec-label">What is it?</div>
+        <p class="prog-desc">Explores the molecular mechanisms underpinning all living systems — from enzyme catalysis and protein structure to gene regulation and cell signalling. One of the largest Biochemistry departments in Europe, with about 450 postgraduate students and research staff. 3-year average (2023–25): 100 intake · 41% interviewed · 12% successful.</p>
+        <div class="sec-label" style="margin-top:0.75rem;">What you'll study</div>
+        <ul class="plist"><li>Year 1: lectures, tutorials (2–4 students) and practicals; prelims at year end</li><li>Years 2–3: immersive blocks focused on specific biochemical questions; four termly summative assessments</li><li>Year 4: in-depth research project under academic supervision — occupies most of the year</li></ul>
+      </div>
+      <div>
+        <div class="sec-label">Career paths</div>
+        <ul class="plist"><li>Pharmaceutical &amp; biotech research</li><li>Medical school entry (very common post-MBiochem)</li><li>Academic research / PhD</li><li>Drug design, synthetic biology, biotech startups</li></ul>
+        <div class="sec-label" style="margin-top:0.75rem;">Key highlights</div>
+        <ul class="plist"><li>No pre-registration admissions test</li><li>Fourth-year project in Biochemistry, Physics, Stats, Clinical Medicine, Pharmacology or Pathology</li><li>Projects can be self-organised outside the UK</li><li>Tutors do not expect A-level Biochemistry knowledge — curiosity and analytical thinking matter most</li></ul>
+      </div>
+    </div>
+    <div class="prog-detail-footer">
+      <div><div class="pf-label">A-Level Offer</div><div class="pf-val">A*AA</div></div>
+      <div><div class="pf-label">Must Include</div><div class="pf-val">Chemistry + one of: Biology, Physics or Maths · A* in Maths, Physics, Chemistry or Biology</div></div>
+      <div><div class="pf-label">Admissions Test</div><div class="pf-val">None</div></div>
+    </div>
+    <div class="prog-star">★ No admissions test. As biochemistry is not an A-level subject, tutors expect curiosity and analytical ability rather than prior subject knowledge. The fourth-year research project often inspires students to pursue a research career — and projects can range from Physics to Clinical Medicine to Pathology.</div>
+  </div>
+
+  <!-- BIOLOGY -->
+  <div class="prog-detail bio">
+    <div class="prog-detail-hdr">
+      <div><div class="prog-detail-title">Biology</div><div class="prog-detail-meta">MBiol or BA · 3–4 years · Department of Biology · UCAS: C100</div></div>
+      <div class="ptags"><span class="ptag high">High Competition</span><span class="ptag notest">No Test</span></div>
+    </div>
+    <div class="prog-detail-body">
+      <div>
+        <div class="sec-label">What is it?</div>
+        <p class="prog-desc">A flexible, cross-disciplinary biology degree introduced in its current form in 2019. Almost all teaching takes place in the new Life and Mind Building. A compulsory UK residential field course in Year 1 introduces field biology. Research skills training is compulsory across all years. 3-year average (2023–25): 112 intake · 46% interviewed · 15% successful.</p>
+        <div class="sec-label" style="margin-top:0.75rem;">What you'll study</div>
+        <ul class="plist"><li>Year 1: Diversity of life · Building a phenotype · Ecology and evolution + compulsory skills and field course</li><li>Years 2–3: choose from animal behaviour, cell biology, conservation, developmental biology, disease biology, ecology, evolutionary biology, genomics, plant molecular biology</li><li>Year 4 (MBiol, contingent on performance): extended research project</li></ul>
+      </div>
+      <div>
+        <div class="sec-label">Career paths</div>
+        <ul class="plist"><li>Research scientist (ecology, genetics, conservation)</li><li>Medical school / postgraduate medicine</li><li>Science communication &amp; policy</li><li>PhD / academic research</li></ul>
+        <div class="sec-label" style="margin-top:0.75rem;">Key highlights</div>
+        <ul class="plist"><li>No pre-registration admissions test</li><li>Access to Oxford Natural History Museum, Botanic Garden, Wytham Woods</li><li>BA vs MBiol decision can be made during the course</li><li>Year 4 progression contingent on satisfactory performance in Years 2–3</li></ul>
+      </div>
+    </div>
+    <div class="prog-detail-footer">
+      <div><div class="pf-label">A-Level Offer</div><div class="pf-val">A*AA</div></div>
+      <div><div class="pf-label">Must Include</div><div class="pf-val">Biology + one of: Chemistry, Physics or Maths · A* in science or Maths</div></div>
+      <div><div class="pf-label">Admissions Test</div><div class="pf-val">None</div></div>
+    </div>
+    <div class="prog-star">★ No admissions test. Tutors look for enthusiasm for biology and aptitude for independent and analytical thinking. One of two Oxford science programmes with 100+ intake and no test (the other is Chemistry). Lectures may be attended by classes of 20 up to 120 depending on options chosen.</div>
+  </div>
+
+  <!-- BIOMEDICAL SCIENCES -->
+  <div class="prog-detail bms">
+    <div class="prog-detail-hdr">
+      <div><div class="prog-detail-title">Biomedical Sciences</div><div class="prog-detail-meta">MBiomedSci or BA · 3–4 years · Medical Sciences Division · UCAS: BC98</div></div>
+      <div class="ptags"><span class="ptag veryhigh">Very High Competition</span><span class="ptag esat">ESAT · 12–16 Oct</span></div>
+    </div>
+    <div class="prog-detail-body">
+      <div>
+        <div class="sec-label">What is it?</div>
+        <p class="prog-desc">Focuses on how cells, organs and systems function in the human body — highly relevant to understanding and treating human disease. Note: this course does not provide medical training. Students obtain first-hand experience conducting original laboratory research in Years 2–3, choosing their own projects and supervisors. 3-year average (2023–25): 45 intake · 24% interviewed · 8% successful.</p>
+        <div class="sec-label" style="margin-top:0.75rem;">What you'll study</div>
+        <ul class="plist"><li>Year 1: Numerical &amp; scientific skills · Body and cells · Genes and molecules · Brain and behaviour</li><li>Years 2–3: neurophysiology, cellular physiology, pharmacology, genetics, cellular pathology, immunology and more</li><li>Year 4 (MBiomedSci): research-intensive; graduates as Neuroscience or Cell &amp; Systems Biology Masters</li></ul>
+      </div>
+      <div>
+        <div class="sec-label">Career paths</div>
+        <ul class="plist"><li>Medical school entry (very common post-BMS)</li><li>Pharmaceutical / clinical research</li><li>Academic biomedical research / PhD</li><li>Health policy &amp; regulatory science</li></ul>
+        <div class="sec-label" style="margin-top:0.75rem;">Key highlights</div>
+        <ul class="plist"><li>ESAT required: Maths 1 + any two of Bio/Chem/Maths2/Physics</li><li>Test sits 12–16 October — same window as Cambridge ESAT</li><li>Degree awarded: Neuroscience or Cell &amp; Systems Biology (depending on module choices)</li><li>Only ~45 places per year — smallest and most selective science programme after Medicine</li></ul>
+      </div>
+    </div>
+    <div class="prog-detail-footer">
+      <div><div class="pf-label">A-Level Offer</div><div class="pf-val">A*AA (excl. Critical Thinking &amp; Thinking Skills)</div></div>
+      <div><div class="pf-label">Must Include</div><div class="pf-val">Two from: Biology, Chemistry, Physics or Maths</div></div>
+      <div><div class="pf-label">Admissions Test</div><div class="pf-val">ESAT · 12–16 Oct 2026 · Reg. opens 1 Jun · Booking: 20 Jul–28 Sep</div></div>
+    </div>
+    <div class="prog-star">★ ESAT for Oxford BMS: Maths 1 (compulsory) + any two from Biology, Chemistry, Maths 2, Physics. Registration opens 1 June 2026; booking window 20 July–28 September; test sits 12–16 October — overlapping with the UCAS deadline. Book early. Tutors look for lively, receptive minds able to evaluate evidence critically.</div>
+  </div>
+
+  <!-- CHEMISTRY -->
+  <div class="prog-detail chem">
+    <div class="prog-detail-hdr">
+      <div><div class="prog-detail-title">Chemistry</div><div class="prog-detail-meta">MChem · 4 years · Department of Chemistry · UCAS: F100</div></div>
+      <div class="ptags"><span class="ptag high">High Competition</span><span class="ptag notest">No Test</span></div>
+    </div>
+    <div class="prog-detail-body">
+      <div>
+        <div class="sec-label">What is it?</div>
+        <p class="prog-desc">A wide-ranging science concerned with matter at the atomic and molecular scale. The 4-year MChem (RSC accredited) is non-modular — taught and examined as a whole. Year 4 (Part II) is devoted exclusively to research with an established group — a distinctive feature since 1916. Year 4 has three extended terms of 12–13 weeks (38 weeks total). 3-year average (2023–25): 180 intake · 63% interviewed · 17% successful.</p>
+        <div class="sec-label" style="margin-top:0.75rem;">What you'll study</div>
+        <ul class="plist"><li>Years 1–3: Physical, organic &amp; inorganic chemistry + Mathematics for Chemistry; 10 lectures/week + 2 lab afternoons + 1–2 tutorials per week</li><li>Year 4 (Part II): full-time research — 38 weeks · some students work at industry or overseas university labs</li></ul>
+      </div>
+      <div>
+        <div class="sec-label">Career paths</div>
+        <ul class="plist"><li>Pharmaceutical &amp; chemical industry R&amp;D</li><li>Materials &amp; nanotechnology research</li><li>Finance (quant / investment banking)</li><li>PhD / academic research</li></ul>
+        <div class="sec-label" style="margin-top:0.75rem;">Key highlights</div>
+        <ul class="plist"><li>No pre-registration admissions test</li><li>Largest cohort of the 7 programmes (180 intake)</li><li>Tutorial system: typically 2–4 students with a tutor</li><li>Fulfils academic requirements for Chartered Chemist (CChem)</li></ul>
+      </div>
+    </div>
+    <div class="prog-detail-footer">
+      <div><div class="pf-label">A-Level Offer</div><div class="pf-val">A*A*A</div></div>
+      <div><div class="pf-label">Must Include</div><div class="pf-val">Chemistry + Maths · Both A*s must be in science or maths subjects</div></div>
+      <div><div class="pf-label">Admissions Test</div><div class="pf-val">None</div></div>
+    </div>
+    <div class="prog-star">★ No admissions test — the A*A*A requirement (both A*s in science/maths) is itself a strong filter. Tutors look for academic excellence, motivation and the capacity to apply chemical knowledge analytically. Course is non-modular: chemistry is taught and examined as a whole, enabling exploration of links across the subject.</div>
+  </div>
+
+  <!-- HUMAN SCIENCES -->
+  <div class="prog-detail hs">
+    <div class="prog-detail-hdr">
+      <div><div class="prog-detail-title">Human Sciences</div><div class="prog-detail-meta">BA · 3 years · Institute of Human Sciences · UCAS: BCL0</div></div>
+      <div class="ptags"><span class="ptag high">High Competition</span><span class="ptag tara">TARA · 12–16 Oct</span></div>
+    </div>
+    <div class="prog-detail-body">
+      <div>
+        <div class="sec-label">What is it?</div>
+        <p class="prog-desc">An interdisciplinary degree founded in 1969 enabling students to study humans from biological and social science perspectives. Central topics: evolution and behaviour, molecular and population genetics, population growth, ethnic and cultural diversity, and human interaction with the environment. 3-year average (2023–25): 28 intake · 56% interviewed · 16% successful.</p>
+        <div class="sec-label" style="margin-top:0.75rem;">What you'll study</div>
+        <ul class="plist"><li>Year 1: Ecology &amp; evolution · Physiology &amp; genetics · Society, culture &amp; environment · Sociology &amp; demography · Quantitative methods</li><li>Year 2: Behaviour &amp; evolution · Human genetics · Human ecology · Demography · Anthropological or sociological analysis</li><li>Year 3: Dissertation + two option papers (anthropology, conservation, health &amp; disease, psychology, social policy and more)</li></ul>
+      </div>
+      <div>
+        <div class="sec-label">Career paths</div>
+        <ul class="plist"><li>Public health &amp; international development</li><li>Anthropology / ethnography research</li><li>Policy &amp; government</li><li>PhD / academic research across disciplines</li></ul>
+        <div class="sec-label" style="margin-top:0.75rem;">Key highlights</div>
+        <ul class="plist"><li>TARA required: all three modules (Critical Thinking, Problem Solving, Writing Task)</li><li>Only Oxford programme combining natural and social sciences</li><li>Lowest grade requirement (AAA) of the 7 programmes</li><li>Year 3 includes a dissertation — develops independent research skills</li></ul>
+      </div>
+    </div>
+    <div class="prog-detail-footer">
+      <div><div class="pf-label">A-Level Offer</div><div class="pf-val">AAA</div></div>
+      <div><div class="pf-label">Must Include</div><div class="pf-val">Flexible — sciences or humanities accepted</div></div>
+      <div><div class="pf-label">Admissions Test</div><div class="pf-val">TARA · 12–16 Oct 2026 · Reg. opens 1 Jun · Booking: 20 Jul–28 Sep</div></div>
+    </div>
+    <div class="prog-star">★ TARA — all three modules required: Critical Thinking (40 min), Problem Solving (40 min), Writing Task (30 min, unscored but read by Oxford). Registration opens 1 June; booking 20 July–28 September; test 12–16 October. With only ~28 places/year, the 16% success rate belies fierce competition. Tutors look for keenness and an ability to understand things in context and make connections.</div>
+  </div>
+
+  <!-- MATERIALS SCIENCE -->
+  <div class="prog-detail mat">
+    <div class="prog-detail-hdr">
+      <div><div class="prog-detail-title">Materials Science</div><div class="prog-detail-meta">MEng · 4 years · Department of Materials · UCAS: FJ22</div></div>
+      <div class="ptags"><span class="ptag mod">Moderate Competition</span><span class="ptag notest">No Test</span></div>
+    </div>
+    <div class="prog-detail-body">
+      <div>
+        <div class="sec-label">What is it?</div>
+        <p class="prog-desc">An interdisciplinary subject spanning physics and chemistry of matter, engineering applications and industrial manufacturing. Covers metals, alloys, ceramics, polymers, composites, semiconductors, superconductors, nanomaterials and biomaterials. Year 4 features an eight-month full-time research project — at Oxford, or occasionally at an overseas university or industrial laboratory. 3-year average (2023–25): 43 intake · 62% interviewed · 22% successful.</p>
+        <div class="sec-label" style="margin-top:0.75rem;">What you'll study</div>
+        <ul class="plist"><li>Years 1–2: Physical foundations · Structure &amp; mechanical properties · Transforming materials · Maths · Computing (MATLAB) + practicals 2–3 afternoons/week</li><li>Year 3: Two-week team design project + options courses + tutorials</li><li>Year 4: Eight-month supervised research project (Oxford, overseas or industry)</li></ul>
+      </div>
+      <div>
+        <div class="sec-label">Career paths</div>
+        <ul class="plist"><li>Materials / R&amp;D engineer (aerospace, defence)</li><li>Renewable energy &amp; battery technology</li><li>Electronics &amp; semiconductor industry</li><li>PhD / academic research</li></ul>
+        <div class="sec-label" style="margin-top:0.75rem;">Key highlights</div>
+        <ul class="plist"><li>No pre-registration admissions test (PAT retired)</li><li>Highest success rate of the 7 programmes (22%)</li><li>Entrepreneurship module available; optional foreign language</li><li>Recent Year 4 project locations include Beijing, Zhejiang, Shanghai, Tokyo</li></ul>
+      </div>
+    </div>
+    <div class="prog-detail-footer">
+      <div><div class="pf-label">A-Level Offer</div><div class="pf-val">A*AA</div></div>
+      <div><div class="pf-label">Must Include</div><div class="pf-val">Maths + Physics · A* in Maths, Physics or Chemistry</div></div>
+      <div><div class="pf-label">Admissions Test</div><div class="pf-val">None (PAT has been retired)</div></div>
+    </div>
+    <div class="prog-star">★ No admissions test — the PAT (Physics Admissions Test) has been retired and is no longer required for Materials Science. Interview and UCAS application are the selection tools. Tutors are aware that applicants may not have encountered Materials Science at school — they look for logical reasoning applied to unfamiliar problems. Most accessible Oxford science/engineering programme for international applicants.</div>
+  </div>
+
+  <!-- MEDICINE -->
+  <div class="prog-detail med">
+    <div class="prog-detail-hdr">
+      <div><div class="prog-detail-title">Medicine</div><div class="prog-detail-meta">BA / BM BCh · 6 years · Medical Sciences Division · UCAS: A100</div></div>
+      <div class="ptags"><span class="ptag veryhigh">Very High Competition</span><span class="ptag ucat">UCAT · Jul–Sep</span></div>
+    </div>
+    <div class="prog-detail-body">
+      <div>
+        <div class="sec-label">What is it?</div>
+        <p class="prog-desc">A 6-year programme with separate pre-clinical (Years 1–3) and clinical (Years 4–6) components. Pre-clinical: 5 terms of First BM (body systems in health and disease) followed by a 4-term BA Honours in Medical Sciences including an experimental research project. Clinical: Oxford University Hospitals NHS Trust placements. International places are structurally capped by the UK government — only ~425 applicants shortlisted for interview each year. 3-year average (2023–25): 155 intake · 29% interviewed · 11% successful.</p>
+        <div class="sec-label" style="margin-top:0.75rem;">What you'll study</div>
+        <ul class="plist"><li>First BM: anatomy, physiology, pharmacology, pathology — tutorial groups often as small as two</li><li>BA year: specialist research project; students choose area of biomedical science</li><li>Clinical years: John Radcliffe, Churchill &amp; Horton hospital placements</li></ul>
+      </div>
+      <div>
+        <div class="sec-label">Career paths</div>
+        <ul class="plist"><li>Clinical medicine (GP, hospital doctor)</li><li>Academic medicine &amp; clinical research</li><li>Global health &amp; health policy</li><li>Medical science leadership</li></ul>
+        <div class="sec-label" style="margin-top:0.75rem;">Key highlights</div>
+        <ul class="plist"><li>UCAT: registration opens 20 May 2026; booking 23 Jun–16 Sep; test 13 Jul–24 Sep</li><li>Unique three-year pre-clinical BA with specialist research project</li><li>Tutorial groups often as small as two — exceptional individual attention</li><li>International places structurally capped by UK government</li></ul>
+      </div>
+    </div>
+    <div class="prog-detail-footer">
+      <div><div class="pf-label">A-Level Offer</div><div class="pf-val">A*AA (excl. Critical Thinking &amp; Thinking Skills)</div></div>
+      <div><div class="pf-label">Must Include</div><div class="pf-val">Chemistry + one of: Biology, Physics or Maths · All subjects at A grade minimum</div></div>
+      <div><div class="pf-label">Admissions Test</div><div class="pf-val">UCAT · 13 Jul–24 Sep 2026 · Reg. opens 20 May · Booking: 23 Jun–16 Sep</div></div>
+    </div>
+    <div class="prog-star">★ UCAT registration opens 20 May 2026 — register immediately and book a slot in late June. Must be sat by 24 September, before UCAS opens for submission. Given that international Medicine places are structurally capped by UK law, carefully weigh the time investment against realistic admission chances before committing your UCAS choices.</div>
+  </div>
+</div>
+
+<!-- TAB 3: ADMISSIONS TESTS -->
+<div id="tab-tests" class="tab-panel">
+  <p style="margin-top:1.5rem;font-size:0.82rem;color:var(--text-muted);">ESAT (BMS only) · TARA (Human Sciences only) · UCAT (Medicine only) · All other programmes: no test</p>
+  <h2 class="section-title">Admissions Tests</h2>
+  <div class="divider"></div>
+
+  <div style="background:var(--bio-light);border:1px solid #a8d8b8;border-left:4px solid var(--bio-color);border-radius:0 10px 10px 0;padding:1rem 1.25rem;margin-bottom:1.5rem;font-size:0.83rem;color:var(--text-secondary);line-height:1.65;">
+    <strong style="color:var(--bio-color);">No admissions test required for: Biochemistry · Biology · Chemistry · Materials Science</strong><br>
+    Official pages for all four programmes state: "You do not need to take a written test as part of an application for this course." The PAT previously required for Materials Science has been retired. Selection relies solely on UCAS application and the December interview.
+  </div>
+
+  <!-- ESAT -->
+  <div class="test-card" style="background:var(--bms-light);border-top:4px solid var(--bms-color);">
+    <div class="test-card-title" style="color:var(--bms-color);">ESAT — Engineering and Science Admissions Test</div>
+    <div class="test-card-sub">Required for: Biomedical Sciences (BC98) only · Also used by Cambridge for Natural Sciences and Engineering</div>
+    <div class="test-grid">
+      <div>
+        <div class="test-item"><div class="test-item-label">Format</div><div class="test-item-val">Multiple choice · 3 modules · 40 min each · No calculator</div></div>
+        <div class="test-item"><div class="test-item-label">Oxford BMS Modules</div><div class="test-item-val">Maths 1 (compulsory) + any 2 of: Biology, Chemistry, Maths 2, Physics</div></div>
+        <div class="test-item"><div class="test-item-label">Scoring</div><div class="test-item-val">1.0–9.0 per module via Rasch IRT · P50 = 4.5 · P90 = 7.0 · No aggregate total</div></div>
+        <div class="test-item"><div class="test-item-label">Test window</div><div class="test-item-val">12–16 October 2026 · Pearson VUE centres worldwide incl. China</div></div>
+        <div class="test-item"><div class="test-item-label">Registration opens</div><div class="test-item-val">1 June 2026 (3pm UK time) via uatuktest.com</div></div>
+        <div class="test-item"><div class="test-item-label">Booking window</div><div class="test-item-val">20 July – 28 September 2026 (6pm UK time)</div></div>
+      </div>
+      <div>
+        <div class="test-item"><div class="test-item-label">Preparation tips</div>
+          <ul class="tip-list">
+            <li>Review A-level Biology and Chemistry thoroughly — questions probe to A-level depth</li>
+            <li>Practice data interpretation and graph reading under timed conditions</li>
+            <li>Work through past BMAT papers — similar problem-solving style</li>
+            <li>No calculator allowed — sharpen mental arithmetic from the outset</li>
+            <li>Chinese applicants significantly outperform UK averages in Maths modules — aim for 7.5+ to stand out within your pool</li>
+            <li>The test window (12–16 Oct) overlaps with the UCAS deadline (15 Oct) — register in June and book as soon as the window opens 20 July</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TARA -->
+  <div class="test-card" style="background:var(--hs-light);border-top:4px solid var(--hs-color);">
+    <div class="test-card-title" style="color:var(--hs-color);">TARA — Test of Academic Reasoning for Admissions</div>
+    <div class="test-card-sub">Required for: Human Sciences (BCL0) only</div>
+    <div class="test-grid">
+      <div>
+        <div class="test-item"><div class="test-item-label">Format</div><div class="test-item-val">3 modules: Critical Thinking (40 min) + Problem Solving (40 min) + Writing Task (30 min)</div></div>
+        <div class="test-item"><div class="test-item-label">Scoring</div><div class="test-item-val">1.0–9.0 for CT and PS · Writing Task is unscored but passed to Oxford — write clearly</div></div>
+        <div class="test-item"><div class="test-item-label">Test window</div><div class="test-item-val">12–16 October 2026 · Pearson VUE centres worldwide incl. China</div></div>
+        <div class="test-item"><div class="test-item-label">Registration opens</div><div class="test-item-val">1 June 2026 (3pm UK time) via uatuktest.com</div></div>
+        <div class="test-item"><div class="test-item-label">Booking window</div><div class="test-item-val">20 July – 28 September 2026 (6pm UK time)</div></div>
+      </div>
+      <div>
+        <div class="test-item"><div class="test-item-label">Preparation tips</div>
+          <ul class="tip-list">
+            <li>Problem Solving: quantitative reasoning without a calculator — practise under timed conditions</li>
+            <li>Use official TARA practice materials from uatuktest.com</li>
+            <li>Critical Thinking: learn to identify flawed reasoning and unstated assumptions</li>
+            <li>Writing Task is unscored but Oxford reads it — structure your argument clearly and concisely</li>
+            <li>Start preparation at least 6–8 weeks before the test window</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- UCAT -->
+  <div class="test-card" style="background:var(--med-light);border-top:4px solid var(--med-color);">
+    <div class="test-card-title" style="color:var(--med-color);">UCAT — University Clinical Aptitude Test</div>
+    <div class="test-card-sub">Required for: Medicine (A100) only · Must be sat by 24 September 2026 — before UCAS opens for submission</div>
+    <div class="test-grid">
+      <div>
+        <div class="test-item"><div class="test-item-label">Format</div><div class="test-item-val">5 subtests · ~2 hours total · Computer-based at Pearson VUE centres</div></div>
+        <div class="test-item"><div class="test-item-label">5 Subtests</div><div class="test-item-val">Verbal Reasoning · Decision Making · Quantitative Reasoning · Abstract Reasoning · Situational Judgement (SJT)</div></div>
+        <div class="test-item"><div class="test-item-label">Scoring</div><div class="test-item-val">300–900 per cognitive subtest · Band 1–4 for SJT · No pass/fail — used comparatively by Oxford</div></div>
+        <div class="test-item"><div class="test-item-label">Registration opens</div><div class="test-item-val">20 May 2026 (2pm UK time) at ucat.ac.uk</div></div>
+        <div class="test-item"><div class="test-item-label">Booking window</div><div class="test-item-val">23 June – 16 September 2026 (3pm UK time)</div></div>
+        <div class="test-item"><div class="test-item-label">Test window</div><div class="test-item-val">13 July – 24 September 2026 · Pearson VUE centres worldwide incl. major Chinese cities</div></div>
+      </div>
+      <div>
+        <div class="test-item"><div class="test-item-label">Preparation tips</div>
+          <ul class="tip-list">
+            <li>Start preparation 3–4 months before your intended sitting date</li>
+            <li>Use official UCAT question banks and mock tests at ucat.ac.uk</li>
+            <li>Abstract Reasoning improves most with consistent daily practice</li>
+            <li>Situational Judgement requires understanding UK medical ethics — study the GMC Good Medical Practice guide</li>
+            <li>Quantitative Reasoning: practice mental arithmetic under time pressure without a calculator</li>
+            <li>Register on 20 May and book immediately on 23 June — Chinese city test centre slots fill up fast</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:0.75rem;font-size:0.75rem;font-style:italic;padding:0.45rem 0.7rem;background:rgba(255,255,255,0.7);border-left:2px solid var(--med-color);border-radius:0 6px 6px 0;color:var(--text-muted);line-height:1.5;">★ Given that international Medicine places at Oxford are structurally capped by UK government policy, carefully weigh the time investment in UCAT preparation against realistic admission chances. Only ~425 applicants are shortlisted for interview each year from a large international pool.</div>
+  </div>
+</div>
+
+<!-- TAB 4: ADMISSIONS DATA -->
+<div id="tab-admissions" class="tab-panel">
+  <p style="margin-top:1.5rem;font-size:0.82rem;color:var(--text-muted);">Success rates · Chinese applicant data · UK vs international · Official sources</p>
+  <h2 class="section-title">Admissions Data</h2>
+  <div class="divider"></div>
+
+  <div class="chart-section">
+    <div class="chart-lbl">Oxford Overall · 2024/25</div>
+    <h3 class="chart-title">Applications &amp; Offer Rates</h3>
+    <p class="chart-sub">Oxford is marginally more selective overall than Cambridge (16.4% vs 21.7%) — but both admit Chinese applicants at ~8–10%</p>
+    <div class="req-table-wrap" style="margin-bottom:0;">
+      <table class="req-table">
+        <thead><tr><th>Metric</th><th>Oxford</th><th>Cambridge (for comparison)</th></tr></thead>
+        <tbody>
+          <tr><td>Applications (2024/25)</td><td><strong>23,061</strong></td><td>22,820</td></tr>
+          <tr><td>Offers made</td><td><strong>3,793</strong></td><td>4,947</td></tr>
+          <tr><td>Overall offer rate</td><td><strong>16.4%</strong></td><td>21.7%</td></tr>
+          <tr><td>Acceptance rate</td><td><strong>14.1%</strong></td><td>16.3%</td></tr>
+          <tr><td>UK applicant rate</td><td>~19.8%</td><td>~19.7%</td></tr>
+          <tr><td>Intl. applicant rate</td><td><strong>~9.5%</strong></td><td>~10.9%</td></tr>
+          <tr><td>China admission rate</td><td><strong>~8.0%</strong></td><td>~8–10%</td></tr>
+          <tr><td>Intl. students (% UG)</td><td><strong>~16.3%</strong></td><td>~24%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="chart-insight">UK students are approximately 2× more likely to receive an offer than international applicants. This gap has been consistent for 5+ years and is not worsening. Chinese applicants receive offers at ~8% — slightly below the average international rate, partly due to high application volume from China.</div>
+  </div>
+
+  <div class="chart-section">
+    <div class="chart-lbl">Programme Success Rates · 3-year average 2023–25</div>
+    <h3 class="chart-title">Success Rate by Programme — All Domicile vs Estimated International</h3>
+    <p class="chart-sub">Source: Official Oxford undergraduate course pages · International rates estimated at ~45–50% of overall</p>
+    <canvas id="chart-rates" height="140"></canvas>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.55rem;margin-top:0.8rem;">
+      <div class="callout" style="border-color:var(--mat-color);">Materials Science (22% overall, no admissions test) is the most accessible programme — highest success rate and no test barrier for international applicants.</div>
+      <div class="callout" style="border-color:var(--med-color);">Medicine (11%) and BMS (8%) are the most selective — for Chinese applicants the effective rate may be as low as 4–5%.</div>
+      <div class="callout" style="border-color:var(--bio-color);">Biology (15%) and Chemistry (17%) sit in the middle — competitive but achievable with a strong application and interview.</div>
+      <div class="callout" style="border-color:var(--hs-color);">Human Sciences (16%) has only ~28 places — small cohort makes it highly competitive despite a moderate headline rate.</div>
+    </div>
+  </div>
+
+  <div class="chart-section">
+    <div class="chart-lbl">Chinese Applicants · Oxford 2022–2024 Aggregate</div>
+    <h3 class="chart-title">China at Oxford — Key Statistics</h3>
+    <p class="chart-sub">China is the #1 overseas applicant country at Oxford · Source: Oxford Annual Admissions Statistical Report 2025</p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0.7rem;margin-bottom:1.2rem;">
+      <div class="callout" style="border-color:var(--ox-color);text-align:center;padding:1rem;">
+        <div style="font-size:1.4rem;font-weight:700;color:var(--ox-color);">6,372</div>
+        <div style="font-size:0.72rem;color:var(--text-muted);">Applications from China (3-year total) · #1 overseas country</div>
+      </div>
+      <div class="callout" style="border-color:#27ae60;text-align:center;padding:1rem;">
+        <div style="font-size:1.4rem;font-weight:700;color:#27ae60;">566</div>
+        <div style="font-size:0.72rem;color:var(--text-muted);">Chinese students admitted (3-year total, all programmes)</div>
+      </div>
+      <div class="callout" style="border-color:#c0392b;text-align:center;padding:1rem;">
+        <div style="font-size:1.4rem;font-weight:700;color:#c0392b;">8.0%</div>
+        <div style="font-size:0.72rem;color:var(--text-muted);">China admission rate vs ~18% for UK applicants</div>
+      </div>
+    </div>
+    <canvas id="chart-country" height="120"></canvas>
+    <div class="chart-insight">Singapore (14.2%) and Hong Kong (10.5%) are the highest-performing overseas nationalities. China (8%) is above USA (5.9%), Canada (5.8%) and India (3.9%). The trend is stable — rates have not significantly declined for Chinese applicants over the last 5 years.</div>
+  </div>
+
+  <p style="font-size:0.67rem;color:var(--text-muted);margin-top:0.5rem;">Sources: Official Oxford undergraduate course pages (3-year average 2023–25) · Oxford Annual Admissions Statistical Report 2025 · TutorChase analysis · International rates estimated at ~45% of overall based on historical non-UK vs UK offer-rate differential.</p>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+(function(){
+  const drawn = {};
+  function drawAll() {
+    const tab = document.getElementById('tab-admissions');
+    if (!tab || getComputedStyle(tab).display === 'none') return;
+    if (!drawn['chart-rates']) {
+      const c = document.getElementById('chart-rates');
+      if (c) {
+        new Chart(c, {
+          type: 'bar',
+          data: {
+            labels: ['Biochemistry','Biology','Biomedical Sci','Chemistry','Human Sci','Materials Sci','Medicine'],
+            datasets: [
+              { label: 'Overall success rate (%)', data: [12,15,8,17,16,22,11],
+                backgroundColor: ['#1a5fa8','#27ae60','#8e44ad','#d35400','#16a085','#7f8c8d','#c0392b'] },
+              { label: 'Est. intl. rate (%)', data: [6,7,4,8,7,10,5],
+                backgroundColor: ['rgba(26,95,168,0.3)','rgba(39,174,96,0.3)','rgba(142,68,173,0.3)','rgba(211,84,0,0.3)','rgba(22,160,133,0.3)','rgba(127,140,141,0.3)','rgba(192,57,43,0.3)'] }
+            ]
+          },
+          options: { responsive:true, plugins:{ legend:{position:'bottom'} }, scales:{ y:{ min:0, max:35, title:{display:true,text:'Success rate (%)'}, ticks:{stepSize:5} } } }
+        });
+        drawn['chart-rates'] = true;
+      }
+    }
+    if (!drawn['chart-country']) {
+      const c = document.getElementById('chart-country');
+      if (c) {
+        new Chart(c, {
+          type: 'bar',
+          data: {
+            labels: ['Singapore','Hong Kong','France','PR China','USA','Canada','India'],
+            datasets: [{ label: 'Admission rate (%) · Oxford 2021–2023', data: [14.2,10.5,8.3,8.0,5.9,5.8,3.9],
+              backgroundColor: ['#2ecc71','#27ae60','#f39c12','#002147','#3498db','#16a085','#e74c3c'] }]
+          },
+          options: { responsive:true, plugins:{ legend:{display:false} }, scales:{ y:{ min:0, max:18, title:{display:true,text:'Admission rate (%)'}, ticks:{stepSize:3} } } }
+        });
+        drawn['chart-country'] = true;
+      }
+    }
+  }
+  if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', drawAll); } else { drawAll(); }
+  const tab = document.getElementById('tab-admissions');
+  if (tab) { new MutationObserver(drawAll).observe(tab, { attributes:true, attributeFilter:['style','class'] }); }
+  document.addEventListener('click', function(){ setTimeout(drawAll, 60); });
+})();
+</script>
+
+<!-- TAB 5: HOW TO APPLY -->
+<div id="tab-apply" class="tab-panel">
+  <p style="margin-top:1.5rem;font-size:0.82rem;color:var(--text-muted);">UCAS · Admissions tests · Interview · Personal statement · Key dates · Common mistakes</p>
+  <h2 class="section-title">How to Apply</h2>
+  <div class="divider"></div>
+
+  <div class="warn-box"><strong>⚠ You CANNOT apply to both Oxford and Cambridge in the same year.</strong> The UCAS deadline is 15 October — three months before Imperial and UCL. UCAT (Medicine) must be sat by 24 September, before UCAS opens for submission. ESAT (BMS) and TARA (Human Sciences) sit 12–16 October, overlapping with the UCAS deadline itself.</div>
+
+  <h3 style="font-family:'DM Serif Display',serif;font-size:1.1rem;margin-bottom:0.5rem;">Application Timeline</h3>
+  <div class="tl-track">
+    <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">20 May 2026</div><div class="tl-lbl">UCAT registration opens (Medicine only)</div></div>
+    <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">1 Jun 2026</div><div class="tl-lbl">ESAT &amp; TARA registration opens (BMS &amp; Human Sci)</div></div>
+    <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">23 Jun–16 Sep</div><div class="tl-lbl">UCAT booking window</div></div>
+    <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">13 Jul–24 Sep</div><div class="tl-lbl">UCAT test window (Medicine)</div></div>
+    <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">20 Jul–28 Sep</div><div class="tl-lbl">ESAT &amp; TARA booking window closes</div></div>
+    <div class="tl-item hl"><div class="tl-dot"></div><div class="tl-date">12–16 Oct</div><div class="tl-lbl">ESAT (BMS) &amp; TARA (Human Sci) sitting</div></div>
+    <div class="tl-item hl"><div class="tl-dot"></div><div class="tl-date">15 Oct 6pm</div><div class="tl-lbl">UCAS deadline — all Oxford programmes</div></div>
+    <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">1–19 Dec</div><div class="tl-lbl">Interviews (online for international students)</div></div>
+    <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">12 Jan 2027</div><div class="tl-lbl">Oxford results day</div></div>
+    <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">Aug 2027</div><div class="tl-lbl">A-level results — confirm place</div></div>
+  </div>
+
+  <h3 style="font-family:'DM Serif Display',serif;font-size:1.1rem;margin-bottom:0.5rem;">Step-by-Step Process</h3>
+  <div class="flow-section">
+    <div class="flow-title">Oxford application steps (2027 entry)</div>
+    <div class="flow-steps">
+      <div class="flow-row"><div class="flow-num">20 May 2026</div><div class="flow-body"><strong>Medicine: register for UCAT immediately.</strong> Registration opens 20 May. Booking opens 23 June. Must be sat by 24 September — before UCAS opens. Begin preparation 3–4 months before your sitting date. Slots in popular Chinese cities fill fast.</div></div>
+      <div class="flow-row"><div class="flow-num">1 Jun 2026</div><div class="flow-body"><strong>BMS and Human Sciences: register for ESAT / TARA.</strong> Registration opens 1 June via uatuktest.com. Booking window: 20 July–28 September. Both tests sit 12–16 October — book as soon as the window opens. All other programmes: no test registration needed.</div></div>
+      <div class="flow-row"><div class="flow-num">Jun–Oct 2026</div><div class="flow-body"><strong>Write your personal statement.</strong> One statement for all 5 UCAS choices (4,000 characters). Oxford tutors read it closely before your interview — name specific topics, papers and experiments. Show you understand what the degree involves and why Oxford's tutorial system suits your learning style.</div></div>
+      <div class="flow-row"><div class="flow-num">13 Jul–24 Sep</div><div class="flow-body"><strong>Medicine: sit UCAT.</strong> Computer-based at Pearson VUE. 5 subtests covering verbal, decision-making, quantitative, abstract reasoning and situational judgement. Score used by Oxford for shortlisting to interview.</div></div>
+      <div class="flow-row"><div class="flow-num hl">12–16 Oct</div><div class="flow-body"><strong>BMS and Human Sciences: sit ESAT / TARA.</strong> At a Pearson VUE test centre. The sitting window overlaps with the UCAS deadline — you can submit UCAS before sitting the test, as your registration number is available once registered.</div></div>
+      <div class="flow-row"><div class="flow-num hl">15 Oct 6pm</div><div class="flow-body"><strong>Submit UCAS.</strong> Include predicted grades and school reference. No supplementary form required after UCAS (unlike Cambridge's MyCApp). Some colleges may request written work — check college requirements before submitting. Deadline is firm: 6pm UK time.</div></div>
+      <div class="flow-row"><div class="flow-num">Dec 2026</div><div class="flow-body"><strong>Interviews.</strong> Online for international applicants. Tutorial-style academic discussions, typically 2 interviews. Sciences: expect to work through unseen problems in real time. Think aloud, engage with guidance, and build on hints from the interviewer.</div></div>
+      <div class="flow-row"><div class="flow-num">12 Jan 2027</div><div class="flow-body"><strong>Oxford results day.</strong> Conditional offers announced. Earlier than Cambridge (27 Jan) — you will know your Oxford outcome first.</div></div>
+    </div>
+  </div>
+
+  <h3 style="font-family:'DM Serif Display',serif;font-size:1.1rem;margin-bottom:0.5rem;">Personal Statement Do's &amp; Don'ts</h3>
+  <div class="do-dont">
+    <div class="do-card"><div class="do-card-title">DO</div>
+      <ul class="ddlist">
+        <li>Name specific topics, papers, reactions, or experiments that genuinely excited you</li>
+        <li>Show depth in your chosen subject — Oxford values specialisation from Day 1</li>
+        <li>Demonstrate you understand Oxford's tutorial system and why it suits your learning style</li>
+        <li>Link your A-level subjects directly to the degree content you'll encounter</li>
+        <li>Mention books or lectures beyond the syllabus that shaped your thinking</li>
+      </ul>
+    </div>
+    <div class="dont-card"><div class="dont-card-title">DON'T</div>
+      <ul class="ddlist">
+        <li>Apply to both Oxford and Cambridge in the same year</li>
+        <li>Open with generic sentences ("Since childhood I have loved science…")</li>
+        <li>Mention Oxford or Cambridge by name — your statement goes to all 5 universities</li>
+        <li>Apply to Medicine without understanding the international cap and UCAT timing requirements</li>
+        <li>List extracurriculars without connecting them to your scientific thinking</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 style="font-family:'DM Serif Display',serif;font-size:1.1rem;margin-bottom:0.5rem;">Common Application Mistakes</h3>
+  <div>
+    <div class="mistake-item"><div class="mw">Applying to both Oxford and Cambridge</div><div class="mr">Choose one — you cannot apply to both in the same year</div></div>
+    <div class="mistake-item"><div class="mw">Medicine applicants missing UCAT registration (20 May)</div><div class="mr">Register 20 May — test must be sat by 24 Sep, well before UCAS</div></div>
+    <div class="mistake-item"><div class="mw">Assuming Materials Science still requires the PAT</div><div class="mr">The PAT has been retired — Materials Science now requires no admissions test</div></div>
+    <div class="mistake-item"><div class="mw">Leaving ESAT/TARA booking too late (BMS, Human Sciences)</div><div class="mr">Booking closes 28 September — book as soon as the window opens 20 July</div></div>
+    <div class="mistake-item"><div class="mw">Thinking BMS ESAT sits in November</div><div class="mr">Oxford BMS ESAT sits 12–16 October — overlapping with the UCAS deadline</div></div>
+    <div class="mistake-item"><div class="mw">Applying to Medicine without understanding the international cap</div><div class="mr">UK law structurally limits international medical students — even strong applicants may not get a place</div></div>
+    <div class="mistake-item"><div class="mw">Generic personal statement focused on extracurriculars</div><div class="mr">Oxford wants academic depth — name specific topics, papers and ideas, not activities</div></div>
+    <div class="mistake-item"><div class="mw">Forgetting IELTS 7.5 (higher than Imperial/UCL's 7.0)</div><div class="mr">7.5 overall, 7.0 per component — plan your test date well in advance</div></div>
+  </div>
+
+  <h3 style="font-family:'DM Serif Display',serif;font-size:1.1rem;margin-bottom:0.5rem;margin-top:2rem;">English Language Requirements</h3>
+  <div class="ielts-box">
+    <div><span class="ielts-num">7.5</span><span class="ielts-lbl">IELTS overall minimum</span></div>
+    <p class="ielts-desc">Oxford requires IELTS 7.5 overall with a minimum of 7.0 in every component — the same as Cambridge, and higher than Imperial (7.0) and UCL (7.0). TOEFL iBT 110 is also accepted. Scores are valid for 2 years from the test date.</p>
+  </div>
+
+  <h3 style="font-family:'DM Serif Display',serif;font-size:1.1rem;margin-bottom:0.5rem;">Useful Resources</h3>
+  <div class="res-grid">
+    <div class="res-card"><div class="res-card-label">Biochemistry (Mol. &amp; Cell.)</div><a href="https://www.ox.ac.uk/admissions/undergraduate/courses/course-listing/biochemistry-molecular-and-cellular" target="_blank">ox.ac.uk · Biochemistry</a></div>
+    <div class="res-card"><div class="res-card-label">Biology</div><a href="https://www.ox.ac.uk/admissions/undergraduate/courses/course-listing/biology" target="_blank">ox.ac.uk · Biology</a></div>
+    <div class="res-card"><div class="res-card-label">Biomedical Sciences</div><a href="https://www.ox.ac.uk/admissions/undergraduate/courses/course-listing/biomedical-sciences" target="_blank">ox.ac.uk · BMS</a></div>
+    <div class="res-card"><div class="res-card-label">Chemistry</div><a href="https://www.ox.ac.uk/admissions/undergraduate/courses/course-listing/chemistry" target="_blank">ox.ac.uk · Chemistry</a></div>
+    <div class="res-card"><div class="res-card-label">Human Sciences</div><a href="https://www.ox.ac.uk/admissions/undergraduate/courses/course-listing/human-sciences" target="_blank">ox.ac.uk · Human Sciences</a></div>
+    <div class="res-card"><div class="res-card-label">Materials Science</div><a href="https://www.ox.ac.uk/admissions/undergraduate/courses/course-listing/materials-science" target="_blank">ox.ac.uk · Materials Science</a></div>
+    <div class="res-card"><div class="res-card-label">Medicine</div><a href="https://www.ox.ac.uk/admissions/undergraduate/courses/course-listing/medicine" target="_blank">ox.ac.uk · Medicine</a></div>
+    <div class="res-card"><div class="res-card-label">UCAT Registration</div><a href="https://www.ucat.ac.uk" target="_blank">ucat.ac.uk</a></div>
+    <div class="res-card"><div class="res-card-label">ESAT / TARA Registration</div><a href="https://uatuktest.com" target="_blank">uatuktest.com</a></div>
+    <div class="res-card"><div class="res-card-label">Admissions Statistics</div><a href="https://www.ox.ac.uk/about/facts-and-figures/admissions-statistics" target="_blank">ox.ac.uk · Statistics</a></div>
+  </div>
+  <div class="info-box"><strong>All data verified against official Oxford course pages downloaded May 2026.</strong> Always re-check official pages before submitting — offer grades, admissions test requirements and programme structures can change year to year.</div>
+</div>
+
+<script>
+  function showTab(id, btn) {
+    document.querySelectorAll('.tab-panel').forEach(function(p){ p.classList.remove('active'); p.style.display='none'; });
+    document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
+    var panel = document.getElementById('tab-' + id);
+    if (panel) { panel.classList.add('active'); panel.style.display='block'; }
+    if (btn) btn.classList.add('active');
+    if (typeof Chart !== 'undefined') {
+      setTimeout(function(){ if (typeof Chart.instances !== 'undefined') Chart.instances.forEach(function(c){ c.resize(); }); }, 50);
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  document.addEventListener('DOMContentLoaded', function(){
+    var f = document.getElementById('tab-overview'); if (f) f.style.display='block';
+  });
+</script>
