@@ -65,7 +65,18 @@ ninja.data = [{
               handler: () => {
                 window.location.href = "/practical/";
               },
-            },{id: "post-imperial-college-london-chemistry-chemical-engineering-materials-amp-biomedical-engineering-guide",
+            },{id: "post-university-of-oxford-undergraduate-science-programmes-guide",
+        
+          title: "University of Oxford - Undergraduate Science Programmes Guide",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/ox-biochem-guide/";
+          
+        },
+      },{id: "post-imperial-college-london-chemistry-chemical-engineering-materials-amp-biomedical-engineering-guide",
         
           title: "Imperial College London - Chemistry, Chemical Engineering, Materials &amp; Biomedical Engineering Guide",
         
@@ -73,7 +84,18 @@ ninja.data = [{
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2026/chem-guide/";
+            window.location.href = "/blog/2026/ic-chem-guide/";
+          
+        },
+      },{id: "post-university-of-cambridge-natural-sciences-amp-engineering-bioengineering-guide",
+        
+          title: "University of Cambridge - Natural Sciences &amp; Engineering (Bioengineering) Guide",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/cam-natsci-guide/";
           
         },
       },{id: "post-imperial-college-london-bioscience-guide-a-level-applicant-guide",
