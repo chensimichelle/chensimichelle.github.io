@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "University of Cambridge - Natural Sciences & Engineering (Bioengineering) Guide"
+title: "University of Cambridge - Natural Sciences & Engineering Guide"
 date: 2026-05-19
 tags: [uk, program introduction]
 categories: []

@@ -2,7 +2,7 @@
 layout: post
 title: "Imperial College London Bioscience Guide — A-Level Applicant Guide"
 date: 2026-04-15
-tags: [uk, program introduction]
+tags: [uk, program introduction, ic]
 categories: []
 ---
 
@@ -1963,7 +1963,7 @@ categories: []
   <!-- Personal Statement -->
   <h3 style="font-family:'DM Serif Display',serif; font-size:1.1rem; margin-bottom:0.5rem; margin-top:2rem;">Writing Your Personal Statement</h3>
   <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:1rem;">This is your chance to demonstrate genuine scientific passion — 4,000 characters (approx. 47 lines)</p>
-  
+
   <!-- Resources -->
   <h3 style="font-family:'DM Serif Display',serif; font-size:1.1rem; margin-bottom:0.5rem;">Useful Resources</h3>
   <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:1rem;">Official links for your application</p>

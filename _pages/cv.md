@@ -3,7 +3,7 @@ layout: cv
 permalink: /cv/
 title: CV
 nav: true
-nav_order: 5
+nav_order: 6
 cv_pdf: /assets/pdf/example_pdf.pdf
 cv_format: rendercv
 description: Curriculum Vitae of Michelle Chen — Science Educator & College Application Mentor

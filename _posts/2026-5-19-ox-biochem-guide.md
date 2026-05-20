@@ -72,6 +72,8 @@ chart:
   .req-table td { padding:0.65rem 0.9rem; border-bottom:1px solid var(--border); color:var(--text-secondary); vertical-align:top; line-height:1.5; font-size:0.8rem; }
   .req-table tr:nth-child(even) td { background:var(--bg-soft); }
   .req-table tr:last-child td { border-bottom:none; }
+  .req-table td:nth-child(2) { font-size: 0.72rem; }
+  .req-table td:nth-child(6) { font-size: 0.72rem; }
   .req-table .row-label { font-weight:600; }
   .prog-detail { border-radius:12px; border:1px solid var(--border); padding:1.4rem; margin-bottom:1.4rem; position:relative; overflow:hidden; }
   .prog-detail::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; }
@@ -208,15 +210,15 @@ chart:
   <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:1rem;">3-year average 2023–25 · Source: Official Oxford undergraduate course pages · IELTS 7.5 required for all · All include December interview</p>
   <div class="req-table-wrap">
     <table class="req-table">
-      <thead><tr><th>Programme</th><th>Degree</th><th>Intake</th><th>Interviewed</th><th>Success rate</th><th>A-level offer</th><th>Admissions test</th></tr></thead>
+      <thead><tr><th>Programme</th><th style="min-width:140px;">Degree</th><th>Intake</th><th>Interviewed</th><th>Success rate</th><th>A-level offer</th><th>Admissions test</th></tr></thead>
       <tbody>
-        <tr><td class="row-label" style="color:var(--biochem-color);">Biochemistry (Mol. &amp; Cell.)</td><td>MBiochem · 4 yrs · UCAS: C700</td><td>100</td><td>41%</td><td>12%</td><td>A*AA · Chem + one sci/Maths · A* in Maths/Physics/Chem/Bio</td><td style="color:#27ae60;font-weight:700;">None</td></tr>
-        <tr><td class="row-label" style="color:var(--bio-color);">Biology</td><td>MBiol / BA · 3–4 yrs · UCAS: C100</td><td>112</td><td>46%</td><td>15%</td><td>A*AA · Bio + one sci/Maths · A* in science or Maths</td><td style="color:#27ae60;font-weight:700;">None</td></tr>
-        <tr><td class="row-label" style="color:var(--bms-color);">Biomedical Sciences</td><td>MBiomedSci / BA · 3–4 yrs · UCAS: BC98</td><td>45</td><td>24%</td><td>8%</td><td>A*AA · Two from: Bio, Chem, Physics, Maths</td><td style="color:var(--bms-color);font-weight:700;">ESAT · 12–16 Oct</td></tr>
-        <tr><td class="row-label" style="color:var(--chem-color);">Chemistry</td><td>MChem · 4 yrs · UCAS: F100</td><td>180</td><td>63%</td><td>17%</td><td>A*A*A · Chem + Maths · both A*s in science/maths</td><td style="color:#27ae60;font-weight:700;">None</td></tr>
-        <tr><td class="row-label" style="color:var(--hs-color);">Human Sciences</td><td>BA · 3 yrs · UCAS: BCL0</td><td>28</td><td>56%</td><td>16%</td><td>AAA · Flexible — science or humanities</td><td style="color:var(--hs-color);font-weight:700;">TARA · 12–16 Oct</td></tr>
-        <tr><td class="row-label" style="color:var(--mat-color);">Materials Science</td><td>MEng · 4 yrs · UCAS: FJ22</td><td>43</td><td>62%</td><td>22%</td><td>A*AA · Maths + Physics · A* in Maths, Physics or Chem</td><td style="color:#27ae60;font-weight:700;">None</td></tr>
-        <tr><td class="row-label" style="color:var(--med-color);">Medicine</td><td>BA / BM BCh · 6 yrs · UCAS: A100</td><td>155</td><td>29%</td><td>11%</td><td>A*AA · Chem + one sci/Maths (excl. Critical Thinking)</td><td style="color:var(--med-color);font-weight:700;">UCAT · Jul–Sep</td></tr>
+        <tr><td class="row-label" style="color:var(--biochem-color);">Biochemistry (Mol. &amp; Cell.)</td><td>· MBiochem <br>· 4 yrs <br>· UCAS: C700</td><td>100</td><td>41%</td><td>12%</td><td>A*AA <br>Chem + one sci/Maths <br>A* in Maths/Physics/Chem/Bio</td><td style="color:#27ae60;font-weight:700;">None</td></tr>
+        <tr><td class="row-label" style="color:var(--bio-color);">Biology</td><td>· MBiol / BA <br>· 3–4 yrs <br>· UCAS: C100</td><td>112</td><td>46%</td><td>15%</td><td>A*AA <br>Bio + one sci/Maths <br>A* in science or Maths</td><td style="color:#27ae60;font-weight:700;">None</td></tr>
+        <tr><td class="row-label" style="color:var(--bms-color);">Biomedical Sciences</td><td>· MBiomedSci / BA <br>· 3–4 yrs <br>· UCAS: BC98</td><td>45</td><td>24%</td><td>8%</td><td>A*AA <br>Two from: Bio, Chem, Physics, Maths</td><td style="color:var(--bms-color);font-weight:700;">ESAT <br>12–16 Oct</td></tr>
+        <tr><td class="row-label" style="color:var(--chem-color);">Chemistry</td><td>· MChem <br>· 4 yrs <br>· UCAS: F100</td><td>180</td><td>63%</td><td>17%</td><td>A*A*A <br>Chem + Maths <br>both A*s in science/maths</td><td style="color:#27ae60;font-weight:700;">None</td></tr>
+        <tr><td class="row-label" style="color:var(--hs-color);">Human Sciences</td><td>· BA <br>· 3 yrs <br>· UCAS: BCL0</td><td>28</td><td>56%</td><td>16%</td><td>AAA <br>Flexible — science or humanities</td><td style="color:var(--hs-color);font-weight:700;">TARA <br>12–16 Oct</td></tr>
+        <tr><td class="row-label" style="color:var(--mat-color);">Materials Science</td><td>· MEng · 4 yrs <br>· UCAS: FJ22</td><td>43</td><td>62%</td><td>22%</td><td>A*AA <br> Maths + Physics <br>A* in Maths, Physics or Chem</td><td style="color:#27ae60;font-weight:700;">None</td></tr>
+        <tr><td class="row-label" style="color:var(--med-color);">Medicine</td><td>· BA / BM BCh <br>· 6 yrs <br>· UCAS: A100</td><td>155</td><td>29%</td><td>11%</td><td>A*AA <br>Chem + one sci/Maths (excl. Critical Thinking)</td><td style="color:var(--med-color);font-weight:700;">UCAT <br> Jul–Sep</td></tr>
       </tbody>
     </table>
   </div>
