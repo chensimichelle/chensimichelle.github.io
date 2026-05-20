@@ -23,6 +23,13 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cie-biology/";
           },
+        },{id: "nav-cie-chemistry",
+          title: "CIE Chemistry",
+          description: "CIE A-Level chemistry notes and resources.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/cie-chemistry/";
+          },
         },{id: "nav-publications",
           title: "publications",
           description: "Study resources and materials.",
@@ -65,7 +72,18 @@ ninja.data = [{
               handler: () => {
                 window.location.href = "/practical/";
               },
-            },{id: "post-university-of-oxford-undergraduate-science-programmes-guide",
+            },{id: "post-ucl-life-amp-medical-sciences-undergraduate-programme-guide",
+        
+          title: "UCL — Life &amp; Medical Sciences Undergraduate Programme Guide",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/ucl-guide/";
+          
+        },
+      },{id: "post-university-of-oxford-undergraduate-science-programmes-guide",
         
           title: "University of Oxford - Undergraduate Science Programmes Guide",
         
@@ -87,9 +105,9 @@ ninja.data = [{
             window.location.href = "/blog/2026/ic-chem-guide/";
           
         },
-      },{id: "post-university-of-cambridge-natural-sciences-amp-engineering-bioengineering-guide",
+      },{id: "post-university-of-cambridge-natural-sciences-amp-engineering-guide",
         
-          title: "University of Cambridge - Natural Sciences &amp; Engineering (Bioengineering) Guide",
+          title: "University of Cambridge - Natural Sciences &amp; Engineering Guide",
         
         description: "",
         section: "Posts",
