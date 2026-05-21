@@ -119,6 +119,7 @@ permalink: /practical/qualitative-analysis-exam-skills/
   .ms-table td{
     padding:6px 10px;border:1px solid var(--gray-b);
     vertical-align:top;line-height:1.5;
+    font-size:13.5px;
   }
   .ms-table tr:nth-child(even) td{background:var(--gray-f);}
   .ms-table .ok{color:var(--teal);font-weight:600;}
@@ -153,8 +154,7 @@ This guide uses a real CIE exam question (9701/34, Oct/Nov 2020, Question 3) to 
 <div class="es-nav">
   <button class="on" onclick="showES('observations',this)">01 Writing observations</button>
   <button onclick="showES('further',this)">02 Further tests</button>
-  <button onclick="showES('ionic',this)">03 Ionic equations</button>
-  <button onclick="showES('rules',this)">04 Golden rules</button>
+  <button onclick="showES('rules',this)">03 Golden rules</button>
 </div>
 
 <!-- ── 01 WRITING OBSERVATIONS ─────────────────────────────── -->
@@ -342,80 +342,11 @@ This guide uses a real CIE exam question (9701/34, Oct/Nov 2020, Question 3) to 
   <div class="warn">
     <strong>Both approaches are accepted by the mark scheme.</strong> KMnO₄ and K₂Cr₂O₇ are equally valid. In both cases the key word is <strong>acidified</strong> — the oxidising power of both reagents depends on H⁺ ions being present.
   </div>
-
-<!-- ── 03 IONIC EQUATIONS ───────────────────────────────────── -->
-<div id="sec-ionic" class="es-pnl">
-  <h2>03 — Ionic equations (part e)</h2>
-
-  <p>Part (e) asks for an ionic equation with state symbols for one precipitation reaction observed when using FB 4 (Zn(NO₃)₂). This tests three things: correct ions, correct balancing, and correct state symbols.</p>
-
-  <div class="q-block">
-    <span class="q-label">Question 3(e)</span>
-    <span class="q-text">Give the ionic equation for one precipitation reaction you observed when using FB 4. Include state symbols.</span>
-    <span class="q-sub">FB 4 is Zn(NO₃)₂(aq). Precipitation reactions observed: with Na₂CO₃ (Test 1) and with NH₃ (Test 2, before excess).</span>
   </div>
-
-  <h3>Example 1 — Zn²⁺ with carbonate</h3>
-  <div class="ans-grid">
-    <div class="ans-card ans-bad">
-      <span class="ans-label">✕ Wrong</span>
-      <div class="ans-text">
-        Zn(NO₃)₂(aq) + Na₂CO₃(aq) → ZnCO₃(s) + 2NaNO₃(aq)<br><br>
-        <em>or:</em><br><br>
-        Zn²⁺(aq) + CO₃²⁻(aq) → ZnCO₃
-      </div>
-    </div>
-    <div class="ans-card ans-ok">
-      <span class="ans-label">✓ Correct</span>
-      <div class="ans-text">
-        Zn²⁺(aq) + CO₃²⁻(aq) → ZnCO₃(s)
-      </div>
-    </div>
   </div>
-  <div class="explain">
-    <span class="ex-label">Why the wrong answers fail</span>
-    The first wrong answer is a formula equation, not an ionic equation — spectator ions Na⁺ and NO₃⁻ must be removed. The second wrong answer is missing state symbols — (aq) on the left and (s) on the right are both required. An ionic equation without state symbols scores zero for the state symbol mark.
-  </div>
-
-  <h3>Example 2 — Zn²⁺ with hydroxide (from NaOH)</h3>
-  <div class="ans-grid">
-    <div class="ans-card ans-bad">
-      <span class="ans-label">✕ Wrong</span>
-      <div class="ans-text">
-        Zn²⁺ + 2OH⁻ → Zn(OH)₂<br><br>
-        <em>or:</em><br><br>
-        Zn²⁺(aq) + OH⁻(aq) → Zn(OH)₂(s)
-      </div>
-    </div>
-    <div class="ans-card ans-ok">
-      <span class="ans-label">✓ Correct</span>
-      <div class="ans-text">
-        Zn²⁺(aq) + 2OH⁻(aq) → Zn(OH)₂(s)
-      </div>
-    </div>
-  </div>
-  <div class="explain">
-    <span class="ex-label">Why</span>
-    Zn²⁺ has a 2+ charge, so it requires 2 OH⁻ ions to balance. The coefficient 2 before OH⁻ is essential — an unbalanced equation scores zero. State symbols on every species are mandatory.
-  </div>
-
-  <div class="divider"></div>
-
-  <h3>Checklist before writing your ionic equation</h3>
-  <div class="step-row"><div class="step-n">1</div><div class="step-t">Identify the precipitate — it must be the (s) product. If you observed a white ppt, that solid is your product.</div></div>
-  <div class="step-row"><div class="step-n">2</div><div class="step-t">Write only the ions that form the precipitate — remove all spectator ions (ions that appear on both sides unchanged).</div></div>
-  <div class="step-row"><div class="step-n">3</div><div class="step-t">Balance charges — the total charge on the left must equal the total charge on the right (both zero for a neutral precipitate).</div></div>
-  <div class="step-row"><div class="step-n">4</div><div class="step-t">Add state symbols to every species: (aq) for dissolved ions, (s) for the precipitate.</div></div>
-
-  <div class="warn">
-    <strong>Do not write ionic equations for reactions where no precipitate forms.</strong> "No reaction" has no ionic equation. Only write equations for the tests where you observed a solid precipitate forming.
-  </div>
-</div>
-</div>
-
-<!-- ── 04 GOLDEN RULES ──────────────────────────────────────── -->
+<!-- ── 03 GOLDEN RULES ──────────────────────────────────────── -->
 <div id="sec-rules" class="es-pnl">
-  <h2>04 — Golden rules</h2>
+  <h2>03 — Golden rules</h2>
 
   <p>These are the recurring reasons students lose marks in qualitative analysis questions, drawn directly from mark scheme reject notes.</p>
 
@@ -431,7 +362,7 @@ This guide uses a real CIE exam question (9701/34, Oct/Nov 2020, Question 3) to 
     </li>
     <li>
       <div class="rule-icon icon-bad">✕</div>
-      <div class="rule-text"><strong>Never report gas during heating if you use it to identify the ion.</strong> The mark scheme rejects gas test observations from the heating step if you already used them to identify the ion. Gas identity must be confirmed by a separate test (litmus, splint).</div>
+      <div class="rule-text"><strong>Never report gas during heating if you use it to identify the ion.</strong> Gas identity must be confirmed by a separate test (litmus, splint).</div>
     </li>
     <li>
       <div class="rule-icon icon-ok">✓</div>
@@ -453,10 +384,6 @@ This guide uses a real CIE exam question (9701/34, Oct/Nov 2020, Question 3) to 
     </li>
     <li>
       <div class="rule-icon icon-bad">✕</div>
-      <div class="rule-text"><strong>Never give a product as the reagent.</strong> "Add barium sulfate" is wrong — BaSO₄ is insoluble and cannot be added as a solution. You add BaCl₂(aq) or Ba(NO₃)₂(aq).</div>
-    </li>
-    <li>
-      <div class="rule-icon icon-bad">✕</div>
       <div class="rule-text"><strong>Never use KMnO₄ without specifying acidified.</strong> Acidified potassium manganate(VII) is the correct reagent. Unacidified KMnO₄ is not accepted.</div>
     </li>
     <li>
@@ -465,28 +392,6 @@ This guide uses a real CIE exam question (9701/34, Oct/Nov 2020, Question 3) to 
     </li>
   </ul>
 
-  <div class="divider"></div>
-  </div>
-
-  <h3>Ionic equations</h3>
-  <ul class="rule-list">
-    <li>
-      <div class="rule-icon icon-bad">✕</div>
-      <div class="rule-text"><strong>Never leave out state symbols.</strong> Every species needs (aq) or (s). Missing state symbols = zero for that mark.</div>
-    </li>
-    <li>
-      <div class="rule-icon icon-bad">✕</div>
-      <div class="rule-text"><strong>Never write formula equations as ionic equations.</strong> Remove all spectator ions. Na⁺, NO₃⁻, K⁺, Cl⁻ must not appear in an ionic equation unless they are part of the precipitate.</div>
-    </li>
-    <li>
-      <div class="rule-icon icon-bad">✕</div>
-      <div class="rule-text"><strong>Never write an unbalanced equation.</strong> Check that charge and atoms balance on both sides before writing your final answer.</div>
-    </li>
-    <li>
-      <div class="rule-icon icon-ok">✓</div>
-      <div class="rule-text"><strong>Only write ionic equations for precipitation reactions</strong> — reactions where a solid (s) product forms. Tests that give "no change" have no ionic equation.</div>
-    </li>
-  </ul>
 
   <div class="divider"></div>
 
@@ -509,16 +414,6 @@ This guide uses a real CIE exam question (9701/34, Oct/Nov 2020, Question 3) to 
       <td>Just "white precipitate"</td>
     </tr>
     <tr>
-      <td>"gas turns litmus blue" for FB 5 (SO₃²⁻)</td>
-      <td class="bad">Reject — SO₃²⁻ cannot produce NH₃</td>
-      <td>"gas pops with lighted splint" (H₂)</td>
-    </tr>
-    <tr>
-      <td>"pale yellow ppt" for AgCl</td>
-      <td class="bad">Reject — AgCl is white, not pale yellow</td>
-      <td>"white ppt" (AgCl); "cream ppt" (AgBr); "yellow ppt" (AgI)</td>
-    </tr>
-    <tr>
       <td>"add H₂SO₄" to distinguish sulfate/sulfite</td>
       <td class="bad">Reject — introduces SO₄²⁻</td>
       <td>"add dilute HCl or dilute HNO₃"</td>
@@ -529,7 +424,6 @@ This guide uses a real CIE exam question (9701/34, Oct/Nov 2020, Question 3) to 
       <td>Add (aq) and (s) to every species</td>
     </tr>
   </table>
-</div>
 </div>
 <script>
 function showES(name, btn) {
