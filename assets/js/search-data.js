@@ -72,7 +72,29 @@ ninja.data = [{
               handler: () => {
                 window.location.href = "/practical/";
               },
-            },{id: "post-ucl-life-amp-medical-sciences-undergraduate-programme-guide",
+            },{id: "post-inside-cambridge-admissions-what-the-foi-data-actually-shows",
+        
+          title: "Inside Cambridge Admissions: What the FOI Data Actually Shows",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/cambridge-admissions-analysis/";
+          
+        },
+      },{id: "post-what-esat-score-do-you-actually-need-a-data-analysis-2025-entry",
+        
+          title: "What ESAT Score Do You Actually Need? — A Data Analysis (2025 Entry)...",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/esat-score-analysis/";
+          
+        },
+      },{id: "post-ucl-life-amp-medical-sciences-undergraduate-programme-guide",
         
           title: "UCL — Life &amp; Medical Sciences Undergraduate Programme Guide",
         
@@ -192,6 +214,16 @@ ninja.data = [{
           description: "",
           section: "Cie_biology",handler: () => {
               window.location.href = "/cie-biology/9700-study-guide/";
+            },},{id: "cie_chemistry-topic-1-atomic-structure",
+          title: 'Topic 1: Atomic Structure',
+          description: "",
+          section: "Cie_chemistry",handler: () => {
+              window.location.href = "/cie-chemistry/topic-1-atomic-structure/";
+            },},{id: "cie_chemistry-topic-13-introduction-to-organic-chemistry",
+          title: 'Topic 13: Introduction to Organic Chemistry',
+          description: "",
+          section: "Cie_chemistry",handler: () => {
+              window.location.href = "/cie-chemistry/topic-13-organic-synthesis/";
             },},{id: "news-drug-design-research-programme",
           title: 'Drug Design Research Programme',
           description: "A hands-on summer project for high school students — visualise proteins, calculate binding energies, and model antibiotic resistance using real research tools.",
@@ -232,21 +264,21 @@ ninja.data = [{
           description: "Drug Design with PyRosetta — Alanine Scanning of Lysozyme",
           section: "Projects",handler: () => {
               window.location.href = "/projects/Project1ProteinStability/";
-            },},{id: "projects-project-3-scoring-protein-structures",
-          title: 'Project 3 - Scoring Protein Structures',
-          description: "Drug Design with PyRosetta — Comparing Structure Quality Across PDB Models",
-          section: "Projects",handler: () => {
-              window.location.href = "/projects/Project2ScoringStructures/";
-            },},{id: "projects-project-4-visualizing-drug-binding-sites",
-          title: 'Project 4 - Visualizing Drug Binding Sites',
-          description: "Drug Design with PyRosetta — Mapping the COX-2 Active Site",
-          section: "Projects",handler: () => {
-              window.location.href = "/projects/Project3BindingSiteVisualization/";
             },},{id: "projects-project-2-protein-ligand-docking",
           title: 'Project 2 - Protein-Ligand Docking',
           description: "Drug Design with PyRosetta — Comparing COX-2 Inhibitors",
           section: "Projects",handler: () => {
-              window.location.href = "/projects/Project4Docking/";
+              window.location.href = "/projects/Project2Docking/";
+            },},{id: "projects-project-3-scoring-protein-structures",
+          title: 'Project 3 - Scoring Protein Structures',
+          description: "Drug Design with PyRosetta — Comparing Structure Quality Across PDB Models",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/Project3ScoringStructures/";
+            },},{id: "projects-project-4-visualizing-drug-binding-sites",
+          title: 'Project 4 - Visualizing Drug Binding Sites',
+          description: "Drug Design with PyRosetta — Mapping the COX-2 Active Site",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/Project4BindingSiteVisualization/";
             },},{id: "projects-project-5-alanine-scanning-of-a-binding-site",
           title: 'Project 5 - Alanine Scanning of a Binding Site',
           description: "Drug Design with PyRosetta — Identifying Critical Residues for Drug Binding",
