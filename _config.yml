@@ -168,6 +168,8 @@ collections:
     output: true
   cie_biology:
     output: true
+  cie_chemistry:
+    output: true
 
 # -----------------------------------------------------------------------------
 # Jekyll settings

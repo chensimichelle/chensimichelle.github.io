@@ -1,0 +1,1068 @@
+---
+layout: post
+title: "Inside Cambridge Admissions: What the FOI Data Actually Shows"
+date: 2026-05-29
+tags: [uk, admissions, cambridge, esat, engineering, natural sciences, data]
+categories: []
+---
+
+<style>
+  :root {
+    --blog-accent: #cc00cc;
+    --blog-accent-light: #fdf0fd;
+    --blog-accent-mid: #f0d0f0;
+    --cambridge-color: #1d4d35;
+    --cambridge-light: #edf5f0;
+    --cambridge-mid: #a3c1ad;
+    --cambridge-gold: #c8a951;
+    --cambridge-gold-light: #fdf8ed;
+    --cambridge-gold-mid: #f0dfa0;
+    --danger-color: #c0392b;
+    --danger-light: #fdf3f3;
+    --danger-mid: #f5c0c0;
+    --text-primary: #1a1a1a;
+    --text-secondary: #4a4a4a;
+    --text-muted: #7a7a7a;
+    --border: #e8e8e8;
+    --bg: #ffffff;
+    --bg-soft: #fafafa;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', sans-serif; color: var(--text-primary); background: var(--bg); line-height: 1.6; font-size: 15px; }
+
+  .tab-nav { position: sticky; top: 0; z-index: 100; background: #fdf0fd; border-bottom: 2px solid #f0d0f0; box-shadow: 0 2px 12px rgba(204,0,204,0.06); overflow-x: auto; white-space: nowrap; scrollbar-width: none; }
+  .tab-nav::-webkit-scrollbar { display: none; }
+  .tab-nav-inner { display: inline-flex; gap: 0; padding: 0 1.5rem; min-width: 100%; }
+  .tab-btn { font-family: 'DM Sans', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); background: none; border: none; border-bottom: 3px solid transparent; padding: 0.9rem 1.1rem; cursor: pointer; transition: color 0.2s, border-color 0.2s; white-space: nowrap; margin-bottom: -2px; }
+  .tab-btn:hover { color: var(--blog-accent); }
+  .tab-btn.active { color: var(--blog-accent); border-bottom-color: var(--blog-accent); }
+
+  .tab-panel { display: none; padding: 2rem 1.5rem 3rem; max-width: 860px; margin: 0 auto; }
+  .tab-panel.active { display: block; animation: fadeIn 0.25s ease; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+  .section-title { font-family: 'DM Serif Display', serif; font-size: 1.65rem; font-weight: 400; color: var(--text-primary); margin-bottom: 0.35rem; }
+  .section-subtitle { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 2rem; font-weight: 400; }
+  .divider { width: 3rem; height: 3px; background: var(--blog-accent); border-radius: 2px; margin: 0.6rem 0 2rem; }
+
+  .overview-intro { background: var(--blog-accent-light); border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem; border: 1px solid var(--blog-accent-mid); }
+  .overview-intro p { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.75; }
+  .overview-intro p + p { margin-top: 0.75rem; }
+
+  .stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 2rem; }
+  .stat-card { background: var(--cambridge-light); border: 1px solid var(--cambridge-mid); border-top: 3px solid var(--cambridge-color); border-radius: 10px; padding: 1rem 1.25rem; text-align: center; }
+  .stat-card-num { font-family: 'DM Serif Display', serif; font-size: 1.6rem; color: var(--cambridge-color); font-weight: 400; display: block; }
+  .stat-card-label { font-size: 0.72rem; color: var(--text-muted); line-height: 1.4; }
+
+  .info-box { background: var(--blog-accent-light); border-left: 4px solid var(--blog-accent); border-radius: 0 10px 10px 0; padding: 1rem 1.25rem; margin-bottom: 1.5rem; font-size: 0.83rem; color: var(--text-secondary); line-height: 1.65; }
+  .info-box strong { color: var(--text-primary); }
+  .warn-box { background: var(--cambridge-gold-light); border-left: 4px solid var(--cambridge-gold); border-radius: 0 10px 10px 0; padding: 1rem 1.25rem; margin-bottom: 1.5rem; font-size: 0.83rem; color: var(--text-secondary); line-height: 1.65; }
+  .warn-box strong { color: #7a5a00; }
+  .danger-box { background: var(--danger-light); border-left: 4px solid var(--danger-color); border-radius: 0 10px 10px 0; padding: 1rem 1.25rem; margin-bottom: 1.5rem; font-size: 0.83rem; color: var(--text-secondary); line-height: 1.65; }
+  .danger-box strong { color: var(--danger-color); }
+
+  .score-scale { background: var(--bg-soft); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem; }
+  .score-scale-title { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 1rem; }
+  .scale-bar-wrap { position: relative; height: 36px; border-radius: 8px; overflow: hidden; margin-bottom: 0.5rem; display: flex; }
+  .scale-seg { height: 100%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 700; color: white; letter-spacing: 0.04em; }
+  .scale-labels { display: flex; justify-content: space-between; font-size: 0.68rem; color: var(--text-muted); margin-top: 0.35rem; padding: 0 2px; }
+  .scale-legend { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
+  .scale-legend-item { display: flex; align-items: center; gap: 0.4rem; font-size: 0.75rem; color: var(--text-secondary); }
+  .scale-legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+
+  .dept-card { background: var(--bg-soft); border: 1px solid var(--border); border-top: 4px solid var(--cambridge-color); border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; }
+  .dept-card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 0.5rem; }
+  .dept-card-title { font-family: 'DM Serif Display', serif; font-size: 1.15rem; color: var(--cambridge-color); }
+  .dept-card-meta { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.2rem; }
+  .dept-offer-rate { text-align: right; flex-shrink: 0; }
+  .dept-offer-num { font-family: 'DM Serif Display', serif; font-size: 1.6rem; color: var(--cambridge-color); line-height: 1; }
+  .dept-offer-label { font-size: 0.68rem; color: var(--text-muted); }
+
+  .score-compare { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin-bottom: 1rem; }
+  .score-compare-col { border-radius: 8px; padding: 0.85rem 1rem; text-align: center; border: 1px solid var(--border); }
+  .score-compare-col.offer { background: #eaf4f0; border-color: #a8d8c8; }
+  .score-compare-col.pool  { background: var(--cambridge-gold-light); border-color: var(--cambridge-gold-mid); }
+  .score-compare-col.rejected { background: #fdf3f3; border-color: #f5c0c0; }
+  .score-compare-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.4rem; }
+  .score-compare-num { font-family: 'DM Serif Display', serif; font-size: 1.5rem; line-height: 1; margin-bottom: 0.2rem; }
+  .score-compare-col.offer .score-compare-num { color: #1a7a5a; }
+  .score-compare-col.pool .score-compare-num  { color: #8a6a00; }
+  .score-compare-col.rejected .score-compare-num { color: #c0392b; }
+  .score-compare-sub { font-size: 0.7rem; color: var(--text-muted); }
+  .score-compare-pct { font-size: 0.75rem; font-weight: 600; margin-top: 0.35rem; padding: 0.15rem 0.4rem; border-radius: 20px; display: inline-block; }
+  .score-compare-col.offer .score-compare-pct { background: #c8eada; color: #1a7a5a; }
+  .score-compare-col.pool .score-compare-pct  { background: var(--cambridge-gold-mid); color: #8a6a00; }
+  .score-compare-col.rejected .score-compare-pct { background: #fad0d0; color: #c0392b; }
+
+  .bar-chart-mini { margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid var(--border); }
+  .bar-chart-mini-title { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.6rem; }
+  .mini-bar-row { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.4rem; font-size: 0.75rem; }
+  .mini-bar-label { width: 100px; color: var(--text-muted); flex-shrink: 0; text-align: right; }
+  .mini-bar-track { flex: 1; height: 8px; background: var(--border); border-radius: 4px; overflow: hidden; }
+  .mini-bar-fill { height: 100%; border-radius: 4px; transition: width 0.6s ease; }
+  .mini-bar-val { width: 48px; color: var(--text-secondary); font-weight: 600; font-size: 0.75rem; }
+  .dept-note { font-size: 0.76rem; font-style: italic; color: var(--text-muted); padding: 0.5rem 0.75rem; background: rgba(255,255,255,0.7); border-left: 2px solid var(--cambridge-color); border-radius: 0 6px 6px 0; line-height: 1.5; margin-top: 0.5rem; }
+
+  .req-table-wrap { overflow-x: auto; margin-bottom: 2rem; }
+  .req-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+  .req-table th { padding: 0.65rem 0.9rem; text-align: left; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; border-bottom: 2px solid var(--border); background: var(--cambridge-light); color: var(--cambridge-color); }
+  .req-table td { padding: 0.65rem 0.9rem; border-bottom: 1px solid var(--border); color: var(--text-secondary); vertical-align: top; line-height: 1.5; font-size: 0.8rem; }
+  .req-table tr:last-child td { border-bottom: none; }
+  .req-table tr:nth-child(even) td { background: var(--bg-soft); }
+  .req-table .row-label { font-weight: 600; color: var(--text-primary); }
+
+  .bench-table-wrap { overflow-x: auto; margin-bottom: 2rem; }
+  .bench-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+  .bench-table th { padding: 0.65rem 0.9rem; text-align: left; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; border-bottom: 2px solid var(--border); background: var(--cambridge-light); color: var(--cambridge-color); white-space: nowrap; }
+  .bench-table td { padding: 0.65rem 0.9rem; border-bottom: 1px solid var(--border); color: var(--text-secondary); vertical-align: middle; font-size: 0.8rem; }
+  .bench-table tr:last-child td { border-bottom: none; }
+  .bench-table tr:nth-child(even) td { background: var(--bg-soft); }
+  .bench-num { font-weight: 700; color: var(--cambridge-color); }
+  .bench-gap { font-weight: 700; color: #c0392b; }
+
+  .flow-section { background: var(--bg-soft); border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem; border: 1px solid var(--border); }
+  .flow-title { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 1.25rem; }
+  .flow-steps { display: flex; flex-direction: column; gap: 0.6rem; }
+  .flow-step-row { display: grid; grid-template-columns: 120px 1fr; gap: 1rem; align-items: start; }
+  .flow-step-num { background: var(--cambridge-color); color: white; font-weight: 700; font-size: 0.75rem; border-radius: 6px; padding: 0.35rem 0.6rem; text-align: center; white-space: normal; word-break: break-word; line-height: 1.3; }
+  .flow-step-content { background: white; border: 1px solid var(--border); border-left: 3px solid var(--cambridge-color); border-radius: 7px; padding: 0.55rem 0.9rem; font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5; }
+  .flow-step-content strong { color: var(--text-primary); }
+
+  .looks-for-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(185px, 1fr)); gap: 0.75rem; margin-bottom: 2rem; }
+  .looks-for-item { background: white; border: 1px solid var(--cambridge-mid); border-radius: 8px; padding: 0.75rem 1rem; font-size: 0.81rem; color: var(--text-secondary); display: flex; align-items: flex-start; gap: 0.5rem; line-height: 1.45; }
+  .looks-for-item::before { content: '✓'; color: var(--cambridge-color); font-weight: 700; flex-shrink: 0; }
+
+  h3.sub { font-family: 'DM Serif Display', serif; font-size: 1.1rem; margin-bottom: 0.5rem; margin-top: 2rem; }
+  p.sub-meta { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 1rem; }
+
+  .chart-wrap { background: var(--bg-soft); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; margin-bottom: 2rem; }
+  .chart-wrap canvas { max-height: 340px; }
+  .chart-title { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.75rem; }
+
+  .pool-box { background: var(--cambridge-light); border: 1px solid var(--cambridge-mid); border-radius: 12px; padding: 1.25rem 1.5rem; margin-bottom: 1.5rem; }
+  .pool-box-title { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--cambridge-color); margin-bottom: 0.6rem; }
+  .pool-box p { font-size: 0.83rem; color: var(--text-secondary); line-height: 1.65; }
+
+  .domicile-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin-bottom: 1.5rem; }
+  .domicile-card { border-radius: 10px; border: 1px solid var(--border); padding: 1rem; text-align: center; }
+  .domicile-card.home { background: #eaf4f0; border-top: 3px solid #1a7a5a; }
+  .domicile-card.china { background: #fdf3f3; border-top: 3px solid #c0392b; }
+  .domicile-card.intl { background: var(--cambridge-light); border-top: 3px solid var(--cambridge-color); }
+  .domicile-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.5rem; }
+  .domicile-big { font-family: 'DM Serif Display', serif; font-size: 1.5rem; line-height: 1.1; margin-bottom: 0.2rem; }
+  .domicile-card.home .domicile-big { color: #1a7a5a; }
+  .domicile-card.china .domicile-big { color: #c0392b; }
+  .domicile-card.intl .domicile-big { color: var(--cambridge-color); }
+  .domicile-sub { font-size: 0.72rem; color: var(--text-muted); }
+
+  /* ── ESAT BY COLLEGE TAB ── */
+  .esat-controls {
+    display: flex;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 1rem 1.25rem;
+    background: var(--cambridge-light);
+    border: 1px solid var(--cambridge-mid);
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+  }
+  .esat-controls label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--cambridge-color);
+    white-space: nowrap;
+  }
+  .esat-controls select {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem;
+    padding: 0.4rem 0.75rem;
+    border: 1px solid var(--cambridge-mid);
+    border-radius: 6px;
+    background: white;
+    color: var(--text-primary);
+    cursor: pointer;
+  }
+  .esat-chart-wrap {
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+  .esat-chart-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+  }
+  .esat-legend {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 0.9rem;
+    flex-wrap: wrap;
+  }
+  .esat-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.76rem;
+    color: var(--text-secondary);
+  }
+  .esat-legend-swatch {
+    width: 13px;
+    height: 13px;
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
+  .esat-note {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-top: 0.6rem;
+    padding-top: 0.6rem;
+    border-top: 1px solid var(--border);
+    line-height: 1.55;
+  }
+
+  @media (max-width: 600px) {
+    .stat-row { grid-template-columns: repeat(2, 1fr); }
+    .score-compare { grid-template-columns: 1fr; }
+    .flow-step-row { grid-template-columns: 1fr; }
+    .flow-step-num { text-align: left; }
+    .domicile-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+<!-- ── TAB NAV ── -->
+<nav class="tab-nav">
+  <div class="tab-nav-inner">
+    <button class="tab-btn active" onclick="showTab('overview', this)">Overview</button>
+    <button class="tab-btn" onclick="showTab('esat', this)">ESAT &amp; Offers</button>
+    <button class="tab-btn" onclick="showTab('domicile', this)">The China Gap</button>
+    <button class="tab-btn" onclick="showTab('alevel', this)">A-Level Grades</button>
+    <button class="tab-btn" onclick="showTab('natsci', this)">NatSci Sections</button>
+    <button class="tab-btn" onclick="showTab('college', this)">Data by College</button>
+    <button class="tab-btn" onclick="showTab('esatcollege', this)">ESAT by College</button>
+    <button class="tab-btn" onclick="showTab('summary', this)">Summary &amp; Takeaways</button>
+  </div>
+</nav>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     TAB 1 · OVERVIEW
+══════════════════════════════════════════════════════════ -->
+<div id="tab-overview" class="tab-panel active">
+
+  <p class="section-subtitle" style="margin-top:1.5rem; font-size:0.82rem; color:var(--text-muted);">FOI data analysis · 2020–2024 entry · Cambridge Engineering &amp; Natural Sciences</p>
+  <h2 class="section-title">Inside Cambridge Admissions: What the FOI Data Shows</h2>
+  <div class="divider"></div>
+
+  <div class="overview-intro">
+    <p>Cambridge does not publish ESAT score data linked to applicant outcomes. Unlike Imperial College London — which provides a public outcome dashboard — Cambridge's admissions statistics are almost entirely opaque. This post analyses three Freedom of Information responses obtained from the University of Cambridge covering <strong>Engineering (H100)</strong> and <strong>Natural Sciences (BCF0)</strong> — the only public source that links individual ESAT/ENGAA scores to offer status by domicile.</p>
+    <p>The data covers <strong>12,063 individual ESAT/ENGAA applicant records</strong> (2020–2024) and <strong>2,215 A-level qualification records</strong> (2020 cohort), each tagged with domicile (Home, China, International) and offer status. The most striking finding is what the data reveals about the systematic differences between how applicants from different domiciles are selected — not in raw score thresholds, but in the score required to achieve the same offer probability.</p>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat-card"><span class="stat-card-num">12,063</span><span class="stat-card-label">Individual applicant<br>records (2020–2024)</span></div>
+    <div class="stat-card"><span class="stat-card-num">4,962</span><span class="stat-card-label">ESAT records analysed<br>(2023 &amp; 2024 entry)</span></div>
+    <div class="stat-card"><span class="stat-card-num">17.8</span><span class="stat-card-label">Median total score<br>of offer holders</span></div>
+    <div class="stat-card"><span class="stat-card-num">10.1</span><span class="stat-card-label">Median total score<br>of non-offer holders</span></div>
+  </div>
+
+  <h3 class="sub">What data was obtained and how</h3>
+  <p class="sub-meta">Three FOI requests · Cambridge University · 2024–2025</p>
+
+  <div class="req-table-wrap">
+    <table class="req-table">
+      <thead>
+        <tr><th>FOI Reference</th><th>Requester</th><th>Course</th><th>Data Provided</th><th>Years Covered</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="row-label">FOI-2024-484 (Lim)</td><td>Winter Lim</td><td>Engineering H100</td><td>Individual ESAT/ENGAA section scores by domicile and offer status · 2020 A-level qualification types and predicted grades</td><td>2020, 2022, 2023, 2024</td></tr>
+        <tr><td class="row-label">FOI-2025-1026 (Wang)</td><td>Wang</td><td>Natural Sciences BCF0</td><td>Individual ESAT section scores by offer status · Aggregate domicile breakdown table (no individual domicile column)</td><td>2025 entry</td></tr>
+        <tr><td class="row-label">FOI-2025-347 (Stafford)</td><td>Stafford</td><td>CS G400 &amp; Economics L100</td><td>Individual TMUA scores (Mathematical Thinking, Mathematical Reasoning, Overall) by offer status</td><td>2024 entry</td></tr>
+        <tr><td class="row-label">FOI-2025-1028 (Smith)</td><td>Smith</td><td>Engineering H100</td><td>Min/avg/max ESAT scores by college, for all applicants and offer holders separately, across all three Engineering sections</td><td>2025 apply year</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="warn-box"><strong>⚠ Interview data not available:</strong> Cambridge explicitly refused to provide interview scores in all FOI responses. The University states that interview processes are "set and managed locally by each of the individual Colleges, each of which is a separate legal entity and public authority." No university-level interview data exists. All analysis in this post is therefore based on pre-interview inputs (ESAT scores, A-level grades, domicile).</div>
+
+  <h3 class="sub">Understanding the ESAT sections at Cambridge</h3>
+  <p class="sub-meta">Cambridge requires three sections per applicant — the combination varies by course</p>
+
+  <div class="score-scale">
+    <div class="score-scale-title">ESAT section scores (scaled 1.0–9.0, same as Imperial)</div>
+    <div class="scale-bar-wrap">
+      <div class="scale-seg" style="width:22%; background:#e74c3c;">Low</div>
+      <div class="scale-seg" style="width:28%; background:#e67e22;">Average</div>
+      <div class="scale-seg" style="width:28%; background:#2980b9;">Competitive</div>
+      <div class="scale-seg" style="width:14%; background:#1d6fa4;">Strong</div>
+      <div class="scale-seg" style="width:8%; background:#1d4d35;">Elite</div>
+    </div>
+    <div class="scale-labels"><span>1.0</span><span>3.0</span><span>4.5 (median)</span><span>7.0 (top 10%)</span><span>8.0</span><span>9.0</span></div>
+    <div class="scale-legend">
+      <div class="scale-legend-item"><div class="scale-legend-dot" style="background:#e74c3c;"></div>Engineering: Maths 1 + Maths 2 + Physics (S1/S2/S3)</div>
+      <div class="scale-legend-item"><div class="scale-legend-dot" style="background:#1d4d35;"></div>Biological NatSci: Maths 1 + Biology + Chemistry</div>
+      <div class="scale-legend-item"><div class="scale-legend-dot" style="background:#2980b9;"></div>Physical NatSci: Maths 1 + Physics + Maths 2</div>
+    </div>
+  </div>
+
+  <div class="info-box"><strong>Data sources used in this report:</strong> FOI-2024-484 (Lim) Engineering H100 individual data · FOI-2025-1026 (Wang) Natural Sciences BCF0 summary data · FOI-2025-347 (Stafford) CS/Economics TMUA data · FOI-2025-1028 (Smith) Engineering ESAT by college · Cambridge Admissions Statistics (published) · UAT-UK ESAT Technical Reports.</div>
+
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     TAB 2 · ESAT & OFFERS
+══════════════════════════════════════════════════════════ -->
+<div id="tab-esat" class="tab-panel">
+
+  <p class="section-subtitle" style="margin-top:1.5rem; font-size:0.82rem; color:var(--text-muted);">Engineering H100 · 2023 &amp; 2024 entry · n = 4,962 · S1 = first ESAT section score</p>
+  <h2 class="section-title">ESAT Scores &amp; Offer Rates</h2>
+  <div class="divider"></div>
+
+  <div class="overview-intro">
+    <p>The Lim FOI data contains individual section scores for 4,962 Engineering applicants across the 2023 and 2024 cycles — uniquely allowing offer rates to be computed at each score band. The first ESAT section (S1, corresponding to Maths 1) is the strongest single predictor of offer outcomes. The relationship is steep: below S1=4, offer rates are in single digits for all domiciles. Above S1=7, Home applicants receive offers at nearly 90%.</p>
+  </div>
+
+  <div class="chart-wrap">
+    <div class="chart-title">Offer rate by S1 score band — Home vs China vs International (2023+2024)</div>
+    <canvas id="chartEsatOfferRate" style="max-height:320px;"></canvas>
+  </div>
+
+  <h3 class="sub">Score band breakdown — all three domiciles</h3>
+  <p class="sub-meta">Engineering H100 · 2023 &amp; 2024 combined · Raw offer rates per S1 band</p>
+
+  <div class="req-table-wrap">
+    <table class="req-table">
+      <thead>
+        <tr><th>S1 Band</th><th>Home — n</th><th>Home — offer rate</th><th>China — n</th><th>China — offer rate</th><th>International — n</th><th>International — offer rate</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="row-label">1–2</td><td>1,285</td><td>2.1%</td><td>37</td><td>0.0%</td><td>442</td><td>0.5%</td></tr>
+        <tr><td class="row-label">3</td><td>696</td><td>11.1%</td><td>68</td><td>1.5%</td><td>285</td><td>1.8%</td></tr>
+        <tr><td class="row-label">4</td><td>527</td><td>23.5%</td><td>90</td><td>1.1%</td><td>252</td><td>8.7%</td></tr>
+        <tr><td class="row-label">5</td><td>224</td><td>44.2%</td><td>112</td><td>7.1%</td><td>130</td><td>15.4%</td></tr>
+        <tr><td class="row-label">6</td><td>149</td><td>57.7%</td><td>137</td><td>13.9%</td><td>129</td><td>28.7%</td></tr>
+        <tr><td class="row-label">7</td><td>33</td><td>81.8%</td><td>64</td><td>20.3%</td><td>40</td><td>42.5%</td></tr>
+        <tr><td class="row-label">8</td><td>13</td><td>84.6%</td><td>56</td><td>35.7%</td><td>29</td><td>41.4%</td></tr>
+        <tr><td class="row-label">9</td><td>17</td><td>100.0%</td><td>104</td><td>54.8%</td><td>43</td><td>74.4%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="info-box"><strong>Key observation:</strong> At every single score band, the offer rate for Home applicants exceeds that for Chinese applicants — often by a factor of 5–10×. A Home applicant scoring S1=4 has a 23.5% offer rate. A Chinese applicant scoring the same has a 1.1% offer rate. This is the clearest quantitative signal that domicile profoundly shapes the offer probability at any given test score.</div>
+
+  <h3 class="sub">Total score distribution — offer holders vs non-offer holders</h3>
+  <p class="sub-meta">Sum of all three ESAT sections (max 27.0) · 2023 &amp; 2024 entry</p>
+
+  <div class="dept-card">
+    <div class="dept-card-header">
+      <div><div class="dept-card-title">🎓 Engineering H100 — overall</div><div class="dept-card-meta">All domiciles combined · 2023 &amp; 2024 entry · n = 4,962</div></div>
+      <div class="dept-offer-rate"><div class="dept-offer-num">15.0%</div><div class="dept-offer-label">combined offer rate</div></div>
+    </div>
+    <div class="score-compare">
+      <div class="score-compare-col offer"><div class="score-compare-label">Offer holders</div><div class="score-compare-num">18.1</div><div class="score-compare-sub">mean total /27</div><div class="score-compare-pct">median 17.8</div></div>
+      <div class="score-compare-col pool"><div class="score-compare-label">25th–75th pct (offers)</div><div class="score-compare-num">14.5–21.8</div><div class="score-compare-sub">total score range</div><div class="score-compare-pct">interquartile</div></div>
+      <div class="score-compare-col rejected"><div class="score-compare-label">Non-offer holders</div><div class="score-compare-num">10.7</div><div class="score-compare-sub">mean total /27</div><div class="score-compare-pct">median 10.1</div></div>
+    </div>
+    <div class="bar-chart-mini">
+      <div class="bar-chart-mini-title">Mean total ESAT score (out of 27) by domicile — offer holders</div>
+      <div class="mini-bar-row"><div class="mini-bar-label">Home</div><div class="mini-bar-track"><div class="mini-bar-fill" style="width:59.4%; background:#1a7a5a;"></div></div><div class="mini-bar-val">16.0</div></div>
+      <div class="mini-bar-row"><div class="mini-bar-label">China</div><div class="mini-bar-track"><div class="mini-bar-fill" style="width:88.3%; background:#c0392b;"></div></div><div class="mini-bar-val">23.8</div></div>
+      <div class="mini-bar-row"><div class="mini-bar-label">International</div><div class="mini-bar-track"><div class="mini-bar-fill" style="width:75.0%; background:#1d4d35;"></div></div><div class="mini-bar-val">20.3</div></div>
+    </div>
+    <div class="dept-note">Chinese applicants who receive offers average a combined ESAT score of 23.8 out of 27 — nearly 8 points higher than Home offer holders at 16.0. This is not because Cambridge applies a formal higher threshold for Chinese applicants; it is because the applicant pool for China skews heavily toward the top of the score distribution, while competition for the same fixed number of places is intense.</div>
+  </div>
+
+  <h3 class="sub">What score is enough to expect an offer?</h3>
+  <p class="sub-meta">S1 score at which offer rate exceeds 50% — by domicile</p>
+
+  <div class="flow-section">
+    <div class="flow-title">50% offer rate threshold by domicile →</div>
+    <div class="flow-steps">
+      <div class="flow-step-row"><div class="flow-step-num" style="background:#1a7a5a;">Home</div><div class="flow-step-content"><strong>S1 ≥ 6 crosses 50% offer rate (57.7%).</strong> At S1 = 7+, 87.3% of Home applicants received offers. The curve is steep: each additional point above 5 roughly doubles the offer probability. Home applicants with S1 = 9 received offers at 100%.</div></div>
+      <div class="flow-step-row"><div class="flow-step-num" style="background:#c0392b;">China</div><div class="flow-step-content"><strong>No S1 band crosses 50% for Chinese applicants.</strong> Even at S1 = 9, the offer rate is 54.8% — barely above the threshold. At S1 = 7, it is only 20.3%. Achieving what a Home applicant achieves at S1 = 6 requires a Chinese applicant to score 9.0. The gap is structural, not incidental.</div></div>
+      <div class="flow-step-row"><div class="flow-step-num" style="background:#1d4d35;">International</div><div class="flow-step-content"><strong>S1 ≥ 9 crosses 50% (74.4%).</strong> The International curve lies between Home and China — significantly below Home at all score levels, but better than China above S1 = 6. At S1 = 7+, International offer rate is 42.5%, compared to 20.3% for China and 81.8% for Home.</div></div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     TAB 3 · THE CHINA GAP
+══════════════════════════════════════════════════════════ -->
+<div id="tab-domicile" class="tab-panel">
+
+  <p class="section-subtitle" style="margin-top:1.5rem; font-size:0.82rem; color:var(--text-muted);">Domicile analysis · Engineering + Natural Sciences · ESAT score gaps by nationality</p>
+  <h2 class="section-title">The China Gap: Score vs Outcome</h2>
+  <div class="divider"></div>
+
+  <div class="overview-intro">
+    <p>The most striking pattern in all three FOI datasets is the systematic gap between the ESAT score needed to receive an offer at Cambridge, depending on domicile. This tab explores that gap in depth — across Engineering and Natural Sciences — and what the Winter Pool data reveals about how Chinese applicants fare after the interview stage.</p>
+  </div>
+
+  <h3 class="sub">Average S1 scores — offer holders vs non-offer holders</h3>
+  <p class="sub-meta">Engineering H100 · 2023 &amp; 2024 entry · S1 = Maths 1 section</p>
+
+  <div class="domicile-grid">
+    <div class="domicile-card home"><div class="domicile-label">Home</div><div class="domicile-big">5.23</div><div class="domicile-sub">Avg S1 — offer holders</div><div style="margin-top:0.5rem; font-size:0.72rem; color:#1a7a5a; font-weight:600;">vs 3.09 non-offer</div><div style="margin-top:0.4rem; font-size:0.7rem; color:var(--text-muted);">15.9% offer rate · n=2,944</div></div>
+    <div class="domicile-card china"><div class="domicile-label">China</div><div class="domicile-big">7.95</div><div class="domicile-sub">Avg S1 — offer holders</div><div style="margin-top:0.5rem; font-size:0.72rem; color:#c0392b; font-weight:600;">vs 5.74 non-offer</div><div style="margin-top:0.4rem; font-size:0.7rem; color:var(--text-muted);">17.8% offer rate · n=668</div></div>
+    <div class="domicile-card intl"><div class="domicile-label">International</div><div class="domicile-big">6.68</div><div class="domicile-sub">Avg S1 — offer holders</div><div style="margin-top:0.5rem; font-size:0.72rem; color:var(--cambridge-color); font-weight:600;">vs 3.71 non-offer</div><div style="margin-top:0.4rem; font-size:0.7rem; color:var(--text-muted);">10.9% offer rate · n=1,350</div></div>
+  </div>
+
+  <div class="danger-box"><strong>The 2.72-point gap:</strong> Chinese offer holders average an S1 of 7.95, versus 5.23 for Home offer holders — a gap of 2.72 points on a 9-point scale. In percentile terms, this is the difference between approximately the 70th and 95th percentile of ESAT test-takers. Chinese applicants must score at the elite end of the national distribution to achieve the same outcome probability as an above-average Home applicant.</div>
+
+  <div class="chart-wrap">
+    <div class="chart-title">Avg S1 score — offer holders vs non-offer holders by domicile</div>
+    <canvas id="chartDomicileComp" style="max-height:280px;"></canvas>
+  </div>
+
+  <h3 class="sub">Natural Sciences: the Winter Pool picture</h3>
+  <p class="sub-meta">FOI-2025-1026 (Wang) · Natural Sciences BCF0 · 2025 entry · Domicile summary table only (no individual domicile column in score data)</p>
+
+  <div class="pool-box"><div class="pool-box-title">What is the Winter Pool?</div><p>Cambridge's Winter Pool is a redistribution mechanism. If a college interviews an applicant but declines to offer directly, it may place them in the pool. Other colleges with spare places then review pooled applicants and may invite them for a second interview and potentially offer a place. Pool placement ≠ an offer — it is a second chance. The pool conversion rate (how many pooled applicants eventually receive offers) varies significantly by domicile.</p></div>
+
+  <div class="req-table-wrap">
+    <table class="req-table">
+      <thead><tr><th>Domicile</th><th>Applications</th><th>Direct offers</th><th>Direct offer rate</th><th>Pool placement</th><th>Pool placement rate</th><th>Pool offers</th><th>Pool conversion</th><th>Total success</th></tr></thead>
+      <tbody>
+        <tr><td class="row-label">UK</td><td>1,381</td><td>446</td><td>32.3%</td><td>308</td><td>22.3%</td><td>~101</td><td>32.8%</td><td>39.6%</td></tr>
+        <tr><td class="row-label">China</td><td>722</td><td>108</td><td>15.0%</td><td>151</td><td>20.9%</td><td>~8</td><td>5.3%</td><td>16.1%</td></tr>
+        <tr><td class="row-label">Singapore</td><td>81</td><td>32</td><td>39.5%</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td class="row-label">Hong Kong</td><td>67</td><td>20</td><td>29.9%</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td class="row-label">USA</td><td>78</td><td>8</td><td>10.3%</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="dept-card">
+    <div class="dept-card-header"><div><div class="dept-card-title">🔁 The pool conversion disparity</div><div class="dept-card-meta">Natural Sciences BCF0 · UK vs China · 2025 entry</div></div></div>
+    <div class="score-compare">
+      <div class="score-compare-col offer"><div class="score-compare-label">UK pool conversion</div><div class="score-compare-num">32.8%</div><div class="score-compare-sub">of pooled UK applicants<br>received a pool offer</div><div class="score-compare-pct">~101 pool offers</div></div>
+      <div class="score-compare-col rejected"><div class="score-compare-label">China pool conversion</div><div class="score-compare-num">5.3%</div><div class="score-compare-sub">of pooled Chinese applicants<br>received a pool offer</div><div class="score-compare-pct">~8 pool offers</div></div>
+      <div class="score-compare-col pool"><div class="score-compare-label">Pool placement rate</div><div class="score-compare-num">~21%</div><div class="score-compare-sub">both UK and China<br>enter pool at similar rates</div><div class="score-compare-pct">comparable placement</div></div>
+    </div>
+    <div class="dept-note">The pool placement rate is nearly identical — about 21% for both UK and Chinese applicants — meaning colleges are equally willing to put both groups into the pool rather than outright reject them. But pool conversion is 6× lower for Chinese applicants. Since pooled applicants have already been interviewed by at least one college, the pool conversion gap likely reflects interview-stage factors: communication, cultural expectations set by individual college Fellows, or logistics of second interviews for overseas candidates.</div>
+  </div>
+
+  <div class="info-box"><strong>The structural picture:</strong> Chinese applicants enter the pool at the same rate as UK applicants (~21%), which means they are clearing the initial application and ESAT bar at a comparable rate once competition intensity is controlled for. But once in the pool — at the interview conversion stage — they succeed at one-sixth the rate. This is the clearest data signal that the interview, not the ESAT, is where the domicile gap is amplified.</div>
+
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     TAB 4 · A-LEVEL GRADES
+══════════════════════════════════════════════════════════ -->
+<div id="tab-alevel" class="tab-panel">
+
+  <p class="section-subtitle" style="margin-top:1.5rem; font-size:0.82rem; color:var(--text-muted);">2020 cohort only · Engineering H100 · Home A-level applicants · Predicted grades at time of application</p>
+  <h2 class="section-title">A-Level Grades: Floor, Not Differentiator</h2>
+  <div class="divider"></div>
+
+  <div class="overview-intro">
+    <p>The Lim FOI contains a separate dataset for the 2020 cohort: qualification type and predicted A-level grades for each applicant, alongside offer status and domicile. With 2,215 records, this allows direct comparison of predicted grade profiles between successful and unsuccessful applicants. The central finding is counterintuitive: <strong>A-level grades are almost completely non-discriminating</strong> between offer and non-offer holders at Cambridge Engineering. The same top grade profile appears in both columns.</p>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat-card"><span class="stat-card-num">3.46</span><span class="stat-card-label">Average A* count<br>offer holders (Home)</span></div>
+    <div class="stat-card"><span class="stat-card-num">2.62</span><span class="stat-card-label">Average A* count<br>non-offer holders (Home)</span></div>
+    <div class="stat-card"><span class="stat-card-num">36%</span><span class="stat-card-label">Offer rate for<br>4-A* predicted</span></div>
+    <div class="stat-card"><span class="stat-card-num">57.1%</span><span class="stat-card-label">Chinese applicants<br>using non-A-level quals</span></div>
+  </div>
+
+  <h3 class="sub">Offer rate by number of predicted A* grades</h3>
+  <p class="sub-meta">Home A-level applicants only · 2020 cohort · n = 1,202</p>
+
+  <div class="chart-wrap">
+    <div class="chart-title">Offer rate by predicted A* count — Home Engineering applicants (2020)</div>
+    <canvas id="chartAlevel" style="max-height:280px;"></canvas>
+  </div>
+
+  <div class="dept-card">
+    <div class="dept-card-header"><div><div class="dept-card-title">📋 Most common predicted grades — offer vs non-offer</div><div class="dept-card-meta">Home A-level applicants · Engineering H100 · 2020 · Top 6 grade strings each group</div></div></div>
+    <div class="score-compare">
+      <div class="score-compare-col offer" style="text-align:left;">
+        <div class="score-compare-label">Offer holders (n=197 graded)</div>
+        <div style="font-size:0.8rem; color:var(--text-secondary); margin-top:0.5rem; line-height:1.9;"><strong style="font-family:monospace;">A*A*A*A*</strong> — 113<br><strong style="font-family:monospace;">A*A*A*&nbsp;&nbsp;&nbsp;</strong> — 40<br><strong style="font-family:monospace;">A*A*A*A&nbsp;</strong> — 21<br><strong style="font-family:monospace;">A*A*A&nbsp;&nbsp;&nbsp;</strong> — 9<br><strong style="font-family:monospace;">A*A*AA&nbsp;&nbsp;</strong> — 6<br><strong style="font-family:monospace;">A*AA&nbsp;&nbsp;&nbsp;&nbsp;</strong> — 2</div>
+      </div>
+      <div class="score-compare-col rejected" style="text-align:left;">
+        <div class="score-compare-label">Non-offer holders (n=975 graded)</div>
+        <div style="font-size:0.8rem; color:var(--text-secondary); margin-top:0.5rem; line-height:1.9;"><strong style="font-family:monospace;">A*A*A*A*</strong> — 202<br><strong style="font-family:monospace;">A*A*A*&nbsp;&nbsp;&nbsp;</strong> — 190<br><strong style="font-family:monospace;">A*A*A&nbsp;&nbsp;&nbsp;</strong> — 178<br><strong style="font-family:monospace;">A*A*A*A&nbsp;</strong> — 143<br><strong style="font-family:monospace;">A*A*AA&nbsp;&nbsp;</strong> — 114<br><strong style="font-family:monospace;">A*AA&nbsp;&nbsp;&nbsp;&nbsp;</strong> — 51</div>
+      </div>
+    </div>
+    <div class="dept-note">A*A*A*A* is the most common predicted grade string for <em>both</em> offer holders (113 applicants) and non-offer holders (202 applicants). The non-offer group has proportionally more applicants with 4 A*s than the offer group. This conclusively demonstrates that predicted grades do not drive final selection — they function as a minimum bar. Selection happens at the ESAT and interview stage.</div>
+  </div>
+
+  <h3 class="sub">Chinese applicants: qualification type breakdown</h3>
+  <p class="sub-meta">2020 cohort · n = 196 Chinese applicants in Engineering H100</p>
+
+  <div class="flow-section">
+    <div class="flow-title">Chinese applicant qualification profile →</div>
+    <div class="flow-steps">
+      <div class="flow-step-row"><div class="flow-step-num">A-level<br>(57.1%)</div><div class="flow-step-content"><strong>112 Chinese applicants held A-level qualifications.</strong> Of these, 25.9% (29 applicants) received offers. Chinese A-level applicants tend to sit A-levels at international schools or UK boarding schools and submit the same qualification profile as Home applicants.</div></div>
+      <div class="flow-step-row"><div class="flow-step-num">Other<br>(42.9%)</div><div class="flow-step-content"><strong>84 Chinese applicants were classified as "Other" qualifications</strong> — including Gaokao, Chinese high school diplomas, IB, and other international curricula. Remarkably, their offer rate was <em>higher</em>: 36.9% (31 applicants), compared to 25.9% for Chinese A-level applicants. This suggests Cambridge's "Other" pathway for Chinese applicants may select for particularly strong candidates.</div></div>
+      <div class="flow-step-row"><div class="flow-step-num">Overall<br>(2020)</div><div class="flow-step-content"><strong>Combined Chinese offer rate: 30.6% (60/196).</strong> This appears higher than the 2023–24 figure of 17.8% — suggesting either 2020 had unusually high intake, or that the qualification data sample is not fully representative of the ESAT score cohorts (different IDs, different years, different selection criteria).</div></div>
+    </div>
+  </div>
+
+  <div class="warn-box"><strong>⚠ Limitation:</strong> The A-level data is from the 2020 cohort only — the year before ESAT was introduced. In 2020, Cambridge used the ENGAA, not the ESAT. Grade profiles from this cohort may not perfectly represent the current competitive landscape, though the structural relationships (grades as a floor, not a differentiator) are unlikely to have changed significantly.</div>
+
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     TAB 5 · NATSCI SECTIONS
+══════════════════════════════════════════════════════════ -->
+<div id="tab-natsci" class="tab-panel">
+
+  <p class="section-subtitle" style="margin-top:1.5rem; font-size:0.82rem; color:var(--text-muted);">Natural Sciences BCF0 · FOI-2025-1026 (Wang) · Section-by-section offer rate analysis</p>
+  <h2 class="section-title">Which ESAT Sections Actually Drive Offers?</h2>
+  <div class="divider"></div>
+
+  <div class="overview-intro">
+    <p>The Wang FOI data for Natural Sciences allows offer rates to be computed for each ESAT section independently — separating the signal from each section. The result reveals a striking asymmetry: <strong>Maths 1 is the primary predictor for both streams, and Physics and Maths 2 dominate Physical NatSci selection</strong>. Biology and Chemistry — the "subject" sections for Biological NatSci — show weak, non-linear, and sometimes inverse relationships with offer rate. This has a direct practical implication for applicants.</p>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat-card"><span class="stat-card-num">1,160</span><span class="stat-card-label">Biological NatSci<br>applicants (2025)</span></div>
+    <div class="stat-card"><span class="stat-card-num">24.8%</span><span class="stat-card-label">Biological NatSci<br>offer rate</span></div>
+    <div class="stat-card"><span class="stat-card-num">1,465</span><span class="stat-card-label">Physical NatSci<br>applicants (2025)</span></div>
+    <div class="stat-card"><span class="stat-card-num">26.2%</span><span class="stat-card-label">Physical NatSci<br>offer rate</span></div>
+  </div>
+
+  <h3 class="sub">Biological NatSci: Maths 1 rules, Biology and Chemistry do not</h3>
+  <p class="sub-meta">Offer rate by section score band — Biological stream · n = 1,160 applicants · 288 offers</p>
+
+  <div class="dept-card" style="border-top-color: #1a7a5a;">
+    <div class="dept-card-header">
+      <div><div class="dept-card-title" style="color:#1a7a5a;">🌿 Biological NatSci — section averages</div><div class="dept-card-meta">Sections: Maths 1 · Biology · Chemistry · Offer holders vs non-offer holders</div></div>
+      <div class="dept-offer-rate"><div class="dept-offer-num" style="color:#1a7a5a;">24.8%</div><div class="dept-offer-label">offer rate</div></div>
+    </div>
+    <div class="score-compare">
+      <div class="score-compare-col offer"><div class="score-compare-label">Maths 1 — offers</div><div class="score-compare-num" style="color:#1a7a5a;">5.20</div><div class="score-compare-sub">avg section score</div><div class="score-compare-pct" style="background:#c8eada; color:#1a7a5a;">vs 4.10 non-offer</div></div>
+      <div class="score-compare-col pool"><div class="score-compare-label">Biology — offers</div><div class="score-compare-num" style="color:#8a6a00;">5.91</div><div class="score-compare-sub">avg section score</div><div class="score-compare-pct">vs 6.11 non-offer ⚠</div></div>
+      <div class="score-compare-col pool"><div class="score-compare-label">Chemistry — offers</div><div class="score-compare-num" style="color:#8a6a00;">5.71</div><div class="score-compare-sub">avg section score</div><div class="score-compare-pct">vs 6.27 non-offer ⚠</div></div>
+    </div>
+    <div class="dept-note">⚠ The Biology and Chemistry averages for offer holders are <em>lower</em> than for non-offer holders. This is not a data error — it reflects that high subject-section scores do not compensate for a weak Maths 1, while moderate subject scores paired with a strong Maths 1 do lead to offers.</div>
+  </div>
+
+  <div class="chart-wrap"><div class="chart-title">Biological NatSci — offer rate by section score band</div><canvas id="chartBioNatSci" style="max-height:300px;"></canvas></div>
+
+  <div class="danger-box"><strong>Critical finding — Biology and Chemistry are not reliable predictors:</strong> Across the score range 1.0–9.0, the Biology offer rate chart is non-linear and erratic, peaking around 3.0–3.9 at ~80%, then dropping, then partially recovering. Both sections show negative correlation with offer rate above the 5.0 band — meaning applicants who scored very highly in Biology or Chemistry were <em>less</em> likely to receive offers than those who scored moderately.</div>
+
+  <h3 class="sub">Physical NatSci: Physics and Maths 2 are decisive</h3>
+  <p class="sub-meta">Offer rate by section score band — Physical stream · n = 1,465 applicants · 384 offers</p>
+
+  <div class="dept-card" style="border-top-color: #185FA5;">
+    <div class="dept-card-header">
+      <div><div class="dept-card-title" style="color:#185FA5;">⚛️ Physical NatSci — section averages</div><div class="dept-card-meta">Sections: Maths 1 · Physics · Maths 2 · Offer holders vs non-offer holders</div></div>
+      <div class="dept-offer-rate"><div class="dept-offer-num" style="color:#185FA5;">26.2%</div><div class="dept-offer-label">offer rate</div></div>
+    </div>
+    <div class="score-compare">
+      <div class="score-compare-col pool"><div class="score-compare-label">Maths 1 — offers</div><div class="score-compare-num" style="color:#185FA5;">—</div><div class="score-compare-sub">not primary predictor</div><div class="score-compare-pct" style="background:#b5d4f4; color:#185FA5;">plateaus ~30%</div></div>
+      <div class="score-compare-col offer"><div class="score-compare-label">Physics — offers</div><div class="score-compare-num" style="color:#1a7a5a;">7.84</div><div class="score-compare-sub">avg section score</div><div class="score-compare-pct" style="background:#c8eada; color:#1a7a5a;">vs 4.67 non-offer</div></div>
+      <div class="score-compare-col offer"><div class="score-compare-label">Maths 2 — offers</div><div class="score-compare-num" style="color:#1a7a5a;">8.36</div><div class="score-compare-sub">avg section score</div><div class="score-compare-pct" style="background:#c8eada; color:#1a7a5a;">vs 4.92 non-offer</div></div>
+    </div>
+    <div class="dept-note">Physics and Maths 2 gaps between offer and non-offer holders are 3.17 and 3.44 points respectively — among the largest section-level gaps observed across any Cambridge or Imperial dataset in this analysis. Virtually no offers are made below Physics = 5 or Maths 2 = 6.</div>
+  </div>
+
+  <div class="chart-wrap"><div class="chart-title">Physical NatSci — offer rate by section score band</div><canvas id="chartPhysNatSci" style="max-height:300px;"></canvas></div>
+
+  <div class="flow-section">
+    <div class="flow-title">What the section data tells applicants →</div>
+    <div class="flow-steps">
+      <div class="flow-step-row"><div class="flow-step-num" style="background:#1a7a5a;">For both streams</div><div class="flow-step-content"><strong>Maths 1 is the single most consistent predictor of offer outcomes across all NatSci streams.</strong> If you can only improve one section, Maths 1 gives the greatest expected return on offer probability.</div></div>
+      <div class="flow-step-row"><div class="flow-step-num" style="background:#185FA5;">Physical NatSci</div><div class="flow-step-content"><strong>Physics and Maths 2 are both decisive — they need to be strong simultaneously.</strong> Offer rates near zero below Physics = 5 and Maths 2 = 6. Aiming for 7+ in both gives near-certainty of being competitive.</div></div>
+      <div class="flow-step-row"><div class="flow-step-num" style="background:#d4a017; color:#4a3000;">Biological NatSci</div><div class="flow-step-content"><strong>Even for the Biological stream, stronger Biology and Chemistry scores do not meaningfully increase offer probability.</strong> Treat Biology and Chemistry as sections to pass competently (aim for 4.0–6.0) rather than to maximise.</div></div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     TAB 6 · DATA BY COLLEGE
+══════════════════════════════════════════════════════════ -->
+<div id="tab-college" class="tab-panel">
+
+  <p class="section-subtitle" style="margin-top:1.5rem; font-size:0.82rem; color:var(--text-muted);">College-level breakdowns · TMUA 2024 · Natural Sciences BCF0 2025</p>
+  <h2 class="section-title">Data by College</h2>
+  <div class="divider"></div>
+
+  <div class="overview-intro">
+    <p>Two college-level datasets are available from the FOI responses. The TMUA table covers CS (G400) and Economics (L100) offer holders for the 2024 application cycle, derived from FOI-2025-347 (Stafford). The Natural Sciences table covers all BCF0 applications for the 2025 cycle, derived from FOI-2025-1026 (Wang). Neither dataset includes individual domicile-level breakdowns at the college level — figures are pooled across all domiciles.</p>
+    <p>Note that Cambridge admissions are college-based, not department-based. The same applicant pool is divided across 29 colleges, each operating its own selection process independently. College-level variation in scores and offer rates therefore reflects both the differing academic cultures of individual colleges and random variation from small sample sizes — particularly for smaller colleges.</p>
+  </div>
+
+  <h3 class="sub">Average TMUA scores by college — offer holders, 2024</h3>
+  <p class="sub-meta">CS (G400) &amp; Economics (L100) · Mathematical Thinking / Mathematical Reasoning / Overall · Sorted by offer holder overall score (highest → lowest)</p>
+
+  <div class="bench-table-wrap">
+    <table class="bench-table">
+      <thead><tr><th>#</th><th>College</th><th>Math thinking</th><th>Math reasoning</th><th>Overall (offer holders)</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td class="row-label">Wolfson</td><td class="bench-num">8.17</td><td class="bench-num">7.60</td><td class="bench-num">7.93</td></tr>
+        <tr><td>2</td><td class="row-label">Churchill</td><td class="bench-num">7.44</td><td class="bench-num">7.63</td><td class="bench-num">7.61</td></tr>
+        <tr><td>3</td><td class="row-label">Clare</td><td class="bench-num">7.46</td><td class="bench-num">7.29</td><td class="bench-num">7.44</td></tr>
+        <tr><td>4</td><td class="row-label">Trinity</td><td class="bench-num">7.37</td><td class="bench-num">7.26</td><td class="bench-num">7.41</td></tr>
+        <tr><td>5</td><td class="row-label">Robinson</td><td class="bench-num">7.54</td><td class="bench-num">7.08</td><td class="bench-num">7.38</td></tr>
+        <tr><td>6</td><td class="row-label">Fitzwilliam</td><td class="bench-num">7.28</td><td class="bench-num">7.27</td><td class="bench-num">7.35</td></tr>
+        <tr><td>7</td><td class="row-label">Girton</td><td class="bench-num">6.90</td><td class="bench-num">7.16</td><td class="bench-num">7.16</td></tr>
+        <tr><td>8</td><td class="row-label">Emmanuel</td><td class="bench-num">7.27</td><td class="bench-num">6.87</td><td class="bench-num">7.13</td></tr>
+        <tr><td>9</td><td class="row-label">Selwyn</td><td class="bench-num">6.83</td><td class="bench-num">7.14</td><td class="bench-num">7.12</td></tr>
+        <tr><td>10</td><td class="row-label">Magdalene</td><td class="bench-num">7.13</td><td class="bench-num">7.20</td><td class="bench-num">7.27</td></tr>
+        <tr><td>11</td><td class="row-label">Hughes Hall</td><td class="bench-num">7.15</td><td class="bench-num">7.12</td><td class="bench-num">7.22</td></tr>
+        <tr><td>12</td><td class="row-label">Trinity Hall</td><td class="bench-num">7.18</td><td class="bench-num">6.80</td><td class="bench-num">7.10</td></tr>
+        <tr><td>13</td><td class="row-label">Christ's</td><td class="bench-num">6.78</td><td class="bench-num">6.95</td><td class="bench-num">7.06</td></tr>
+        <tr><td>14</td><td class="row-label">Jesus</td><td class="bench-num">6.97</td><td class="bench-num">6.90</td><td class="bench-num">7.06</td></tr>
+        <tr><td>15</td><td class="row-label">Downing</td><td class="bench-num">6.80</td><td class="bench-num">6.88</td><td class="bench-num">6.99</td></tr>
+        <tr><td>16</td><td class="row-label">St John's</td><td class="bench-num">6.69</td><td class="bench-num">6.90</td><td class="bench-num">7.00</td></tr>
+        <tr><td>17</td><td class="row-label">Queens'</td><td class="bench-num">6.98</td><td class="bench-num">6.70</td><td class="bench-num">6.97</td></tr>
+        <tr><td>18</td><td class="row-label">Sidney Sussex</td><td class="bench-num">6.57</td><td class="bench-num">7.00</td><td class="bench-num">6.96</td></tr>
+        <tr><td>19</td><td class="row-label">Murray Edwards</td><td class="bench-num">6.86</td><td class="bench-num">6.30</td><td class="bench-num">6.80</td></tr>
+        <tr><td>20</td><td class="row-label">St Catharine's</td><td class="bench-num">6.66</td><td class="bench-num">6.44</td><td class="bench-num">6.71</td></tr>
+        <tr><td>21</td><td class="row-label">Gonville &amp; Caius</td><td class="bench-num">6.70</td><td class="bench-num">6.31</td><td class="bench-num">6.70</td></tr>
+        <tr><td>22</td><td class="row-label">Peterhouse</td><td class="bench-num">6.53</td><td class="bench-num">6.43</td><td class="bench-num">6.67</td></tr>
+        <tr><td>23</td><td class="row-label">Pembroke</td><td class="bench-num">6.12</td><td class="bench-num">6.61</td><td class="bench-num">6.59</td></tr>
+        <tr><td>24</td><td class="row-label">Lucy Cavendish</td><td class="bench-num">6.44</td><td class="bench-num">6.19</td><td class="bench-num">6.56</td></tr>
+        <tr><td>25</td><td class="row-label">King's</td><td class="bench-num">6.48</td><td class="bench-num">6.83</td><td class="bench-num">6.84</td></tr>
+        <tr><td>26</td><td class="row-label">Corpus Christi</td><td class="bench-num">5.93</td><td class="bench-num">6.37</td><td class="bench-num">6.39</td></tr>
+        <tr><td>27</td><td class="row-label">Homerton</td><td class="bench-num">6.19</td><td class="bench-num">6.19</td><td class="bench-num">6.38</td></tr>
+        <tr><td>28</td><td class="row-label">St Edmund's</td><td class="bench-num">5.20</td><td class="bench-num">6.27</td><td class="bench-num">5.93</td></tr>
+        <tr><td>29</td><td class="row-label">Newnham</td><td style="color:var(--text-muted); font-style:italic;" colspan="3">No offer holder data</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="warn-box"><strong>⚠ Note on Wolfson and Hughes Hall:</strong> Both are primarily graduate colleges with very small undergraduate cohorts. Their high averages reflect a tiny and self-selected applicant pool rather than a systematically higher bar. Newnham had no offer holder TMUA data recorded for the 2024 cycle. The TMUA data covers CS (G400) and Economics (L100) only — it does not cover Engineering or Natural Sciences, which use the ESAT instead.</div>
+
+  <h3 class="sub">Natural Sciences (BCF0) applications by college, 2025</h3>
+  <p class="sub-meta">All colleges · Sorted by total applications (highest → lowest) · <em>&lt;3</em> = suppressed to protect individual privacy</p>
+
+  <div class="req-table-wrap">
+    <table class="req-table">
+      <thead><tr><th>#</th><th>College</th><th>Applications</th><th>Offers</th><th>Offer rate</th><th>Winter pool placed</th><th>Pool offers</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td class="row-label">Trinity</td><td>171</td><td>37</td><td>21.6%</td><td>44</td><td>0</td></tr>
+        <tr><td>2</td><td class="row-label">Emmanuel</td><td>155</td><td>28</td><td>18.1%</td><td>33</td><td>0</td></tr>
+        <tr><td>3</td><td class="row-label">St Catharine's</td><td>141</td><td>33</td><td>23.4%</td><td>15</td><td>0</td></tr>
+        <tr><td>4</td><td class="row-label">Churchill</td><td>128</td><td>42</td><td>32.8%</td><td>28</td><td>8</td></tr>
+        <tr><td>5</td><td class="row-label">St John's</td><td>125</td><td>29</td><td>23.2%</td><td>23</td><td>10</td></tr>
+        <tr><td>6</td><td class="row-label">Clare</td><td>123</td><td>27</td><td>22.0%</td><td>31</td><td>6</td></tr>
+        <tr><td>7</td><td class="row-label">Fitzwilliam</td><td>118</td><td>27</td><td>22.9%</td><td>20</td><td>0</td></tr>
+        <tr><td>8</td><td class="row-label">Pembroke</td><td>118</td><td>30</td><td>25.4%</td><td>29</td><td>0</td></tr>
+        <tr><td>9</td><td class="row-label">Jesus</td><td>117</td><td>27</td><td>23.1%</td><td>21</td><td>0</td></tr>
+        <tr><td>10</td><td class="row-label">Christ's</td><td>112</td><td>31</td><td>27.7%</td><td>17</td><td>3</td></tr>
+        <tr><td>11</td><td class="row-label">Gonville &amp; Caius</td><td>109</td><td>24</td><td>22.0%</td><td>22</td><td>&lt;3</td></tr>
+        <tr><td>12</td><td class="row-label">Homerton</td><td>105</td><td>33</td><td>31.4%</td><td>25</td><td>9</td></tr>
+        <tr><td>13</td><td class="row-label">Downing</td><td>104</td><td>21</td><td>20.2%</td><td>24</td><td>&lt;3</td></tr>
+        <tr><td>14</td><td class="row-label">Queens'</td><td>88</td><td>26</td><td>29.5%</td><td>29</td><td>&lt;3</td></tr>
+        <tr><td>15</td><td class="row-label">Magdalene</td><td>88</td><td>19</td><td>21.6%</td><td>23</td><td>0</td></tr>
+        <tr><td>16</td><td class="row-label">Selwyn</td><td>86</td><td>22</td><td>25.6%</td><td>21</td><td>4</td></tr>
+        <tr><td>17</td><td class="row-label">Newnham</td><td>83</td><td>20</td><td>24.1%</td><td>16</td><td>6</td></tr>
+        <tr><td>18</td><td class="row-label">Robinson</td><td>81</td><td>24</td><td>29.6%</td><td>9</td><td>8</td></tr>
+        <tr><td>19</td><td class="row-label">Trinity Hall</td><td>81</td><td>22</td><td>27.2%</td><td>26</td><td>4</td></tr>
+        <tr><td>20</td><td class="row-label">Peterhouse</td><td>77</td><td>15</td><td>19.5%</td><td>15</td><td>3</td></tr>
+        <tr><td>21</td><td class="row-label">Lucy Cavendish</td><td>77</td><td>25</td><td>32.5%</td><td>5</td><td>13</td></tr>
+        <tr><td>22</td><td class="row-label">Sidney Sussex</td><td>68</td><td>19</td><td>27.9%</td><td>11</td><td>10</td></tr>
+        <tr><td>23</td><td class="row-label">Murray Edwards</td><td>66</td><td>18</td><td>27.3%</td><td>7</td><td>12</td></tr>
+        <tr><td>24</td><td class="row-label">Corpus Christi</td><td>65</td><td>20</td><td>30.8%</td><td>15</td><td>3</td></tr>
+        <tr><td>25</td><td class="row-label">King's</td><td>62</td><td>14</td><td>22.6%</td><td>19</td><td>3</td></tr>
+        <tr><td>26</td><td class="row-label">Girton</td><td>79</td><td>24</td><td>30.4%</td><td>16</td><td>16</td></tr>
+        <tr><td>27</td><td class="row-label">Wolfson</td><td>6</td><td>&lt;3</td><td>—</td><td>&lt;3</td><td>0</td></tr>
+        <tr><td>28</td><td class="row-label">St Edmund's</td><td>6</td><td>9</td><td>—</td><td>&lt;3</td><td>5</td></tr>
+        <tr><td>29</td><td class="row-label">Hughes Hall</td><td>5</td><td>4</td><td>—</td><td>&lt;3</td><td>3</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="info-box"><strong>Pool offers vs pool conversion:</strong> Colleges with high pool offer counts relative to their direct offers — notably Lucy Cavendish (13 pool offers against 25 direct), Girton (16 pool offers equal to its direct offer count), and Murray Edwards (12 pool against 18 direct) — actively recruit from the Winter Pool.</div>
+  <div class="warn-box"><strong>⚠ Cross-dataset comparison:</strong> The TMUA table covers the 2024 cycle and CS/Economics only. The NatSci table covers the 2025 cycle and Natural Sciences only. The two datasets are not directly comparable.</div>
+
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     TAB 7 · ESAT BY COLLEGE  ← NEW
+══════════════════════════════════════════════════════════ -->
+<div id="tab-esatcollege" class="tab-panel">
+
+  <p class="section-subtitle" style="margin-top:1.5rem; font-size:0.82rem; color:var(--text-muted);">Engineering H100 · 2025 apply year · FOI-2025-1028 (Smith) · Average scores for all applicants vs offer holders</p>
+  <h2 class="section-title">ESAT Scores by College</h2>
+  <div class="divider"></div>
+
+  <div class="overview-intro">
+    <p>This data comes from FOI-2025-1028 (Smith), which provides minimum, average, and maximum ESAT section scores broken down by Cambridge college for the 2025 application year. Scores are given separately for <strong>all applicants</strong> and for <strong>offer holders</strong> at each college, across all three Engineering sections: Mathematics 1, Physics, and Mathematics 2.</p>
+    <p>The chart below shows average scores per college. Use the dropdowns to switch section and sort order. The gap between the two bars at each college indicates how selectively a college converts its applicant pool into offers — a wide gap means only the highest-scoring applicants receive offers.</p>
+  </div>
+
+  <!-- Controls -->
+  <div class="esat-controls">
+    <label for="ec-section">Section:</label>
+    <select id="ec-section">
+      <option value="0">Mathematics 1</option>
+      <option value="1">Physics</option>
+      <option value="2">Mathematics 2</option>
+    </select>
+    <label for="ec-sort">Sort by:</label>
+    <select id="ec-sort">
+      <option value="offer">Offer holder avg (high → low)</option>
+      <option value="applicant">All applicant avg (high → low)</option>
+      <option value="name">College name (A–Z)</option>
+    </select>
+  </div>
+
+  <!-- Chart -->
+  <div class="esat-chart-wrap">
+    <div class="esat-chart-title" id="ec-chart-title">Avg ESAT score — Mathematics 1 · all applicants vs offer holders · by college</div>
+    <div style="position:relative; width:100%; height:580px;">
+      <canvas id="chartEsatCollege"></canvas>
+    </div>
+    <div class="esat-legend">
+      <div class="esat-legend-item"><div class="esat-legend-swatch" style="background:#7ABDE8;"></div>All applicants (avg)</div>
+      <div class="esat-legend-item"><div class="esat-legend-swatch" style="background:#52C49A;"></div>Offer holders (avg)</div>
+    </div>
+    <div class="esat-note">* Hughes Hall offer holder averages withheld by Cambridge (small cohort, shown as absent bar). St Edmund's shows applicant averages above offer holder averages across all sections — likely reflects pool-in offers attributed to St Edmund's in the FOI data. Wolfson has a compressed score range due to its graduate-entry focus. Scores on 1.0–9.0 scale.</div>
+  </div>
+
+  <div class="info-box"><strong>How to read the gap:</strong> A wide gap between the blue (all applicants) and green (offer holders) bar means a college received a wide range of applicants but selected only the highest scorers. A narrow gap suggests a more self-selecting applicant pool where most applicants who applied were already competitive. Large-gap colleges are not necessarily "harder" — they may simply attract more speculative applications.</div>
+
+  <!-- Raw data table -->
+  <h3 class="sub">Full data — all 29 colleges, all three sections</h3>
+  <p class="sub-meta">Engineering H100 · 2025 apply year · Source: FOI-2025-1028 (Smith) · Averages on 1.0–9.0 scale · — = withheld</p>
+
+  <div class="req-table-wrap">
+    <table class="req-table">
+      <thead>
+        <tr>
+          <th>College</th>
+          <th>M1 — all</th><th>M1 — offers</th>
+          <th>Phy — all</th><th>Phy — offers</th>
+          <th>M2 — all</th><th>M2 — offers</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="row-label">Christ's</td><td>5.00</td><td>7.05</td><td>4.79</td><td>6.60</td><td>5.03</td><td>6.42</td></tr>
+        <tr><td class="row-label">Churchill</td><td>4.80</td><td>5.98</td><td>4.77</td><td>5.90</td><td>4.83</td><td>5.91</td></tr>
+        <tr><td class="row-label">Clare</td><td>4.86</td><td>6.18</td><td>4.87</td><td>7.34</td><td>4.71</td><td>6.80</td></tr>
+        <tr><td class="row-label">Corpus Christi</td><td>4.66</td><td>5.98</td><td>4.78</td><td>6.48</td><td>4.57</td><td>5.88</td></tr>
+        <tr><td class="row-label">Downing</td><td>4.61</td><td>6.94</td><td>4.57</td><td>6.47</td><td>4.38</td><td>6.65</td></tr>
+        <tr><td class="row-label">Emmanuel</td><td>4.56</td><td>5.81</td><td>4.75</td><td>6.28</td><td>4.58</td><td>5.93</td></tr>
+        <tr><td class="row-label">Fitzwilliam</td><td>5.64</td><td>6.31</td><td>5.28</td><td>6.25</td><td>5.47</td><td>6.21</td></tr>
+        <tr><td class="row-label">Girton</td><td>4.74</td><td>5.79</td><td>4.38</td><td>6.24</td><td>4.60</td><td>5.78</td></tr>
+        <tr><td class="row-label">Gonville &amp; Caius</td><td>4.57</td><td>6.68</td><td>4.65</td><td>6.67</td><td>4.54</td><td>6.43</td></tr>
+        <tr><td class="row-label">Homerton</td><td>5.01</td><td>6.42</td><td>4.69</td><td>6.59</td><td>4.87</td><td>6.33</td></tr>
+        <tr><td class="row-label">Hughes Hall</td><td>6.15</td><td style="color:var(--text-muted); font-style:italic;">—</td><td>5.65</td><td style="color:var(--text-muted); font-style:italic;">—</td><td>5.52</td><td style="color:var(--text-muted); font-style:italic;">—</td></tr>
+        <tr><td class="row-label">Jesus</td><td>4.30</td><td>6.42</td><td>4.39</td><td>6.65</td><td>4.28</td><td>6.38</td></tr>
+        <tr><td class="row-label">King's</td><td>4.34</td><td>5.82</td><td>4.34</td><td>5.63</td><td>4.48</td><td>5.80</td></tr>
+        <tr><td class="row-label">Lucy Cavendish</td><td>5.18</td><td>6.14</td><td>5.01</td><td>6.10</td><td>5.07</td><td>6.03</td></tr>
+        <tr><td class="row-label">Magdalene</td><td>5.26</td><td>6.05</td><td>5.27</td><td>6.35</td><td>5.30</td><td>6.22</td></tr>
+        <tr><td class="row-label">Murray Edwards</td><td>5.06</td><td>7.08</td><td>4.50</td><td>6.64</td><td>4.94</td><td>6.95</td></tr>
+        <tr><td class="row-label">Newnham</td><td>4.61</td><td>6.40</td><td>4.54</td><td>5.95</td><td>4.67</td><td>5.88</td></tr>
+        <tr><td class="row-label">Pembroke</td><td>4.59</td><td>6.38</td><td>4.61</td><td>6.46</td><td>4.42</td><td>6.48</td></tr>
+        <tr><td class="row-label">Peterhouse</td><td>5.00</td><td>6.41</td><td>4.84</td><td>5.92</td><td>4.97</td><td>6.11</td></tr>
+        <tr><td class="row-label">Queens'</td><td>4.82</td><td>6.58</td><td>4.64</td><td>6.57</td><td>4.78</td><td>6.40</td></tr>
+        <tr><td class="row-label">Robinson</td><td>5.72</td><td>6.54</td><td>5.37</td><td>6.58</td><td>5.58</td><td>6.99</td></tr>
+        <tr><td class="row-label">Selwyn</td><td>4.58</td><td>6.23</td><td>4.51</td><td>7.06</td><td>4.47</td><td>5.79</td></tr>
+        <tr><td class="row-label">Sidney Sussex</td><td>5.28</td><td>5.98</td><td>5.09</td><td>6.02</td><td>5.19</td><td>5.97</td></tr>
+        <tr><td class="row-label">St Catharine's</td><td>4.75</td><td>5.60</td><td>4.74</td><td>5.86</td><td>4.51</td><td>5.70</td></tr>
+        <tr><td class="row-label">St Edmund's</td><td>6.84</td><td>5.93</td><td>6.37</td><td>5.79</td><td>6.49</td><td>5.98</td></tr>
+        <tr><td class="row-label">St John's</td><td>4.38</td><td>5.84</td><td>4.41</td><td>6.52</td><td>4.25</td><td>5.85</td></tr>
+        <tr><td class="row-label">Trinity</td><td>4.61</td><td>6.36</td><td>4.40</td><td>5.93</td><td>4.66</td><td>6.24</td></tr>
+        <tr><td class="row-label">Trinity Hall</td><td>5.15</td><td>6.75</td><td>4.86</td><td>7.00</td><td>5.15</td><td>6.64</td></tr>
+        <tr><td class="row-label">Wolfson</td><td>4.33</td><td>6.45</td><td>3.92</td><td>6.25</td><td>5.28</td><td>6.53</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="warn-box"><strong>⚠ Interpreting St Edmund's:</strong> St Edmund's shows applicant averages <em>above</em> offer holder averages across all three sections. This likely reflects a very small, mature-entry applicant pool where pool-in offers from other colleges are attributed to St Edmund's in the FOI data, creating a counterintuitive pattern. Wolfson similarly has a compressed score range due to its graduate-entry focus. Treat these two colleges as outliers when interpreting the chart.</div>
+
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     TAB 8 · SUMMARY & TAKEAWAYS
+══════════════════════════════════════════════════════════ -->
+<div id="tab-summary" class="tab-panel">
+
+  <p class="section-subtitle" style="margin-top:1.5rem; font-size:0.82rem; color:var(--text-muted);">Key findings · Score targets · What the data cannot tell us</p>
+  <h2 class="section-title">Summary &amp; Takeaways</h2>
+  <div class="divider"></div>
+
+  <h3 class="sub">Benchmark summary table</h3>
+  <p class="sub-meta">Engineering H100 · 2023 &amp; 2024 combined · S1 score = Maths 1 section · All values on 1–9 ESAT scale</p>
+
+  <div class="bench-table-wrap">
+    <table class="bench-table">
+      <thead><tr><th>Domicile</th><th>Apps (2023+2024)</th><th>Offer rate</th><th>Avg S1 — offers</th><th>Avg S1 — non-offers</th><th>Score gap</th><th>S1 for 50%+ offer rate</th></tr></thead>
+      <tbody>
+        <tr><td class="row-label">Home</td><td>2,944</td><td>15.9%</td><td class="bench-num">5.23</td><td>3.09</td><td class="bench-gap">+2.14</td><td>≥ 6</td></tr>
+        <tr><td class="row-label">China</td><td>668</td><td>17.8%</td><td class="bench-num">7.95</td><td>5.74</td><td class="bench-gap">+2.21</td><td>Never reached (54.8% @ 9)</td></tr>
+        <tr><td class="row-label">International</td><td>1,350</td><td>10.9%</td><td class="bench-num">6.68</td><td>3.71</td><td class="bench-gap">+2.97</td><td>≥ 9 (74.4%)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="sub">Five key findings</h3>
+  <div class="flow-section">
+    <div class="flow-steps">
+      <div class="flow-step-row"><div class="flow-step-num" style="background:#1a7a5a;">Finding 1</div><div class="flow-step-content"><strong>S1 (Maths 1) is the dominant ESAT predictor.</strong> Offer rates climb steeply with S1 for Home applicants — from 2% at band 1–2 to 100% at band 9.</div></div>
+      <div class="flow-step-row"><div class="flow-step-num" style="background:#1a7a5a;">Finding 2</div><div class="flow-step-content"><strong>Chinese applicants need systematically higher ESAT scores for the same offer probability.</strong> The average S1 of Chinese offer holders (7.95) is 2.72 points above that of Home offer holders (5.23).</div></div>
+      <div class="flow-step-row"><div class="flow-step-num" style="background:#1a7a5a;">Finding 3</div><div class="flow-step-content"><strong>The pool conversion gap reveals the interview stage as the source of the domicile difference.</strong> Pool conversion is 32.8% for UK applicants and only 5.3% for Chinese applicants — a 6× gap driven by interview-stage factors.</div></div>
+      <div class="flow-step-row"><div class="flow-step-num" style="background:#1a7a5a;">Finding 4</div><div class="flow-step-content"><strong>A-level grades are a floor, not a differentiator.</strong> A*A*A*A* is the most common predicted grade string for both offer and non-offer holders. The ESAT and interview are doing the actual selection work.</div></div>
+      <div class="flow-step-row"><div class="flow-step-num" style="background:#1a7a5a;">Finding 5</div><div class="flow-step-content"><strong>Cambridge offers to Chinese applicants happen at very high overall scores.</strong> Chinese offer holders average a combined ESAT total of 23.8 out of 27, while Home offer holders average 16.0.</div></div>
+    </div>
+  </div>
+
+  <h3 class="sub">Practical targets for applicants</h3>
+  <div class="looks-for-grid">
+    <div class="looks-for-item" style="border-color:#a8d8c8; border-left-color:#1a7a5a;">Home Engineering: S1 ≥ <strong>6.0</strong> for a majority offer rate; S1 ≥ <strong>7.0</strong> puts you in the near-certain range</div>
+    <div class="looks-for-item" style="border-color:#a8d8c8; border-left-color:#1a7a5a;">Home Engineering total: aim for combined ≥ <strong>16–17</strong> out of 27 (offer-holder mean)</div>
+    <div class="looks-for-item" style="border-color:#f5c0c0; border-left-color:#c0392b;">China Engineering: no S1 band guarantees &gt;50% offer rate; aim for <strong>S1 = 9.0</strong> and total ≥ <strong>22–24</strong></div>
+    <div class="looks-for-item" style="border-color:#f5c0c0; border-left-color:#c0392b;">China Engineering: at S1 ≥ 8, offer rate is 35.7% — still a minority, requiring strong interview performance</div>
+    <div class="looks-for-item" style="border-color:#a3c1ad; border-left-color:#1d4d35;">International Engineering: aim for S1 ≥ <strong>7.0</strong>; total ≥ <strong>19–21</strong> puts you near International offer-holder mean</div>
+    <div class="looks-for-item" style="border-color:#a3c1ad; border-left-color:#1d4d35;">Natural Sciences (all domiciles): Physics S1 is the strongest predictor for Physical NatSci; aim for ≥ <strong>7.0</strong> in Physics</div>
+    <div class="looks-for-item" style="border-color:var(--cambridge-gold-mid); border-left-color:var(--cambridge-gold);">Grades: A*A*A is the published minimum — but so do most rejected applicants</div>
+    <div class="looks-for-item" style="border-color:var(--cambridge-gold-mid); border-left-color:var(--cambridge-gold);">Interview: the pool conversion data shows interviews are decisive — ESAT alone does not secure an offer at any score band</div>
+  </div>
+
+  <div class="danger-box"><strong>Critical limitation — no interview scores:</strong> Cambridge refused to provide interview data in all FOI responses. The interview is the final and decisive stage, and on the basis of these records we cannot determine what interview scores look like, whether they correlate with ESAT scores, or how they are weighted.</div>
+  <div class="info-box"><strong>All information current as of May 2026.</strong> Cambridge admissions criteria, ESAT requirements, and domicile quota structures can change between cycles. Always verify on the Cambridge Admissions website and check the current UAT-UK course list before applying.</div>
+
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     CHARTS SCRIPT
+══════════════════════════════════════════════════════════ -->
+<script>
+(function() {
+
+  /* ── Chart 1: Offer rate by S1 band ── */
+  new Chart(document.getElementById('chartEsatOfferRate'), {
+    type: 'line',
+    data: {
+      labels: ['1–2','3','4','5','6','7','8','9'],
+      datasets: [
+        { label: 'Home', data: [2.1,11.1,23.5,44.2,57.7,81.8,84.6,100.0], borderColor: '#1a7a5a', backgroundColor: 'rgba(26,122,90,0.07)', tension: 0.35, pointRadius: 4, pointBackgroundColor: '#1a7a5a', fill: false, borderWidth: 2.5 },
+        { label: 'China', data: [0.0,1.5,1.1,7.1,13.9,20.3,35.7,54.8], borderColor: '#c0392b', backgroundColor: 'rgba(192,57,43,0.07)', tension: 0.35, pointRadius: 4, pointBackgroundColor: '#c0392b', fill: false, borderWidth: 2.5, borderDash: [5,3] },
+        { label: 'International', data: [0.5,1.8,8.7,15.4,28.7,42.5,41.4,74.4], borderColor: '#1d4d35', backgroundColor: 'rgba(29,77,53,0.07)', tension: 0.35, pointRadius: 4, pointBackgroundColor: '#1d4d35', fill: false, borderWidth: 2.5, borderDash: [2,2] }
+      ]
+    },
+    options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'top', labels: { boxWidth: 12, font: { size: 12 } } }, tooltip: { callbacks: { label: function(c) { return c.dataset.label + ': ' + c.parsed.y.toFixed(1) + '%'; } } } }, scales: { x: { title: { display: true, text: 'S1 (Maths 1) score band', font: { size: 11 } }, grid: { color: '#f0f0f0' } }, y: { min: 0, max: 105, title: { display: true, text: 'Offer rate (%)', font: { size: 11 } }, ticks: { callback: function(v) { return v + '%'; } }, grid: { color: '#f0f0f0' } } } }
+  });
+
+  /* ── Chart 2: Domicile avg S1 comparison ── */
+  new Chart(document.getElementById('chartDomicileComp'), {
+    type: 'bar',
+    data: {
+      labels: ['Home', 'China', 'International'],
+      datasets: [
+        { label: 'Offer holders — avg S1', backgroundColor: ['#1a7a5a','#c0392b','#1d4d35'], data: [5.23,7.95,6.68], borderWidth: 0 },
+        { label: 'Non-offer holders — avg S1', backgroundColor: ['rgba(26,122,90,0.25)','rgba(192,57,43,0.25)','rgba(29,77,53,0.25)'], data: [3.09,5.74,3.71], borderWidth: 0 }
+      ]
+    },
+    options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'top', labels: { boxWidth: 12, font: { size: 12 } } }, tooltip: { callbacks: { label: function(c) { return c.dataset.label + ': ' + c.parsed.y.toFixed(2); } } } }, scales: { y: { min: 0, max: 9.5, title: { display: true, text: 'Average S1 score (1–9 scale)', font: { size: 11 } }, grid: { color: '#f0f0f0' }, ticks: { stepSize: 1 } }, x: { grid: { display: false } } } }
+  });
+
+  /* ── Chart 3: A-level offer rate ── */
+  new Chart(document.getElementById('chartAlevel'), {
+    type: 'bar',
+    data: {
+      labels: ['0 A*s (n=28)','1 A* (n=92)','2 A*s (n=337)','3 A*s (n=396)','4 A*s (n=317)'],
+      datasets: [{ label: 'Offer rate', data: [0,4.3,5.0,15.4,36.0], backgroundColor: '#1d4d35', borderWidth: 0, borderRadius: 4 }]
+    },
+    options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false }, tooltip: { callbacks: { label: function(c) { return 'Offer rate: ' + c.parsed.y.toFixed(1) + '%'; } } } }, scales: { x: { title: { display: true, text: 'Number of predicted A* grades', font: { size: 11 } }, grid: { display: false } }, y: { min: 0, max: 45, title: { display: true, text: 'Offer rate (%)', font: { size: 11 } }, ticks: { callback: function(v) { return v + '%'; } }, grid: { color: '#f0f0f0' } } } }
+  });
+
+  /* ── Chart 4: Biological NatSci ── */
+  new Chart(document.getElementById('chartBioNatSci'), {
+    type: 'line',
+    data: {
+      labels: ['1.0–1.9','2.0–2.9','3.0–3.9','4.0–4.9','5.0–5.9','6.0–6.9','7.0–7.9','8.0–8.9','9.0'],
+      datasets: [
+        { label: 'Maths 1 offer rate', data: [3,8,12,22,33,46,62,72,80], borderColor: '#1a7a5a', backgroundColor: 'rgba(26,122,90,0.07)', tension: 0.35, pointRadius: 4, pointBackgroundColor: '#1a7a5a', pointStyle: 'circle', fill: false, borderWidth: 2.5 },
+        { label: 'Biology offer rate', data: [18,22,78,62,42,24,18,28,94], borderColor: '#27ae60', backgroundColor: 'transparent', tension: 0.35, pointRadius: 4, pointBackgroundColor: '#27ae60', pointStyle: 'rectRot', fill: false, borderWidth: 2, borderDash: [5,3] },
+        { label: 'Chemistry offer rate', data: [10,15,45,64,30,20,12,10,28], borderColor: '#8e44ad', backgroundColor: 'transparent', tension: 0.35, pointRadius: 4, pointBackgroundColor: '#8e44ad', pointStyle: 'triangle', fill: false, borderWidth: 2, borderDash: [2,2] }
+      ]
+    },
+    options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'top', labels: { boxWidth: 12, usePointStyle: true, font: { size: 12 } } }, tooltip: { callbacks: { label: function(c) { return c.dataset.label + ': ~' + c.parsed.y + '%'; } } } }, scales: { x: { title: { display: true, text: 'ESAT section score band', font: { size: 11 } }, grid: { color: '#f0f0f0' } }, y: { min: 0, max: 105, title: { display: true, text: 'Offer rate (%)', font: { size: 11 } }, ticks: { callback: function(v) { return v + '%'; } }, grid: { color: '#f0f0f0' } } } }
+  });
+
+  /* ── Chart 5: Physical NatSci ── */
+  new Chart(document.getElementById('chartPhysNatSci'), {
+    type: 'line',
+    data: {
+      labels: ['1.0–1.9','2.0–2.9','3.0–3.9','4.0–4.9','5.0–5.9','6.0–6.9','7.0–7.9','8.0–8.9','9.0'],
+      datasets: [
+        { label: 'Maths 1 offer rate', data: [2,5,10,17,24,28,30,28,30], borderColor: '#185FA5', backgroundColor: 'rgba(24,95,165,0.07)', tension: 0.35, pointRadius: 4, pointBackgroundColor: '#185FA5', pointStyle: 'circle', fill: false, borderWidth: 2.5 },
+        { label: 'Physics offer rate', data: [1,2,4,8,38,52,72,90,98], borderColor: '#2980b9', backgroundColor: 'transparent', tension: 0.35, pointRadius: 4, pointBackgroundColor: '#2980b9', pointStyle: 'rectRot', fill: false, borderWidth: 2.5, borderDash: [5,3] },
+        { label: 'Maths 2 offer rate', data: [0,1,2,5,20,48,80,92,97], borderColor: '#8e44ad', backgroundColor: 'transparent', tension: 0.35, pointRadius: 4, pointBackgroundColor: '#8e44ad', pointStyle: 'triangle', fill: false, borderWidth: 2.5, borderDash: [2,2] }
+      ]
+    },
+    options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'top', labels: { boxWidth: 12, usePointStyle: true, font: { size: 12 } } }, tooltip: { callbacks: { label: function(c) { return c.dataset.label + ': ~' + c.parsed.y + '%'; } } } }, scales: { x: { title: { display: true, text: 'ESAT section score band', font: { size: 11 } }, grid: { color: '#f0f0f0' } }, y: { min: 0, max: 105, title: { display: true, text: 'Offer rate (%)', font: { size: 11 } }, ticks: { callback: function(v) { return v + '%'; } }, grid: { color: '#f0f0f0' } } } }
+  });
+
+  /* ══════════════════════════════════════════
+     ESAT BY COLLEGE CHART  (Tab 7 — NEW)
+  ══════════════════════════════════════════ */
+  var colleges = [
+    {name:"Christ's",        math1:{app:5.00,off:7.05}, phys:{app:4.79,off:6.60}, math2:{app:5.03,off:6.42}},
+    {name:"Churchill",       math1:{app:4.80,off:5.98}, phys:{app:4.77,off:5.90}, math2:{app:4.83,off:5.91}},
+    {name:"Clare",           math1:{app:4.86,off:6.18}, phys:{app:4.87,off:7.34}, math2:{app:4.71,off:6.80}},
+    {name:"Corpus Christi",  math1:{app:4.66,off:5.98}, phys:{app:4.78,off:6.48}, math2:{app:4.57,off:5.88}},
+    {name:"Downing",         math1:{app:4.61,off:6.94}, phys:{app:4.57,off:6.47}, math2:{app:4.38,off:6.65}},
+    {name:"Emmanuel",        math1:{app:4.56,off:5.81}, phys:{app:4.75,off:6.28}, math2:{app:4.58,off:5.93}},
+    {name:"Fitzwilliam",     math1:{app:5.64,off:6.31}, phys:{app:5.28,off:6.25}, math2:{app:5.47,off:6.21}},
+    {name:"Girton",          math1:{app:4.74,off:5.79}, phys:{app:4.38,off:6.24}, math2:{app:4.60,off:5.78}},
+    {name:"Gonville & Caius",math1:{app:4.57,off:6.68}, phys:{app:4.65,off:6.67}, math2:{app:4.54,off:6.43}},
+    {name:"Homerton",        math1:{app:5.01,off:6.42}, phys:{app:4.69,off:6.59}, math2:{app:4.87,off:6.33}},
+    {name:"Hughes Hall",     math1:{app:6.15,off:null},  phys:{app:5.65,off:null},  math2:{app:5.52,off:null}},
+    {name:"Jesus",           math1:{app:4.30,off:6.42}, phys:{app:4.39,off:6.65}, math2:{app:4.28,off:6.38}},
+    {name:"King's",          math1:{app:4.34,off:5.82}, phys:{app:4.34,off:5.63}, math2:{app:4.48,off:5.80}},
+    {name:"Lucy Cavendish",  math1:{app:5.18,off:6.14}, phys:{app:5.01,off:6.10}, math2:{app:5.07,off:6.03}},
+    {name:"Magdalene",       math1:{app:5.26,off:6.05}, phys:{app:5.27,off:6.35}, math2:{app:5.30,off:6.22}},
+    {name:"Murray Edwards",  math1:{app:5.06,off:7.08}, phys:{app:4.50,off:6.64}, math2:{app:4.94,off:6.95}},
+    {name:"Newnham",         math1:{app:4.61,off:6.40}, phys:{app:4.54,off:5.95}, math2:{app:4.67,off:5.88}},
+    {name:"Pembroke",        math1:{app:4.59,off:6.38}, phys:{app:4.61,off:6.46}, math2:{app:4.42,off:6.48}},
+    {name:"Peterhouse",      math1:{app:5.00,off:6.41}, phys:{app:4.84,off:5.92}, math2:{app:4.97,off:6.11}},
+    {name:"Queens'",         math1:{app:4.82,off:6.58}, phys:{app:4.64,off:6.57}, math2:{app:4.78,off:6.40}},
+    {name:"Robinson",        math1:{app:5.72,off:6.54}, phys:{app:5.37,off:6.58}, math2:{app:5.58,off:6.99}},
+    {name:"Selwyn",          math1:{app:4.58,off:6.23}, phys:{app:4.51,off:7.06}, math2:{app:4.47,off:5.79}},
+    {name:"Sidney Sussex",   math1:{app:5.28,off:5.98}, phys:{app:5.09,off:6.02}, math2:{app:5.19,off:5.97}},
+    {name:"St Catharine's",  math1:{app:4.75,off:5.60}, phys:{app:4.74,off:5.86}, math2:{app:4.51,off:5.70}},
+    {name:"St Edmund's",     math1:{app:6.84,off:5.93}, phys:{app:6.37,off:5.79}, math2:{app:6.49,off:5.98}},
+    {name:"St John's",       math1:{app:4.38,off:5.84}, phys:{app:4.41,off:6.52}, math2:{app:4.25,off:5.85}},
+    {name:"Trinity",         math1:{app:4.61,off:6.36}, phys:{app:4.40,off:5.93}, math2:{app:4.66,off:6.24}},
+    {name:"Trinity Hall",    math1:{app:5.15,off:6.75}, phys:{app:4.86,off:7.00}, math2:{app:5.15,off:6.64}},
+    {name:"Wolfson",         math1:{app:4.33,off:6.45}, phys:{app:3.92,off:6.25}, math2:{app:5.28,off:6.53}}
+  ];
+
+  var sectionKeys   = ['math1', 'phys', 'math2'];
+  var sectionLabels = ['Mathematics 1', 'Physics', 'Mathematics 2'];
+  var ecChart = null;
+
+  function buildEsatChart() {
+    var secIdx = parseInt(document.getElementById('ec-section').value, 10);
+    var sortBy = document.getElementById('ec-sort').value;
+    var sec    = sectionKeys[secIdx];
+
+    var rows = colleges.map(function(c) {
+      return { name: c.name, app: c[sec].app, off: c[sec].off };
+    });
+
+    if (sortBy === 'offer') {
+      rows.sort(function(a,b) { return (b.off || 0) - (a.off || 0); });
+    } else if (sortBy === 'applicant') {
+      rows.sort(function(a,b) { return b.app - a.app; });
+    } else {
+      rows.sort(function(a,b) { return a.name.localeCompare(b.name); });
+    }
+
+    var labels  = rows.map(function(r) { return r.name; });
+    var appData = rows.map(function(r) { return r.app; });
+    var offData = rows.map(function(r) { return r.off; }); // null = withheld → Chart.js skips
+
+    document.getElementById('ec-chart-title').textContent =
+      'Avg ESAT score — ' + sectionLabels[secIdx] + ' · all applicants vs offer holders · by college';
+
+    if (ecChart) { ecChart.destroy(); ecChart = null; }
+
+    ecChart = new Chart(document.getElementById('chartEsatCollege'), {
+      type: 'bar',
+      data: {
+        labels: labels,
+        datasets: [
+          {
+            label: 'All applicants (avg)',
+            data: appData,
+            backgroundColor: '#7ABDE8',
+            borderColor: '#4A9DD4',
+            borderWidth: 0.5,
+            borderRadius: 2
+          },
+          {
+            label: 'Offer holders (avg)',
+            data: offData,
+            backgroundColor: '#52C49A',
+            borderColor: '#2DA87A',
+            borderWidth: 0.5,
+            borderRadius: 2
+          }
+        ]
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: function(ctx) {
+                if (ctx.parsed.x === null) return ctx.dataset.label + ': withheld';
+                return ctx.dataset.label + ': ' + ctx.parsed.x.toFixed(2);
+              }
+            }
+          }
+        },
+        scales: {
+          x: {
+            min: 0, max: 9,
+            title: { display: true, text: 'Average ESAT score (1.0–9.0 scale)', font: { size: 11 } },
+            ticks: { font: { size: 10 } },
+            grid: { color: '#f0f0f0' }
+          },
+          y: {
+            ticks: { font: { size: 10 } },
+            grid: { display: false }
+          }
+        }
+      }
+    });
+  }
+
+  document.getElementById('ec-section').addEventListener('change', buildEsatChart);
+  document.getElementById('ec-sort').addEventListener('change', buildEsatChart);
+  buildEsatChart();
+
+})();
+</script>
+
+<!-- ── TAB SCRIPT ── -->
+<script>
+  function showTab(id, btn) {
+    document.querySelectorAll('.tab-panel').forEach(function(p) {
+      p.classList.remove('active');
+      p.style.display = 'none';
+    });
+    document.querySelectorAll('.tab-btn').forEach(function(b) {
+      b.classList.remove('active');
+    });
+    var panel = document.getElementById('tab-' + id);
+    if (panel) { panel.classList.add('active'); panel.style.display = 'block'; }
+    if (btn) btn.classList.add('active');
+    if (typeof Chart !== 'undefined') {
+      setTimeout(function() { Chart.instances.forEach(function(c) { c.resize(); }); }, 50);
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  document.addEventListener('DOMContentLoaded', function() {
+    var first = document.getElementById('tab-overview');
+    if (first) { first.style.display = 'block'; }
+  });
+</script>
