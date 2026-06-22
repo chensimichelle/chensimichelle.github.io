@@ -72,7 +72,18 @@ ninja.data = [{
               handler: () => {
                 window.location.href = "/practical/";
               },
-            },{id: "post-inside-cambridge-admissions-what-the-foi-data-actually-shows",
+            },{id: "post-ucl-life-sciences-amp-medical-sciences-undergraduate-guide",
+        
+          title: "UCL — Life Sciences &amp; Medical Sciences Undergraduate Guide",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/ucl-bm-data/";
+          
+        },
+      },{id: "post-inside-cambridge-admissions-what-the-foi-data-actually-shows",
         
           title: "Inside Cambridge Admissions: What the FOI Data Actually Shows",
         
@@ -92,17 +103,6 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/blog/2026/esat-score-analysis/";
-          
-        },
-      },{id: "post-ucl-life-amp-medical-sciences-undergraduate-programme-guide",
-        
-          title: "UCL — Life &amp; Medical Sciences Undergraduate Programme Guide",
-        
-        description: "",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2026/ucl-guide/";
           
         },
       },{id: "post-university-of-oxford-undergraduate-science-programmes-guide",
