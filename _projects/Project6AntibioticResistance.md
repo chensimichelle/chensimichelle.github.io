@@ -8,6 +8,9 @@ category: rosetta
 related_publications: false
 ---
 
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'default' });</script>
+
 ## What You Will Learn
 
 - How antibiotic resistance arises at the molecular level
@@ -25,7 +28,7 @@ related_publications: false
 
 Before diving into code, here's the full pipeline. Notice that **Cell 4 is the hinge of the entire project** — everything before it prepares the structure, and everything after it depends on the translation table Cell 4 builds.
 
-```mermaid
+<div class="mermaid">
 flowchart TD
     A["Cell 1<br/>Initialize PyRosetta"] --> B["Cell 2<br/>Download & Survey 1ZG4"]
     B --> C["Cell 3<br/>Clean structure + compute<br/>Wild-Type binding energy"]
@@ -39,7 +42,7 @@ flowchart TD
 
     style D fill:#922b21,color:#fff,stroke:#000,stroke-width:2px
     style E fill:#e67e22,color:#fff
-```
+</div>
 
 | Stage | Cell | What happens | Depends on |
 |---|---|---|---|
@@ -285,30 +288,19 @@ This cell builds a dictionary that translates PDB residue numbers (how biochemis
 
 **a) Its structure.** A dictionary is a set of `key → value` pairs. You hand it a key, it instantly hands back the matching value — no scanning required. After this cell runs, `pdb_to_rosetta` looks conceptually like this:
 
-```mermaid
-graph LR
-    subgraph PDB["PDB Numbering (frozen, from the original crystal structure)"]
-        P1["69"]
-        P2["73"]
-        P3["130"]
-        P4["244"]
-        P5["276"]
-    end
-    subgraph ROS["Rosetta Numbering (sequential, recount after cleaning)"]
-        R1["45"]
-        R2["49"]
-        R3["102"]
-        R4["198"]
-        R5["225"]
-    end
-    P1 -. "dict lookup" .-> R1
-    P2 -. "dict lookup" .-> R2
-    P3 -. "dict lookup" .-> R3
-    P4 -. "dict lookup" .-> R4
-    P5 -. "dict lookup" .-> R5
-```
-
-*(Exact Rosetta numbers will vary depending on exactly which residues got deleted in Cell 3 — the point is that they are different from the PDB numbers, and shift unpredictably.)*
+<table style="width:100%;max-width:480px;margin:18px auto;border-collapse:collapse;text-align:center;font-size:14px;">
+<tr style="background:#922b21;color:#fff;">
+  <th style="padding:8px 10px;border:1px solid #ccc;">PDB Number<br><span style="font-size:11px;font-weight:400;">(frozen, from crystal structure)</span></th>
+  <th style="padding:8px 10px;border:1px solid #ccc;width:50px;"></th>
+  <th style="padding:8px 10px;border:1px solid #ccc;">Rosetta Position<br><span style="font-size:11px;font-weight:400;">(sequential, after cleaning)</span></th>
+</tr>
+<tr><td style="padding:6px 10px;border:1px solid #ccc;">69</td><td style="padding:6px 10px;border:1px solid #ccc;color:#922b21;font-weight:700;">→</td><td style="padding:6px 10px;border:1px solid #ccc;">45</td></tr>
+<tr><td style="padding:6px 10px;border:1px solid #ccc;">73</td><td style="padding:6px 10px;border:1px solid #ccc;color:#922b21;font-weight:700;">→</td><td style="padding:6px 10px;border:1px solid #ccc;">49</td></tr>
+<tr><td style="padding:6px 10px;border:1px solid #ccc;">130</td><td style="padding:6px 10px;border:1px solid #ccc;color:#922b21;font-weight:700;">→</td><td style="padding:6px 10px;border:1px solid #ccc;">102</td></tr>
+<tr><td style="padding:6px 10px;border:1px solid #ccc;">244</td><td style="padding:6px 10px;border:1px solid #ccc;color:#922b21;font-weight:700;">→</td><td style="padding:6px 10px;border:1px solid #ccc;">198</td></tr>
+<tr><td style="padding:6px 10px;border:1px solid #ccc;">276</td><td style="padding:6px 10px;border:1px solid #ccc;color:#922b21;font-weight:700;">→</td><td style="padding:6px 10px;border:1px solid #ccc;">225</td></tr>
+</table>
+<p style="text-align:center;font-size:12.5px;color:#666;font-style:italic;max-width:480px;margin:0 auto 16px auto;">Exact Rosetta numbers vary depending on which residues were deleted in Cell 3 — the point is they differ from the PDB numbers, and shift unpredictably.</p>
 
 **b) How it's built — line by line:**
 
