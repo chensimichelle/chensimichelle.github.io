@@ -8,9 +8,6 @@ category: rosetta
 related_publications: false
 ---
 
-<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
-<script>mermaid.initialize({ startOnLoad: true, theme: 'default' });</script>
-
 ## What You Will Learn
 
 - How antibiotic resistance arises at the molecular level
@@ -28,7 +25,9 @@ related_publications: false
 
 Before diving into code, here's the full pipeline. Notice that **Cell 4 is the hinge of the entire project** — everything before it prepares the structure, and everything after it depends on the translation table Cell 4 builds.
 
-<div class="mermaid">
+<div markdown="1" style="display:flex;justify-content:center;">
+
+```mermaid
 flowchart TD
     A["Cell 1<br/>Initialize PyRosetta"] --> B["Cell 2<br/>Download & Survey 1ZG4"]
     B --> C["Cell 3<br/>Clean structure + compute<br/>Wild-Type binding energy"]
@@ -40,20 +39,44 @@ flowchart TD
 
     D -.->|"Without this dictionary,<br/>Cell 5 mutates the WRONG residues"| E
 
-    style D fill:#922b21,color:#fff,stroke:#000,stroke-width:2px
-    style E fill:#e67e22,color:#fff
+    style D fill:#4c2c82,color:#fff,stroke:#2e1b52,stroke-width:2px
+    style E fill:#7456b3,color:#fff,stroke:#4c2c82,stroke-width:1px
+```
+
 </div>
 
-| Stage | Cell | What happens | Depends on |
-|---|---|---|---|
-| Setup | 1 | Start PyRosetta with ligand support | — |
-| Acquire | 2 | Download 1ZG4, identify the inhibitor | Cell 1 |
-| Prepare | 3 | Strip to chain A + ligand, compute WT baseline | Cell 2 |
-| **Translate** | **4** | **Build the PDB ↔ Rosetta number dictionary** | Cell 3 |
-| Perturb | 5 | Mutate the *correct* residue, measure ΔΔG | **Cell 4's dictionary** |
-| Summarize | 6 | Rank mutations, save CSV | Cell 5 |
-| Visualize | 7 | Plot ΔΔG with clinical resistance zones | Cell 6 |
-| Strategize | 8 | Propose next-gen drug design options | Cells 5–7 |
+<table style="width:100%;border-collapse:collapse;margin:20px 0;">
+<tr style="background:#ECECFF;">
+  <th style="padding:9px 12px;text-align:left;border-bottom:2px solid #9370DB;color:#4b2e83;">Stage</th>
+  <th style="padding:9px 12px;text-align:left;border-bottom:2px solid #9370DB;color:#4b2e83;">Cell</th>
+  <th style="padding:9px 12px;text-align:left;border-bottom:2px solid #9370DB;color:#4b2e83;">What happens</th>
+  <th style="padding:9px 12px;text-align:left;border-bottom:2px solid #9370DB;color:#4b2e83;">Depends on</th>
+</tr>
+<tr style="border-bottom:1px solid #ddd6f0;">
+  <td style="padding:8px 12px;">Setup</td><td style="padding:8px 12px;">1</td><td style="padding:8px 12px;">Start PyRosetta with ligand support</td><td style="padding:8px 12px;">—</td>
+</tr>
+<tr style="border-bottom:1px solid #ddd6f0;">
+  <td style="padding:8px 12px;">Acquire</td><td style="padding:8px 12px;">2</td><td style="padding:8px 12px;">Download 1ZG4, identify the inhibitor</td><td style="padding:8px 12px;">Cell 1</td>
+</tr>
+<tr style="border-bottom:1px solid #ddd6f0;">
+  <td style="padding:8px 12px;">Prepare</td><td style="padding:8px 12px;">3</td><td style="padding:8px 12px;">Strip to chain A + ligand, compute WT baseline</td><td style="padding:8px 12px;">Cell 2</td>
+</tr>
+<tr style="border-bottom:1px solid #ddd6f0;background:#f3f0fa;">
+  <td style="padding:8px 12px;"><strong>Translate</strong></td><td style="padding:8px 12px;"><strong>4</strong></td><td style="padding:8px 12px;"><strong>Build the PDB ↔ Rosetta number dictionary</strong></td><td style="padding:8px 12px;">Cell 3</td>
+</tr>
+<tr style="border-bottom:1px solid #ddd6f0;">
+  <td style="padding:8px 12px;">Perturb</td><td style="padding:8px 12px;">5</td><td style="padding:8px 12px;">Mutate the <em>correct</em> residue, measure ΔΔG</td><td style="padding:8px 12px;"><strong>Cell 4's dictionary</strong></td>
+</tr>
+<tr style="border-bottom:1px solid #ddd6f0;">
+  <td style="padding:8px 12px;">Summarize</td><td style="padding:8px 12px;">6</td><td style="padding:8px 12px;">Rank mutations, save CSV</td><td style="padding:8px 12px;">Cell 5</td>
+</tr>
+<tr style="border-bottom:1px solid #ddd6f0;">
+  <td style="padding:8px 12px;">Visualize</td><td style="padding:8px 12px;">7</td><td style="padding:8px 12px;">Plot ΔΔG with clinical resistance zones</td><td style="padding:8px 12px;">Cell 6</td>
+</tr>
+<tr style="border-bottom:1px solid #ddd6f0;">
+  <td style="padding:8px 12px;">Strategize</td><td style="padding:8px 12px;">8</td><td style="padding:8px 12px;">Propose next-gen drug design options</td><td style="padding:8px 12px;">Cells 5–7</td>
+</tr>
+</table>
 
 The dashed arrow above is the most important line in this diagram: **every mutation result in Cell 5 is only correct because of the lookup performed in Cell 4.** If that dictionary were skipped or built incorrectly, you could easily mutate residue 130 in Rosetta's numbering while *thinking* you mutated S130G from the clinical literature — and get a completely meaningless answer that still looks plausible.
 
@@ -288,19 +311,34 @@ This cell builds a dictionary that translates PDB residue numbers (how biochemis
 
 **a) Its structure.** A dictionary is a set of `key → value` pairs. You hand it a key, it instantly hands back the matching value — no scanning required. After this cell runs, `pdb_to_rosetta` looks conceptually like this:
 
-<table style="width:100%;max-width:480px;margin:18px auto;border-collapse:collapse;text-align:center;font-size:14px;">
-<tr style="background:#922b21;color:#fff;">
-  <th style="padding:8px 10px;border:1px solid #ccc;">PDB Number<br><span style="font-size:11px;font-weight:400;">(frozen, from crystal structure)</span></th>
-  <th style="padding:8px 10px;border:1px solid #ccc;width:50px;"></th>
-  <th style="padding:8px 10px;border:1px solid #ccc;">Rosetta Position<br><span style="font-size:11px;font-weight:400;">(sequential, after cleaning)</span></th>
-</tr>
-<tr><td style="padding:6px 10px;border:1px solid #ccc;">69</td><td style="padding:6px 10px;border:1px solid #ccc;color:#922b21;font-weight:700;">→</td><td style="padding:6px 10px;border:1px solid #ccc;">45</td></tr>
-<tr><td style="padding:6px 10px;border:1px solid #ccc;">73</td><td style="padding:6px 10px;border:1px solid #ccc;color:#922b21;font-weight:700;">→</td><td style="padding:6px 10px;border:1px solid #ccc;">49</td></tr>
-<tr><td style="padding:6px 10px;border:1px solid #ccc;">130</td><td style="padding:6px 10px;border:1px solid #ccc;color:#922b21;font-weight:700;">→</td><td style="padding:6px 10px;border:1px solid #ccc;">102</td></tr>
-<tr><td style="padding:6px 10px;border:1px solid #ccc;">244</td><td style="padding:6px 10px;border:1px solid #ccc;color:#922b21;font-weight:700;">→</td><td style="padding:6px 10px;border:1px solid #ccc;">198</td></tr>
-<tr><td style="padding:6px 10px;border:1px solid #ccc;">276</td><td style="padding:6px 10px;border:1px solid #ccc;color:#922b21;font-weight:700;">→</td><td style="padding:6px 10px;border:1px solid #ccc;">225</td></tr>
-</table>
-<p style="text-align:center;font-size:12.5px;color:#666;font-style:italic;max-width:480px;margin:0 auto 16px auto;">Exact Rosetta numbers vary depending on which residues were deleted in Cell 3 — the point is they differ from the PDB numbers, and shift unpredictably.</p>
+<div markdown="1" style="display:flex;justify-content:center;">
+
+```mermaid
+graph LR
+    subgraph PDB["PDB Numbering (frozen, from the original crystal structure)"]
+        P1["69"]
+        P2["73"]
+        P3["130"]
+        P4["244"]
+        P5["276"]
+    end
+    subgraph ROS["Rosetta Numbering (sequential, recount after cleaning)"]
+        R1["45"]
+        R2["49"]
+        R3["102"]
+        R4["198"]
+        R5["225"]
+    end
+    P1 -. "dict lookup" .-> R1
+    P2 -. "dict lookup" .-> R2
+    P3 -. "dict lookup" .-> R3
+    P4 -. "dict lookup" .-> R4
+    P5 -. "dict lookup" .-> R5
+```
+
+</div>
+
+*(Exact Rosetta numbers will vary depending on exactly which residues got deleted in Cell 3 — the point is that they are different from the PDB numbers, and shift unpredictably.)*
 
 **b) How it's built — line by line:**
 
