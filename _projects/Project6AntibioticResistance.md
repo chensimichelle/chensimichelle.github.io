@@ -15,8 +15,44 @@ related_publications: false
 - How to distinguish mutations that confer resistance by weakening drug binding vs. stabilizing the enzyme
 - How to compute a resistance profile and interpret it in a clinical context
 - How computational drug design responds to resistance: the next-generation drug problem
+- **How a Python dictionary solves the "two numbering systems" problem that sits at the heart of this project**
 
 **Time:** ~60–90 minutes &nbsp;|&nbsp; **Prerequisite:** Projects 1–5 completed &nbsp;|&nbsp; **Difficulty:** Advanced
+
+---
+
+## Project Workflow at a Glance
+
+Before diving into code, here's the full pipeline. Notice that **Cell 4 is the hinge of the entire project** — everything before it prepares the structure, and everything after it depends on the translation table Cell 4 builds.
+
+```mermaid
+flowchart TD
+    A["Cell 1<br/>Initialize PyRosetta"] --> B["Cell 2<br/>Download & Survey 1ZG4"]
+    B --> C["Cell 3<br/>Clean structure + compute<br/>Wild-Type binding energy"]
+    C --> D["Cell 4<br/>🔑 Build pdb_to_rosetta dictionary<br/>(PDB # ↔ Rosetta #)"]
+    D --> E["Cell 5<br/>Mutate each clinical position<br/>+ measure ΔΔG"]
+    E --> F["Cell 6<br/>Display ranked<br/>resistance table"]
+    F --> G["Cell 7<br/>Plot resistance profile<br/>with clinical zones"]
+    G --> H["Cell 8<br/>Next-generation drug<br/>design strategy"]
+
+    D -.->|"Without this dictionary,<br/>Cell 5 mutates the WRONG residues"| E
+
+    style D fill:#922b21,color:#fff,stroke:#000,stroke-width:2px
+    style E fill:#e67e22,color:#fff
+```
+
+| Stage | Cell | What happens | Depends on |
+|---|---|---|---|
+| Setup | 1 | Start PyRosetta with ligand support | — |
+| Acquire | 2 | Download 1ZG4, identify the inhibitor | Cell 1 |
+| Prepare | 3 | Strip to chain A + ligand, compute WT baseline | Cell 2 |
+| **Translate** | **4** | **Build the PDB ↔ Rosetta number dictionary** | Cell 3 |
+| Perturb | 5 | Mutate the *correct* residue, measure ΔΔG | **Cell 4's dictionary** |
+| Summarize | 6 | Rank mutations, save CSV | Cell 5 |
+| Visualize | 7 | Plot ΔΔG with clinical resistance zones | Cell 6 |
+| Strategize | 8 | Propose next-gen drug design options | Cells 5–7 |
+
+The dashed arrow above is the most important line in this diagram: **every mutation result in Cell 5 is only correct because of the lookup performed in Cell 4.** If that dictionary were skipped or built incorrectly, you could easily mutate residue 130 in Rosetta's numbering while *thinking* you mutated S130G from the clinical literature — and get a completely meaningless answer that still looks plausible.
 
 ---
 
@@ -55,6 +91,8 @@ The following mutations have been identified in patients with antibiotic-resista
 | **N276D** | 276 | Asparagine → Aspartate. Changes polarity near the binding site |
 
 These are not hypothetical — they are observed in clinical isolates from hospital patients.
+
+> Every "Position" number in this table is a **PDB number**. Keep that in the back of your mind — it's the whole reason Cell 4 exists.
 
 ---
 
@@ -117,6 +155,7 @@ for i in range(1, pose_raw.total_residue() + 1):
 **Key Concepts:**
 
 - **Surveying the structure:** Before automating anything, always manually inspect what a PDB structure contains. Crystal structures can contain unexpected molecules from crystallography buffers, multiple copies of the protein, or degradation products.
+- **A first hint of the numbering problem:** notice the printout already shows two numbers side by side — `Position i` (Rosetta) and `PDB# pdb_num` (PDB). They already disagree, even at this early stage.
 
 ---
 
@@ -191,6 +230,7 @@ print("(This is the inhibitor binding strength in the drug-sensitive strain)")
 - **Drug-sensitive strain:** A bacterial strain that is still killed by the antibiotic — the "before resistance" state. Our wild-type structure represents this.
 - **Drug-resistant strain:** A bacterial strain that survives antibiotic treatment. Each resistance mutation we model represents one possible evolutionary path to this state.
 - **Defensive coding:** The `LIGAND_CODES` set and the fallback condition handle the possibility that different PyRosetta versions or PDB downloads name the ligand differently. Advanced code should anticipate multiple possible inputs.
+- **⚠️ This is where the numbering problem gets worse:** every `delete_residue_slow()` call shifts the Rosetta position of every residue that comes after it. The PDB numbers printed in the file never change — but the Rosetta numbers absolutely do. After this cell, the two numbering systems are now meaningfully out of sync, which is exactly why Cell 4 has to happen next.
 
 ---
 
@@ -241,9 +281,66 @@ This cell builds a dictionary that translates PDB residue numbers (how biochemis
 
 > **Analogy:** Imagine a city's street addresses are renumbered after several houses are demolished. A house that was "123 Main Street" (PDB numbering) might now be "87 Main Street" (Rosetta numbering) because earlier houses were removed. You need the translation table before you can find any house by its old address.
 
+### 🔍 Deep Dive: How the Dictionary Actually Works
+
+**a) Its structure.** A dictionary is a set of `key → value` pairs. You hand it a key, it instantly hands back the matching value — no scanning required. After this cell runs, `pdb_to_rosetta` looks conceptually like this:
+
+```mermaid
+graph LR
+    subgraph PDB["PDB Numbering (frozen, from the original crystal structure)"]
+        P1["69"]
+        P2["73"]
+        P3["130"]
+        P4["244"]
+        P5["276"]
+    end
+    subgraph ROS["Rosetta Numbering (sequential, recount after cleaning)"]
+        R1["45"]
+        R2["49"]
+        R3["102"]
+        R4["198"]
+        R5["225"]
+    end
+    P1 -. "dict lookup" .-> R1
+    P2 -. "dict lookup" .-> R2
+    P3 -. "dict lookup" .-> R3
+    P4 -. "dict lookup" .-> R4
+    P5 -. "dict lookup" .-> R5
+```
+
+*(Exact Rosetta numbers will vary depending on exactly which residues got deleted in Cell 3 — the point is that they are different from the PDB numbers, and shift unpredictably.)*
+
+**b) How it's built — line by line:**
+
+| Line | What it does |
+|---|---|
+| `pdb_to_rosetta = {}` | Start an empty dictionary |
+| `for i in range(1, wt_pose.total_residue() + 1)` | Walk through every Rosetta position, 1 → N |
+| `if wt_pose.residue(i).is_protein()` | Skip the ligand — only protein residues need translating |
+| `pdb_num = wt_pose.pdb_info().number(i)` | Ask PyRosetta: "what was this residue called in the original PDB file?" |
+| `pdb_to_rosetta[pdb_num] = i` | Store the pair: **PDB number is the key, Rosetta position is the value** |
+
+By the end of the loop, every protein residue has an entry, so the dictionary is a complete two-way reference table (you only need it in one direction here, but it covers the whole protein).
+
+**c) How values get "cited" (looked up) later:**
+
+```python
+if pdb_pos in pdb_to_rosetta:          # does this PDB number exist in the table?
+    ros_pos = pdb_to_rosetta[pdb_pos]  # jump straight to the matching value
+```
+
+This is the same mechanism used again in Cell 5 for the actual mutations. No looping, no searching — `pdb_to_rosetta[130]` jumps directly to the answer, the same way flipping to a page number in an index beats reading the whole book to find a topic.
+
+**d) Why a dictionary, specifically, and not something else:**
+
+- **Correctness:** Clinical literature reports mutations using PDB numbers (e.g., "S130G"). PyRosetta only understands its own sequential numbering. Without a precise translation, you risk mutating the *wrong physical residue* while believing you modeled a real clinical mutation.
+- **Speed:** A dictionary lookup is O(1) — instant — regardless of how many residues the protein has. Searching a list for a matching number every time would be slower and more error-prone.
+- **Reusability:** Built once in Cell 4, the same dictionary is reused for all five mutations in Cell 5, instead of rebuilding the mapping from scratch each time.
+- **Safety net:** The `if pdb_pos in pdb_to_rosetta` check lets the code fail gracefully (skip and report) if a clinical position happens to be missing from the resolved structure, rather than crashing or silently mutating the wrong atom.
+
 **Key Concepts:**
 
-- **PDB numbering:** The residue numbers as published in the PDB file, reflecting the original experimental numbering. May contain gaps (missing density) or non-sequential numbers.
+- **PDB numbering:** The residue numbers as published in the PDB entry, reflecting the original experimental numbering. May contain gaps (missing density) or non-sequential numbers.
 - **Rosetta numbering:** Sequential integers from 1 to N assigned by PyRosetta after loading. Always contiguous.
 - **Lookup dictionary:** A data structure that maps one set of identifiers to another. Essential when working with multiple numbering systems.
 
@@ -311,6 +408,8 @@ print("\nDone! Resistance profile computed.")
 ```
 
 The ΔΔG thresholds here are higher than in Project 5 because we are using real resistance mutations, not Alanine probes. Clinical resistance often corresponds to ΔΔG values of 1.5–5.0 REU — large enough to meaningfully impair drug binding, small enough that the enzyme still functions.
+
+> Notice the very first line of the loop body: `rosetta_pos = pdb_to_rosetta[pdb_pos]`. That single dictionary lookup is the only thing standing between "I modeled the S130G resistance mutation" and "I modeled some unrelated residue that happens to share a number with S130G in the wrong numbering system."
 
 **Key Concepts:**
 
@@ -493,6 +592,8 @@ This cell synthesizes everything from all six projects into a coherent drug disc
 
 **5.** You now have a complete computational pipeline from structure loading to resistance profiling. If you were a pharmaceutical company, which single computational result from Projects 1–6 would you trust most when deciding which drug candidate to invest in developing, and why?
 
+**6.** *(New)* Cell 4 builds `pdb_to_rosetta` using PDB number as the key and Rosetta position as the value. What would go wrong if you built it the other way around (Rosetta position as key, PDB number as value), given how it's actually used in Cell 5?
+
 ---
 
 ## Key Vocabulary
@@ -506,6 +607,7 @@ This cell synthesizes everything from all six projects into a coherent drug disc
 | **Drug-resistant strain** | A bacterium that survives the antibiotic due to one or more mutations |
 | **PDB numbering** | Residue numbers as published in the PDB entry — may not match Rosetta's internal numbering |
 | **Rosetta numbering** | Sequential internal numbering assigned by PyRosetta; always starts at 1 |
+| **Dictionary (Python)** | A `key → value` data structure giving instant (O(1)) lookups; used here as a numbering-system translator |
 | **Combination therapy** | Using two or more drugs to reduce the likelihood of resistance evolving |
 | **Resistance landscape** | The full map of which mutations confer resistance and by how much |
 | **Structure-guided drug design** | Rational drug optimization informed by atomic-level structural and energetic data |
