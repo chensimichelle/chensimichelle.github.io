@@ -8,6 +8,12 @@ category: rosetta
 related_publications: false
 ---
 
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+mermaid.initialize({ startOnLoad: false, theme: 'default' });
+await mermaid.run({ querySelector: '.language-mermaid' });
+</script>
+
 ## What You Will Learn
 
 - How antibiotic resistance arises at the molecular level
@@ -39,8 +45,8 @@ flowchart TD
 
     D -.->|"Without this dictionary,<br/>Cell 5 mutates the WRONG residues"| E
 
-    style D fill:#4c2c82,color:#fff,stroke:#2e1b52,stroke-width:2px
-    style E fill:#7456b3,color:#fff,stroke:#4c2c82,stroke-width:1px
+    style D fill:#4c2c82,color:#ffffff !important,stroke:#2e1b52,stroke-width:2px
+    style E fill:#7456b3,color:#ffffff !important,stroke:#4c2c82,stroke-width:1px
 ```
 
 </div>

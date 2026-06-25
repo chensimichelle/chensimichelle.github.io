@@ -162,6 +162,7 @@ chart:
   .cn-table tr:nth-child(even) td { background:var(--bg-soft); }
   .cn-table tr:last-child td { border-bottom:none; }
   .cn-table .row-label { font-weight:600; color:var(--text-primary); }
+  .cn-table .row-sub { display:block; font-weight:400; font-size:0.7rem; color:var(--text-muted); font-style:italic; margin-top:0.15rem; line-height:1.35; }
   .cn-table .pending { color:#b0b0b0; font-style:italic; }
   .cn-note { background:#fffbea; border:1px solid #f0d800; border-left:4px solid #e0b800; border-radius:0 8px 8px 0; padding:0.85rem 1.1rem; font-size:0.8rem; color:#5a4a00; line-height:1.6; margin-bottom:1.5rem; }
   .cn-note strong { color:#3a2a00; }
@@ -508,7 +509,7 @@ chart:
 
   <div class="prog-detail bioms">
     <div class="prog-detail-hdr">
-      <div><div class="prog-detail-title">Applied Medical Sciences</div><div class="prog-detail-meta">BSc · 3 years · Faculty of Medical Sciences · UCAS: B990</div></div>
+      <div><div class="prog-detail-title">Applied Medical Sciences</div><div class="prog-detail-meta">BSc · 3 years · Faculty of Medical Sciences · Division of Medicine · UCAS: B990</div></div>
       <div class="ptags"><span class="ptag low">Less Competitive</span></div>
     </div>
     <div class="prog-detail-body">
@@ -533,7 +534,7 @@ chart:
 
   <div class="prog-detail med">
     <div class="prog-detail-hdr">
-      <div><div class="prog-detail-title">Medical Innovation and Enterprise</div><div class="prog-detail-meta">BSc / MSci · 3–4 years · Faculty of Medical Sciences · UCAS: B991</div></div>
+      <div><div class="prog-detail-title">Medical Innovation and Enterprise</div><div class="prog-detail-meta">BSc / MSci · 3–4 years · Faculty of Medical Sciences · Division of Surgery &amp; Interventional Science · UCAS: B991</div></div>
       <div class="ptags"><span class="ptag mod">Moderately Competitive</span></div>
     </div>
     <div class="prog-detail-body">
@@ -558,7 +559,7 @@ chart:
 
   <div class="prog-detail bioms">
     <div class="prog-detail-hdr">
-      <div><div class="prog-detail-title">Nutrition and Medical Sciences</div><div class="prog-detail-meta">BSc · 3 years · Faculty of Medical Sciences · UCAS: B401</div></div>
+      <div><div class="prog-detail-title">Nutrition and Medical Sciences</div><div class="prog-detail-meta">BSc · 3 years · Faculty of Medical Sciences · Division of Medicine · UCAS: B401</div></div>
       <div class="ptags"><span class="ptag mod">Moderately Competitive</span></div>
     </div>
     <div class="prog-detail-body">
@@ -583,7 +584,7 @@ chart:
 
   <div class="prog-detail med">
     <div class="prog-detail-hdr">
-      <div><div class="prog-detail-title">Sport and Exercise Medical Sciences</div><div class="prog-detail-meta">BSc · 3 years · Faculty of Medical Sciences · UCAS: B621</div></div>
+      <div><div class="prog-detail-title">Sport and Exercise Medical Sciences</div><div class="prog-detail-meta">BSc · 3 years · Faculty of Medical Sciences · Division of Surgery &amp; Interventional Science · UCAS: B621</div></div>
       <div class="ptags"><span class="ptag mod">Moderately Competitive</span></div>
     </div>
     <div class="prog-detail-body">
@@ -622,6 +623,41 @@ chart:
     <p class="chart-sub">Offer rate = offers made ÷ applications received · Source: UCL official UG admissions PDFs</p>
     <canvas id="chart-offerrates" height="200"></canvas>
     <div class="chart-insight">UCL saw a broad increase in offer rates in 2025-26, driven by East Campus expansion and a financial strategy to grow enrolment — offers rose by 12,443 university-wide while places grew more modestly, creating the over-offering problem described below. Human Sciences BSc and Applied Medical Sciences BSc remain the most accessible entry points in their respective faculties. Pharmacy MPharm and Medicine MBBS remain the most competitive. Sources: <a href="https://www.ucl.ac.uk/prospective-students/undergraduate/sites/prospective_students_undergraduate/files/undergraduate_application_data_2025-26.pdf" target="_blank" style="color:var(--ucl-color);">UCL UG Admissions Data 2025-26</a> · <a href="https://www.ucl.ac.uk/prospective-students/undergraduate/sites/prospective_students_undergraduate/files/ug_apps_per_place_2024-25.pdf" target="_blank" style="color:var(--ucl-color);">UCL UG Admissions Data 2024-25</a>.</div>
+    <div style="overflow-x:auto;margin-top:1.2rem;">
+      <table class="cn-table">
+        <thead>
+          <tr>
+            <th>Programme</th>
+            <th>Apps 24-25</th>
+            <th>Offers 24-25</th>
+            <th>Rate 24-25</th>
+            <th>Apps 25-26</th>
+            <th>Offers 25-26</th>
+            <th>Rate 25-26</th>
+            <th>Change</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td colspan="8" style="font-size:0.72rem;font-weight:700;text-transform:uppercase;color:var(--ls-color);padding:0.5rem 0.85rem;background:var(--ls-light);">Faculty of Life Sciences</td></tr>
+          <tr><td class="row-label">Biochemistry &amp; Biotechnology</td><td>1,027</td><td>382</td><td>37.2%</td><td>1,027</td><td>541</td><td>52.7%</td><td style="color:#27ae60;">+15.5pp</td></tr>
+          <tr><td class="row-label">Biological Sciences BSc/MSci</td><td>1,147</td><td>410</td><td>35.7%</td><td>1,305</td><td>630</td><td>48.3%</td><td style="color:#27ae60;">+12.5pp</td></tr>
+          <tr><td class="row-label">Biomedical Sciences BSc</td><td>1,940</td><td>552</td><td>28.5%</td><td>1,647</td><td>726</td><td>44.1%</td><td style="color:#27ae60;">+15.6pp</td></tr>
+          <tr><td class="row-label">Human Sciences BSc</td><td>217</td><td>140</td><td>64.5%</td><td>251</td><td>206</td><td>82.1%</td><td style="color:#27ae60;">+17.6pp</td></tr>
+          <tr><td class="row-label">Neuroscience BSc</td><td>657</td><td>293</td><td>44.6%</td><td>713</td><td>351</td><td>49.2%</td><td style="color:#27ae60;">+4.6pp</td></tr>
+          <tr><td class="row-label">Pharmacology BSc</td><td>581</td><td>157</td><td>27.0%</td><td>588</td><td>202</td><td>34.4%</td><td style="color:#27ae60;">+7.4pp</td></tr>
+          <tr><td class="row-label">Pharmacy MPharm</td><td>2,092</td><td>517</td><td>24.7%</td><td>2,223</td><td>540</td><td>24.3%</td><td style="color:#c0392b;">−0.4pp</td></tr>
+          <tr style="font-weight:700;background:var(--ls-light);"><td>Life Sciences Total</td><td>7,661</td><td>2,451</td><td>32.0%</td><td>7,754</td><td>3,196</td><td>41.2%</td><td style="color:#27ae60;">+9.2pp</td></tr>
+          <tr><td colspan="8" style="font-size:0.72rem;font-weight:700;text-transform:uppercase;color:var(--ms-color);padding:0.5rem 0.85rem;background:var(--ms-light);">Faculty of Medical Sciences</td></tr>
+          <tr><td class="row-label">Cancer Institute<span class="row-sub">Cancer Biomedicine BSc</span></td><td>264</td><td>181</td><td>68.6%</td><td>307</td><td>220</td><td>71.7%</td><td style="color:#27ae60;">+3.1pp</td></tr>
+          <tr><td class="row-label">Division of Infection &amp; Immunity<span class="row-sub">Infection &amp; Immunity BSc</span></td><td>67</td><td>47</td><td>70.1%</td><td>71</td><td>56</td><td>78.9%</td><td style="color:#27ae60;">+8.8pp</td></tr>
+          <tr><td class="row-label">Division of Medicine<span class="row-sub">Applied Medical Sciences BSc · Nutrition &amp; Medical Sciences BSc</span></td><td>815</td><td>595</td><td>73.0%</td><td>1,205</td><td>1,000</td><td>83.0%</td><td style="color:#27ae60;">+10.0pp</td></tr>
+          <tr><td class="row-label">Division of Surgery &amp; Interventional Science<span class="row-sub">Medical Innovation &amp; Enterprise BSc/MSci · Sport &amp; Exercise Medical Sciences BSc</span></td><td>348</td><td>197</td><td>56.6%</td><td>361</td><td>213</td><td>59.0%</td><td style="color:#27ae60;">+2.4pp</td></tr>
+          <tr><td class="row-label">UCL Medical School<span class="row-sub">Medicine MBBS</span></td><td>2,885</td><td>596</td><td>20.7%</td><td>2,092</td><td>628</td><td>30.0%</td><td style="color:#27ae60;">+9.3pp</td></tr>
+          <tr style="font-weight:700;background:var(--ms-light);"><td>Medical Sciences Total</td><td>4,379</td><td>1,616</td><td>36.9%</td><td>4,036</td><td>2,117</td><td>52.5%</td><td style="color:#27ae60;">+15.6pp</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:0.67rem;color:var(--text-muted);margin-top:0.6rem;line-height:1.5;">Source: UCL UG Admissions Statistics PDFs 2024-25 and 2025-26 (official publications). Data excludes Clearing.</p>
   </div>
 
   <!-- Application volume chart -->
@@ -661,16 +697,17 @@ chart:
           <tr><td class="row-label">Pharmacology BSc</td><td>44</td><td>50</td><td style="color:#27ae60;font-weight:700;">+6</td><td>3.6</td><td>4.0</td><td style="color:#c0392b;">+0.4 ↑</td></tr>
           <tr><td class="row-label">Pharmacy MPharm</td><td>200</td><td>200</td><td style="color:var(--text-muted);">0</td><td>2.6</td><td>2.7</td><td style="color:#c0392b;">+0.1 ↑</td></tr>
           <tr style="font-weight:700;background:var(--ls-light);"><td>Life Sciences Total</td><td>702</td><td>820</td><td style="color:#27ae60;">+118</td><td>3.5</td><td>3.9</td><td style="color:#c0392b;">+0.4 ↑</td></tr>
-          <tr><td colspan="7" style="font-size:0.72rem;font-weight:700;text-transform:uppercase;color:var(--ms-color);padding:0.5rem 0.85rem;background:var(--ms-light);">Faculty of Medical Sciences · division-level only — individual degree breakdowns not published</td></tr>
-          <tr><td class="row-label">Cancer Biomedicine BSc</td><td>30</td><td>35</td><td style="color:#27ae60;font-weight:700;">+5</td><td>6.0</td><td>6.3</td><td style="color:#c0392b;">+0.3 ↑</td></tr>
-          <tr><td class="row-label">Infection &amp; Immunity BSc</td><td>18</td><td>16</td><td style="color:#c0392b;font-weight:700;">−2</td><td>2.6</td><td>3.5</td><td style="color:#c0392b;">+0.9 ↑</td></tr>
-          <tr><td class="row-label">Division of Medicine*</td><td>164</td><td>174</td><td style="color:#27ae60;font-weight:700;">+10</td><td>3.6</td><td>5.7</td><td style="color:#c0392b;font-weight:700;">+2.1 ↑</td></tr>
-          <tr><td class="row-label">Medicine MBBS</td><td>334</td><td>337</td><td style="color:#27ae60;font-weight:700;">+3</td><td>1.8</td><td>1.9</td><td style="color:#c0392b;">+0.1 ↑</td></tr>
+          <tr><td colspan="7" style="font-size:0.72rem;font-weight:700;text-transform:uppercase;color:var(--ms-color);padding:0.5rem 0.85rem;background:var(--ms-light);">Faculty of Medical Sciences</td></tr>
+          <tr><td class="row-label">Cancer Institute<span class="row-sub">Cancer Biomedicine BSc</span></td><td>30</td><td>35</td><td style="color:#27ae60;font-weight:700;">+5</td><td>6.0</td><td>6.3</td><td style="color:#c0392b;">+0.3 ↑</td></tr>
+          <tr><td class="row-label">Division of Infection &amp; Immunity<span class="row-sub">Infection &amp; Immunity BSc</span></td><td>18</td><td>16</td><td style="color:#c0392b;font-weight:700;">−2</td><td>2.6</td><td>3.5</td><td style="color:#c0392b;">+0.9 ↑</td></tr>
+          <tr><td class="row-label">Division of Medicine<span class="row-sub">Applied Medical Sciences BSc · Nutrition &amp; Medical Sciences BSc</span></td><td>164</td><td>174</td><td style="color:#27ae60;font-weight:700;">+10</td><td>3.6</td><td>5.7</td><td style="color:#c0392b;font-weight:700;">+2.1 ↑</td></tr>
+          <tr><td class="row-label">Division of Surgery &amp; Interventional Science<span class="row-sub">Medical Innovation &amp; Enterprise BSc/MSci · Sport &amp; Exercise Medical Sciences BSc</span></td><td>78</td><td>62</td><td style="color:#c0392b;font-weight:700;">−16</td><td>2.5</td><td>3.4</td><td style="color:#c0392b;font-weight:700;">+0.9 ↑</td></tr>
+          <tr><td class="row-label">UCL Medical School<span class="row-sub">Medicine MBBS</span></td><td>334</td><td>337</td><td style="color:#27ae60;font-weight:700;">+3</td><td>1.8</td><td>1.9</td><td style="color:#c0392b;">+0.1 ↑</td></tr>
           <tr style="font-weight:700;background:var(--ms-light);"><td>Medical Sciences Total</td><td>624</td><td>624</td><td style="color:var(--text-muted);">0</td><td>2.6</td><td>3.4</td><td style="color:#c0392b;">+0.8 ↑</td></tr>
         </tbody>
       </table>
     </div>
-    <p style="font-size:0.67rem;color:var(--text-muted);margin-top:0.6rem;line-height:1.5;">* Division of Medicine row covers Applied Medical Sciences, Medical Innovation &amp; Enterprise, Nutrition &amp; Medical Sciences, Sport &amp; Exercise Medical Sciences, and Population Health Sciences combined — UCL does not publish places for these individually. Source: UCL UG Admissions Statistics PDFs 2024-25 and 2025-26. Data excludes Clearing.</p>
+    <p style="font-size:0.67rem;color:var(--text-muted);margin-top:0.6rem;line-height:1.5;">Faculty of Medical Sciences rows are division-level — UCL does not publish places for these programmes individually. Source: UCL UG Admissions Statistics PDFs 2024-25 and 2025-26 (official publications); UCL official undergraduate degree listings. Data excludes Clearing.</p>
   </div>
 
   <!-- Callout grid -->
@@ -678,11 +715,11 @@ chart:
     <div class="callout" style="border-color:var(--ls-color);">Life Sciences most competitive: <strong>Pharmacy MPharm</strong> — 24.3% offer rate, unchanged despite UCL-wide expansion.</div>
     <div class="callout" style="border-color:var(--ms-color);">Medical Sciences most competitive: <strong>Medicine MBBS</strong> — 30.0% offer rate; UCAT required.</div>
     <div class="callout" style="border-color:#27ae60;">Only programme with lower offers/place in 2025-26: <strong>Neuroscience BSc</strong> — better calibrated than all other Life Sciences programmes (4.0 → 3.5).</div>
-    <div class="callout" style="border-color:#c0392b;">Worst over-offering: <strong>Division of Medicine</strong> — 5.7 offers per place in 2025-26, up from 3.6. Students who met conditions still competed with 4.7 others for each seat.</div>
+    <div class="callout" style="border-color:#c0392b;">Worst over-offering (2024-25 data): <strong>Division of Medicine</strong> (Applied Medical Sciences + Nutrition &amp; Medical Sciences) — 5.7 offers per place, rising from 3.6. Students who met conditions still competed with 4.7 others for each seat.</div>
   </div>
 
   <div class="info-box" style="border-color:#c0392b;background:#fdf3f3;">
-    <strong>⚠ UCL's 2025-26 over-offering problem:</strong> UCL issued far more conditional offers than it had places for in 2025-26, then rescinded offers from students who had met their grade conditions — a widely reported issue. The offers/place column above shows this directly: UCL issued 38,696 offers university-wide for approximately 9,138 enrolled places, a ratio of 4.2 offers per place. A ratio above 4.0 means UCL offered a place to more than 4 students for every 1 available seat. Students accepting a 2027-28 conditional offer from UCL should be aware this risk may persist, particularly in the Division of Medicine (5.7 in 2025-26) and Biological Sciences (4.8). Pharmacy MPharm (2.7) and Medicine MBBS (1.9) are the best-calibrated programmes by this measure. Sources: <a href="https://www.ucl.ac.uk/prospective-students/undergraduate/sites/prospective_students_undergraduate/files/undergraduate_application_data_2025-26.pdf" target="_blank" style="color:#c0392b;">UCL UG Admissions Data 2025-26 (official PDF)</a> · <a href="https://www.ucl.ac.uk/prospective-students/undergraduate/sites/prospective_students_undergraduate/files/ug_apps_per_place_2024-25.pdf" target="_blank" style="color:#c0392b;">UCL UG Admissions Data 2024-25 (official PDF)</a>.
+    <strong>⚠ UCL's 2025-26 over-offering problem:</strong> UCL issued far more conditional offers than it had places for in 2025-26, then rescinded offers from students who had met their grade conditions — a widely reported issue. The offers/place column above shows this directly: UCL issued 38,696 offers university-wide for approximately 9,138 enrolled places, a ratio of 4.2 offers per place. A ratio above 4.0 means UCL offered a place to more than 4 students for every 1 available seat. Students accepting a 2027-28 conditional offer from UCL should be aware this risk may persist, particularly in the Division of Medicine (5.7 in 2025-26, covering Applied Medical Sciences and Nutrition &amp; Medical Sciences) and Biological Sciences (4.8). Pharmacy MPharm (2.7) and Medicine MBBS (1.9) are the best-calibrated programmes by this measure. Sources: <a href="https://www.ucl.ac.uk/prospective-students/undergraduate/sites/prospective_students_undergraduate/files/undergraduate_application_data_2025-26.pdf" target="_blank" style="color:#c0392b;">UCL UG Admissions Data 2025-26 (official PDF)</a> · <a href="https://www.ucl.ac.uk/prospective-students/undergraduate/sites/prospective_students_undergraduate/files/ug_apps_per_place_2024-25.pdf" target="_blank" style="color:#c0392b;">UCL UG Admissions Data 2024-25 (official PDF)</a>.
   </div>
 </div>
 

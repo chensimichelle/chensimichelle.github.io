@@ -120,6 +120,7 @@ chart:
   .ptag.high { background:#c0392b; } .ptag.mod { background:#e67e22; }
   .ptag.c { background:var(--chem-color); } .ptag.ce { background:var(--chemeng-color); }
   .ptag.m { background:var(--mat-color); } .ptag.b { background:var(--bioe-color); }
+  .ptag.flagship { background:var(--text-primary); }
   .prog-detail-body { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:0.85rem; }
   .sec-label { font-size:0.63rem; font-weight:700; letter-spacing:0.09em; text-transform:uppercase; color:var(--text-muted); margin-bottom:0.35rem; }
   .prog-desc { font-size:0.8rem; color:var(--text-secondary); line-height:1.65; }
@@ -184,113 +185,287 @@ chart:
     .stat-row,.prog-quartet,.esat-grid,.do-dont,.decision-grid { grid-template-columns:1fr; }
     .prog-detail-body,.prog-detail-footer,.mistake-item { grid-template-columns:1fr; }
   }
+
+  /* =====================================================
+     NEW — Tab 1 "Snapshot" cycle tables
+     ===================================================== */
+  .cycle-block { border-radius:12px; overflow:hidden; border:1px solid var(--border); margin-bottom:1.5rem; }
+  .cycle-bar { padding:0.8rem 1.1rem; color:#fff; display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:0.4rem; }
+  .cycle-bar .name { font-family:'DM Serif Display',serif; font-size:1rem; }
+  .cycle-bar .sub { font-size:0.68rem; opacity:0.85; }
+  .cycle-bar.chem { background:var(--chem-color); } .cycle-bar.chemeng { background:var(--chemeng-color); }
+  .cycle-bar.mat { background:var(--mat-color); } .cycle-bar.bioe { background:var(--bioe-color); }
+  table.cycle-table { width:100%; border-collapse:collapse; font-size:0.78rem; }
+  .cycle-table thead th { font-size:0.62rem; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:var(--text-muted); text-align:right; padding:0.6rem 0.7rem 0.35rem; background:var(--bg-soft); white-space:nowrap; }
+  .cycle-table thead th:first-child { text-align:left; }
+  .cycle-table thead th .yr { display:block; font-weight:400; font-size:0.58rem; margin-top:0.1rem; }
+  .cycle-table td { padding:0.65rem 0.7rem; text-align:right; border-bottom:1px solid var(--border); vertical-align:middle; }
+  .cycle-table td:first-child { text-align:left; }
+  .cycle-table tbody tr:last-child td { border-bottom:none; }
+  .cycle-table tr.total-row td { background:var(--bg-soft); font-size:0.74rem; color:var(--text-muted); }
+  .cycle-table .pname { font-weight:700; color:var(--text-primary); display:block; font-size:0.82rem; }
+  .cycle-table .pname.chem{color:var(--chem-color);} .cycle-table .pname.chemeng{color:var(--chemeng-color);}
+  .cycle-table .pname.mat{color:var(--mat-color);} .cycle-table .pname.bioe{color:var(--bioe-color);}
+  .cycle-table td.dept-edge{border-left:3px solid transparent;}
+  .cycle-table tr.r-chem td:first-child{border-left:3px solid var(--chem-color);}
+  .cycle-table tr.r-chemeng td:first-child{border-left:3px solid var(--chemeng-color);}
+  .cycle-table tr.r-mat td:first-child{border-left:3px solid var(--mat-color);}
+  .cycle-table tr.r-bioe td:first-child{border-left:3px solid var(--bioe-color);}
+  .cycle-table tr.total-row td:first-child{border-left:3px solid transparent;}
+  .dept-legend{display:flex;gap:1.1rem;flex-wrap:wrap;margin-bottom:1rem;font-size:0.74rem;color:var(--text-secondary);}
+  .dept-legend span{display:inline-flex;align-items:center;gap:0.4rem;}
+  .dept-legend .dot{width:9px;height:9px;border-radius:50%;display:inline-block;}
+  .cycle-table .pmeta { display:block; font-size:0.63rem; color:var(--text-muted); margin-top:0.1rem; font-weight:400; }
+  .rate-val { font-weight:700; }
+  .rate-val.chem { color:var(--chem-color); } .rate-val.chemeng { color:var(--chemeng-color); }
+  .rate-val.mat { color:var(--mat-color); } .rate-val.bioe { color:var(--bioe-color); }
+  .chg { font-weight:700; font-size:0.78rem; }
+  .chg.pos { color:#27ae60; } .chg.neg { color:#c0392b; }
+  .chg.pos::before { content:"+"; }
+  @media (max-width:680px){ .cycle-table{ font-size:0.68rem; } .cycle-table td, .cycle-table thead th{ padding:0.45rem 0.35rem; } }
+
+  /* =====================================================
+     NEW — Tab 2 "Selectivity Spectrum"
+     ===================================================== */
+  .spectrum-block { background:var(--bg-soft); border:1px solid var(--border); border-radius:12px; padding:1.25rem 1.4rem; margin-bottom:1.5rem; }
+  .spectrum-hdr { display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:0.5rem; margin-bottom:1.1rem; }
+  .spectrum-hdr h3 { font-family:'DM Serif Display',serif; font-size:1.1rem; }
+  .chem .spectrum-hdr h3, h3.chem-t { color:var(--chem-color); }
+  .spectrum-hdr .meta { font-size:0.68rem; color:var(--text-muted); display:block; margin-top:0.1rem; }
+  .spread-badge { text-align:right; }
+  .spread-badge .num { font-family:'DM Serif Display',serif; font-size:1.5rem; line-height:1; }
+  .spread-badge .num.flat { color:#27ae60; }
+  .spread-badge .num.wide { color:#c0392b; }
+  .spread-badge .lbl { font-size:0.6rem; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-muted); }
+  .spec-line { display:flex; align-items:center; gap:0.8rem; padding:0.45rem 0; border-bottom:1px dashed var(--border); }
+  .spec-line:last-child { border-bottom:none; }
+  .spec-name { width:172px; flex:0 0 172px; }
+  .spec-name b { display:block; font-size:0.78rem; }
+  .spec-name small { color:var(--text-muted); font-size:0.63rem; }
+  .spec-bar-wrap { flex:1; height:9px; background:rgba(0,0,0,0.07); border-radius:5px; }
+  .spec-bar-fill { height:100%; border-radius:5px; }
+  .spec-num { width:56px; flex:0 0 56px; text-align:right; font-weight:700; font-size:0.8rem; }
+  .spec-num small { display:block; font-weight:400; color:var(--text-muted); font-size:0.6rem; }
+  .spectrum-note { margin-top:0.9rem; font-size:0.74rem; color:var(--text-secondary); line-height:1.6; border-top:1px solid var(--border); padding-top:0.7rem; }
+  .single-route-box { font-size:0.82rem; color:var(--text-secondary); line-height:1.65; }
+  .single-route-box .big { font-family:'DM Serif Display',serif; font-size:1.8rem; }
+  @media (max-width:680px){ .spec-name{width:auto;flex:1 0 100%;margin-bottom:0.3rem;} .spec-line{flex-wrap:wrap;} .spec-num{margin-left:auto;} }
+
+  /* =====================================================
+     NEW — Tab 3 diff list (appended inside prog-detail cards)
+     ===================================================== */
+  .diff-list { margin-top:0.9rem; border-top:1px solid rgba(0,0,0,0.08); padding-top:0.85rem; }
+  .diff-list .dl-title { font-size:0.63rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-muted); margin-bottom:0.6rem; }
+  .diff-row { display:grid; grid-template-columns:175px 1fr; gap:0.8rem; padding:0.5rem 0; border-bottom:1px solid rgba(0,0,0,0.05); }
+  .diff-row:last-child { border-bottom:none; }
+  .diff-row .dn { font-weight:700; font-size:0.78rem; }
+  .diff-row .dn .rate { display:block; font-weight:700; font-size:0.76rem; margin-top:0.15rem; }
+  .chem .diff-row .dn .rate { color:var(--chem-color); } .chemeng .diff-row .dn .rate { color:var(--chemeng-color); }
+  .mat .diff-row .dn .rate { color:var(--mat-color); } .bioe .diff-row .dn .rate { color:var(--bioe-color); }
+  .diff-row .dt { font-size:0.77rem; color:var(--text-secondary); line-height:1.55; }
+  @media (max-width:680px){ .diff-row{ grid-template-columns:1fr; } }
 </style>
 
 
 <nav class="tab-nav">
   <div class="tab-nav-inner">
-    <button class="tab-btn active" onclick="showTab('overview',this)">Overview</button>
-    <button class="tab-btn" onclick="showTab('programmes',this)">Programmes</button>
+    <button class="tab-btn active" onclick="showTab('snapshot',this)">Snapshot</button>
+    <button class="tab-btn" onclick="showTab('spectrum',this)">Selectivity Spectrum</button>
+    <button class="tab-btn" onclick="showTab('differences',this)">Programme Differences</button>
     <button class="tab-btn" onclick="showTab('admissions',this)">Admissions Data</button>
     <button class="tab-btn" onclick="showTab('apply',this)">How to Apply</button>
   </div>
 </nav>
 
-<!-- TAB 1 OVERVIEW -->
-<div id="tab-overview" class="tab-panel active" style="display:block">
+<!-- ============================================================
+     TAB 1 — SNAPSHOT (replaces old Overview)
+     ============================================================ -->
+<div id="tab-snapshot" class="tab-panel active" style="display:block">
   <p style="margin-top:1.5rem;font-size:0.82rem;color:var(--text-muted);">UK · Chemistry · Chemical Engineering · Materials · Biomedical Engineering · A-Level Applicant Guide · 2026–27 Entry</p>
   <h2 class="section-title">Imperial College London</h2>
   <div class="divider"></div>
   <div class="overview-intro">
-    <p>This guide covers <strong>4 undergraduate programmes</strong> — Chemistry, Chemical Engineering, Materials, and Biomedical Engineering — at Imperial College London, ranked <strong>#2 in the world (QS 2026)</strong>. Written for students applying with <strong>A-levels</strong> from international schools for <strong>2026–27 entry</strong>.</p>
-    <p>Key differentiators: <strong>Chemistry</strong> requires an interview (no ESAT); <strong>Chemical Engineering</strong> requires ESAT and interview — the most demanding entry process of the four; <strong>Materials</strong> requires an interview only; <strong>Biomedical Engineering</strong> requires an interview and is the largest programme by overseas offer volume (341 overseas offers in 2024, up from 154 in 2020). All share the 15 January UCAS deadline and IELTS 7.0 minimum.</p>
+    <p>This guide covers <strong>four departments</strong> — Chemistry, Chemical Engineering, Materials, and Bioengineering — at Imperial College London, ranked <strong>#2 in the world (QS 2026)</strong>. Written for students applying with <strong>A-levels</strong> from international schools for <strong>2026–27 entry</strong>.</p>
+    <p>The table below merges every department's two largest routes by application volume into one view, 2023 → 2024 UCAS cycles, with <strong>RATE = Offers ÷ Applications</strong> and a year-on-year <strong>Change</strong> column. Programme names are colour-coded by department (see legend) — Chemical Engineering runs only one undergraduate route, so it appears once. Tab 2 covers every remaining sub-programme; Tab 3 explains what's academically different between them.</p>
   </div>
+
   <div class="stat-row">
     <div class="stat-card"><span class="stat-card-num">#2</span><span class="stat-card-label">QS World Rankings 2026</span></div>
-    <div class="stat-card"><span class="stat-card-num">4</span><span class="stat-card-label">Programmes in this guide</span></div>
+    <div class="stat-card"><span class="stat-card-num">4</span><span class="stat-card-label">Departments in this guide</span></div>
     <div class="stat-card"><span class="stat-card-num">G5</span><span class="stat-card-label">Elite UK university group</span></div>
     <div class="stat-card"><span class="stat-card-num">7.0</span><span class="stat-card-label">IELTS required (all four)</span></div>
   </div>
-  <h3 style="font-family:'DM Serif Display',serif;font-size:1.1rem;margin-bottom:0.5rem;">The 4 Programmes at a Glance</h3>
-  <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:1rem;">Faculty of Natural Sciences · Faculty of Engineering · Real 2024 data</p>
-  <div class="prog-quartet">
-    <div class="prog-card chem">
-      <div class="prog-card-label">Chemistry</div>
-      <div class="prog-card-name">BSc · 3 yrs / MSci · 4 yrs</div>
-      <div class="prog-card-meta">Faculty of Natural Sciences · UCAS: F100</div>
-      <div class="prog-card-stats">
-        <div class="prog-stat"><div class="prog-stat-num">A*AA</div><div class="prog-stat-label">Typical offer</div></div>
-        <div class="prog-stat"><div class="prog-stat-num">Interview</div><div class="prog-stat-label">Selection</div></div>
-        <div class="prog-stat"><div class="prog-stat-num">14.2%</div><div class="prog-stat-label">Success rate 2024</div></div>
-        <div class="prog-stat"><div class="prog-stat-num">202</div><div class="prog-stat-label">Overseas offers 2024</div></div>
-      </div>
-    </div>
-    <div class="prog-card chemeng">
-      <div class="prog-card-label">Chemical Engineering</div>
-      <div class="prog-card-name">MEng · 4 yrs</div>
-      <div class="prog-card-meta">Faculty of Engineering · UCAS: H810</div>
-      <div class="prog-card-stats">
-        <div class="prog-stat"><div class="prog-stat-num">A*AA</div><div class="prog-stat-label">Typical offer</div></div>
-        <div class="prog-stat"><div class="prog-stat-num">ESAT+Int.</div><div class="prog-stat-label">Selection</div></div>
-        <div class="prog-stat"><div class="prog-stat-num">17.2%</div><div class="prog-stat-label">Success rate 2024</div></div>
-        <div class="prog-stat"><div class="prog-stat-num">206</div><div class="prog-stat-label">Overseas offers 2024</div></div>
-      </div>
-    </div>
-    <div class="prog-card mat">
-      <div class="prog-card-label">Materials</div>
-      <div class="prog-card-name">BSc · 3 yrs / MSci · 4 yrs</div>
-      <div class="prog-card-meta">Faculty of Engineering · UCAS: J500</div>
-      <div class="prog-card-stats">
-        <div class="prog-stat"><div class="prog-stat-num">A*A*A</div><div class="prog-stat-label">Typical offer</div></div>
-        <div class="prog-stat"><div class="prog-stat-num">Interview</div><div class="prog-stat-label">Selection</div></div>
-        <div class="prog-stat"><div class="prog-stat-num">~14%</div><div class="prog-stat-label">Success rate 2024</div></div>
-        <div class="prog-stat"><div class="prog-stat-num">81</div><div class="prog-stat-label">Overseas offers 2024</div></div>
-      </div>
-    </div>
-    <div class="prog-card bioe">
-      <div class="prog-card-label">Biomedical Engineering</div>
-      <div class="prog-card-name">MEng · 4 yrs</div>
-      <div class="prog-card-meta">Faculty of Engineering · UCAS: H161</div>
-      <div class="prog-card-stats">
-        <div class="prog-stat"><div class="prog-stat-num">A*AA</div><div class="prog-stat-label">Typical offer</div></div>
-        <div class="prog-stat"><div class="prog-stat-num">Interview</div><div class="prog-stat-label">Selection</div></div>
-        <div class="prog-stat"><div class="prog-stat-num">19.0%</div><div class="prog-stat-label">Success rate 2024</div></div>
-        <div class="prog-stat"><div class="prog-stat-num">341</div><div class="prog-stat-label">Overseas offers 2024</div></div>
-      </div>
-    </div>
+
+  <div class="dept-legend">
+    <span><span class="dot" style="background:var(--chem-color);"></span>Chemistry</span>
+    <span><span class="dot" style="background:var(--chemeng-color);"></span>Chemical Engineering</span>
+    <span><span class="dot" style="background:var(--mat-color);"></span>Materials</span>
+    <span><span class="dot" style="background:var(--bioe-color);"></span>Bioengineering</span>
   </div>
-  <div class="info-box"><strong>Real vs stated minimums:</strong> 51% of Chemistry and 64% of Chemical Engineering 2024 entrants held A*A*A*+. Biomedical Engineering has the highest offer rate (48.1%) but applications have grown 28% since 2020. A*AA is the floor, not a competitive target.</div>
-  <div class="info-box"><strong>ESAT for Chemical Engineering — 3 sections:</strong> Mathematics 1 (algebra, functions, calculus) · Chemistry (mole calculations, physical chemistry) · Physics (mechanics, electricity, waves). Note: ChemEng uses Physics, NOT Biology. Scores 1.0–9.0. Top 10% score above 7.0. Sit ONLY ONCE — only first score used. Registration opens July 2026; Sitting 1 October 2026 (recommended); Sitting 2 January 2027.</div>
-  <h3 style="font-family:'DM Serif Display',serif;font-size:1.1rem;margin-bottom:0.5rem;">Which Programme Suits You?</h3>
-  <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:1rem;">Find your best fit based on your interests and strengths</p>
-  <div class="decision-grid">
-    <div class="decision-card"><div class="decision-q">"I love atoms, molecules, and chemical reactions"</div><div class="decision-best">→ Chemistry</div><div class="decision-also">Also consider: Chemical Engineering (applied problems)</div></div>
-    <div class="decision-card"><div class="decision-q">"I want to engineer medical devices, imaging systems or prosthetics"</div><div class="decision-best">→ Biomedical Engineering</div><div class="decision-also">Also consider: Materials (biomaterials track)</div></div>
-    <div class="decision-card"><div class="decision-q">"I want to design large-scale industrial or pharmaceutical processes"</div><div class="decision-best">→ Chemical Engineering</div><div class="decision-also">Also consider: Chemistry (if fundamentals focus)</div></div>
-    <div class="decision-card"><div class="decision-q">"I am fascinated by biomaterials, nanoscience or aerospace materials"</div><div class="decision-best">→ Materials</div><div class="decision-also">Also consider: Biomedical Engineering (health applications)</div></div>
-    <div class="decision-card"><div class="decision-q">"I want to go into pharmaceutical research or a PhD"</div><div class="decision-best">→ Chemistry</div><div class="decision-also">Also consider: Chemical Engineering (pharma manufacturing)</div></div>
-    <div class="decision-card"><div class="decision-q">"I want to work in healthcare technology or medtech startups"</div><div class="decision-best">→ Biomedical Engineering</div><div class="decision-also">Also consider: Chemical Engineering</div></div>
-    <div class="decision-card"><div class="decision-q">"I want a rigorous engineering degree with strong industry prospects"</div><div class="decision-best">→ Chemical Engineering</div><div class="decision-also">Also consider: Biomedical Engineering</div></div>
-    <div class="decision-card"><div class="decision-q">"I want an interdisciplinary degree bridging chemistry, physics and engineering"</div><div class="decision-best">→ Materials</div><div class="decision-also">Also consider: Chemistry (if chemistry side dominates)</div></div>
+
+  <div class="cycle-block">
+    <table class="cycle-table">
+      <thead><tr>
+        <th>Programme</th>
+        <th>Apps<span class="yr">2023</span></th><th>Offers<span class="yr">2023</span></th><th>Rate<span class="yr">2023</span></th>
+        <th>Apps<span class="yr">2024</span></th><th>Offers<span class="yr">2024</span></th><th>Rate<span class="yr">2024</span></th>
+        <th>Change</th>
+      </tr></thead>
+      <tbody>
+        <tr class="r-chem">
+          <td><span class="pname chem">Chemistry</span><span class="pmeta">BSc · 3yr · F100 · A*AA · Interview</span></td>
+          <td>640</td><td>152</td><td><span class="rate-val chem">23.8%</span></td>
+          <td>704</td><td>202</td><td><span class="rate-val chem">28.7%</span></td>
+          <td><span class="chg pos">4.9pp</span></td>
+        </tr>
+        <tr class="r-chem">
+          <td><span class="pname chem">Chemistry</span><span class="pmeta">MSci · 4yr · A*AA · Interview</span></td>
+          <td>382</td><td>194</td><td><span class="rate-val chem">50.8%</span></td>
+          <td>365</td><td>171</td><td><span class="rate-val chem">46.8%</span></td>
+          <td><span class="chg neg">−4.0pp</span></td>
+        </tr>
+        <tr class="total-row">
+          <td><span class="pname chem" style="font-size:0.74rem;">Chemistry dept total</span><span class="pmeta">all 11 routes</span></td>
+          <td>1,492</td><td>513</td><td><span class="rate-val chem">34.4%</span></td>
+          <td>1,665</td><td>584</td><td><span class="rate-val chem">35.1%</span></td>
+          <td><span class="chg pos">0.7pp</span></td>
+        </tr>
+
+        <tr class="r-chemeng">
+          <td><span class="pname chemeng">Chemical Engineering</span><span class="pmeta">MEng · 4yr · H801 · A*AA · ESAT + Interview</span></td>
+          <td>852</td><td>396</td><td><span class="rate-val chemeng">46.5%</span></td>
+          <td>980</td><td>428</td><td><span class="rate-val chemeng">43.7%</span></td>
+          <td><span class="chg neg">−2.8pp</span></td>
+        </tr>
+
+        <tr class="r-mat">
+          <td><span class="pname mat">Materials Sci &amp; Eng</span><span class="pmeta">BEng · 3yr · JF52 · A*AA · Interview</span></td>
+          <td>254</td><td>109</td><td><span class="rate-val mat">42.9%</span></td>
+          <td>391</td><td>114</td><td><span class="rate-val mat">29.2%</span></td>
+          <td><span class="chg neg">−13.7pp</span></td>
+        </tr>
+        <tr class="r-mat">
+          <td><span class="pname mat">Materials Sci &amp; Eng</span><span class="pmeta">MEng · 4yr · JFM2 · A*AA · Interview</span></td>
+          <td>244</td><td>153</td><td><span class="rate-val mat">62.7%</span></td>
+          <td>295</td><td>154</td><td><span class="rate-val mat">52.2%</span></td>
+          <td><span class="chg neg">−10.5pp</span></td>
+        </tr>
+        <tr class="total-row">
+          <td><span class="pname mat" style="font-size:0.74rem;">Materials dept total</span><span class="pmeta">all 4 active routes</span></td>
+          <td>620</td><td>300</td><td><span class="rate-val mat">48.4%</span></td>
+          <td>821</td><td>298</td><td><span class="rate-val mat">36.3%</span></td>
+          <td><span class="chg neg">−12.1pp</span></td>
+        </tr>
+
+        <tr class="r-bioe">
+          <td><span class="pname bioe">Biomedical Engineering</span><span class="pmeta">MEng · 4yr · H161 · A*AA · Interview</span></td>
+          <td>651</td><td>311</td><td><span class="rate-val bioe">47.8%</span></td>
+          <td>709</td><td>341</td><td><span class="rate-val bioe">48.1%</span></td>
+          <td><span class="chg pos">0.3pp</span></td>
+        </tr>
+        <tr class="r-bioe">
+          <td><span class="pname bioe">Molecular Bioengineering</span><span class="pmeta">MEng · 4yr · H160 · A*AA · Interview</span></td>
+          <td>175</td><td>117</td><td><span class="rate-val bioe">66.9%</span></td>
+          <td>240</td><td>133</td><td><span class="rate-val bioe">55.4%</span></td>
+          <td><span class="chg neg">−11.5pp</span></td>
+        </tr>
+        <tr class="total-row">
+          <td><span class="pname bioe" style="font-size:0.74rem;">Bioengineering dept total</span><span class="pmeta">all 3 active routes</span></td>
+          <td>907</td><td>475</td><td><span class="rate-val bioe">52.4%</span></td>
+          <td>1,064</td><td>541</td><td><span class="rate-val bioe">50.8%</span></td>
+          <td><span class="chg neg">−1.6pp</span></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-  <div class="info-box"><strong>Important:</strong> All four programmes are highly selective. Real entrant grades far exceed stated minimums — 64% of 2024 Chemical Engineering entrants held A*A*A*+. Biomedical Engineering is the most accessible by offer rate (48.1%) but is growing fast. Apply for what genuinely excites you — passion shows in your personal statement and interview.</div>
+
+  <div class="info-box"><strong>Reading this table:</strong> RATE = Offers ÷ Applications. Tabs 2–3 use a different metric, Success Rate = Confirmed Places ÷ Applications, so the same programme shows a different percentage there — that's intentional, not an error. Our most recent complete UCAS cycle is 2024; Imperial's published admissions statistics currently run 2020–2024.</div>
+  <div class="info-box" style="border-color:#c0392b;background:#fdf3f3;"><strong>Worth a decision:</strong> by application volume, Molecular Bioengineering — not Biomedical Technology Ventures — is Bioengineering's second-largest route, so it's shown above. It's smaller than Biomedical Engineering, but its offer rate ran <em>higher</em> in both 2023 and 2024, not lower — see Tab 3. Swap in Biomedical Technology Ventures here if you'd rather keep strict alignment with the Biosciences guide's existing scope.</div>
 </div>
 
-<!-- TAB 3 PROGRAMMES -->
-<div id="tab-programmes" class="tab-panel">
-  <p style="margin-top:1.5rem;font-size:0.82rem;color:var(--text-muted);">4 programmes · Faculty of Natural Sciences · Faculty of Engineering</p>
-  <h2 class="section-title">Programme Introductions</h2>
+<!-- ============================================================
+     TAB 2 — SELECTIVITY SPECTRUM (new)
+     ============================================================ -->
+<div id="tab-spectrum" class="tab-panel">
+  <p style="margin-top:1.5rem;font-size:0.82rem;color:var(--text-muted);">Every undergraduate route · 2020–2024 pooled · sorted easiest → hardest</p>
+  <h2 class="section-title">Selectivity Spectrum</h2>
   <div class="divider"></div>
+  <p style="font-size:0.85rem;color:var(--text-secondary);margin-bottom:1.5rem;line-height:1.7;">Success Rate here = Confirmed Places ÷ Applications, pooled across 2020–2024 for stability (small cohorts swing a lot year to year). Bars share a 0–35% scale across all four departments.</p>
 
+  <!-- CHEMISTRY -->
+  <div class="spectrum-block">
+    <div class="spectrum-hdr">
+      <div><h3 class="chem-t">Chemistry</h3><span class="meta">Faculty of Natural Sciences · 11 active routes</span></div>
+      <div class="spread-badge"><div class="num wide">3.9×</div><div class="lbl">widest spread</div></div>
+    </div>
+    <div class="spec-line"><div class="spec-name"><b>+ Year in Industry</b><small>MSci · 5yr</small></div><div class="spec-bar-wrap"><div class="spec-bar-fill" style="width:73.4%;background:var(--chem-color)"></div></div><div class="spec-num">25.7%<small>n=315</small></div></div>
+    <div class="spec-line"><div class="spec-name"><b>Chemistry (straight)</b><small>MSci · 4yr</small></div><div class="spec-bar-wrap"><div class="spec-bar-fill" style="width:60%;background:var(--chem-color)"></div></div><div class="spec-num">21.0%<small>n=1,735</small></div></div>
+    <div class="spec-line"><div class="spec-name"><b>+ Research Abroad</b><small>MSci · 4yr</small></div><div class="spec-bar-wrap"><div class="spec-bar-fill" style="width:54.3%;background:var(--chem-mid)"></div></div><div class="spec-num">19.0%<small>n=273</small></div></div>
+    <div class="spec-line"><div class="spec-name"><b>+ Research Abroad + YII</b><small>MSci · 5yr</small></div><div class="spec-bar-wrap"><div class="spec-bar-fill" style="width:52.6%;background:var(--chem-mid)"></div></div><div class="spec-num">18.4%<small>n=179</small></div></div>
+    <div class="spec-line"><div class="spec-name"><b>+ Medicinal Chemistry + YII</b><small>MSci · 5yr</small></div><div class="spec-bar-wrap"><div class="spec-bar-fill" style="width:48.6%;background:var(--chem-mid)"></div></div><div class="spec-num">17.0%<small>n=259</small></div></div>
+    <div class="spec-line"><div class="spec-name"><b>+ Molecular Physics</b><small>MSci · pooled</small></div><div class="spec-bar-wrap"><div class="spec-bar-fill" style="width:44%;background:#7a8aab"></div></div><div class="spec-num">15.4%<small>n=332</small></div></div>
+    <div class="spec-line"><div class="spec-name"><b>+ Medicinal Chemistry</b><small>MSci · 4yr</small></div><div class="spec-bar-wrap"><div class="spec-bar-fill" style="width:39.1%;background:#7a8aab"></div></div><div class="spec-num">13.7%<small>n=663</small></div></div>
+    <div class="spec-line"><div class="spec-name"><b>Chemistry (straight)</b><small>BSc · 3yr</small></div><div class="spec-bar-wrap"><div class="spec-bar-fill" style="width:38.6%;background:#7a8aab"></div></div><div class="spec-num">13.5%<small>n=2,854</small></div></div>
+    <div class="spec-line"><div class="spec-name"><b>+ Management</b><small>BSc · 4yr</small></div><div class="spec-bar-wrap"><div class="spec-bar-fill" style="width:18.9%;background:#1a1a1a"></div></div><div class="spec-num">6.6%<small>n=241</small></div></div>
+    <div class="spectrum-note">French / German / Spanish for Science MSci variants ran earlier in the period but had <b>zero applicants in 2023–24</b> — appear discontinued, omitted above. <b>+ Management (BSc/5yr)</b> and Molecular-Physics-with-YII have too few confirmed places to plot reliably (n&lt;15/yr) — directional only.</div>
+  </div>
+
+  <!-- CHEMICAL ENGINEERING -->
+  <div class="spectrum-block">
+    <div class="spectrum-hdr">
+      <div><h3 style="color:var(--chemeng-color);">Chemical Engineering</h3><span class="meta">Faculty of Engineering · 1 route</span></div>
+      <div class="spread-badge"><div class="num flat">n/a</div><div class="lbl">single-route dept</div></div>
+    </div>
+    <div class="single-route-box">Chemical Engineering runs <b>one</b> admissions line — MEng, ESAT-gated, <span class="big" style="color:var(--chemeng-color);">19.0%</span> five-year success rate (979 apps → 168 confirmed in 2024 alone). There's no internal comparison to make here: that figure is the genuine odds, with no easier side-door through a sibling programme, unlike every other department on this page.</div>
+  </div>
+
+  <!-- MATERIALS -->
+  <div class="spectrum-block">
+    <div class="spectrum-hdr">
+      <div><h3 style="color:var(--mat-color);">Materials</h3><span class="meta">Faculty of Engineering · 4 active routes</span></div>
+      <div class="spread-badge"><div class="num" style="color:#c0742e;">2.5×</div><div class="lbl">spread</div></div>
+    </div>
+    <div class="spec-line"><div class="spec-name"><b>Materials Sci &amp; Eng</b><small>MEng · 4yr</small></div><div class="spec-bar-wrap"><div class="spec-bar-fill" style="width:74.6%;background:var(--mat-color)"></div></div><div class="spec-num">26.1%<small>n=1,274</small></div></div>
+    <div class="spec-line"><div class="spec-name"><b>Materials Sci &amp; Eng</b><small>BEng · 3yr</small></div><div class="spec-bar-wrap"><div class="spec-bar-fill" style="width:43.7%;background:var(--mat-mid)"></div></div><div class="spec-num">15.3%<small>n=1,434</small></div></div>
+    <div class="spec-line"><div class="spec-name"><b>+ Nuclear Engineering</b><small>MEng · 4yr</small></div><div class="spec-bar-wrap"><div class="spec-bar-fill" style="width:37.1%;background:#9b7aab"></div></div><div class="spec-num">13.0%<small>n=253</small></div></div>
+    <div class="spec-line"><div class="spec-name"><b>Biomaterials &amp; Tissue Eng</b><small>MEng · 4yr</small></div><div class="spec-bar-wrap"><div class="spec-bar-fill" style="width:29.7%;background:#1a1a1a"></div></div><div class="spec-num">10.4%<small>n=249</small></div></div>
+    <div class="spectrum-note"><b>+ Management (BEng)</b> ran around a tiny base earlier in the period and shows <b>zero applicants in 2024</b> — looks discontinued, worth verifying with the department. Note the direction here is the <b>opposite</b> of Chemistry: the specialist tracks (Nuclear, Biomaterials) are <i>harder</i> to get into than the plain MEng, not easier.</div>
+  </div>
+
+  <!-- BIOENGINEERING -->
+  <div class="spectrum-block">
+    <div class="spectrum-hdr">
+      <div><h3 style="color:var(--bioe-color);">Bioengineering</h3><span class="meta">Faculty of Engineering · 3 active routes</span></div>
+      <div class="spread-badge"><div class="num flat">1.4×</div><div class="lbl">narrowest spread</div></div>
+    </div>
+    <div class="spec-line"><div class="spec-name"><b>Molecular Bioengineering</b><small>MEng · 4yr</small></div><div class="spec-bar-wrap"><div class="spec-bar-fill" style="width:89.7%;background:var(--bioe-color)"></div></div><div class="spec-num">31.4%<small>n=930</small></div></div>
+    <div class="spec-line"><div class="spec-name"><b>Biomedical Tech Ventures</b><small>BSc · 3yr</small></div><div class="spec-bar-wrap"><div class="spec-bar-fill" style="width:62.6%;background:var(--bioe-mid)"></div></div><div class="spec-num">21.9%<small>n=196 · 2yr only</small></div></div>
+    <div class="spec-line"><div class="spec-name"><b>Biomedical Engineering</b><small>MEng · 4yr</small></div><div class="spec-bar-wrap"><div class="spec-bar-fill" style="width:62%;background:var(--bioe-mid)"></div></div><div class="spec-num">21.7%<small>n=3,036</small></div></div>
+    <div class="spectrum-note">Bioengineering is the most internally consistent department here — its three routes sit within 10 points of each other. Biomedical Technology Ventures only has two admissions cycles of data (launched 2023), so treat its figure as provisional.</div>
+  </div>
+
+  <div class="info-box"><strong>Headline:</strong> Chemistry has by far the widest internal spread (3.9×, Management vs. Year-in-Industry) of any department here — bigger than the spread <em>between</em> Chemistry and Chemical Engineering as whole departments. Bioengineering, despite covering three genuinely different programmes, is the most evenly matched.</div>
+</div>
+
+<!-- ============================================================
+     TAB 3 — PROGRAMME DIFFERENCES (replaces old Programmes)
+     ============================================================ -->
+<div id="tab-differences" class="tab-panel">
+  <p style="margin-top:1.5rem;font-size:0.82rem;color:var(--text-muted);">4 departments · Faculty of Natural Sciences · Faculty of Engineering</p>
+  <h2 class="section-title">Programme Differences</h2>
+  <div class="divider"></div>
+  <p style="font-size:0.85rem;color:var(--text-secondary);margin-bottom:1.5rem;line-height:1.7;">Each department's largest, default route — described in full, exactly as before — followed by how every sibling route differs from it.</p>
+
+  <!-- CHEMISTRY: major = BSc -->
   <div class="prog-detail chem">
     <div class="prog-detail-hdr">
-      <div><div class="prog-detail-title">Chemistry</div><div class="prog-detail-meta">BSc · 3 years / MSci · 4 years · Faculty of Natural Sciences · UCAS: F100</div></div>
-      <div class="ptags"><span class="ptag c">Interview</span><span class="ptag high">High Competition</span></div>
+      <div><div class="prog-detail-title">Chemistry</div><div class="prog-detail-meta">BSc · 3 years · Faculty of Natural Sciences · UCAS: F100</div></div>
+      <div class="ptags"><span class="ptag flagship">Major Programme</span><span class="ptag c">Interview</span><span class="ptag high">High Competition</span></div>
     </div>
     <div class="prog-detail-body">
       <div>
         <div class="sec-label">What is it?</div>
-        <p class="prog-desc">Explores atoms, molecules and reactions — from quantum chemistry and thermodynamics to organic synthesis and spectroscopy. One of Imperial's most popular Natural Sciences degrees. 2024: 704 applications, 202 offers, 100 enrolled. Applications grew 75% since 2020.</p>
+        <p class="prog-desc">Explores atoms, molecules and reactions — from quantum chemistry and thermodynamics to organic synthesis and spectroscopy. The department's largest and default route: 704 applications in 2024, more than every other Chemistry route combined with room to spare. Years one and two are identical across all six Chemistry routes below, so switching later is straightforward.</p>
         <div class="sec-label" style="margin-top:0.75rem;">What you'll study</div>
         <ul class="plist"><li>Organic &amp; inorganic chemistry</li><li>Physical chemistry &amp; thermodynamics</li><li>Computational &amp; analytical methods</li><li>Research project (final year)</li></ul>
       </div>
@@ -302,15 +477,25 @@ chart:
     <div class="prog-detail-footer">
       <div><div class="pf-label">A-Level Offer</div><div class="pf-val">A*AA</div></div>
       <div><div class="pf-label">Must Include</div><div class="pf-val">Chemistry + Maths/Physics/Biology</div></div>
-      <div><div class="pf-label">2024 Offer Rate (BSc)</div><div class="pf-val">28.7% (202/704)</div></div>
+      <div><div class="pf-label">2024 Offer Rate</div><div class="pf-val">28.7% (202/704)</div></div>
     </div>
-    <div class="prog-star">★ 51% of 2024 entrants held A*A*A*+; 85% held A*A*A or above. Overseas offers: 120 (2020) → 202 (2024). Chemistry with Medicinal Chemistry (MSci) and Chemistry with Research Abroad (MSci) are popular sub-programmes.</div>
+    <div class="prog-star">★ 51% of 2024 entrants held A*A*A*+; 85% held A*A*A or above. Overseas offers: 120 (2020) → 202 (2024).</div>
+
+    <div class="diff-list">
+      <div class="dl-title">How the other five routes differ from the BSc</div>
+      <div class="diff-row"><div class="dn">MSci<span class="rate">13.5% → 21.0%</span></div><div class="dt">One extra year, same entry grades, same first two years. Adds a substantially bigger final-year research project and more advanced, research-led modules. The success-rate jump isn't about the work being easier — applicants who go straight for the 4-year code already know they want the research-heavy path, so it's a smaller, more self-selected pool.</div></div>
+      <div class="diff-row"><div class="dn">+ Medicinal Chemistry<span class="rate">13.7%</span></div><div class="dt">Same MSci structure, co-taught by chemistry lecturers and pharmaceutical-industry experts, aimed at drug discovery. The one specialist track that does <em>not</em> get easier than the BSc — its rate sits right alongside it.</div></div>
+      <div class="diff-row"><div class="dn">+ Molecular Physics<span class="rate">15.4%</span></div><div class="dt">Same MSci structure, co-taught with Mathematics and Physics instead. Slightly above the BSc's rate, between Medicinal Chemistry and the placement-based routes.</div></div>
+      <div class="diff-row"><div class="dn">+ Year in Industry / + Research Abroad<span class="rate">18–26%</span></div><div class="dt">A paid industry placement, or an ~8-month placement at a partner university overseas, added onto the MSci. Both run well above the BSc's rate — a longer, more specific commitment narrows the pool to people who are already sure.</div></div>
+      <div class="diff-row"><div class="dn">+ Management<span class="rate">6.6%</span></div><div class="dt">Keeps the BSc's three years, swaps the final-year chemistry specialisation for a year in the Business School. By far the smallest applicant pool of any Chemistry route — yet consistently the <em>most</em> selective, every year for five years running.</div></div>
+    </div>
   </div>
 
+  <!-- CHEMICAL ENGINEERING: only route -->
   <div class="prog-detail chemeng">
     <div class="prog-detail-hdr">
-      <div><div class="prog-detail-title">Chemical Engineering</div><div class="prog-detail-meta">MEng · 4 years · Faculty of Engineering · UCAS: H810</div></div>
-      <div class="ptags"><span class="ptag ce">ESAT + Interview</span><span class="ptag high">High Competition</span></div>
+      <div><div class="prog-detail-title">Chemical Engineering</div><div class="prog-detail-meta">MEng · 4 years · Faculty of Engineering · UCAS: H801</div></div>
+      <div class="ptags"><span class="ptag flagship">Major Programme</span><span class="ptag ce">ESAT + Interview</span><span class="ptag high">High Competition</span></div>
     </div>
     <div class="prog-detail-body">
       <div>
@@ -329,20 +514,26 @@ chart:
       <div><div class="pf-label">Must Include</div><div class="pf-val">Chemistry + Mathematics (both)</div></div>
       <div><div class="pf-label">2024 Offer Rate</div><div class="pf-val">43.7% (428/979)</div></div>
     </div>
-    <div class="prog-star">★ Most demanding entry — ESAT + interview. 64% of 2024 entrants held A*A*A*+. Applications grew from 754 (2020) to 979 (2024). The only single-programme department in this guide.</div>
+    <div class="prog-star">★ Most demanding entry — ESAT + interview. 64% of 2024 entrants held A*A*A*+. Applications grew from 754 (2020) to 979 (2024).</div>
+
+    <div class="diff-list">
+      <div class="dl-title">How the other routes differ</div>
+      <div class="diff-row"><div class="dn">There aren't any<span class="rate">19.0%</span></div><div class="dt">The only department on this page with no sibling routes at all. The 19.0% five-year success rate is the genuine odds for anyone applying — there's no easier specialist side-door the way there is in Chemistry or Materials.</div></div>
+    </div>
   </div>
 
+  <!-- MATERIALS: major = BEng -->
   <div class="prog-detail mat">
     <div class="prog-detail-hdr">
-      <div><div class="prog-detail-title">Materials</div><div class="prog-detail-meta">BSc · 3 years / MSci · 4 years · Faculty of Engineering · UCAS: J500</div></div>
-      <div class="ptags"><span class="ptag m">Interview</span><span class="ptag high">High Competition</span></div>
+      <div><div class="prog-detail-title">Materials Science &amp; Engineering</div><div class="prog-detail-meta">BEng · 3 years · Faculty of Engineering · UCAS: JF52</div></div>
+      <div class="ptags"><span class="ptag flagship">Major Programme</span><span class="ptag m">Interview</span><span class="ptag high">High Competition</span></div>
     </div>
     <div class="prog-detail-body">
       <div>
         <div class="sec-label">What is it?</div>
-        <p class="prog-desc">Studies the structure, properties and applications of materials — metals, ceramics, polymers and biomaterials — and how to design new ones. Bridging chemistry, physics and engineering. 2024 (combined programmes): 526 applications, 144 offers, 63 enrolled. Overseas offers: 43 (2020) → 74 (2024) for Materials Science &amp; Eng alone.</p>
+        <p class="prog-desc">Studies the structure, properties and applications of materials — metals, ceramics, polymers and biomaterials — and how to design new ones. The largest of the department's four active routes (391 applications in 2024). The first two years are shared with every other Materials route, so the BEng is the natural default if you're not yet committed to a specialism.</p>
         <div class="sec-label" style="margin-top:0.75rem;">What you'll study</div>
-        <ul class="plist"><li>Structure &amp; properties of materials</li><li>Biomaterials &amp; nanoscience</li><li>Computational modelling</li><li>Materials design &amp; characterisation</li></ul>
+        <ul class="plist"><li>Structure &amp; properties of materials</li><li>Computational modelling</li><li>Materials design &amp; characterisation</li><li>Group &amp; individual project work</li></ul>
       </div>
       <div>
         <div class="sec-label">Career paths</div>
@@ -350,22 +541,31 @@ chart:
       </div>
     </div>
     <div class="prog-detail-footer">
-      <div><div class="pf-label">A-Level Offer</div><div class="pf-val">A*A*A</div></div>
-      <div><div class="pf-label">Must Include</div><div class="pf-val">Chemistry or Physics + Mathematics</div></div>
-      <div><div class="pf-label">2024 Overseas Offers</div><div class="pf-val">81 (combined programmes)</div></div>
+      <div><div class="pf-label">A-Level Offer</div><div class="pf-val">A*AA <span style="font-weight:400;color:var(--text-muted);">(min. AAA)</span></div></div>
+      <div><div class="pf-label">Must Include</div><div class="pf-val">Maths + Physics/Chemistry</div></div>
+      <div><div class="pf-label">2024 Offer Rate</div><div class="pf-val">29.2% (114/391)</div></div>
     </div>
-    <div class="prog-star">★ Highest stated offer grade (A*A*A). More grade spread than other programmes — ~20% of entrants held AAA. Sub-programmes include Biomaterials &amp; Tissue Engineering and Materials with Nuclear Engineering.</div>
+    <div class="prog-star">★ Most accessible grade profile of the four departments — ~20% of entrants held AAA, the floor minimum. Typical offer is A*AA, not A*A*A as sometimes quoted — confirm against the department's own apply page.</div>
+
+    <div class="diff-list">
+      <div class="dl-title">How the other three routes differ from the BEng</div>
+      <div class="diff-row"><div class="dn">MEng<span class="rate">15.3% → 26.1%</span></div><div class="dt">One extra year, Master's-level elective modules and an individual research project added to the same BEng foundation. Same pattern as Chemistry's BSc → MSci step: the 4-year code draws a smaller, more committed pool and is easier to get an offer on than the BEng, despite identical entry grades.</div></div>
+      <div class="diff-row"><div class="dn">+ Nuclear Engineering<span class="rate">13.0%</span></div><div class="dt">Same MEng structure, specialised toward nuclear materials and engineering. Here the pattern flips from Chemistry's specialist tracks — this runs <em>harder</em> to get into than the BEng it's built on, not easier.</div></div>
+      <div class="diff-row"><div class="dn">Biomaterials &amp; Tissue Engineering<span class="rate">10.4%</span></div><div class="dt">A separate MEng specialised toward biomedical-facing materials — bone regeneration, implants, tissue scaffolds. Currently the single most selective route in the department.</div></div>
+      <div class="diff-row"><div class="dn">+ Management<span class="rate">discontinued?</span></div><div class="dt">Existed earlier in 2020–24 but shows zero applicants in the latest cycle — looks discontinued. Worth checking with the department before presenting it as a live option.</div></div>
+    </div>
   </div>
 
+  <!-- BIOENGINEERING: major = Biomedical Engineering -->
   <div class="prog-detail bioe">
     <div class="prog-detail-hdr">
       <div><div class="prog-detail-title">Biomedical Engineering</div><div class="prog-detail-meta">MEng · 4 years · Faculty of Engineering · UCAS: H161</div></div>
-      <div class="ptags"><span class="ptag b">Interview</span><span class="ptag mod">Moderately Competitive</span></div>
+      <div class="ptags"><span class="ptag flagship">Major Programme</span><span class="ptag b">Interview</span><span class="ptag mod">Moderately Competitive</span></div>
     </div>
     <div class="prog-detail-body">
       <div>
         <div class="sec-label">What is it?</div>
-        <p class="prog-desc">Applies engineering principles to medicine and biology — designing medical devices, imaging systems, prosthetics, diagnostic tools and physiological monitoring systems. The largest programme by overseas offer volume at Imperial. 2024: 709 applications, 341 offers, 135 enrolled. Overseas offers more than doubled: 154 (2020) → 341 (2024).</p>
+        <p class="prog-desc">A "top-down" engineering route into medicine and biology — mechanics, imaging, prosthetics, medical devices, physiological monitoring. By far the largest and most established route in the department — 709 applications in 2024, more than the other two routes combined — and the one most applicants mean when they say "Bioengineering at Imperial."</p>
         <div class="sec-label" style="margin-top:0.75rem;">What you'll study</div>
         <ul class="plist"><li>Biomedical signals &amp; imaging</li><li>Biomechanics &amp; tissue engineering</li><li>Medical device design</li><li>Physiology for engineers</li></ul>
       </div>
@@ -379,19 +579,21 @@ chart:
       <div><div class="pf-label">Must Include</div><div class="pf-val">Mathematics + Biology or Chemistry</div></div>
       <div><div class="pf-label">2024 Offer Rate</div><div class="pf-val">48.1% (341/709)</div></div>
     </div>
-    <div class="prog-star">★ Highest offer rate of the four (48.1%) and largest overseas offer volume (341 in 2024, up from 154 in 2020). Note: Molecular Bioengineering (UCAS H160) is a separate, smaller and more competitive programme — covered in the Biosciences guide.</div>
+    <div class="prog-star">★ Highest offer rate of the four departments (48.1%) and largest overseas offer volume (341 in 2024, up from 154 in 2020).</div>
+
+    <div class="diff-list">
+      <div class="dl-title">How the other two routes differ from Biomedical Engineering</div>
+      <div class="diff-row"><div class="dn">Molecular Bioengineering<span class="rate">21.7% → 31.4%</span></div><div class="dt">Not a duration variant but a genuinely different academic identity — "bottom-up" engineering of biological systems at the molecular and cellular level, rather than top-down devices and mechanics. Smaller than Biomedical Engineering (930 vs. 3,036 applications over five years) — but its success rate is the <em>highest</em> in the department, not the lowest. If another page on this site calls it "more competitive" than Biomedical Engineering, this data says otherwise.</div></div>
+      <div class="diff-row"><div class="dn">Biomedical Technology Ventures<span class="rate">21.9%</span></div><div class="dt">Keeps Biomedical Engineering's core foundation but swaps a meaningful slice of engineering content for entrepreneurship and business, run jointly with the Business School, including a startup internship. Launched 2023, so only two admissions cycles exist — treat its rate as provisional. Sits almost exactly level with Biomedical Engineering itself.</div></div>
+    </div>
   </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-<!-- TAB 4 ADMISSIONS DATA -->
-<!-- ✅ Chart.js loaded once -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-<!-- TAB 4: ADMISSIONS DATA (includes Chinese applicant data) -->
+<!-- ============================================================
+     TAB 4 — ADMISSIONS DATA (unchanged from current page)
+     ============================================================ -->
 <div id="tab-admissions" class="tab-panel">
 
   <!-- SECTION 1: Overall offer rates -->
@@ -587,7 +789,9 @@ chart:
 })();
 </script>
 
-<!-- TAB 5 HOW TO APPLY -->
+<!-- ============================================================
+     TAB 5 — HOW TO APPLY (unchanged from current page)
+     ============================================================ -->
 <div id="tab-apply" class="tab-panel">
   <p style="margin-top:1.5rem;font-size:0.82rem;color:var(--text-muted);">UCAS · Interview · Personal statement · Key dates · Common mistakes</p>
   <h2 class="section-title">How to Apply</h2>
@@ -654,7 +858,7 @@ chart:
   <div class="res-grid">
     <div class="res-card"><div class="res-card-label">Chemistry</div><a href="https://www.imperial.ac.uk/study/courses/undergraduate/chemistry-bsc/" target="_blank">imperial.ac.uk/study/courses</a></div>
     <div class="res-card"><div class="res-card-label">Chemical Engineering</div><a href="https://www.imperial.ac.uk/study/courses/undergraduate/chemical-engineering-meng/" target="_blank">imperial.ac.uk/study/courses</a></div>
-    <div class="res-card"><div class="res-card-label">Materials</div><a href="https://www.imperial.ac.uk/study/courses/undergraduate/materials-bsc/" target="_blank">imperial.ac.uk/study/courses</a></div>
+    <div class="res-card"><div class="res-card-label">Materials</div><a href="https://www.imperial.ac.uk/study/courses/undergraduate/materials-science-engineering-beng/" target="_blank">imperial.ac.uk/study/courses</a></div>
     <div class="res-card"><div class="res-card-label">Biomedical Engineering</div><a href="https://www.imperial.ac.uk/study/courses/undergraduate/biomedical-engineering-meng/" target="_blank">imperial.ac.uk/study/courses</a></div>
     <div class="res-card"><div class="res-card-label">ESAT Info &amp; Practice</div><a href="https://uatuktest.com" target="_blank">uatuktest.com</a></div>
     <div class="res-card"><div class="res-card-label">Open Days 2026</div><div style="font-size:0.77rem;color:var(--text-secondary);">24–25 Jun &amp; 12 Sep 2026</div></div>
@@ -678,8 +882,6 @@ chart:
     window.scrollTo({top:0,behavior:'smooth'});
   }
   document.addEventListener('DOMContentLoaded',function(){
-    var f=document.getElementById('tab-overview');if(f)f.style.display='block';
-    var adm=document.getElementById('tab-admissions');
-    if(adm && adm.style.display==='block'){buildAdmissionCharts();}
+    var f=document.getElementById('tab-snapshot');if(f)f.style.display='block';
   });
 </script>
