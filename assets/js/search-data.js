@@ -72,7 +72,18 @@ ninja.data = [{
               handler: () => {
                 window.location.href = "/practical/";
               },
-            },{id: "post-ucl-life-sciences-amp-medical-sciences-undergraduate-guide",
+            },{id: "post-ucl-chemistry-chemical-engineering-biochemical-engineering-amp-biomedical-engineering-guide",
+        
+          title: "UCL - Chemistry, Chemical Engineering, Biochemical Engineering &amp; Biomedical Engineering Guide",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/ucl-chem-cheme-bme-guide/";
+          
+        },
+      },{id: "post-ucl-life-sciences-amp-medical-sciences-undergraduate-guide",
         
           title: "UCL — Life Sciences &amp; Medical Sciences Undergraduate Guide",
         
