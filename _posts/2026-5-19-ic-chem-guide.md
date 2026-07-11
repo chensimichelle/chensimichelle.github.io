@@ -379,7 +379,7 @@ chart:
     </table>
   </div>
 
-  <div class="info-box"><strong>Reading this table:</strong> RATE = Offers ÷ Applications. Tabs 2–3 use a different metric, Success Rate = Confirmed Places ÷ Applications, so the same programme shows a different percentage there — that's intentional, not an error. Our most recent complete UCAS cycle is 2024; Imperial's published admissions statistics currently run 2020–2024.</div>
+  <div class="info-box"><strong>Reading this table:</strong> RATE = Offers ÷ Applications, used consistently across every tab on this page — Tabs 2 and 3 no longer use a separate "Success Rate" metric, to avoid the two numbers being confused for each other. Our most recent complete UCAS cycle is 2024; Imperial's published admissions statistics currently run 2020–2024.</div>
   <div class="info-box" style="border-color:#c0392b;background:#fdf3f3;"><strong>Worth a decision:</strong> by application volume, Molecular Bioengineering — not Biomedical Technology Ventures — is Bioengineering's second-largest route, so it's shown above. It's smaller than Biomedical Engineering, but its offer rate ran <em>higher</em> in both 2023 and 2024, not lower — see Tab 3. Swap in Biomedical Technology Ventures here if you'd rather keep strict alignment with the Biosciences guide's existing scope.</div>
 </div>
 
@@ -390,24 +390,24 @@ chart:
   <p style="margin-top:1.5rem;font-size:0.82rem;color:var(--text-muted);">Every undergraduate route · 2020–2024 pooled · sorted easiest → hardest</p>
   <h2 class="section-title">Selectivity Spectrum</h2>
   <div class="divider"></div>
-  <p style="font-size:0.85rem;color:var(--text-secondary);margin-bottom:1.5rem;line-height:1.7;">Success Rate here = Confirmed Places ÷ Applications, pooled across 2020–2024 for stability (small cohorts swing a lot year to year). Bars share a 0–35% scale across all four departments.</p>
+  <p style="font-size:0.85rem;color:var(--text-secondary);margin-bottom:1.5rem;line-height:1.7;">Offer Rate here = Offers ÷ Applications, pooled across 2020–2024 for stability (small cohorts swing a lot year to year) — the same metric as Tab 1, just covering every route instead of the top two. Bars share a 0–80% scale across all four departments.</p>
 
   <!-- CHEMISTRY -->
   <div class="spectrum-block">
     <div class="spectrum-hdr">
-      <div><h3 class="chem-t">Chemistry</h3><span class="meta">Faculty of Natural Sciences · 11 active routes</span></div>
-      <div class="spread-badge"><div class="num wide">3.9×</div><div class="lbl">widest spread</div></div>
+      <div><h3 class="chem-t">Chemistry</h3><span class="meta">Faculty of Natural Sciences · 9 active routes</span></div>
+      <div class="spread-badge"><div class="num wide">2.1×</div><div class="lbl">widest spread</div></div>
     </div>
-    <div class="spec-line"><div class="spec-name"><b>+ Year in Industry</b><small>MSci · 5yr</small></div><div class="spec-bar-wrap"><div class="spec-bar-fill" style="width:73.4%;background:var(--chem-color)"></div></div><div class="spec-num">25.7%<small>n=315</small></div></div>
-    <div class="spec-line"><div class="spec-name"><b>Chemistry (straight)</b><small>MSci · 4yr</small></div><div class="spec-bar-wrap"><div class="spec-bar-fill" style="width:60%;background:var(--chem-color)"></div></div><div class="spec-num">21.0%<small>n=1,735</small></div></div>
-    <div class="spec-line"><div class="spec-name"><b>+ Research Abroad</b><small>MSci · 4yr</small></div><div class="spec-bar-wrap"><div class="spec-bar-fill" style="width:54.3%;background:var(--chem-mid)"></div></div><div class="spec-num">19.0%<small>n=273</small></div></div>
-    <div class="spec-line"><div class="spec-name"><b>+ Research Abroad + YII</b><small>MSci · 5yr</small></div><div class="spec-bar-wrap"><div class="spec-bar-fill" style="width:52.6%;background:var(--chem-mid)"></div></div><div class="spec-num">18.4%<small>n=179</small></div></div>
-    <div class="spec-line"><div class="spec-name"><b>+ Medicinal Chemistry + YII</b><small>MSci · 5yr</small></div><div class="spec-bar-wrap"><div class="spec-bar-fill" style="width:48.6%;background:var(--chem-mid)"></div></div><div class="spec-num">17.0%<small>n=259</small></div></div>
-    <div class="spec-line"><div class="spec-name"><b>+ Molecular Physics</b><small>MSci · pooled</small></div><div class="spec-bar-wrap"><div class="spec-bar-fill" style="width:44%;background:#7a8aab"></div></div><div class="spec-num">15.4%<small>n=332</small></div></div>
-    <div class="spec-line"><div class="spec-name"><b>+ Medicinal Chemistry</b><small>MSci · 4yr</small></div><div class="spec-bar-wrap"><div class="spec-bar-fill" style="width:39.1%;background:#7a8aab"></div></div><div class="spec-num">13.7%<small>n=663</small></div></div>
-    <div class="spec-line"><div class="spec-name"><b>Chemistry (straight)</b><small>BSc · 3yr</small></div><div class="spec-bar-wrap"><div class="spec-bar-fill" style="width:38.6%;background:#7a8aab"></div></div><div class="spec-num">13.5%<small>n=2,854</small></div></div>
-    <div class="spec-line"><div class="spec-name"><b>+ Management</b><small>BSc · 4yr</small></div><div class="spec-bar-wrap"><div class="spec-bar-fill" style="width:18.9%;background:#1a1a1a"></div></div><div class="spec-num">6.6%<small>n=241</small></div></div>
-    <div class="spectrum-note">French / German / Spanish for Science MSci variants ran earlier in the period but had <b>zero applicants in 2023–24</b> — appear discontinued, omitted above. <b>+ Management (BSc/5yr)</b> and Molecular-Physics-with-YII have too few confirmed places to plot reliably (n&lt;15/yr) — directional only.</div>
+    <div class="spec-line"><div class="spec-name"><b>+ Research Abroad</b><small>MSci · 4yr</small></div><div class="spec-bar-wrap"><div class="spec-bar-fill" style="width:77.6%;background:var(--chem-color)"></div></div><div class="spec-num">58.2%<small>n=273</small></div></div>
+    <div class="spec-line"><div class="spec-name"><b>+ Year in Industry</b><small>MSci · 5yr</small></div><div class="spec-bar-wrap"><div class="spec-bar-fill" style="width:77.5%;background:var(--chem-color)"></div></div><div class="spec-num">58.1%<small>n=315</small></div></div>
+    <div class="spec-line"><div class="spec-name"><b>Chemistry (straight)</b><small>MSci · 4yr</small></div><div class="spec-bar-wrap"><div class="spec-bar-fill" style="width:74.1%;background:var(--chem-color)"></div></div><div class="spec-num">55.6%<small>n=1,735</small></div></div>
+    <div class="spec-line"><div class="spec-name"><b>+ Research Abroad + YII</b><small>MSci · 5yr</small></div><div class="spec-bar-wrap"><div class="spec-bar-fill" style="width:73.7%;background:var(--chem-mid)"></div></div><div class="spec-num">55.3%<small>n=179</small></div></div>
+    <div class="spec-line"><div class="spec-name"><b>+ Molecular Physics</b><small>MSci · pooled</small></div><div class="spec-bar-wrap"><div class="spec-bar-fill" style="width:65.9%;background:var(--chem-mid)"></div></div><div class="spec-num">49.4%<small>n=332</small></div></div>
+    <div class="spec-line"><div class="spec-name"><b>+ Medicinal Chemistry + YII</b><small>MSci · 5yr</small></div><div class="spec-bar-wrap"><div class="spec-bar-fill" style="width:55.6%;background:#7a8aab"></div></div><div class="spec-num">41.7%<small>n=259</small></div></div>
+    <div class="spec-line"><div class="spec-name"><b>+ Medicinal Chemistry</b><small>MSci · 4yr</small></div><div class="spec-bar-wrap"><div class="spec-bar-fill" style="width:45.2%;background:#7a8aab"></div></div><div class="spec-num">33.9%<small>n=663</small></div></div>
+    <div class="spec-line"><div class="spec-name"><b>Chemistry (straight)</b><small>BSc · 3yr</small></div><div class="spec-bar-wrap"><div class="spec-bar-fill" style="width:43.9%;background:#7a8aab"></div></div><div class="spec-num">32.9%<small>n=2,854</small></div></div>
+    <div class="spec-line"><div class="spec-name"><b>+ Management</b><small>BSc · 4yr</small></div><div class="spec-bar-wrap"><div class="spec-bar-fill" style="width:37.6%;background:#1a1a1a"></div></div><div class="spec-num">28.2%<small>n=241</small></div></div>
+    <div class="spectrum-note">French / German / Spanish for Science MSci variants ran earlier in the period but had <b>zero applicants in 2023–24</b> — appear discontinued, omitted above. <b>+ Management with a Year in Industry</b> (BSc/5yr) and the Molecular-Physics-with-YII route have too few applications to plot reliably (n&lt;15/yr) — both directionally even more selective than plain + Management, but not shown.</div>
   </div>
 
   <!-- CHEMICAL ENGINEERING -->
@@ -416,35 +416,35 @@ chart:
       <div><h3 style="color:var(--chemeng-color);">Chemical Engineering</h3><span class="meta">Faculty of Engineering · 1 route</span></div>
       <div class="spread-badge"><div class="num flat">n/a</div><div class="lbl">single-route dept</div></div>
     </div>
-    <div class="single-route-box">Chemical Engineering runs <b>one</b> admissions line — MEng, ESAT-gated, <span class="big" style="color:var(--chemeng-color);">19.0%</span> five-year success rate (979 apps → 168 confirmed in 2024 alone). There's no internal comparison to make here: that figure is the genuine odds, with no easier side-door through a sibling programme, unlike every other department on this page.</div>
+    <div class="single-route-box">Chemical Engineering runs <b>one</b> admissions line — MEng, ESAT-gated, <span class="big" style="color:var(--chemeng-color);">46.5%</span> five-year offer rate (4,216 apps → 1,960 offers over 2020–24; 979 apps → 428 offers in 2024 alone). There's no internal comparison to make here: that figure is the genuine odds, with no easier side-door through a sibling programme, unlike every other department on this page.</div>
   </div>
 
   <!-- MATERIALS -->
   <div class="spectrum-block">
     <div class="spectrum-hdr">
       <div><h3 style="color:var(--mat-color);">Materials</h3><span class="meta">Faculty of Engineering · 4 active routes</span></div>
-      <div class="spread-badge"><div class="num" style="color:#c0742e;">2.5×</div><div class="lbl">spread</div></div>
+      <div class="spread-badge"><div class="num" style="color:#c0742e;">1.8×</div><div class="lbl">spread</div></div>
     </div>
-    <div class="spec-line"><div class="spec-name"><b>Materials Sci &amp; Eng</b><small>MEng · 4yr</small></div><div class="spec-bar-wrap"><div class="spec-bar-fill" style="width:74.6%;background:var(--mat-color)"></div></div><div class="spec-num">26.1%<small>n=1,274</small></div></div>
-    <div class="spec-line"><div class="spec-name"><b>Materials Sci &amp; Eng</b><small>BEng · 3yr</small></div><div class="spec-bar-wrap"><div class="spec-bar-fill" style="width:43.7%;background:var(--mat-mid)"></div></div><div class="spec-num">15.3%<small>n=1,434</small></div></div>
-    <div class="spec-line"><div class="spec-name"><b>+ Nuclear Engineering</b><small>MEng · 4yr</small></div><div class="spec-bar-wrap"><div class="spec-bar-fill" style="width:37.1%;background:#9b7aab"></div></div><div class="spec-num">13.0%<small>n=253</small></div></div>
-    <div class="spec-line"><div class="spec-name"><b>Biomaterials &amp; Tissue Eng</b><small>MEng · 4yr</small></div><div class="spec-bar-wrap"><div class="spec-bar-fill" style="width:29.7%;background:#1a1a1a"></div></div><div class="spec-num">10.4%<small>n=249</small></div></div>
-    <div class="spectrum-note"><b>+ Management (BEng)</b> ran around a tiny base earlier in the period and shows <b>zero applicants in 2024</b> — looks discontinued, worth verifying with the department. Note the direction here is the <b>opposite</b> of Chemistry: the specialist tracks (Nuclear, Biomaterials) are <i>harder</i> to get into than the plain MEng, not easier.</div>
+    <div class="spec-line"><div class="spec-name"><b>Materials Sci &amp; Eng</b><small>MEng · 4yr</small></div><div class="spec-bar-wrap"><div class="spec-bar-fill" style="width:79.3%;background:var(--mat-color)"></div></div><div class="spec-num">59.5%<small>n=1,274</small></div></div>
+    <div class="spec-line"><div class="spec-name"><b>+ Nuclear Engineering</b><small>MEng · 4yr</small></div><div class="spec-bar-wrap"><div class="spec-bar-fill" style="width:54.3%;background:var(--mat-mid)"></div></div><div class="spec-num">40.7%<small>n=253</small></div></div>
+    <div class="spec-line"><div class="spec-name"><b>Biomaterials &amp; Tissue Eng</b><small>MEng · 4yr</small></div><div class="spec-bar-wrap"><div class="spec-bar-fill" style="width:46%;background:#9b7aab"></div></div><div class="spec-num">34.5%<small>n=249</small></div></div>
+    <div class="spec-line"><div class="spec-name"><b>Materials Sci &amp; Eng</b><small>BEng · 3yr</small></div><div class="spec-bar-wrap"><div class="spec-bar-fill" style="width:43.7%;background:#1a1a1a"></div></div><div class="spec-num">32.8%<small>n=1,434</small></div></div>
+    <div class="spectrum-note"><b>+ Management (BEng)</b> ran around a tiny base earlier in the period and shows <b>zero applicants in 2024</b> — looks discontinued, worth verifying with the department. Same direction as Chemistry: every 4-year MEng route, specialist or not, has a higher offer rate than the 3-year BEng — the extra year keeps filtering out everyone who isn't sure yet.</div>
   </div>
 
   <!-- BIOENGINEERING -->
   <div class="spectrum-block">
     <div class="spectrum-hdr">
       <div><h3 style="color:var(--bioe-color);">Bioengineering</h3><span class="meta">Faculty of Engineering · 3 active routes</span></div>
-      <div class="spread-badge"><div class="num flat">1.4×</div><div class="lbl">narrowest spread</div></div>
+      <div class="spread-badge"><div class="num flat">1.3×</div><div class="lbl">narrowest spread</div></div>
     </div>
-    <div class="spec-line"><div class="spec-name"><b>Molecular Bioengineering</b><small>MEng · 4yr</small></div><div class="spec-bar-wrap"><div class="spec-bar-fill" style="width:89.7%;background:var(--bioe-color)"></div></div><div class="spec-num">31.4%<small>n=930</small></div></div>
-    <div class="spec-line"><div class="spec-name"><b>Biomedical Tech Ventures</b><small>BSc · 3yr</small></div><div class="spec-bar-wrap"><div class="spec-bar-fill" style="width:62.6%;background:var(--bioe-mid)"></div></div><div class="spec-num">21.9%<small>n=196 · 2yr only</small></div></div>
-    <div class="spec-line"><div class="spec-name"><b>Biomedical Engineering</b><small>MEng · 4yr</small></div><div class="spec-bar-wrap"><div class="spec-bar-fill" style="width:62%;background:var(--bioe-mid)"></div></div><div class="spec-num">21.7%<small>n=3,036</small></div></div>
-    <div class="spectrum-note">Bioengineering is the most internally consistent department here — its three routes sit within 10 points of each other. Biomedical Technology Ventures only has two admissions cycles of data (launched 2023), so treat its figure as provisional.</div>
+    <div class="spec-line"><div class="spec-name"><b>Molecular Bioengineering</b><small>MEng · 4yr</small></div><div class="spec-bar-wrap"><div class="spec-bar-fill" style="width:93.3%;background:var(--bioe-color)"></div></div><div class="spec-num">70.0%<small>n=930</small></div></div>
+    <div class="spec-line"><div class="spec-name"><b>Biomedical Tech Ventures</b><small>BSc · 3yr</small></div><div class="spec-bar-wrap"><div class="spec-bar-fill" style="width:77.6%;background:var(--bioe-mid)"></div></div><div class="spec-num">58.2%<small>n=196 · 2yr only</small></div></div>
+    <div class="spec-line"><div class="spec-name"><b>Biomedical Engineering</b><small>MEng · 4yr</small></div><div class="spec-bar-wrap"><div class="spec-bar-fill" style="width:71.2%;background:var(--bioe-mid)"></div></div><div class="spec-num">53.4%<small>n=3,036</small></div></div>
+    <div class="spectrum-note">Bioengineering is the most internally consistent department here — its three routes sit within 17 points of each other. Biomedical Technology Ventures only has two admissions cycles of data (launched 2023), so treat its figure as provisional.</div>
   </div>
 
-  <div class="info-box"><strong>Headline:</strong> Chemistry has by far the widest internal spread (3.9×, Management vs. Year-in-Industry) of any department here — bigger than the spread <em>between</em> Chemistry and Chemical Engineering as whole departments. Bioengineering, despite covering three genuinely different programmes, is the most evenly matched.</div>
+  <div class="info-box"><strong>Headline:</strong> Chemistry still has the widest internal spread (2.1×, Management vs. Research Abroad) of any department here, but under Offer Rate the gap between departments is much smaller than it first looked — Materials (1.8×) and Bioengineering (1.3×) aren't far behind. Bioengineering, despite covering three genuinely different programmes, remains the most evenly matched.</div>
 </div>
 
 <!-- ============================================================
@@ -483,11 +483,11 @@ chart:
 
     <div class="diff-list">
       <div class="dl-title">How the other five routes differ from the BSc</div>
-      <div class="diff-row"><div class="dn">MSci<span class="rate">13.5% → 21.0%</span></div><div class="dt">One extra year, same entry grades, same first two years. Adds a substantially bigger final-year research project and more advanced, research-led modules. The success-rate jump isn't about the work being easier — applicants who go straight for the 4-year code already know they want the research-heavy path, so it's a smaller, more self-selected pool.</div></div>
-      <div class="diff-row"><div class="dn">+ Medicinal Chemistry<span class="rate">13.7%</span></div><div class="dt">Same MSci structure, co-taught by chemistry lecturers and pharmaceutical-industry experts, aimed at drug discovery. The one specialist track that does <em>not</em> get easier than the BSc — its rate sits right alongside it.</div></div>
-      <div class="diff-row"><div class="dn">+ Molecular Physics<span class="rate">15.4%</span></div><div class="dt">Same MSci structure, co-taught with Mathematics and Physics instead. Slightly above the BSc's rate, between Medicinal Chemistry and the placement-based routes.</div></div>
-      <div class="diff-row"><div class="dn">+ Year in Industry / + Research Abroad<span class="rate">18–26%</span></div><div class="dt">A paid industry placement, or an ~8-month placement at a partner university overseas, added onto the MSci. Both run well above the BSc's rate — a longer, more specific commitment narrows the pool to people who are already sure.</div></div>
-      <div class="diff-row"><div class="dn">+ Management<span class="rate">6.6%</span></div><div class="dt">Keeps the BSc's three years, swaps the final-year chemistry specialisation for a year in the Business School. By far the smallest applicant pool of any Chemistry route — yet consistently the <em>most</em> selective, every year for five years running.</div></div>
+      <div class="diff-row"><div class="dn">MSci<span class="rate">32.9% → 55.6%</span></div><div class="dt">One extra year, same entry grades, same first two years. Adds a substantially bigger final-year research project and more advanced, research-led modules. The offer-rate jump isn't about the work being easier — applicants who go straight for the 4-year code already know they want the research-heavy path, so it's a smaller, more self-selected pool.</div></div>
+      <div class="diff-row"><div class="dn">+ Medicinal Chemistry<span class="rate">33.9%</span></div><div class="dt">Same MSci structure, co-taught by chemistry lecturers and pharmaceutical-industry experts, aimed at drug discovery. The one specialist track that does <em>not</em> get easier than the BSc — its rate sits right alongside it.</div></div>
+      <div class="diff-row"><div class="dn">+ Molecular Physics<span class="rate">49.4%</span></div><div class="dt">Same MSci structure, co-taught with Mathematics and Physics instead. Well above the BSc and Medicinal Chemistry, sitting closer to the placement-based routes below.</div></div>
+      <div class="diff-row"><div class="dn">+ Year in Industry / + Research Abroad<span class="rate">55–58%</span></div><div class="dt">A paid industry placement, or an ~8-month placement at a partner university overseas, added onto the MSci. Both run above even the plain MSci's rate — a longer, more specific commitment narrows the pool to people who are already sure.</div></div>
+      <div class="diff-row"><div class="dn">+ Management<span class="rate">28.2%</span></div><div class="dt">Keeps the BSc's three years, swaps the final-year chemistry specialisation for a year in the Business School. By far the smallest applicant pool of any Chemistry route — yet consistently the <em>most</em> selective, every year for five years running.</div></div>
     </div>
   </div>
 
@@ -518,7 +518,7 @@ chart:
 
     <div class="diff-list">
       <div class="dl-title">How the other routes differ</div>
-      <div class="diff-row"><div class="dn">There aren't any<span class="rate">19.0%</span></div><div class="dt">The only department on this page with no sibling routes at all. The 19.0% five-year success rate is the genuine odds for anyone applying — there's no easier specialist side-door the way there is in Chemistry or Materials.</div></div>
+      <div class="diff-row"><div class="dn">There aren't any<span class="rate">46.5%</span></div><div class="dt">The only department on this page with no sibling routes at all. The 46.5% five-year offer rate is the genuine odds for anyone applying — there's no easier specialist side-door the way there is in Chemistry or Materials.</div></div>
     </div>
   </div>
 
@@ -549,9 +549,9 @@ chart:
 
     <div class="diff-list">
       <div class="dl-title">How the other three routes differ from the BEng</div>
-      <div class="diff-row"><div class="dn">MEng<span class="rate">15.3% → 26.1%</span></div><div class="dt">One extra year, Master's-level elective modules and an individual research project added to the same BEng foundation. Same pattern as Chemistry's BSc → MSci step: the 4-year code draws a smaller, more committed pool and is easier to get an offer on than the BEng, despite identical entry grades.</div></div>
-      <div class="diff-row"><div class="dn">+ Nuclear Engineering<span class="rate">13.0%</span></div><div class="dt">Same MEng structure, specialised toward nuclear materials and engineering. Here the pattern flips from Chemistry's specialist tracks — this runs <em>harder</em> to get into than the BEng it's built on, not easier.</div></div>
-      <div class="diff-row"><div class="dn">Biomaterials &amp; Tissue Engineering<span class="rate">10.4%</span></div><div class="dt">A separate MEng specialised toward biomedical-facing materials — bone regeneration, implants, tissue scaffolds. Currently the single most selective route in the department.</div></div>
+      <div class="diff-row"><div class="dn">MEng<span class="rate">32.8% → 59.5%</span></div><div class="dt">One extra year, Master's-level elective modules and an individual research project added to the same BEng foundation. Same pattern as Chemistry's BSc → MSci step: the 4-year code draws a smaller, more committed pool and is easier to get an offer on than the BEng, despite identical entry grades.</div></div>
+      <div class="diff-row"><div class="dn">+ Nuclear Engineering<span class="rate">40.7%</span></div><div class="dt">Same MEng structure, specialised toward nuclear materials and engineering. Sits between the plain MEng and the BEng — easier than the BEng, but not quite as accessible as the unspecialised MEng.</div></div>
+      <div class="diff-row"><div class="dn">Biomaterials &amp; Tissue Engineering<span class="rate">34.5%</span></div><div class="dt">A separate MEng specialised toward biomedical-facing materials — bone regeneration, implants, tissue scaffolds. Still easier than the BEng, though the closest of the three MEng routes to it.</div></div>
       <div class="diff-row"><div class="dn">+ Management<span class="rate">discontinued?</span></div><div class="dt">Existed earlier in 2020–24 but shows zero applicants in the latest cycle — looks discontinued. Worth checking with the department before presenting it as a live option.</div></div>
     </div>
   </div>
@@ -583,8 +583,8 @@ chart:
 
     <div class="diff-list">
       <div class="dl-title">How the other two routes differ from Biomedical Engineering</div>
-      <div class="diff-row"><div class="dn">Molecular Bioengineering<span class="rate">21.7% → 31.4%</span></div><div class="dt">Not a duration variant but a genuinely different academic identity — "bottom-up" engineering of biological systems at the molecular and cellular level, rather than top-down devices and mechanics. Smaller than Biomedical Engineering (930 vs. 3,036 applications over five years) — but its success rate is the <em>highest</em> in the department, not the lowest. If another page on this site calls it "more competitive" than Biomedical Engineering, this data says otherwise.</div></div>
-      <div class="diff-row"><div class="dn">Biomedical Technology Ventures<span class="rate">21.9%</span></div><div class="dt">Keeps Biomedical Engineering's core foundation but swaps a meaningful slice of engineering content for entrepreneurship and business, run jointly with the Business School, including a startup internship. Launched 2023, so only two admissions cycles exist — treat its rate as provisional. Sits almost exactly level with Biomedical Engineering itself.</div></div>
+      <div class="diff-row"><div class="dn">Molecular Bioengineering<span class="rate">53.4% → 70.0%</span></div><div class="dt">Not a duration variant but a genuinely different academic identity — "bottom-up" engineering of biological systems at the molecular and cellular level, rather than top-down devices and mechanics. Smaller than Biomedical Engineering (930 vs. 3,036 applications over five years) — but its offer rate is the <em>highest</em> in the department, not the lowest. If another page on this site calls it "more competitive" than Biomedical Engineering, this data says otherwise.</div></div>
+      <div class="diff-row"><div class="dn">Biomedical Technology Ventures<span class="rate">58.2%</span></div><div class="dt">Keeps Biomedical Engineering's core foundation but swaps a meaningful slice of engineering content for entrepreneurship and business, run jointly with the Business School, including a startup internship. Launched 2023, so only two admissions cycles exist — treat its rate as provisional. Sits between Biomedical Engineering and Molecular Bioengineering.</div></div>
     </div>
   </div>
 </div>
@@ -646,9 +646,9 @@ chart:
     <div class="divider"></div>
 
     <h3 class="chart-title">Offer Rate for Chinese Applicants · 2020–2024</h3>
-    <p class="chart-sub">Applications rose while offers contracted — offer rate = offers made / Chinese applications received</p>
+    <p class="chart-sub">Applications rose across all four departments — offer rate = offers made / Chinese applications received</p>
     <canvas id="chart-cn-offerrate" height="110"></canvas>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0.6rem;margin-top:1rem;">
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:0.6rem;margin-top:1rem;">
       <div class="callout" style="border-color:#1a5fa8;text-align:center;">
         <div style="font-size:1.1rem;font-weight:700;color:#1a5fa8;">−16pp</div>
         <div style="font-size:0.75rem;color:var(--text-muted);">Chemistry<br>40% → 24%</div>
@@ -661,25 +661,29 @@ chart:
         <div style="font-size:1.1rem;font-weight:700;color:#5a3080;">+3pp</div>
         <div style="font-size:0.75rem;color:var(--text-muted);">Materials<br>16% → 19%</div>
       </div>
+      <div class="callout" style="border-color:#0d7a55;text-align:center;">
+        <div style="font-size:1.1rem;font-weight:700;color:#0d7a55;">−6pp</div>
+        <div style="font-size:0.75rem;color:var(--text-muted);">Bioengineering<br>58% → 52%</div>
+      </div>
       <div class="callout" style="border-color:#555;text-align:center;">
-        <div style="font-size:1.1rem;font-weight:700;color:#555;">−12pp</div>
-        <div style="font-size:0.75rem;color:var(--text-muted);">Overall avg<br>34% → 22%</div>
+        <div style="font-size:1.1rem;font-weight:700;color:#555;">−5pp</div>
+        <div style="font-size:0.75rem;color:var(--text-muted);">Overall avg<br>35% → 30%</div>
       </div>
     </div>
 
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:1.5rem;">
       <div>
         <div class="chart-lbl">Chinese Application Volume · 2020–2024</div>
-        <h3 class="chart-title" style="margin-top:0.3rem;">Applications grew +41% across 3 departments</h3>
-        <p class="chart-sub">Chemistry dominates volume; Chemical Engineering grew fastest</p>
+        <h3 class="chart-title" style="margin-top:0.3rem;">Applications grew +68% across 4 departments</h3>
+        <p class="chart-sub">Chemistry remains the largest by volume; Bioengineering grew fastest</p>
         <canvas id="chart-cn-apps" height="200"></canvas>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;margin-top:0.8rem;">
           <div class="callout" style="border-color:#555;text-align:center;">
-            <div style="font-size:1.15rem;font-weight:700;">1,110</div>
+            <div style="font-size:1.15rem;font-weight:700;">1,505</div>
             <div style="font-size:0.72rem;color:var(--text-muted);">Total Chinese apps 2024</div>
           </div>
           <div class="callout" style="border-color:#555;text-align:center;">
-            <div style="font-size:1.15rem;font-weight:700;">+41%</div>
+            <div style="font-size:1.15rem;font-weight:700;">+68%</div>
             <div style="font-size:0.72rem;color:var(--text-muted);">Growth 2020→2024</div>
           </div>
         </div>
@@ -688,22 +692,22 @@ chart:
       <div>
         <div class="chart-lbl">Admissions Funnel · Chinese Applicants · 2024</div>
         <h3 class="chart-title" style="margin-top:0.3rem;">Applications → Offers → Enrolled</h3>
-        <p class="chart-sub" style="margin-top:1.5rem;">Chemistry, Chemical Engineering & Materials</p>
+        <p class="chart-sub" style="margin-top:1.5rem;">Chemistry, Chemical Engineering, Materials &amp; Bioengineering</p>
         <canvas id="chart-cn-funnel" height="200"></canvas>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;margin-top:0.8rem;">
           <div class="callout" style="border-color:#0d7a55;text-align:center;">
-            <div style="font-size:1.15rem;font-weight:700;">22.2%</div>
+            <div style="font-size:1.15rem;font-weight:700;">29.9%</div>
             <div style="font-size:0.72rem;color:var(--text-muted);">Overall offer rate 2024</div>
           </div>
           <div class="callout" style="border-color:#c0392b;text-align:center;">
-            <div style="font-size:1.15rem;font-weight:700;">−13pp</div>
+            <div style="font-size:1.15rem;font-weight:700;">−5pp</div>
             <div style="font-size:0.72rem;color:var(--text-muted);">Drop since 2020</div>
           </div>
         </div>
       </div>
     </div>
 
-    <p style="font-size:0.67rem;color:var(--text-muted);line-height:1.5;margin-top:1rem;">Source: Imperial College London Undergraduate Admissions Statistics 2020–2024. Chemical Engineering dept includes Biomedical Engineering and Biomedical Tech Ventures in addition to Molecular Chemical Engineering.</p>
+    <p style="font-size:0.67rem;color:var(--text-muted);line-height:1.5;margin-top:1rem;">Source: Imperial College London Undergraduate Admissions Statistics 2020–2024, Table 7 (applications, offers and places confirmed by primary nationality). Bioengineering figures cover the department as a whole (Biomedical Engineering, Molecular Bioengineering, Biomedical Technology Ventures).</p>
   </div>
 
 </div><!-- end tab-admissions -->
@@ -745,17 +749,19 @@ chart:
     { id:'chart-cn-offerrate', cfg:{ type:'line', data:{ labels:years, datasets:[
       { label:"Chemistry",            data:[40,33,22,20,24], borderColor:"#1a5fa8", backgroundColor:"rgba(26,95,168,0.08)",  borderWidth:2, pointRadius:4, tension:0.3, fill:false },
       { label:"Chemical Engineering", data:[50,44,38,30,23], borderColor:"#8a5a00", backgroundColor:"rgba(138,90,0,0.08)",   borderWidth:2, pointRadius:4, tension:0.3, fill:false },
-      { label:"Materials",            data:[16,20,18,17,19], borderColor:"#5a3080", backgroundColor:"rgba(90,48,128,0.08)",  borderWidth:2, pointRadius:4, borderDash:[4,3], tension:0.3, fill:false }
-    ]}, options:{ responsive:true, plugins:{legend:{position:"bottom"}}, scales:{ y:{ min:0,max:60, title:{display:true,text:"Offer rate (%)"},ticks:{stepSize:10} } } }}},
+      { label:"Materials",            data:[16,20,18,17,19], borderColor:"#5a3080", backgroundColor:"rgba(90,48,128,0.08)",  borderWidth:2, pointRadius:4, borderDash:[4,3], tension:0.3, fill:false },
+      { label:"Bioengineering",       data:[58,66,77,50,52], borderColor:"#0d7a55", backgroundColor:"rgba(13,122,85,0.08)",  borderWidth:2, pointRadius:4, borderDash:[3,2], tension:0.3, fill:false }
+    ]}, options:{ responsive:true, plugins:{legend:{position:"bottom"}}, scales:{ y:{ min:0,max:80, title:{display:true,text:"Offer rate (%)"},ticks:{stepSize:10} } } }}},
     { id:'chart-cn-apps', cfg:{ type:'bar', data:{ labels:years, datasets:[
       { label:"Chemistry",            data:[600,641,668,693,600], backgroundColor:"rgba(26,95,168,0.75)" },
       { label:"Chemical Engineering", data:[96,120,142,165,186],  backgroundColor:"rgba(138,90,0,0.75)"  },
-      { label:"Materials",            data:[93,100,106,125,324],  backgroundColor:"rgba(90,48,128,0.75)" }
+      { label:"Materials",            data:[93,100,106,125,324],  backgroundColor:"rgba(90,48,128,0.75)" },
+      { label:"Bioengineering",       data:[107,152,171,277,395], backgroundColor:"rgba(13,122,85,0.75)" }
     ]}, options:{ responsive:true, plugins:{ legend:{ position:"bottom", labels:{ font:{size:11}, boxWidth:12, padding:8 } } }, scales:{ x:{stacked:true}, y:{stacked:true,title:{display:true,text:"Chinese applications"},ticks:{stepSize:200}} } }}},
-    { id:'chart-cn-funnel', cfg:{ type:'bar', data:{ labels:["Chemistry","Chemical Eng.","Materials"], datasets:[
-      { label:"Applications", data:[600,186,324], backgroundColor:"rgba(74,120,200,0.8)"  },
-      { label:"Offers made",  data:[145,43,60],   backgroundColor:"rgba(42,157,143,0.8)"  },
-      { label:"Enrolled",     data:[60,98,10],    backgroundColor:"rgba(231,111,81,0.8)" }
+    { id:'chart-cn-funnel', cfg:{ type:'bar', data:{ labels:["Chemistry","Chemical Eng.","Materials","Bioengineering"], datasets:[
+      { label:"Applications", data:[600,186,324,395], backgroundColor:"rgba(74,120,200,0.8)"  },
+      { label:"Offers made",  data:[145,43,60,204],   backgroundColor:"rgba(42,157,143,0.8)"  },
+      { label:"Enrolled",     data:[60,98,10,98],     backgroundColor:"rgba(231,111,81,0.8)" }
     ]}, options:{ responsive:true, plugins:{legend:{position:"bottom"}}, scales:{ y:{title:{display:true,text:"Number of students"}} } }}}
   ];
 
