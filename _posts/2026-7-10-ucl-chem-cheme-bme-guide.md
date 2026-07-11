@@ -234,20 +234,20 @@ chart:
     <table class="req-table glance-table">
       <thead><tr><th>Programme</th><th>A-Level Requirement</th><th>IELTS</th><th>Places</th><th>Offer Rate</th></tr></thead>
       <tbody>
-        <tr class="dept-chem"><td><div class="prog-name">Chemistry</div><div class="prog-type">BSc</div></td><td><div class="req-grade">AAA</div><div class="req-subjects">Chemistry required<span style="display:block;margin-top:0.15rem;">+ one of Biology/Physics/Maths</span></div></td><td class="ielts-cell">6.5/6</td><td rowspan="2">200</td><td>50.7%</td></tr>
-        <tr class="dept-chem"><td><div class="prog-name">Chemistry</div><div class="prog-type">MSci</div></td><td><div class="req-grade">A*AA</div><div class="req-subjects">Chemistry required<span style="display:block;margin-top:0.15rem;">+ one of Biology/Physics/Maths</span></div></td><td class="ielts-cell">6.5/6</td><td>68.6%</td></tr>
-        <tr class="dept-chemeng"><td><div class="prog-name">Chemical Eng.</div><div class="prog-type">BEng</div></td><td><div class="req-grade">AAB</div><div class="req-subjects">Mathematics + Chemistry</div></td><td class="ielts-cell">6.5/6</td><td rowspan="2">147</td><td>24.7%</td></tr>
-        <tr class="dept-chemeng"><td><div class="prog-name">Chemical Eng.</div><div class="prog-type">MEng</div></td><td><div class="req-grade">A*AA</div><div class="req-subjects">Mathematics (min. A) + Chemistry (min. B)</div></td><td class="ielts-cell">6.5/6</td><td>40.8%</td></tr>
+        <tr class="dept-chem"><td><div class="prog-name">Chemistry</div><div class="prog-type">BSc</div></td><td><div class="req-grade">AAA</div><div class="req-subjects">Chemistry required<span style="display:block;margin-top:0.15rem;">+ one of Biology/Physics/Maths</span></div></td><td class="ielts-cell">7.0/6.5</td><td rowspan="2">200</td><td>50.7%</td></tr>
+        <tr class="dept-chem"><td><div class="prog-name">Chemistry</div><div class="prog-type">MSci</div></td><td><div class="req-grade">AAA</div><div class="req-subjects">Chemistry required<span style="display:block;margin-top:0.15rem;">+ one of Biology/Physics/Maths</span></div></td><td class="ielts-cell">7.0/6.5</td><td>68.6%</td></tr>
+        <tr class="dept-chemeng"><td><div class="prog-name">Chemical Eng.</div><div class="prog-type">BEng</div></td><td><div class="req-grade">AAA</div><div class="req-subjects">Mathematics + Chemistry</div></td><td class="ielts-cell">6.5/6</td><td rowspan="2">147</td><td>24.7%</td></tr>
+        <tr class="dept-chemeng"><td><div class="prog-name">Chemical Eng.</div><div class="prog-type">MEng</div></td><td><div class="req-grade">AAA</div><div class="req-subjects">Mathematics + Chemistry</div></td><td class="ielts-cell">6.5/6</td><td>40.8%</td></tr>
         <tr class="dept-bc"><td><div class="prog-name">Biochemical Eng.</div><div class="prog-type">BEng</div></td><td><div class="req-grade">AAA</div><div class="req-subjects">Mathematics required<span style="display:block;margin-top:0.15rem;">plus one from Biology, Chemistry or Physics</span></div></td><td class="ielts-cell">6.5/6</td><td rowspan="2">90</td><td>76.9%</td></tr>
         <tr class="dept-bc"><td><div class="prog-name">Biochemical Eng.</div><div class="prog-type">MEng</div></td><td><div class="req-grade">AAA</div><div class="req-subjects">Mathematics required<span style="display:block;margin-top:0.15rem;">plus one from Biology, Chemistry or Physics</span></div></td><td class="ielts-cell">6.5/6</td><td>86.6%</td></tr>
-        <tr class="dept-bioe"><td><div class="prog-name">Biomedical Eng.</div><div class="prog-type">BEng</div></td><td><div class="req-grade">A/A</div><div class="req-subjects">Mathematics + Physics<span style="display:block;margin-top:0.15rem;">(Biology may substitute Physics if graded A at GCSE)</span></div></td><td class="ielts-cell">6.5/6</td><td rowspan="2">105</td><td>41.7%</td></tr>
-        <tr class="dept-bioe"><td><div class="prog-name">Biomedical Eng.</div><div class="prog-type">MEng</div></td><td><div class="req-grade">A/A</div><div class="req-subjects">Mathematics + Physics<span style="display:block;margin-top:0.15rem;">(Biology may substitute Physics if graded A at GCSE)</span></div></td><td class="ielts-cell">6.5/6</td><td>50.2%</td></tr>
+        <tr class="dept-bioe"><td><div class="prog-name">Biomedical Eng.</div><div class="prog-type">BEng</div></td><td><div class="req-grade">A*AA</div><div class="req-subjects">Mathematics + Physics<span style="display:block;margin-top:0.15rem;">(Biology may substitute Physics if graded A at GCSE)</span></div></td><td class="ielts-cell">6.5/6</td><td rowspan="2">105</td><td>41.7%</td></tr>
+        <tr class="dept-bioe"><td><div class="prog-name">Biomedical Eng.</div><div class="prog-type">MEng</div></td><td><div class="req-grade">A*AA</div><div class="req-subjects">Mathematics + Physics<span style="display:block;margin-top:0.15rem;">(Biology may substitute Physics if graded A at GCSE)</span></div></td><td class="ielts-cell">6.5/6</td><td>50.2%</td></tr>
         <tr class="dept-bioe"><td><div class="prog-name">Physics w/ Med. Physics</div><div class="prog-type">BSc</div></td><td><div class="req-grade">A*AA</div><div class="req-subjects">Mathematics and Physics required. A* must be in one of these<span style="display:block;margin-top:0.15rem;">Biology and Chemistry preferred</span></div></td><td class="ielts-cell">6.5/6</td><td rowspan="2">28</td><td>90.5%</td></tr>
         <tr class="dept-bioe"><td><div class="prog-name">Medical Physics</div><div class="prog-type">MSci</div></td><td><div class="req-grade">A*AA</div><div class="req-subjects">Mathematics and Physics required. A* must be in one of these<span style="display:block;margin-top:0.15rem;">Biology and Chemistry preferred</span></div></td><td class="ielts-cell">6.5/6</td><td>69.5%</td></tr>
       </tbody>
     </table>
   </div>
-  <p style="font-size:0.68rem;color:var(--text-muted);line-height:1.5;margin-top:-1.25rem;margin-bottom:2rem;">IELTS shown as overall/minimum per element (UCL "Standard level" baseline — some faculties require a higher level, confirm on the course page). See the Programmes and Admissions Data tabs for the full breakdown.</p>
+  <p style="font-size:0.68rem;color:var(--text-muted);line-height:1.5;margin-top:-1.25rem;margin-bottom:2rem;">IELTS shown as overall/minimum per element. Chemistry sits on UCL's higher "Good" level (7.0/6.5); the other three departments use the standard baseline (6.5/6.0) — always confirm on the course page. See the Programmes and Admissions Data tabs for the full breakdown.</p>
   <div class="info-box"><strong>Offer rate ≠ chance of a place:</strong> UCL makes offers well above the number of available seats, since not every offer-holder accepts or meets conditions. The "applications per place" figures above give a rougher but more honest sense of final-outcome competitiveness than the headline offer rate. Biochemical Engineering is, by a wide margin, the least competitive of the four departments in this guide.</div>
   <h3 style="font-family:'DM Serif Display',serif;font-size:1.1rem;margin-bottom:0.5rem;">Which Department Suits You?</h3>
   <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:1rem;">Find your best fit based on your interests and strengths</p>
@@ -282,7 +282,7 @@ chart:
       </div>
       <div>
         <div class="sec-label">Entry &amp; contact</div>
-        <ul class="plist"><li>Chemistry BSc/MSci: Chemistry + one of Biology/Physics/Maths required</li><li>Typical band: AAA (BSc) / A*AA (MSci)</li><li>Chemistry with Mathematics: Maths + Chemistry required, AAA/A*AA</li><li>Contact: admissions.chem@ucl.ac.uk</li></ul>
+        <ul class="plist"><li>Chemistry BSc/MSci: Chemistry + one of Biology/Physics/Maths required</li><li>Typical band: AAA — same for both BSc and MSci (MSci is not a higher-grade route)</li><li>Chemistry with Mathematics: Maths + Chemistry required, AAA</li><li>IELTS: 7.0 overall / 6.5 per component — UCL's higher "Good" level, not the standard baseline used by the other three departments in this guide</li><li>Contact: admissions.chem@ucl.ac.uk</li></ul>
       </div>
     </div>
     <div class="prog-detail-footer">
@@ -307,7 +307,7 @@ chart:
       </div>
       <div>
         <div class="sec-label">Entry &amp; contact</div>
-        <ul class="plist"><li>BEng: Mathematics + Chemistry required, typical AAB band</li><li>MEng: Mathematics (min. grade A) + Chemistry (min. grade B), typical A*AA/AAA band</li><li>Contact: ug-chemeng@ucl.ac.uk</li></ul>
+        <ul class="plist"><li>Mathematics + Chemistry required for both BEng and MEng</li><li>Typical band: AAA — same for both BEng and MEng (MEng is not a higher-grade route)</li><li>Contact: ug-chemeng@ucl.ac.uk</li></ul>
       </div>
     </div>
     <div class="prog-detail-footer">
@@ -357,7 +357,7 @@ chart:
       </div>
       <div>
         <div class="sec-label">Entry &amp; contact</div>
-        <ul class="plist"><li>Mathematics and Physics required, typically grade A</li><li>Biology acceptable in place of Physics if Physics was taken to grade A/7 at GCSE</li><li>Contact: medphys.teaching@ucl.ac.uk</li></ul>
+        <ul class="plist"><li>Mathematics and Physics required (Biology acceptable in place of Physics if Physics was taken to grade A/7 at GCSE)</li><li>Typical band: A*AA — same for both BEng and MEng (MEng is not a higher-grade route)</li><li>Contact: medphys.teaching@ucl.ac.uk</li></ul>
       </div>
     </div>
     <div class="prog-detail-footer">
@@ -522,14 +522,14 @@ chart:
   <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:0.85rem;">Always confirm exact grade profiles, GCSE prerequisites, and English language requirements on the official course page before applying</p>
   <div class="req-table-wrap">
     <table class="req-table">
-      <thead><tr><th>Route</th><th>Required Subjects</th><th>Typical Band</th></tr></thead>
+      <thead><tr><th>Route</th><th>Required Subjects</th><th>Typical Band</th><th>IELTS</th></tr></thead>
       <tbody>
-        <tr><td class="ucl-row-label">Chemistry BSc / MSci</td><td>Chemistry + one of Biology/Physics/Maths</td><td>AAA / A*AA</td></tr>
-        <tr><td class="ucl-row-label">Chemistry with Mathematics</td><td>Mathematics + Chemistry</td><td>AAA / A*AA</td></tr>
-        <tr><td class="ucl-row-label">Chemical Engineering BEng</td><td>Mathematics + Chemistry</td><td>AAB</td></tr>
-        <tr><td class="ucl-row-label">Chemical Engineering MEng</td><td>Mathematics (min. A) + Chemistry (min. B)</td><td>A*AA / AAA</td></tr>
-        <tr><td class="ucl-row-label">Biochemical Engineering BEng / MEng</td><td>See department hub — not itemised in sourced data</td><td>Verify on official page</td></tr>
-        <tr><td class="ucl-row-label">Biomedical Engineering BEng / MEng</td><td>Mathematics + Physics (Biology can substitute Physics if Physics graded A/7 at GCSE)</td><td>Typically grade A in both</td></tr>
+        <tr><td class="ucl-row-label">Chemistry BSc / MSci</td><td>Chemistry + one of Biology/Physics/Maths</td><td>AAA (same for both)</td><td>7.0 / 6.5</td></tr>
+        <tr><td class="ucl-row-label">Chemistry with Mathematics</td><td>Mathematics + Chemistry</td><td>AAA</td><td>7.0 / 6.5</td></tr>
+        <tr><td class="ucl-row-label">Chemical Engineering BEng / MEng</td><td>Mathematics + Chemistry</td><td>AAA (same for both)</td><td>6.5 / 6.0</td></tr>
+        <tr><td class="ucl-row-label">Biochemical Engineering BEng / MEng</td><td>Mathematics required, plus one from Biology, Chemistry or Physics</td><td>AAA (same for both)</td><td>6.5 / 6.0</td></tr>
+        <tr><td class="ucl-row-label">Biomedical Engineering BEng / MEng</td><td>Mathematics + Physics (Biology can substitute Physics if Physics graded A/7 at GCSE)</td><td>A*AA (same for both)</td><td>6.5 / 6.0</td></tr>
+        <tr><td class="ucl-row-label">Physics with Medical Physics BSc / Medical Physics MSci</td><td>Mathematics + Physics required, A* must be in one of these (Biology and Chemistry preferred)</td><td>A*AA (same for both)</td><td>6.5 / 6.0</td></tr>
       </tbody>
     </table>
   </div>
