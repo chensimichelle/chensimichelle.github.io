@@ -72,7 +72,18 @@ ninja.data = [{
               handler: () => {
                 window.location.href = "/practical/";
               },
-            },{id: "post-ucl-chemistry-chemical-engineering-biochemical-engineering-amp-biomedical-engineering-guide",
+            },{id: "post-king-39-s-college-london-life-sciences-amp-medicine-programmes-guide",
+        
+          title: "King&#39;s College London - Life Sciences &amp; Medicine Programmes Guide",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/kcl-lsm-guide/";
+          
+        },
+      },{id: "post-ucl-chemistry-chemical-engineering-biochemical-engineering-amp-biomedical-engineering-guide",
         
           title: "UCL - Chemistry, Chemical Engineering, Biochemical Engineering &amp; Biomedical Engineering Guide",
         
