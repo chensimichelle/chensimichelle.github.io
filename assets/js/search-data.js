@@ -72,7 +72,40 @@ ninja.data = [{
               handler: () => {
                 window.location.href = "/practical/";
               },
-            },{id: "post-king-39-s-college-london-life-sciences-amp-medicine-programmes-guide",
+            },{id: "post-university-of-manchester-chemistry-chemical-engineering-amp-materials-guide",
+        
+          title: "University of Manchester - Chemistry, Chemical Engineering &amp; Materials Guide",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/manchester-chem-guide/";
+          
+        },
+      },{id: "post-university-of-manchester-life-sciences-medical-sciences-amp-psychology-programmes-guide",
+        
+          title: "University of Manchester - Life Sciences, Medical Sciences &amp; Psychology Programmes Guide",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/manchester-lsm-guide/";
+          
+        },
+      },{id: "post-king-39-s-college-london-chemistry-natural-sciences-biomedical-engineering-amp-pharmacy-guide",
+        
+          title: "King&#39;s College London - Chemistry, Natural Sciences, Biomedical Engineering &amp; Pharmacy Guide",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/kcl-chem-bme-guide/";
+          
+        },
+      },{id: "post-king-39-s-college-london-life-sciences-amp-medicine-programmes-guide",
         
           title: "King&#39;s College London - Life Sciences &amp; Medicine Programmes Guide",
         
